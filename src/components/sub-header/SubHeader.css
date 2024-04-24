@@ -1,0 +1,61 @@
+.sub-header-container {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  height: 5rem;
+}
+.filter-container {
+  order: 1;
+  background-color: #363636;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  border-radius: 15px;
+  box-shadow: 1px 1px 5px gray;
+  margin: 1rem;
+}
+.filter-button {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.filter-label {
+  color: white;
+}
+.search-button {
+  order: 2;
+  background-color: #363636;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  width: 40%;
+  box-shadow: 1px 1px 5px gray;
+  margin: 1rem;
+}
+.search-button:hover {
+  background-color: #484848;
+  cursor: pointer;
+}
+.filter-container:hover {
+  background-color: #484848;
+  cursor: pointer;
+}
+
+.filter-label:hover {
+  background-color: #484848;
+}
+.search-label:hover {
+  background-color: #484848;
+}
+.search-label {
+  color: white;
+}
+
+img {
+  scale: 0.6;
+  margin-left: -0.5rem;
+  margin-bottom: 0.2rem;
+}
