@@ -4,12 +4,12 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div className="under">
-            <p>Contact</p>
-            <p>About</p>
-            <p>Home</p>
+            <a href="#">Contact</a>
+              <a href="#">About</a>
+              <a href="#">Home</a>
             </div>
             <div className="over">
-                <p>Sign In / Register</p>
+            <a href="#">Sign In / Register</a>
             </div>
         </footer>
     )
