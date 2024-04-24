@@ -1,0 +1,35 @@
+.container {
+    max-width: 95%;
+    min-height: 100px;
+    background-color: white;
+    border-radius: 20px;
+    margin-left: 2% !important;
+    margin-right: 2% !important;
+    margin-top: 5% !important;
+    margin-bottom: 2% !important;
+    box-shadow: 1px 1px 5px gray;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 25% 1fr;
+    grid-template-areas: 
+    "title"
+    "content";
+}
+.title {
+    grid-area: title;
+    border-radius: 20px 20px 0px 0px;    
+    background-color: rgba(54, 54, 54, 1);
+    display: flex;
+    align-items: center;
+}
+.title>p {
+    margin-left: 5% !important;
+    color: white;
+}
+.content {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    padding: 1% !important;
+    margin-bottom: 3% !important;
+}
