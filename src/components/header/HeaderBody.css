@@ -1,0 +1,13 @@
+.headerBody {
+    display: flex;
+    border: 2px solid black;
+    border-radius: 12px;
+    background-color: white;
+}
+.headerBody .headerBody_right{
+    display: flex;
+    background-color: black;
+    border: 3px solid black;
+    align-self: flex-end;
+    justify-content: flex-end;
+}
