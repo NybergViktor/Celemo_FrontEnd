@@ -5,18 +5,16 @@
   height: 6rem;
 }
 .dropdown-container {
-  align-self: start;
-  justify-self: center  ;
-  margin-top: 8%;
+  
+  margin-top: 2rem;
   display: flex;
-  justify-content: center;
   height: 100%;
   z-index: 1;
   flex-grow: 1;
 }
 
 .logo-container{
-  margin-top: 6%;
+  margin-top: 1.5rem;
   max-height: 3rem;
 }
 
@@ -39,6 +37,8 @@
 
 
 .dropdown {
+  align-self: flex-end;
+  margin-left: 2rem;
   position: relative;
   grid-template-rows: repeat(3, 1fr);
 }
