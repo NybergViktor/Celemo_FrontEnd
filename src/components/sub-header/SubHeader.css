@@ -1,7 +1,6 @@
 .sub-header-container {
   display: flex;
   justify-content: center;
-  background-color: white;
   height: 5rem;
 }
 .filter-container {
