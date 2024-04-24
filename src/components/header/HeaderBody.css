@@ -15,10 +15,11 @@
     align-self: flex-end;
     justify-content: flex-end;
 }
+
 .menu-dropdown a {
     color: #000000;
     text-decoration: none;
-    margin-left: 16px;
+    margin-left: 1rem;
   }
 .menu-dropdown .link1:hover {
     background-color: #000000;
@@ -27,7 +28,7 @@
   }
 
   .dropdown-container {
-    height: 50%;
+    height: 100%;
   }
 
   .dropdown {
@@ -75,15 +76,13 @@
   .menu-dropdown {
     width: 100%;
     background-color: #ffffff;
-    margin: 0;
     display: -ms-grid;
-    display: grid;
-    grid-template-rows: 1fr repeat(4, 0.5fr);
-    grid-row-gap: 25px;
+    display: flex;
+    flex-direction: column;
     padding: 0;
     list-style: none;
     clear: both;
-    width: auto;
+    width: 100%;
     text-align: center;
     height: 0px;
     overflow: hidden;
@@ -93,7 +92,7 @@
   }
 
   .menu-dropdown a:first-child {
-    margin-top: 5px;
+    margin-top: 15px;
   }
 
   .menu-dropdown a:last-child {
@@ -102,9 +101,8 @@
 
   .link1 {
     align-self: center;
-    width: 80%;
     margin: 0;
-    padding: 10px 20px;
+    padding: 0 0 20px 0;
     font: 500 10px "Oswald", sans-serif;
   }
 
