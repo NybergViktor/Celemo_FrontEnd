@@ -9,17 +9,19 @@ const ProfilePage = () => {
       <header className="header">Header</header>
       <main className="main">
         <div className="user-info-container">
+
           {/* PROFILE PICTURE */}
           <div className="profile-picture"></div>
 
           {/* USER INFO CONTAINER */}
-          <UserContainer title="User Info"></UserContainer>
+          <UserContainer containerTitle="User Info"></UserContainer>
 
           {/* USERS OWN AUCTIONS */}
-          <UserContainer title="My Auctions"></UserContainer>
+          <UserContainer containerTitle="My Auctions" useContainerBtn="yes" btnTitle="Bid History"></UserContainer>
 
           {/* AUCTIONS */}
-          <UserContainer title="My Favourites"></UserContainer>
+          <UserContainer containerTitle="My Favourites"></UserContainer>
+
         </div>
       </main>
       <Footer></Footer>
