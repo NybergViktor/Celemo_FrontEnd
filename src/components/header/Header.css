@@ -1,0 +1,121 @@
+.header-container {
+  display: flex;
+  border-bottom: 1px solid black;
+  background-color: white;
+  height: 6rem;
+}
+.dropdown-container {
+  align-self: start;
+  justify-self: center  ;
+  margin-top: 8%;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  z-index: 1;
+  flex-grow: 1;
+}
+
+.logo-container{
+  margin-top: 6%;
+  max-height: 3rem;
+}
+
+.logo {
+  scale: 0.6;
+
+}
+
+.menu-dropdown a {
+  color: #000000;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+.menu-dropdown .link1:hover {
+  background-color: #000000;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+
+
+.dropdown {
+  position: relative;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.dropdown div {
+  background-color: rgb(0, 0, 0);
+  position: relative;
+  width: 1.7rem;
+  height: 0.2rem;
+  margin-top: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#toggle-dropdown {
+  display: none;
+}
+
+#toggle-dropdown:checked + .dropdown .top {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#toggle-dropdown:checked + .dropdown .middle {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  margin-top: -5px;
+}
+
+#toggle-dropdown:checked + .dropdown .bottom {
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+#toggle-dropdown:checked ~ .menu-dropdown {
+  height: auto;
+}
+
+
+
+
+
+.menu-dropdown {
+  width: 100%;
+  background-color: #ffffff;
+  display: -ms-grid;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  clear: both;
+  text-align: center;
+  height: 0px;
+  overflow: hidden;
+  transition: height 0.4s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+
+}
+
+.menu-dropdown a:first-child {
+  margin-top: 15px;
+}
+
+.menu-dropdown a:last-child {
+  margin-bottom: 15px;
+}
+
+.link1 {
+  align-self: center;
+  margin: 0;
+  padding: 0 0 20px 0;
+  font: 500 10px "Oswald", sans-serif;
+}
+
+.link1:hover {
+  background-color: #fff;
+  color: lightgray;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}

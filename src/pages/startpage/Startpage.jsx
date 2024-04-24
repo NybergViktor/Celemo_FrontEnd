@@ -1,11 +1,11 @@
 import "./Startpage.css";
 import Footer from '../../components/footer/Footer';
-import HeaderBody from "../../components/header/HeaderBody";
+import Header from "../../components/header/Header";
 
 const Startpage = () => {
     return (
         <div className="startpage">
-            <HeaderBody />
+            <Header></Header>
             <Footer></Footer>
         </div>
     );
