@@ -1,0 +1,16 @@
+.mainContainer{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+.auctionContainer{
+    background-color: white;
+    border: 2px black solid;
+    border-radius: 20px;
+    height: 20rem;
+    width: 90%;
+    margin-bottom: 2rem;
+}
