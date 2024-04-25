@@ -14,23 +14,26 @@ const ReviewBody = () => {
                 <ul>
                     <li>
                         <div className="review">
+                            <h4>Grade: 3</h4>
                             <h3>placeholder for review title</h3>
                             <p>placeholder for review text</p>
-                            <h4>3</h4>
+                            
                         </div>
                     </li>
                     <li>
                         <div className="review">
+                        <h4>Grade: 3</h4>
                             <h3>placeholder for review title</h3>
                             <p>placeholder for review text</p>
-                            <h4>3</h4>
+                            
                         </div>
                     </li>
                     <li>
                         <div className="review">
+                            
+                            <h4>Grade: <div className="gradeContainer"><p>3</p></div></h4>
                             <h3>placeholder for review title</h3>
                             <p>placeholder for review text</p>
-                            <h4>3</h4>
                         </div>
                     </li>
                 </ul>

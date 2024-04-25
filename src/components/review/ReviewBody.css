@@ -32,10 +32,18 @@
 }
 ul {
     list-style: none;
-    padding-left: 0;
+    padding-left: 0 !important;
 }
 h4 {
     margin: 0;
-    padding: 0;
+    padding-left: 2rem;
     align-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0px!important; 
+
+}
+.gradeContainer{
+    background-color: #FFFF00;
+    height: 100%;
 }
