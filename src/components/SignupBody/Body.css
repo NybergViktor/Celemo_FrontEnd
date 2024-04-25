@@ -1,0 +1,16 @@
+.sign-up-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+.sign-up-form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+.sign-up-form input {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
