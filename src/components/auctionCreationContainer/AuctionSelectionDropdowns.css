@@ -21,12 +21,36 @@
     align-items: center;
 }
 
-#category {
+.category {
     border: none;
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-top: 2rem;
+    width: 19rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sub-category {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-top: 1rem;
     width: 15rem;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.celebrity-category {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-top: 1rem;
+    width: 15rem;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
 }
 
 

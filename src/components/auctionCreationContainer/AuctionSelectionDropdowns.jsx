@@ -8,9 +8,9 @@ function AuctionSelectionDropdowns() {
 
                 <div className="selection-dropdown-top">
 
-                    <select name="category" id="category">
+                    <select className="category" id="category">
                         <option value="" disabled hidden>Category</option>
-                        <option value="hokcey">Hockey</option>
+                        <option value="hockey">Hockey</option>
                         <option value="football">Football</option>
                         <option value="ufc">UFC</option>
                         <option value="boxing">Boxing</option>
@@ -21,11 +21,13 @@ function AuctionSelectionDropdowns() {
                         <option value="motorsports">Motorsports</option>
                         <option value="other">Other</option>
                     </select>
-                    <select name="sub-category" id="sub-category">
+
+                    <select className="sub-category" id="sub-category">
                         <option value="" disabled hidden>Sub Category</option>
                         <option value="maintenance">ongoing maintenance</option>
                     </select>
-                    <select name="celebrity-category" id="celebrity-category">
+
+                    <select className="celebrity-category" id="celebrity-category">
                         <option value="" disabled hidden>Celebrities</option>
                         <option value="music" disabled>MUSIC CATEGORY</option>
                         <option value="beyoné">Beyoné</option>
