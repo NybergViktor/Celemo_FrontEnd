@@ -2,9 +2,9 @@ import "../SignupBody/Body.css"
 
 const Body = () => {
     return (
-        <div className="sign-up-container">
+        <div className="signUpContainer">
             <h1>Sign up</h1>
-            <form className="sign-up-form">
+            <form className="signUpForm">
                 <input type="text" className="inputUsername" placeholder="Username" />
                 <input type="password" className="inputPassword" placeholder="Password" />
                 <input type="text" className="inputFname" placeholder="First Name" />
@@ -14,7 +14,7 @@ const Body = () => {
                 <input type="text" className="inputAddress" placeholder="Address Street" />
                 <input type="text" className="inputCity" placeholder="City" />
                 <input type="number" className="inputPostal" placeholder="Postal Code" />
-                <button className="sign-up-button">Sign up</button>
+                <button className="signUpButton">Sign up</button>
             </form>
         </div>
     )
