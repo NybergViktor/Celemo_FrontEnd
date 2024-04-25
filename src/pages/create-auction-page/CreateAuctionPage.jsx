@@ -15,6 +15,6 @@ function CreateAuctionPage() {
             <Footer />
         </div>
     );
-} ;
+};
 
 export default CreateAuctionPage;
