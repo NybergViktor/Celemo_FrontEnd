@@ -29,8 +29,11 @@ const Header = () => {
             <a className="link1" href="#">
               Create Auction
             </a>
+            <a className="link1" href="#">
+              Sign in
+            </a>
             <a className="link1" href="signup.html">
-              Sign in / Register
+              Register
             </a>
           </nav>
         </nav>

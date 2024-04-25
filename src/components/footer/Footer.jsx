@@ -16,7 +16,7 @@ const Footer = () => {
         <a href="#">Contact</a>
         <a href="index.html">Home</a>
         <a href="#">Sign In</a>
-        <a href="#">Register</a>
+        <a href="signup.html">Register</a>
       </div>
     </footer>
   );
