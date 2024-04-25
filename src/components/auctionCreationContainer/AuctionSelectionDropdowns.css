@@ -2,28 +2,32 @@
     display: flex;
     background-color: #e5e4e4;
     margin: 20px auto !important;
-    border: 1px solid black;
-    height: 35rem;
+    height: 180vh;
+    flex-direction: column;
 }
 
 
-.selection-container {
-    overflow: hidden;
-    width: 363px;
-    height: 419px;
-    position: absolute;
-    left: 15px;
-}
 
-
-.selection-dropdown-container {
-    position: absolute;
+.selection-dropdown-top {
+    position: relative;
     width: 363px;
-    height: 428px;
+    height: 318px;
     left: calc(50% - 363px/2 + 0.5px);
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 75%, 0% 75%);
     background: #363636;
-    border-radius: 20px 20px 28px 20px;
+    border-radius: 20px 20px 0px 0px;
 }
 
+/************************************Separated DIV's to create the crack between***************************/
+
+.selection-dropdown-bottom {
+    position: relative;
+    width: 363px;
+    height: 120vh;
+    bottom: 2rem;
+    left: calc(50% - 363px/2 + 0.5px);
+    border-radius: 0px 0px 20px 20px;
+    clip-path: polygon(100% 100%, 0 100%, 0 0, 48% 0, 100% 8%);
+    background-color: #363636;
+}
 

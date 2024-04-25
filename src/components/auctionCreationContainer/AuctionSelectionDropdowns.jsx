@@ -3,9 +3,14 @@ import "../auctionCreationContainer/AuctionSelectionDropdowns.css";
 function AuctionSelectionDropdowns() {
     return (
         <div className="main-container">
-            <div className="selection-container">
-                <div className="selection-dropdown-container"></div>
+            <div className="selection-container-top">
+                <div className="selection-dropdown-top">
+                    <select name="category" id="category"></select>
+                </div>
+                <div className="selection-dropdown-bottom"></div>
             </div>
+
+            
 
 
 
