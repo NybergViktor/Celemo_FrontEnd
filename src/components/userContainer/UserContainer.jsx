@@ -5,7 +5,7 @@ containerTitle = Name of the container
 btnTitle = Name of the button
 useContainerBtn = Show the button? accepted keyword "yes"
 */}
-const UserContainer = ({ containerTitle, btnTitle, useContainerBtn }) => {
+const UserContainer = ({children, containerTitle, btnTitle, useContainerBtn }) => {
   return (
     <div className="container">
       <div className="title">
@@ -15,9 +15,7 @@ const UserContainer = ({ containerTitle, btnTitle, useContainerBtn }) => {
           }>{btnTitle}</button>
       </div>
       <div className="content">
-        <p>Exempel rad</p>
-        <p>Exempel rad</p>
-        <p>Exempel rad</p>
+        {children}
       </div>
     </div>
   );

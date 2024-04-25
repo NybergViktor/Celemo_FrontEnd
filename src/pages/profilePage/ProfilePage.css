@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
 }
-.user-info-container {
+.userInfoContainer {
     margin-top: 100px !important;
     margin-bottom: 10px !important;
     background-color: white;
@@ -22,7 +22,7 @@
     align-items: center;
 }
 
-.profile-picture {
+.profilePicture {
     background-color: rgba(54, 54, 54, 1);
     border-radius: 10px;
     width: 50vw;

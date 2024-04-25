@@ -10,7 +10,7 @@
     box-shadow: 1px 1px 5px gray;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 25% 1fr;
+    grid-template-rows: 30px 1fr;
     grid-template-areas: 
     "title"
     "content";

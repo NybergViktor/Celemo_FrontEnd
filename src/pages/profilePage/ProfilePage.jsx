@@ -1,6 +1,7 @@
 import "./ProfilePage.css";
 import Footer from "../../components/footer/Footer";
-import UserContainer from "../../components/user-container/UserContainer";
+import UserContainer from "../../components/userContainer/UserContainer";
+import UserInfoFields from "../../components/userInfoFields/UserInfoFields";
 
 const ProfilePage = () => {
   return (
@@ -8,15 +9,17 @@ const ProfilePage = () => {
       {/* temp header */}
       <header className="header">Header</header>
       <main className="main">
-        <div className="user-info-container">
+        <div className="userInfoContainer">
 
           {/* PROFILE PICTURE */}
-          <div className="profile-picture">
+          <div className="profilePicture">
             <img src="profile_icon.svg"/>
           </div>
 
           {/* USER INFO CONTAINER */}
-          <UserContainer containerTitle="User Info"></UserContainer>
+          <UserContainer containerTitle="User Info">
+            <UserInfoFields></UserInfoFields>
+          </UserContainer>
 
           {/* USERS OWN AUCTIONS */}
           <UserContainer containerTitle="My Auctions" useContainerBtn="yes" btnTitle="Bid History"></UserContainer>

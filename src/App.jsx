@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Startpage from './pages/startpage/Startpage'
-import ProfilePage from './pages/profile-page/ProfilePage' // ta bort sedan 
+import ProfilePage from './pages/profilePage/ProfilePage' // ta bort sedan 
 
 function App() {
   const [count, setCount] = useState(0)
