@@ -3,12 +3,12 @@ import Footer from "../../components/footer/Footer";
 import UserContainer from "../../components/userContainer/UserContainer";
 import UserInfoFields from "../../components/userInfoFields/UserInfoFields";
 import UserContainerContent from "../../components/userContainerContent/UserContainerContent";
-// import Header
+import Header from "../../components/header/Header";
 
 const ProfilePage = () => {
   return (
     <>
-      {/* <Header></Header> */}
+      <Header></Header>
       <main className="main">
         <div className="userInfoContainer">
           {/* PROFILE PICTURE */}
