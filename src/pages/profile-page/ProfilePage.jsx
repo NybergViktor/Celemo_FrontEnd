@@ -11,7 +11,9 @@ const ProfilePage = () => {
         <div className="user-info-container">
 
           {/* PROFILE PICTURE */}
-          <div className="profile-picture"></div>
+          <div className="profile-picture">
+            <img src="profile_icon.svg"/>
+          </div>
 
           {/* USER INFO CONTAINER */}
           <UserContainer containerTitle="User Info"></UserContainer>
