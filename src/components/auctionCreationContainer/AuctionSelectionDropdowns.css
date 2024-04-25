@@ -7,14 +7,23 @@
 }
 
 
+.selection-container {
+    overflow: hidden;
+    width: 363px;
+    height: 419px;
+    position: absolute;
+    left: 15px;
+}
 
 
 .selection-dropdown-container {
-position: absolute;
-width: 363px;
-height: 428px;
-left: calc(50% - 363px/2 + 0.5px);
-top: 123px;
-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 75%, 0% 75%);
-background: #363636;
+    position: absolute;
+    width: 363px;
+    height: 428px;
+    left: calc(50% - 363px/2 + 0.5px);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 75%, 0% 75%);
+    background: #363636;
+    border-radius: 20px 20px 28px 20px;
 }
+
+
