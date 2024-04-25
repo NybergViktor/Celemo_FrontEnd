@@ -14,22 +14,22 @@ const Header = () => {
           </label>
 
           <nav className="menu-dropdown">
-            <a className="link1" href="index.html">
+            <a className="link1" href="#">
               Auctions
             </a>
-            <a className="link1" href="index.html">
+            <a className="link1" href="#">
               About
             </a>
-            <a className="link1" href="index.html">
+            <a className="link1" href="#">
               Contact
             </a>
-            <a className="link1" href="index.html">
+            <a className="link1" href="#">
               Profile
             </a>
             <a className="link1" href="#">
               Create Auction
             </a>
-            <a className="link1" href="#">
+            <a className="link1" href="signup.html">
               Sign in / Register
             </a>
           </nav>
