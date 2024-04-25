@@ -7,8 +7,8 @@ function App() {
 
   return (
     <>
-      {/* <Startpage />       återställ innan merge till main */}
-      <ProfilePage></ProfilePage> {/** Ta bort */}
+       <Startpage />
+      
     </>
   )
 }
