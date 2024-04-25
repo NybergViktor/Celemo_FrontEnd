@@ -2,6 +2,7 @@ import "./ProfilePage.css";
 import Footer from "../../components/footer/Footer";
 import UserContainer from "../../components/userContainer/UserContainer";
 import UserInfoFields from "../../components/userInfoFields/UserInfoFields";
+import UserContainerContent from "../../components/userContainerContent/UserContainerContent";
 
 const ProfilePage = () => {
   return (
@@ -10,10 +11,9 @@ const ProfilePage = () => {
       <header className="header">Header</header>
       <main className="main">
         <div className="userInfoContainer">
-
           {/* PROFILE PICTURE */}
           <div className="profilePicture">
-            <img src="profile_icon.svg"/>
+            <img src="profile_icon.svg" />
           </div>
 
           {/* USER INFO CONTAINER */}
@@ -22,11 +22,23 @@ const ProfilePage = () => {
           </UserContainer>
 
           {/* USERS OWN AUCTIONS */}
-          <UserContainer containerTitle="My Auctions" useContainerBtn="yes" btnTitle="Bid History"></UserContainer>
+          <UserContainer containerTitle="My Auctions">
+            <UserContainerContent btnTitle="edit"></UserContainerContent>
+          </UserContainer>
 
           {/* AUCTIONS */}
-          <UserContainer containerTitle="My Favourites"></UserContainer>
+          <UserContainer
+            containerTitle="Auctions"
+            useContainerBtn="yes"
+            btnTitle="Bid History"
+          >
+            <UserContainerContent></UserContainerContent>
+          </UserContainer>
 
+          {/* FAVOURITES */}
+          <UserContainer containerTitle="My Favourites">
+            <UserContainerContent></UserContainerContent>
+          </UserContainer>
         </div>
       </main>
       <Footer></Footer>
