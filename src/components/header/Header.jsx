@@ -14,7 +14,7 @@ const Header = () => {
           </label>
 
           <nav className="menu-dropdown">
-            <a className="link1" href="#">
+            <a className="link1" href="index.html">
               Auctions
             </a>
             <a className="link1" href="#">
@@ -36,7 +36,7 @@ const Header = () => {
         </nav>
       </section>
       <div className="logo-container">
-        <img src="src\assets\logo.png" className="logo" />
+        <img src="src\assets\logo.png" className="logo" href="index.html"/>
       </div>
       
     </div>

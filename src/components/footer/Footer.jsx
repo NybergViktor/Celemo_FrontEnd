@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="footer-desktop">
         <a href="#">About</a>
         <a href="#">Contact</a>
-        <a href="#">Home</a>
+        <a href="index.html">Home</a>
         <a href="#">Sign In</a>
         <a href="#">Register</a>
       </div>
