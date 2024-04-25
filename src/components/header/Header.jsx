@@ -5,9 +5,9 @@ const Header = () => {
     <div className="header-container">
       
       <section className="dropdown-container">
-        <nav id="navbar" class="navigation" role="navigation">
+        <nav id="navbar" className="navigation" role="navigation">
           <input id="toggle-dropdown" type="checkbox" />
-          <label className="dropdown" for="toggle-dropdown">
+          <label className="dropdown" htmlFor="toggle-dropdown">
             <div className="top"></div>
             <div className="middle"></div>
             <div className="bottom"></div>
