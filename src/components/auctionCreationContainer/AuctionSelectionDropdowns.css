@@ -1,0 +1,20 @@
+.main-container {
+    display: flex;
+    background-color: #e5e4e4;
+    margin: 20px auto !important;
+    border: 1px solid black;
+    height: 35rem;
+}
+
+
+
+
+.selection-dropdown-container {
+position: absolute;
+width: 363px;
+height: 428px;
+left: calc(50% - 363px/2 + 0.5px);
+top: 123px;
+clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 75%, 0% 75%);
+background: #363636;
+}

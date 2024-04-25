@@ -3,14 +3,15 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Startpage from './pages/startpage/Startpage'
+import CreateAuctionPage from './pages/create-auction-page/CreateAuctionPage'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Startpage />
-
+      {/* <Startpage /> */}
+    <CreateAuctionPage />
     </>
   )
 }
