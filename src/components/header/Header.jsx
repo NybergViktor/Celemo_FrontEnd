@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import "../header/Header.css";
 
 const Header = () => {
@@ -14,24 +15,12 @@ const Header = () => {
           </label>
 
           <nav className="menu-dropdown">
-            <a className="link1" href="index.html">
-              Auctions
-            </a>
-            <a className="link1" href="#">
-              About
-            </a>
-            <a className="link1" href="#">
-              Contact
-            </a>
-            <a className="link1" href="#">
-              Profile
-            </a>
-            <a className="link1" href="#">
-              Create Auction
-            </a>
-            <a className="link1" href="signup.html">
-              Sign in / Register
-            </a>
+            <Link to="/" >Auctions</Link>
+            <Link to="" >About</Link>
+            <Link to="" >Contact</Link>
+            <Link to="/profile" >Profile</Link>
+            <Link to="" >Create auction</Link>
+            <Link to="/signup" >Sign in / Register</Link>
           </nav>
         </nav>
       </section>
