@@ -4,9 +4,9 @@ import SubHeader from "../../components/sub-header/SubHeader";
 import Header from "../../components/header/Header";
 import Body from "../../components/SignupBody/Body";
 
-const Startpage = () => {
+const SignupPage = () => {
     return (
-        <div className="startpage">
+        <div className="signuppage">
             <Header></Header>
             <SubHeader></SubHeader>
             <Body></Body>
@@ -15,4 +15,4 @@ const Startpage = () => {
     );
 }
 
-export default Startpage;
+export default SignupPage;

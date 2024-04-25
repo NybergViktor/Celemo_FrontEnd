@@ -14,6 +14,7 @@ const Body = () => {
                 <input type="text" className="inputAddress" placeholder="Address Street" />
                 <input type="text" className="inputCity" placeholder="City" />
                 <input type="number" className="inputPostal" placeholder="Postal Code" />
+                <button className="sign-up-button">Sign up</button>
             </form>
         </div>
     )

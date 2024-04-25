@@ -10,9 +10,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>,
 )
-import Signup from './pages/signupPage/SignupPage.jsx'
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Signup />
-  </React.StrictMode>,
-)

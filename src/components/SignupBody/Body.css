@@ -14,3 +14,10 @@
     border-radius: 5px;
     border: 1px solid #ccc;
 }
+.sign-up-button{
+    background-color: black;
+    color: #ccc;
+    padding: 10px;
+    border-radius: 14px;
+    margin: 2rem;
+}
