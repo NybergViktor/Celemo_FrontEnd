@@ -21,12 +21,10 @@ function AuctionSelectionDropdowns() {
                         <option value="motorsports">Motorsports</option>
                         <option value="other">Other</option>
                     </select>
-
                     <select name="sub-category" id="sub-category">
-                        <option value=""disabled hidden>Sub Category</option>
-                        <option value="maintenance" disabled>ongoing maintenance</option>
+                        <option value="" disabled hidden>Sub Category</option>
+                        <option value="maintenance">ongoing maintenance</option>
                     </select>
-
                     <select name="celebrity-category" id="celebrity-category">
                         <option value="" disabled hidden>Celebrities</option>
                         <option value="music" disabled>MUSIC CATEGORY</option>
@@ -58,13 +56,6 @@ function AuctionSelectionDropdowns() {
                 {/* cut out and put in new file to break it down better */}
                 <div className="selection-dropdown-bottom"></div>
             </div>
-
-
-
-
-
-
-
         </div>
     );
 };
