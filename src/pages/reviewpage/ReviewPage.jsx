@@ -1,16 +1,16 @@
-import { useState } from 'react'
-import './reviewpage/ReviewPage.css'
-import Startpage from './pages/startpage/Startpage'
+import "./ReviewPage.css";
+import Footer from '../../components/footer/Footer';
+import Header from "../../components/header/Header";
+import ReviewBody from "../../components/review/ReviewBody";
 
-function Review() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <Startpage />
-
-    </>
-  )
+const ReviewPage = () => {
+    return (
+        <div className="reviewpage">
+            <Header></Header>
+            <ReviewBody></ReviewBody>
+            <Footer></Footer>
+        </div>
+    );
 }
 
-export default Review
+export default ReviewPage;
