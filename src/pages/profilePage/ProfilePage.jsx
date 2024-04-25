@@ -17,13 +17,17 @@ const ProfilePage = () => {
           </div>
 
           {/* USER INFO CONTAINER */}
-          <UserContainer containerTitle="User Info">
+          <UserContainer
+            containerTitle="User Info"
+            useContainerBtn="yes"
+            btnTitle="Edit"
+          >
             <UserInfoFields></UserInfoFields>
           </UserContainer>
 
           {/* USERS OWN AUCTIONS */}
           <UserContainer containerTitle="My Auctions">
-            <UserContainerContent btnTitle="edit"></UserContainerContent>
+            <UserContainerContent btnTitle="Edit"></UserContainerContent>
           </UserContainer>
 
           {/* AUCTIONS */}

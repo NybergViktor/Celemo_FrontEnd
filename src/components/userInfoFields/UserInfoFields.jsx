@@ -1,5 +1,7 @@
 import "./UserInfoFields.css";
 
+{/** klass "field1" osv ska det skickas in info från databasen */}
+
 const UserInfoFields = () => {
   return (
     <section className="fieldsMainContainer">
