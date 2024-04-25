@@ -9,8 +9,8 @@ function App() {
 
   return (
     <>
-      {/* <Startpage />       återställ innan sista push */}
-      <ProfilePage></ProfilePage>
+      {/* <Startpage />       återställ innan merge till main */}
+      <ProfilePage></ProfilePage> {/** Ta bort */}
     </>
   )
 }
