@@ -1,4 +1,4 @@
-
+import "./LoginPage.css"
 import Footer from '../../components/footer/Footer';
 import Header from "../../components/header/Header";
 import LoginBody from "../../components/loginBody/LoginBody";
@@ -11,6 +11,6 @@ const LoginPage = () => {
             <Footer></Footer>
         </div>
     );
-}
+};
 
 export default LoginPage;
