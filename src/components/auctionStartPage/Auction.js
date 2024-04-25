@@ -7,12 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
       data.forEach((auction) => {
         const markup = `<p>${auction.title}</p>`;
 
-        document
-          .querySelector("ul")
-          .insertAdjacentHTML("beforeend", markup);
+        document.querySelector(`ul`).insertAdjacentHTML("beforeend", markup);
       });
     })
     .catch((error) => console.log(error));
-
-
 });
