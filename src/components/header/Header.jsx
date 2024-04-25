@@ -14,16 +14,16 @@ const Header = () => {
           </label>
 
           <nav className="menu-dropdown">
-            <a className="link1" href="index.html">
+            <a className="link1" href="#">
               Auctions
             </a>
-            <a className="link1" href="index.html">
+            <a className="link1" href="#">
               About
             </a>
-            <a className="link1" href="index.html">
+            <a className="link1" href="#">
               Contact
             </a>
-            <a className="link1" href="index.html">
+            <a className="link1" href="#">
               Profile
             </a>
             <a className="link1" href="#">
