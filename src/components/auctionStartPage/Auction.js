@@ -50,7 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
           </div>
 
-          <div className="box" style"grid-area: "two";"></div>
+          <div className="box" style"grid-area: "two";">
+          <p style"margin-right: 5%;">${auction.currentPrice}</p>
+          </div>
 
           <div className="category" style"grid-area: "three";
           display: flex;
