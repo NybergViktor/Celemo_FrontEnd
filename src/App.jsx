@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Startpage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/review" element={<ReviewPage />} />
+        <Route path="/review" element={<ReviewPage />} /> {/*how the fuck do i fix this?*/}
       </Routes>
     </BrowserRouter>
   );
