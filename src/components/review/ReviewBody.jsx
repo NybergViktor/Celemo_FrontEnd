@@ -3,9 +3,9 @@ import "../review/ReviewBody.css";
 const ReviewBody = () => {
     return (
         <div className="reviewBody">
-            <h1>Reviews</h1>
+
             <div className="user">
-                <h2>Placeholder for username</h2>
+                <h2>@Username</h2>
             </div>
             <div className="reviewContainer">
                 {/* remove the placeholder review and replace with a list of reviews 
@@ -31,7 +31,7 @@ const ReviewBody = () => {
                     <li>
                         <div className="review">
                             
-                            <h4>Grade: <div className="gradeContainer"><p>3</p></div></h4>
+                            <h4>Grade:<p>3</p></h4>
                             <h3>placeholder for review title</h3>
                             <p>placeholder for review text</p>
                         </div>
