@@ -3,13 +3,11 @@ import ReviewContainerContent from "../reviewContainerContent/reviewContainerCon
 const ReviewContainer = () => {
     return (
         <>
-            <div className="reviewBody">
                 <ReviewContainerContent 
                 username="Username"
                 grade="3"
                 reviewtext="Reviewtext"
                 reviewinguser="ReviewingUser"/>
-            </div>
         </>
     )
 }
