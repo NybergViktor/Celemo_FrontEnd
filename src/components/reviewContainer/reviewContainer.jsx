@@ -4,10 +4,11 @@ const ReviewContainer = () => {
     return (
         <>
             <div className="reviewBody">
-                <ul>
-                    <li>PLACEHOLDER</li>
-                </ul>
-                <ReviewContainerContent/>
+                <ReviewContainerContent 
+                username="Username"
+                grade="3"
+                reviewtext="Reviewtext"
+                reviewinguser="ReviewingUser"/>
             </div>
         </>
     )
