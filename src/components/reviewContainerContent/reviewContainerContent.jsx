@@ -1,3 +1,4 @@
+import { propTypes } from "react-bootstrap/esm/Image";
 import "./reviewContainerContent.css";
 
 const ReviewContainerContent = (props) => {
@@ -20,5 +21,15 @@ const ReviewContainerContent = (props) => {
             </div>
         </>
     )
+}
+
+{/* This here makes it so we can debug easier by the console telling us if something isn't the same
+    data type as what's depicted in the propTypes */}
+
+ReviewContainerContent.propTypes = {
+    username: propTypes.string,
+    grade: propTypes.number,
+    reviewtext: propTypes.string,
+    reviewinguser: propTypes.string
 }
 export default ReviewContainerContent;
