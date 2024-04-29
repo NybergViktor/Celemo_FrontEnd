@@ -1,14 +1,15 @@
 import "./reviewContainer.css"
-
-const reviewContainer = () => {
+import ReviewContainerContent from "../reviewContainerContent/reviewContainerContent";
+const ReviewContainer = () => {
     return (
-        <div className="dynamicReview">
-            <ul>
-                <li>
-                    <h1>Grade: 3</h1>
-                </li>
-            </ul>
-        </div>
+        <>
+            <div className="reviewBody">
+                <ul>
+                    <li>PLACEHOLDER</li>
+                </ul>
+                <ReviewContainerContent/>
+            </div>
+        </>
     )
 }
-export default reviewContainer;
+export default ReviewContainer;
