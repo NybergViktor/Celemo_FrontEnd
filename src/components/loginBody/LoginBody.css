@@ -1,0 +1,9 @@
+.loginForm{
+    width: 50%;
+    background-color: #363636;
+    align-items: center;
+    justify-items: center;
+}
+.LoginContainer{
+    display: flex; 
+}
