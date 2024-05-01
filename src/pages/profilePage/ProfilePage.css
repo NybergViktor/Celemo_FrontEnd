@@ -1,18 +1,18 @@
-.header {
-    height: 85px;
-    border: 1px solid black;
+* {
+    
 }
 
 .main {
     display: flex;
     justify-content: center;
+    width: 100vw;
 }
 .userInfoContainer {
     margin-top: 100px !important;
     margin-bottom: 10px !important;
     background-color: white;
     border-radius: 20px;
-    min-width: 95% !important;
+    width: 95%;
     min-height: 200px;
     margin-left: 2% !important;
     margin-right: 2% !important;

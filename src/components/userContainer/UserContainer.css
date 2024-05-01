@@ -1,4 +1,6 @@
 .container {
+    margin: 0 !important;
+    padding: 0 !important;
     max-width: 95%;
     min-height: 100px;
     background-color: white;
@@ -9,11 +11,12 @@
     margin-bottom: 2% !important;
     box-shadow: 1px 1px 5px gray;
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 100%;
     grid-template-rows: 30px 1fr;
     grid-template-areas: 
     "title"
     "content";
+    align-items: center;
 }
 .title {
     grid-area: title;
@@ -54,4 +57,5 @@
     flex-direction: column;
     padding: 1% !important;
     margin-bottom: 3% !important;
+    /* align-items: center; */
 }
