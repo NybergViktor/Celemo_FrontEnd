@@ -7,20 +7,20 @@ import SignupPage from "./pages/signupPage/SignupPage";
 import { useContext } from "react";
 import { LoginProvider } from "./components/context/LoginContext";
 
-
 import ReviewPage from "./pages/reviewpage/ReviewPage";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Startpage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/review" element={<ReviewPage />} />
-      </Routes>
-    </BrowserRouter>
-
+    <LoginProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Startpage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/review" element={<ReviewPage />} />
+        </Routes>
+      </BrowserRouter>
+    </LoginProvider>
   );
 }
 
