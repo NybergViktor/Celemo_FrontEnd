@@ -4,10 +4,11 @@ import Startpage from "./pages/startpage/Startpage";
 import ProfilePage from "./pages/profilePage/ProfilePage";
 import SignupPage from "./pages/signupPage/SignupPage";
 import { LoginProvider } from "./components/context/LoginContext";
-
 import ReviewPage from "./pages/reviewpage/ReviewPage";
+import AuctionPage from "./pages/auktion-page/AuktionPage";
 
 function App() {
+  
   return (
     <LoginProvider>
       <BrowserRouter>
@@ -16,6 +17,7 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/review" element={<ReviewPage />} />
+          <Route path="/auction" element={<AuctionPage />} />
         </Routes>
       </BrowserRouter>
     </LoginProvider>

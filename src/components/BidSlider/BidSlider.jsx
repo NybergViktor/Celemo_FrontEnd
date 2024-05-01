@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AuctionContext from "../context/AuctionContext";
 
 const Slider = () => {
   const [bids, setBids] = useState("");
@@ -11,9 +12,9 @@ const Slider = () => {
 
   return (
     <div className="sliderContainer">
-      {/* <p>{currenPrice}</p> */}
+      {/* {AuctionContext} */}
+      
       <div className="bidsContainer">{/* <p>{bids length}</p> */}</div>
-
       <form onSubmit={handleSubmit}>
         <div className="formInput">
           <input
