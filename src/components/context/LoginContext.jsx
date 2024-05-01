@@ -22,19 +22,22 @@ export const LoginProvider = ({ children, username, password }) => {
       "http://localhost:8080/api/auth/signin",
       options
     );
-
-    console.log(`Logged in as ${username}`);
+    if (response.status > 202) {
+      console.log("something went wrong, check password or username");
+    } else {
+      console.log(`Logged in as ${username}`);
+    }
     return response;
   };
 
   // Temp function for button in Header.jsx
   const handleLoginClick = async () => {
-    await logIn(username="admin45", password="admin45");
-  }
+    await logIn((username = "admin45"), (password = "admin45"));
+  };
 
   return (
-    <LoginContext.Provider value={{ logIn, handleLoginClick }}
-    >{children}
+    <LoginContext.Provider value={{ logIn, handleLoginClick }}>
+      {children}
     </LoginContext.Provider>
   );
 };
