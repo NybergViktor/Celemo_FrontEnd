@@ -1,9 +1,14 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box !important;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+  font-family: "Oswald", sans-serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
   
+}
+
 body {
   width: 100vw !important;
   height: 100vh !important;
