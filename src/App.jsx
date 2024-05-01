@@ -5,7 +5,7 @@ import ProfilePage from "./pages/profilePage/ProfilePage";
 import SignupPage from "./pages/signupPage/SignupPage";
 import { LoginProvider } from "./components/context/LoginContext";
 import ReviewPage from "./pages/reviewpage/ReviewPage";
-import AuctionPage from "./pages/auktion-page/AuktionPage";
+import AuctionPage from "./pages/auction-page/AuctionPage";
 
 function App() {
   

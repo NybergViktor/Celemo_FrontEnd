@@ -1,5 +1,6 @@
 import React from "react";
 import "../Auction/AuctionStyle.css";
+import Slider from "../BidSlider/BidSlider";
 
 export const Auction = () => {
   return (
@@ -27,7 +28,9 @@ export const Auction = () => {
             <button>Reviews</button>
           </div>
         </div>
+        <div className="blankWhite"></div>
       </div>
+      
     </main>
   );
 };

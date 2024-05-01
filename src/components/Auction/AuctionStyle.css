@@ -4,6 +4,7 @@ main {
   width: 100vw;
   display: flex;
   justify-content: center;
+  flex-direction: c;
   padding: 5%;
 }
 
@@ -53,15 +54,14 @@ main {
   border-radius: 15px;
   box-shadow: 1px 1px 5px gray;
 }
-.celeb p{
-    margin: auto;
+.celeb p {
+  margin: auto;
 }
 
-
-.auction-title{
-    align-self: first baseline;
-    margin-left: 1rem;
-    margin-top: 0.8rem;
+.auction-title {
+  align-self: first baseline;
+  margin-left: 1rem;
+  margin-top: 0.8rem;
 }
 
 .description {
@@ -77,28 +77,36 @@ main {
 }
 
 .seller {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: white;
-    background-color: #363636;
-    height: 2.2rem;
-    width: 70%;
-    border-radius: 20px;
-    margin-top: 1rem;
-    box-shadow: 1px 1px 5px gray;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  background-color: #363636;
+  height: 2.2rem;
+  width: 70%;
+  border-radius: 20px;
+  margin-top: 1rem;
+  box-shadow: 1px 1px 5px gray;
+}
 
-  .seller button{
-    border-style: none;
-    border-radius: 15px;
-    background-color: white;
-    text-align: center;
-    width: 30%;
-    margin-right: 2%;
-  }
+.seller button {
+  border-style: none;
+  border-radius: 15px;
+  background-color: white;
+  text-align: center;
+  width: 30%;
+  margin-right: 2%;
+}
 
-  .seller div{
-    width: 30%;
-    margin-left: 5%;
-  }
+.seller div {
+  width: 30%;
+  margin-left: 5%;
+}
+
+.blankWhite {
+  height: 20rem;
+  width: 100%;
+  border: 2px black solid;
+  margin-top: 2rem;
+  display: none;
+}
