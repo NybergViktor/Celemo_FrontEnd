@@ -1,0 +1,83 @@
+.reviewBody {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    margin: 10px !important;
+    background-color: white;
+    box-shadow: 1px 1px 5px gray;
+}
+.reviewContainerContent {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    background-color: #363636;
+    grid-area: username;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 90%;
+}
+.user h2 {
+    text-align: center;
+}
+.review {
+    grid-area: reviews;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    border: 1px solid #d8d8d8;
+    border-radius: 1rem;
+    border-top: #363636 2rem solid;
+    box-shadow: #d8d8d8 1rem 1rem 1rem;
+    padding: 1rem 1rem 1rem 1rem;
+}
+.review h5 {
+    align-self: flex-end;
+}
+.review h3, p{
+    align-items: center;
+    align-self: center;
+    justify-items: center;
+    justify-self: center;
+}
+ul {
+    list-style: none;
+    padding-left: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.gradecontainer{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    flex-wrap: nowrap;
+    margin-bottom: 1rem;
+}
+.gradecontainer div {
+    background-color: yellow;
+    border-radius: 45px;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-shadow: 1px 1px 1px black;
+}
+.reviewtext {
+    border: #363636 1px solid;
+    border-radius: 14px;
+    padding: 5px;
+    background-color: #F0F0F0;
+}
+.h4 {
+    display: flex;
+    flex-direction: column;
+}

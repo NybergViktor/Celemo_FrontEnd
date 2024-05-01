@@ -9,7 +9,6 @@ const Header = () => {
 
   return (
     <div className="header-container">
-      
       <section className="dropdown-container">
         <nav id="navbar" className="navigation" role="navigation">
           <input id="toggle-dropdown" type="checkbox" />
@@ -18,7 +17,6 @@ const Header = () => {
             <div className="middle"></div>
             <div className="bottom"></div>
           </label>
-
           <nav className="menu-dropdown">
             <Link to="/" >Auctions</Link>
             <Link to="" >About</Link>
