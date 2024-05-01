@@ -7,8 +7,10 @@ const LoginPage = () => {
     return (
         <div className="LoginPage">
             <Header></Header>
+              
             <LoginBody></LoginBody>
             <Footer></Footer>
+            
         </div>
     );
 };

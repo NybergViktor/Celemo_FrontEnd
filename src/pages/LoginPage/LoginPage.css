@@ -1,0 +1,37 @@
+
+
+
+
+@media (max-width:450px ) {
+    .header-container {
+        background-color: #8f8f8f;
+        border-bottom: 1px solid rgb(250, 250, 250);
+        height: 9rem;
+        margin-top: -6px;
+        background-image: url('data:image/svg+xml,%3Csvg width="402" height="148" viewBox="0 0 402 148" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cg style="mix-blend-mode:overlay" filter="url(%23filter0_d_545_75)"%3E%3Cpath d="M172.644 6H397.5V146H4L172.644 6Z" fill="white"/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id="filter0_d_545_75" x="0" y="0" width="401.5" height="148" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"%3E%3CfeFlood flood-opacity="0" result="BackgroundImageFix"/%3E%3CfeColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/%3E%3CfeOffset dy="-2"/%3E%3CfeGaussianBlur stdDeviation="2"/%3E%3CfeComposite in2="hardAlpha" operator="out"/%3E%3CfeColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/%3E%3CfeBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_545_75"/%3E%3CfeBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_545_75" result="shape"/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        
+        display: grid;
+        
+    }
+
+    .logo{
+        text-align: center;
+        justify-content: center;
+        
+    }
+     
+    .logo-container{
+        display: none;
+    }
+
+    .LoginPage{
+        background-color: #8f8f8f;
+        background-repeat: no-repeat;
+        background-size: auto;
+       
+        background-image: url('data:image/svg+xml,<svg width="378" height="523" viewBox="0 0 378 523" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 35.3301C0 24.6168 8.44186 15.8062 19.1454 15.3484L357.145 0.891961C368.516 0.405633 378 9.49264 378 20.8737V502.066C378 519.386 357.483 528.518 344.614 516.926L6.6142 212.458C2.40386 208.665 0 203.265 0 197.598V35.3301Z" fill="white"/></svg>');
+    }
+    
+}
