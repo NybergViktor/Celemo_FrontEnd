@@ -1,14 +1,35 @@
 import "./UserInfoFields.css";
+import LoginContext from "../context/LoginContext";
+import UserContext from "../context/UserContext";
+import { useEffect, useContext, useState } from "react";
 
 {/** klass "field1" osv ska det skickas in info från databasen */}
 
 const UserInfoFields = () => {
+
+  const {loggedInUser} = useContext(LoginContext);
+  const {getUserFromId, privateUserInfo, userId} = useContext(UserContext);
+
+  const [testUser, setTestUser] = useState([]);
+  setTestUser(loggedInUser);
+
+  // useEffect(() => {
+  //   if (loggedInUser) {
+      
+  //     getUserFromId();
+  //   }
+  // }, []);
+
   return (
     <section className="fieldsMainContainer">
       <div className="fieldContainer">
         <p className="fieldName">Username:</p>
         <div className="fieldContent field1">
-          <p>text</p> {/** Dessa är placeholder, skall tas bort */}
+          {testUser.map((user) => {
+            return (
+              <p>{user.id}</p>
+            )
+          })}
         </div>
       </div>
       <div className="fieldContainer">

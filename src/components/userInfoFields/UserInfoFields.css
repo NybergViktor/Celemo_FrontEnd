@@ -10,12 +10,13 @@
     display: flex;
     flex-direction: column;
     width: 40%;
-    margin-right: 2% !important;
-    
+    margin-right: 2% !important;    
 }
 .fieldName {
     padding-left: 10px !important;
     align-self:flex-start;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0px !important;
 }
 .fieldContent {
     background-color: rgba(229, 228, 228, 1);
