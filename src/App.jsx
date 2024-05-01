@@ -3,6 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Startpage from "./pages/startpage/Startpage";
 import ProfilePage from "./pages/profilePage/ProfilePage";
 import SignupPage from "./pages/signupPage/SignupPage";
+
+import { useContext } from "react";
+import { LoginProvider } from "./components/context/LoginContext";
+
+
 import ReviewPage from "./pages/reviewpage/ReviewPage";
 
 function App() {
@@ -15,6 +20,7 @@ function App() {
         <Route path="/review" element={<ReviewPage />} />
       </Routes>
     </BrowserRouter>
+
   );
 }
 
