@@ -1,9 +1,72 @@
 .loginForm{
-    width: 50%;
+    display:grid;
+    margin: 30px;
+    margin-top: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5,1fr);
     background-color: #363636;
-    align-items: center;
-    justify-items: center;
+    padding: 20px;
 }
-.LoginContainer{
-    display: flex; 
+
+.username{
+    grid-column: 1/-1;
+    grid-row: 1;
 }
+.password{
+    grid-column: 1/-1;
+    grid-row: 2;
+}
+Button{
+    grid-column: 1/-1;
+    grid-row: 3;
+    background-color: #F19D6F;
+    color: black;
+    padding: 10px;
+    border-radius: 14px;
+    margin: 2rem;
+    margin-top: 10px;
+}
+
+
+.fg{
+    grid-column: 1/2;
+    grid-row: 4;
+}
+
+.ca{
+    grid-column: 2/2;
+    grid-row: 4;
+}
+
+
+
+
+/*.loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+
+ input {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+Button{
+    background-color: #F19D6F;
+    color: black;
+    padding: 10px;
+    border-radius: 14px;
+    margin: 2rem;
+    margin-top: 10px;
+}
+
+.ca{
+    float: right;
+    display: flex;
+}
+
+
+*/
