@@ -1,10 +1,17 @@
-import "../auctionCreationContainer/"
+import "../auctionCreationContainer/FrameBottom.css"
+import RandomPic from "./checkboxRandomPicture/RandomPic";
+import InfoFieldsCreateAuction from "./infoFields/InfoFieldsCreateAuction";
+
+
 
 const FrameBottom = () => {
   return (
+    <div className="svg-container">
+    <RandomPic />
+    <InfoFieldsCreateAuction />
     <div className="svg">
       <svg
-        width="374"
+        width="368"
         height="872"
         viewBox="0 0 374 872"
         fill="none"
@@ -54,6 +61,10 @@ const FrameBottom = () => {
           </filter>
         </defs>
       </svg>
+      
+    </div>
+      
+      
     </div>
   );
 };

@@ -1,0 +1,12 @@
+.title-text-bottom {
+    position: absolute;
+    top: 32rem;
+    
+}
+
+
+title-input {
+    height: 3rem;
+    border-radius: 10px;
+    border: none;
+}

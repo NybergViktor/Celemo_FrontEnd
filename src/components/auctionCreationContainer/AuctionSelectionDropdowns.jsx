@@ -1,8 +1,7 @@
 import "../auctionCreationContainer/AuctionSelectionDropdowns.css";
 import FrameBottom from "./FrameBottom";
-import FrameTop from "./FrameTop";
-import RandomPic from "./checkboxRandomPicture/RandomPic";
-import InfoFieldsCreateAuction from "./infoFields/InfoFieldsCreateAuction";
+
+
 
 function AuctionSelectionDropdowns() {
   return (
@@ -38,12 +37,8 @@ function AuctionSelectionDropdowns() {
         </div>
         {/* cut out and put in new file to break it down better */}
       </div>
-      <>
-      <FrameBottom>
-        <RandomPic />
-        <InfoFieldsCreateAuction />
-      </FrameBottom>
-      </>
+      <FrameBottom />
+    
     </div>
     
   );
