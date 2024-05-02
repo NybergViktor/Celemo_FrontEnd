@@ -7,8 +7,9 @@ const LoginPage = () => {
     return (
         <div className="LoginPage">
             <Header></Header>
-              
+                 <img src="src\assets\logo.png" className="logo-a" />
             <LoginBody></LoginBody>
+            
             <Footer></Footer>
             
         </div>

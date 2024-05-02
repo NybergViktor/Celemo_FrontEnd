@@ -2,7 +2,6 @@ import "./LoginBody.css";
 const LoginBody =() =>{
 
     return (
-     
       <div className="LoginContainer">
              <form className="loginForm">
                 <input type="text" placeholder="Username" className="username"/>
