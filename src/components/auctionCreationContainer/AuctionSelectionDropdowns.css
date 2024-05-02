@@ -7,7 +7,7 @@
   flex-direction: column;
 }
 
-.svg {
+.svg1 {
   position: absolute;
   top: 0;
   left: 3%;
@@ -63,7 +63,8 @@
 
 /************************************Separated DIV's to create the crack between***************************/
 /* cut out and create new file for bottom part */
-.selection-dropdown-bottom {
+
+/* .selection-dropdown-bottom {
   position: relative;
   width: 363px;
   height: 120vh;
@@ -72,4 +73,4 @@
   border-radius: 0px 0px 20px 20px;
   clip-path: polygon(100% 100%, 0 100%, 0 0, 48% 0, 100% 8%);
   background-color: #363636;
-}
+} */
