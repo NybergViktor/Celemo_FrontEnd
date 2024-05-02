@@ -12,6 +12,9 @@
   transition: outline 700ms ease 0s;
   border: none;
   border-radius: 5px;
+  width: 50%;
+  height: 50%;
+
 }
 /* for desktop hover interraction */
 #btn:hover .upload-icon {

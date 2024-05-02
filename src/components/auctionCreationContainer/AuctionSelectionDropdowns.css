@@ -1,29 +1,39 @@
 .main-container {
+  position: relative;
   display: flex;
-  background-color: #e5e4e4;
+  /* background-color: #e5e4e4; */
   margin: 20px auto !important;
   height: 180vh;
   flex-direction: column;
 }
 
+.svg {
+  position: absolute;
+  top: 0;
+  left: 3%;
+  z-index: -1;
+}
+
 .selection-dropdown-top {
   position: relative;
-  width: 363px;
-  height: 318px;
-  left: calc(50% - 363px / 2 + 0.5px);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 75%, 0% 75%);
-  background: #363636;
-  border-radius: 20px 20px 0px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.title {
+  margin-top: 1.5rem;
+}
+
+.title-text {
+  color: #fff;
 }
 
 .category {
   border: none;
   padding: 10px 15px;
   border-radius: 10px;
-  margin-top: 2rem;
+  margin-top: 1rem;
   width: 15rem;
   font-weight: bold;
   text-align: center;
@@ -57,7 +67,7 @@
   position: relative;
   width: 363px;
   height: 120vh;
-  bottom: 2rem;
+  top: 9rem;
   left: calc(50% - 363px / 2 + 0.5px);
   border-radius: 0px 0px 20px 20px;
   clip-path: polygon(100% 100%, 0 100%, 0 0, 48% 0, 100% 8%);
