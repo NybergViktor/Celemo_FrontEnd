@@ -3,13 +3,13 @@ import { createContext, useEffect, useState } from "react";
 const LoginContext = createContext();
 
 export const LoginProvider = ({ children, username, password }) => {
-
   // Globally saved user after login
-  const [loggedInUser, setLoggedInUser] = useState([]);
-  
+  // const [loggedInUser, setLoggedInUser] = useState(false);
+  // const [userInfo , setUserInfo] = useState([]);
+
 
   // Login metod
-  const logIn = async () => {
+  const logIn = async (username, password) => {
     const loginData = {
       username: `${username}`,
       password: `${password}`,
@@ -24,27 +24,23 @@ export const LoginProvider = ({ children, username, password }) => {
       body: JSON.stringify(loginData),
     };
 
-    let fetchData = [];
-
-    const response = await fetch(
-      "http://localhost:8080/api/auth/signin",
-      options
-    );
-    if (response.status > 202) {
-      console.log("something went wrong, check password or username");
-    } else {
+    try {
+      const response = await fetch(
+        "http://localhost:8080/api/auth/signin",
+        options
+      );
       console.log(`Logged in as ${username}`);
-      fetchData = await response.json();
-      setLoggedInUser(fetchData);
+      const fetchData = await response.json();
+      // setUserInfo(fetchData);
+      // setLoggedInUser(true);
+      return response;
+    } catch (error) {
+      console.log("Error: " + error);
     }
-    return response;
+    
   };
 
-  useEffect(() => {
-    if (loggedInUser) {
-      console.log(loggedInUser)
-    }
-  }, [loggedInUser]);
+  
 
   // Temp function for button in Header.jsx
   const handleLoginClick = async () => {
@@ -52,7 +48,7 @@ export const LoginProvider = ({ children, username, password }) => {
   };
 
   return (
-    <LoginContext.Provider value={{ logIn, handleLoginClick, loggedInUser }}>
+    <LoginContext.Provider value={{ logIn, handleLoginClick, username, password }}>
       {children}
     </LoginContext.Provider>
   );
