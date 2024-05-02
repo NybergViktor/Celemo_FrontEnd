@@ -1,12 +1,12 @@
 import "./LoginPage.css"
 import Footer from '../../components/footer/Footer';
-import Header from "../../components/header/Header";
+import LoginHeader from "../../components/loginheader/LoginHeader";
 import LoginBody from "../../components/loginBody/LoginBody";
 
 const LoginPage = () => {
     return (
         <div className="LoginPage">
-            <Header></Header>
+            <LoginHeader></LoginHeader>
                  <img src="src\assets\logo.png" className="logo-a" />
             <LoginBody></LoginBody>
             

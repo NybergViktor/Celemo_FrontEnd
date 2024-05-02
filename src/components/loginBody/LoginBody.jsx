@@ -8,7 +8,7 @@ const LoginBody =() =>{
                 <input type="password" name="" id=""  placeholder="Password" className="password"/>
                 <button type="" className="button">Log in</button>
                 <a className="fg" href="index.html">Forgot password? </a>
-                <a className="ca" href="index.html">Create new account</a>
+                <a className="ca" href="/signup">Create new account</a>
               </form>  
      </div>
           
