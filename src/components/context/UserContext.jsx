@@ -3,8 +3,8 @@ import { createContext, useState, useEffect } from "react";
 const UserContext = createContext();
 
 export const UserProvider = ({ children, userId }) => {
-  // Saved user with all account info from getUserFromId method
-  const [privateUserInfo, setPrivateUserInfo] = useState([]);
+
+  const [userData, setUserData] = useState([]);
 
   const getUserFromId = async (userId) => {
     const options = {
@@ -18,7 +18,7 @@ export const UserProvider = ({ children, userId }) => {
       }),
     };
 
-    console.log(userId)
+    // console.log(userId)
 
     try {
       const response = await fetch(
@@ -26,9 +26,8 @@ export const UserProvider = ({ children, userId }) => {
         options
       );
       let fetchData = await response.json();
-      // setPrivateUserInfo(fetchData);
-      console.log(fetchData);
-      return fetchData;
+      // console.log(fetchData);
+      setUserData(fetchData);
     } catch (error) {
       console.log("Error fetching: " + error);
     }
@@ -39,7 +38,7 @@ export const UserProvider = ({ children, userId }) => {
 //   }, []);
 
   return (
-    <UserContext.Provider value={{ getUserFromId, userId, privateUserInfo }}>
+    <UserContext.Provider value={{ userData, getUserFromId }}>
       {children}
     </UserContext.Provider>
   );
