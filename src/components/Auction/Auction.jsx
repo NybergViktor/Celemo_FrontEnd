@@ -1,8 +1,13 @@
 import React from "react";
 import "../Auction/AuctionStyle.css";
-import Slider from "../BidSlider/BidSlider";
+
+ import AuctionContext from "../context/AuctionContext";
+ import { useContext } from "react";
 
 export const Auction = () => {
+
+   const {handleGetAuction} = useContext(AuctionContext);
+
   return (
     <main>
       <div className="auction-container">
@@ -10,6 +15,7 @@ export const Auction = () => {
           <img src="src/components/Auction/mj.jpeg" alt="shoes" />
         </div>
         <div className="info-container">
+          <button onClick={handleGetAuction}>get auction</button>
           <div className="celeb">
             <p>Michael jackson</p>
           </div>
@@ -22,6 +28,7 @@ export const Auction = () => {
             consequuntur exercitationem quae assumenda necessitatibus, odit,
             officia nisi repellat!
           </div>
+          
           <div className="location">London</div>
           <div className="seller">
             <div>@Gittan</div>

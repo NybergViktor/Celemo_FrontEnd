@@ -1,17 +1,24 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
+
 
 const AuctionContext = createContext();
 
+
+
 export const AuctionProvider = ({ children, id }) => {
+
+  const [auction, setAuction] = useState([]);
+
+
   const getAuction = async () => {
-    let auctionId = "65f81f6866a5913190fc0dd3";
+    // let auctionId = "65f81f6866a5913190fc0dd3";
 
     const options = {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(auctionId),
+      body: JSON.stringify(handleGetAuction),
     };
 
     const response = await fetch(
@@ -19,14 +26,16 @@ export const AuctionProvider = ({ children, id }) => {
       options
     );
 
-    
+    setAuction(response);
+
+    console.log("title: " + auction.title);
 
     return response;
   };
 
   // Temp function for button in Header.jsx
   const handleGetAuction = async () => {
-    await getAuction("65f81f6866a5913190fc0dd3");
+    await getAuction(id="65f81f6866a5913190fc0dd3");
   };
 
   return (

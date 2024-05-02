@@ -4,6 +4,7 @@ import Header from "../../components/header/Header";
 import "../auction-page/AuctionPage.css";
 import Slider from "../../components/BidSlider/BidSlider";
 
+
 const AuctionPage = () => {
   return (
     <div className="mainContainer">
