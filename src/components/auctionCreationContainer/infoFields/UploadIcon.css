@@ -1,24 +1,36 @@
+
+
 #btn {
-  background-color: rgb(255, 255, 255); /* original color */
   border: none;
-  cursor: pointer;
-  border-radius: 10px;
-  display: block;
-  margin: 3.5rem auto;
   border-radius: 5px;
+  background-color: #ffffff00;
+  width: 100%;
+  height: 100%;
 }
-
 .upload-icon {
-  outline: 1px solid #fdfdfd;
+  /* outline: 1px solid #ffffff; */
   transition: outline 700ms ease 0s;
-}
-
-
-#btn:hover .upload-icon {
-  outline: 10px solid #deddda;
-}
-
-#btn:active .upload-icon {
-  background-color: rgb(206, 136, 31); /* Color change when clicked/active */
+  border: none;
   border-radius: 5px;
+}
+/* for desktop hover interraction */
+#btn:hover .upload-icon {
+  background-color: #ffffff00;
+  box-shadow: 1px 1px 5px 2px #00000063;
+}
+/* mobile click interraction */
+#btn:active .upload-icon {
+  background-color: #ffffff00; 
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 2px #00000063;
+}
+/* mobile click interraction */
+#btn:active {
+  box-shadow: 4px 6px 15px 5px #00000063;
+  border-radius: 15px;
+}
+/* for desktop hover interraction */
+#btn:hover {
+  box-shadow: 4px 6px 15px 5px #00000063;
+  border-radius: 15px;
 }
