@@ -4,7 +4,7 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children, userId }) => {
   // Saved user with all account info from getUserFromId method
-//   const [privateUserInfo, setPrivateUserInfo] = useState([]);
+  const [privateUserInfo, setPrivateUserInfo] = useState([]);
 
   const getUserFromId = async (userId) => {
     const options = {
@@ -18,14 +18,17 @@ export const UserProvider = ({ children, userId }) => {
       }),
     };
 
+    console.log(userId)
+
     try {
       const response = await fetch(
         "http://localhost:8080/api/user/find-one",
         options
       );
-      const fetchData = await response;
-      setPrivateUserInfo(fetchData);
-      return response;
+      let fetchData = await response.json();
+      // setPrivateUserInfo(fetchData);
+      console.log(fetchData);
+      return fetchData;
     } catch (error) {
       console.log("Error fetching: " + error);
     }
@@ -36,7 +39,7 @@ export const UserProvider = ({ children, userId }) => {
 //   }, []);
 
   return (
-    <UserContext.Provider value={{ getUserFromId, userId }}>
+    <UserContext.Provider value={{ getUserFromId, userId, privateUserInfo }}>
       {children}
     </UserContext.Provider>
   );

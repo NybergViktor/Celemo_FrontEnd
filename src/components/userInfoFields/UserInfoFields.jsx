@@ -1,5 +1,4 @@
 import "./UserInfoFields.css";
-import LoginContext from "../context/LoginContext";
 import UserContext from "../context/UserContext";
 import { useEffect, useContext, useState } from "react";
 
@@ -8,23 +7,24 @@ import { useEffect, useContext, useState } from "react";
 }
 
 const UserInfoFields = () => {
-  // const { userInfo, logIn } = useContext(LoginContext);
-  const { getUserFromId, userId } = useContext(UserContext);
-
-  const [testUser, setTestUser] = useState([]);
+  
+  const { getUserFromId, userId, privateUserInfo} = useContext(UserContext);
+  const [loggedInUserId, setLoggedInUserId] = useState(localStorage.getItem("loggedInUserId"));
+  const [userInfo, setUserInfo] = useState([]);
 
   useEffect(() => {
-    setTestUser(userInfo);
-    console.log(testUser)
-    getUserFromId(testUser.id);
+    let data = getUserFromId(loggedInUserId);
+    setUserInfo(data);
   }, []);
+
+  console.log(userInfo)
 
   return (
     <section className="fieldsMainContainer">
       <div className="fieldContainer">
         <p className="fieldName">Username:</p>
         <div className="fieldContent field1">
-          <p>{privateUserInfo.username}</p>
+          <p>{userInfo.firstName}</p>
         </div>
       </div>
       <div className="fieldContainer">

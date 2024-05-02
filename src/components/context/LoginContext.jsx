@@ -3,11 +3,7 @@ import { createContext, useEffect, useState } from "react";
 const LoginContext = createContext();
 
 export const LoginProvider = ({ children, username, password }) => {
-  // Globally saved user after login
-  // const [loggedInUser, setLoggedInUser] = useState(false);
-  // const [userInfo , setUserInfo] = useState([]);
-
-
+  
   // Login metod
   const logIn = async (username, password) => {
     const loginData = {
@@ -31,8 +27,7 @@ export const LoginProvider = ({ children, username, password }) => {
       );
       console.log(`Logged in as ${username}`);
       const fetchData = await response.json();
-      // setUserInfo(fetchData);
-      // setLoggedInUser(true);
+      localStorage.setItem("loggedInUserId", fetchData.id);
       return response;
     } catch (error) {
       console.log("Error: " + error);
