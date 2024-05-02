@@ -1,0 +1,24 @@
+#btn {
+  background-color: rgb(255, 255, 255); /* original color */
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  display: block;
+  margin: 3.5rem auto;
+  border-radius: 5px;
+}
+
+.upload-icon {
+  outline: 1px solid #fdfdfd;
+  transition: outline 700ms ease 0s;
+}
+
+
+#btn:hover .upload-icon {
+  outline: 10px solid #deddda;
+}
+
+#btn:active .upload-icon {
+  background-color: rgb(206, 136, 31); /* Color change when clicked/active */
+  border-radius: 5px;
+}

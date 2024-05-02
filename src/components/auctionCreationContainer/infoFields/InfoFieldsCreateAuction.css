@@ -1,0 +1,35 @@
+.picture-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 19rem;
+  height: 15rem;
+  background-color: rgb(218, 218, 218);
+  border: 1px solid black;
+  border-radius: 10px;
+  position: relative;
+  top: 2rem;
+  left: 1.8rem;
+}
+
+.picture {
+  border: 1px solid black;
+  width: 12rem;
+  height: 10rem;
+  border-radius: 20px;
+}
+
+
+
+/* #btn1 {
+position: relative;
+top: 30%;
+left: 30%;
+}
+
+
+
+#btn1:active {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+} */

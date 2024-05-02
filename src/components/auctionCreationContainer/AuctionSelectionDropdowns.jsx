@@ -1,9 +1,6 @@
 import "../auctionCreationContainer/AuctionSelectionDropdowns.css";
-import RandomPic from "./RandomPic";
-import InfoFieldsCreateAuction from "./InfoFieldsCreateAuction";
-
-
-
+import RandomPic from "./checkboxRandomPicture/RandomPic";
+import InfoFieldsCreateAuction from "./infoFields/InfoFieldsCreateAuction";
 
 function AuctionSelectionDropdowns() {
   return (
@@ -26,7 +23,6 @@ function AuctionSelectionDropdowns() {
         <RandomPic />
         <InfoFieldsCreateAuction />
       </div>
-
     </div>
   );
 }

@@ -1,0 +1,63 @@
+.random {
+  width: 12rem;
+  height: 2.5rem;
+  background-color: aliceblue;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 1rem;
+  margin-top: 4rem;
+  margin-left: 1.8rem;
+}
+
+.checkbox-container {
+  position: relative;
+}
+
+.checkbox-container input {
+  position: absolute;
+  cursor: pointer;
+  width: 25px; /* Set width to make the checkbox wider */
+  height: 25px;
+  opacity: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: -1.5rem;
+  width: 25px;
+  height: 25px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20%;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.checkbox-container input:checked + .checkmark {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked + .checkmark::after {
+  display: block;
+  content: "\2713";
+  font-size: 30px; /*  */
+  color: black; /* Change color as needed */
+  text-align: center;
+  line-height: 25px;
+}
+
+.text {
+  position: relative;
+  left: 1rem;
+}
