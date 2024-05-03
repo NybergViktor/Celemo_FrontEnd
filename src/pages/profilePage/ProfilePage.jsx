@@ -31,7 +31,7 @@ const ProfilePage = () => {
             containerTitle="User Info"
             useContainerBtn="yes"
             btnTitle="Edit"
-          >
+            >
             <UserInfoFields></UserInfoFields>
           </UserContainer>
 
@@ -45,7 +45,7 @@ const ProfilePage = () => {
             containerTitle="Auctions"
             useContainerBtn="yes"
             btnTitle="Bid History"
-          >
+            >
             <UserContainerContent></UserContainerContent>
           </UserContainer>
 
@@ -57,7 +57,7 @@ const ProfilePage = () => {
       </main>
       <Footer></Footer>
     </>
-  );
-};
+  )
+}
 
 export default ProfilePage;

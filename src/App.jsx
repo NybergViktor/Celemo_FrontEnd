@@ -12,27 +12,19 @@ import { AuctionProvider } from "./components/context/AuctionContext";
 function App() {
   return (
     <LoginProvider>
-
       <UserProvider>
-
-      <AuctionProvider>
-
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Startpage />} />
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/signup" element={<SignupPage />} />
-            <Route path="/review" element={<ReviewPage />} />
-
-          </Routes>
-        </BrowserRouter>
+        <AuctionProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Startpage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/signup" element={<SignupPage />} />
+              <Route path="/review" element={<ReviewPage />} />
+              <Route path="/auction" element={<AuctionPage />} />
+            </Routes>
+          </BrowserRouter>
+        </AuctionProvider>
       </UserProvider>
-
-            <Route path="/auction" element={<AuctionPage />} />
-          </Routes>
-        </BrowserRouter>
-      </AuctionProvider>
-
     </LoginProvider>
   );
 }
