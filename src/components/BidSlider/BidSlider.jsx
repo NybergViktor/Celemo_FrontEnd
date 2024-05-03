@@ -30,7 +30,7 @@ const Slider = () => {
           placeholder="AUTO-BID"
           // onChange={(e) => setBids(e.target.value)}
         />
-        <button type="submit">Place Bid</button>
+        <button type="submit">PLACE BID</button>
       </form>
     </div>
   );

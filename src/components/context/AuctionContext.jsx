@@ -1,40 +1,43 @@
 import { createContext, useEffect, useState } from "react";
-import axios from "axios";
 
 const AuctionContext = createContext();
 
 const AuctionProvider = ({ children }) => {
   const [auction, setAuction] = useState([]);
+  
 
-  const options = {
+  var options = {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    data: JSON.stringify({ id: "65f81f6866a5913190fc0dd3" }),
+    credentials: "include",
+    body: JSON.stringify({
+      auctionId: "65f81f6866a5913190fc0dd3",
+    }),
   };
 
-  useEffect(() => {
-    const fetchAuction = async () => {
-      try {
-        const res = await axios.post(
-          `${import.meta.env.VITE_API_URL}/api/auction/find-one`,
-          options
-        );
-        setAuction(res.data);
-      } catch (err) {
-        console.log("error: " + err);
-      }
-    };
-    fetchAuction();
-  }, []);
+  const fetchAuction = async () => {
+    try {
+      let res = await fetch(
+        `${import.meta.env.VITE_API_URL}/auction/find-one`,
+        options
+      );
+      const data = await res.json();
+      console.log(data);
+      setAuction(data);
+    } catch (err) {
+      console.log("err: " + err);
+    }
+  };
+
+ 
 
   return (
-    <AuctionContext.Provider value={{ auction, setAuction }}>
+    <AuctionContext.Provider value={{ auction, setAuction, fetchAuction }}>
       {children}
     </AuctionContext.Provider>
   );
 };
 
 export { AuctionContext, AuctionProvider };
-
-// "65f81f6866a5913190fc0dd3"

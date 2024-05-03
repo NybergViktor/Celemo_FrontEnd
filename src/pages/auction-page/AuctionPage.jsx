@@ -13,7 +13,7 @@ const AuctionPage = () => {
       <div className="auction">
         <Auction></Auction>
       </div>
-      <div className="slider">{/* <Slider></Slider> */}</div>
+      <div className="slider">{<Slider></Slider>}</div>
     </div>
   );
 };

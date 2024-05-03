@@ -29,6 +29,7 @@ main {
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   overflow: hidden;
+  box-shadow: 1px 1px 5px gray;
 }
 
 .img-container img {
@@ -42,6 +43,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .celeb {
@@ -52,6 +54,7 @@ main {
   margin-top: 1rem;
   width: 50%;
   border-radius: 15px;
+  font-size: 85%;
   box-shadow: 1px 1px 5px gray;
 }
 .celeb p {
