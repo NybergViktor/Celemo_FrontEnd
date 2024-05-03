@@ -1,9 +1,8 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext } from "react";
 
 const LoginContext = createContext();
 
 export const LoginProvider = ({ children, username, password }) => {
-  
   // Login metod
   const logIn = async (username, password) => {
     const loginData = {
@@ -22,20 +21,21 @@ export const LoginProvider = ({ children, username, password }) => {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/api/auth/signin",
+        `${import.meta.env.VITE_API_URL}/auth/signin`,
         options
       );
-      console.log(`Logged in as ${username}`);
+      if (response.ok) {
+        console.log(`Logged in as ${username}`);
+      }
       const fetchData = await response.json();
       localStorage.setItem("loggedInUserId", fetchData.id);
-      return response;
+      // Console output for debugging
+      console.log(response.status);
+      console.log(fetchData.id);
     } catch (error) {
       console.log("Error: " + error);
     }
-    
   };
-
-  
 
   // Temp function for button in Header.jsx
   const handleLoginClick = async () => {
@@ -43,7 +43,9 @@ export const LoginProvider = ({ children, username, password }) => {
   };
 
   return (
-    <LoginContext.Provider value={{ logIn, handleLoginClick, username, password }}>
+    <LoginContext.Provider
+      value={{ logIn, handleLoginClick, username, password }}
+    >
       {children}
     </LoginContext.Provider>
   );

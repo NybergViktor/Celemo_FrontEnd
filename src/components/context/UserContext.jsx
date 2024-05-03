@@ -18,11 +18,9 @@ export const UserProvider = ({ children, userId }) => {
       }),
     };
 
-    // console.log(userId)
-
     try {
       const response = await fetch(
-        "http://localhost:8080/api/user/find-one",
+        `${import.meta.env.VITE_API_URL}/user/find-one`,
         options
       );
       let fetchData = await response.json();
@@ -32,10 +30,6 @@ export const UserProvider = ({ children, userId }) => {
       console.log("Error fetching: " + error);
     }
   };
-
-//   useEffect(() => {
-//     getUserFromId(userId);
-//   }, []);
 
   return (
     <UserContext.Provider value={{ userData, getUserFromId }}>
