@@ -1,37 +1,31 @@
 .svg-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: flex-start;
-    z-index: 1;
-    
-    
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 1;
 }
-
 
 .svg {
-    /* left: 3%; */
-    bottom: 10rem;
-    /* top: 9rem; */
-    position: relative;
-    z-index: -1;
+  bottom: 10rem;
+  position: relative;
+  z-index: -1;
 }
 
-@media  screen and (min-width: 490px) {
-    .svg {
-        display: none;
-    }
+@media screen and (min-width: 847px) {
+  .svg {
+    display: none;
+  }
 
-    .svg-container {
-        display: flex;
-        background-color: #363636;
-        margin-top: 40px;
-        width: 90%;
-        height: 55%;
-        border-radius: 100px 0px 100px 0px;
-        box-shadow: 5px 5px 10px 1px #000000;
-        z-index: -1;
-        flex-wrap: wrap;
-    }
+  .svg-container {
+    display: flex;
+    background-color: #363636;
+    margin-top: 40px;
+    width: 90%;
+    height: 55%;
+    border-radius: 100px 0px 100px 0px;
+    box-shadow: 5px 5px 10px 1px #000000;
+    flex-wrap: wrap;
+  }
 }

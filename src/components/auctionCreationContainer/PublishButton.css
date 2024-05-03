@@ -13,9 +13,8 @@
   box-shadow: 1px 5px 5px 0px #000000;
 }
 
-@media screen and (min-width: 490px) {
+@media screen and (min-width: 847px) {
   .publish-button {
-    bottom: 9rem;
-    left: 40rem;
+    bottom: -2rem;
   }
 }
