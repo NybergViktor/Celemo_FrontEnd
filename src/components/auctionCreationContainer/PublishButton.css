@@ -1,4 +1,4 @@
-button {
+.publish-button {
   height: 7rem;
   width: 16rem;
   border: none;
@@ -14,7 +14,8 @@ button {
 }
 
 @media screen and (min-width: 490px) {
-  button {
-    
+  .publish-button {
+    bottom: 9rem;
+    left: 40rem;
   }
 }
