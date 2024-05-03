@@ -1,6 +1,6 @@
 import "../auctionCreationContainer/AuctionSelectionDropdowns.css";
 import FrameBottom from "./FrameBottom";
-
+import PublishButton from "./PublishButton";
 
 
 function AuctionSelectionDropdowns() {
@@ -35,10 +35,9 @@ function AuctionSelectionDropdowns() {
             <option value="celebrities">Celebrities</option>
           </select>
         </div>
-        {/* cut out and put in new file to break it down better */}
       </div>
       <FrameBottom />
-    
+      <PublishButton />
     </div>
     
   );
