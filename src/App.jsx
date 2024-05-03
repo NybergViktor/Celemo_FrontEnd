@@ -21,6 +21,7 @@ function App() {
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/review" element={<ReviewPage />} />
             <Route path="/auction" element={<AuctionPage />} />
+            <Route path="/create-auction" element={<CreateAuctionPage />}></Route>
           </Routes>
         </BrowserRouter>
       </AuctionProvider>
