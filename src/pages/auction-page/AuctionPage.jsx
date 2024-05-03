@@ -4,19 +4,16 @@ import Header from "../../components/header/Header";
 import "../auction-page/AuctionPage.css";
 import Slider from "../../components/BidSlider/BidSlider";
 
-
 const AuctionPage = () => {
   return (
     <div className="mainContainer">
       <div className="header">
-      <Header></Header>
-      </div >
+        <Header></Header>
+      </div>
       <div className="auction">
-      <Auction></Auction>
+        <Auction></Auction>
       </div>
-      <div className="slider">
-      <Slider></Slider>
-      </div>
+      <div className="slider">{/* <Slider></Slider> */}</div>
     </div>
   );
 };

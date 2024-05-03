@@ -1,48 +1,40 @@
-import { createContext, useState } from "react";
-
+import { createContext, useEffect, useState } from "react";
+import axios from "axios";
 
 const AuctionContext = createContext();
 
-
-
-export const AuctionProvider = ({ children, id }) => {
-
+const AuctionProvider = ({ children }) => {
   const [auction, setAuction] = useState([]);
 
+  const options = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: JSON.stringify({ id: "65f81f6866a5913190fc0dd3" }),
+  };
 
-  const getAuction = async () => {
-    // let auctionId = "65f81f6866a5913190fc0dd3";
-
-    const options = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(handleGetAuction),
+  useEffect(() => {
+    const fetchAuction = async () => {
+      try {
+        const res = await axios.post(
+          `${import.meta.env.VITE_API_URL}/api/auction/find-one`,
+          options
+        );
+        setAuction(res.data);
+      } catch (err) {
+        console.log("error: " + err);
+      }
     };
-
-    const response = await fetch(
-      "http://localhost:8080/api/auction/find-one",
-      options
-    );
-
-    setAuction(response);
-
-    console.log("title: " + auction.title);
-
-    return response;
-  };
-
-  // Temp function for button in Header.jsx
-  const handleGetAuction = async () => {
-    await getAuction(id="65f81f6866a5913190fc0dd3");
-  };
+    fetchAuction();
+  }, []);
 
   return (
-    <AuctionContext.Provider value={{ getAuction, handleGetAuction }}>
+    <AuctionContext.Provider value={{ auction, setAuction }}>
       {children}
     </AuctionContext.Provider>
   );
 };
 
-export default AuctionContext;
+export { AuctionContext, AuctionProvider };
+
+// "65f81f6866a5913190fc0dd3"
