@@ -24,7 +24,7 @@ const Header = () => {
             <Link to="" >Contact</Link>
             <Link to="/profile" >Profile</Link>
             <Link to="" >Create auction</Link>
-            <Link to="/login" >Sign in / Register</Link>
+            <Link to="/Login" >Sign in / Register</Link>
           </nav>
         </nav>
       </section>
