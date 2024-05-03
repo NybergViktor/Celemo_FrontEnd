@@ -32,5 +32,17 @@
     max-width: 250px;
     max-height: 250px;
     margin-top: -75px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.profilePicture img{
+    
+    height: auto;
+    width: auto;
+    
+
 }
 

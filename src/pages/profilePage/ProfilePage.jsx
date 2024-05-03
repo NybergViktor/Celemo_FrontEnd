@@ -4,8 +4,18 @@ import UserContainer from "../../components/userContainer/UserContainer";
 import UserInfoFields from "../../components/userInfoFields/UserInfoFields";
 import UserContainerContent from "../../components/userContainerContent/UserContainerContent";
 import Header from "../../components/header/Header";
+import UserContext from "../../components/context/UserContext";
+import { useEffect, useContext, useState } from "react";
 
 const ProfilePage = () => {
+
+  const { userData, getUserFromId} = useContext(UserContext);
+  const [loggedInUserId, setLoggedInUserId] = useState(localStorage.getItem("loggedInUserId"));
+
+  useEffect(() => {
+    getUserFromId(loggedInUserId);
+  }, []);
+
   return (
     <>
       <Header></Header>
@@ -13,7 +23,7 @@ const ProfilePage = () => {
         <div className="userInfoContainer">
           {/* PROFILE PICTURE */}
           <div className="profilePicture">
-            <img src="profile_icon.svg" />
+            <img src={userData.photo} />
           </div>
 
           {/* USER INFO CONTAINER */}
