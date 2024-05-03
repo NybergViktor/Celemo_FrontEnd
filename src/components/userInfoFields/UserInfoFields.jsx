@@ -11,8 +11,6 @@ const UserInfoFields = () => {
     getUserFromId(loggedInUserId);
   }, []);
 
-  
-
   return (
     <section className="fieldsMainContainer">
       <div className="fieldContainer">

@@ -4,6 +4,7 @@ const LoginContext = createContext();
 
 export const LoginProvider = ({ children, username, password }) => {
   // Login metod
+  // call with ' logIn("username", "password") '
   const logIn = async (username, password) => {
     const loginData = {
       username: `${username}`,
