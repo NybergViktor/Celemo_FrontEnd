@@ -18,3 +18,20 @@
     z-index: -1;
 }
 
+@media  screen and (min-width: 490px) {
+    .svg {
+        display: none;
+    }
+
+    .svg-container {
+        display: flex;
+        background-color: #363636;
+        margin-top: 40px;
+        width: 90%;
+        height: 45%;
+        border-radius: 100px 0px 100px 0px;
+        box-shadow: 5px 5px 10px 1px #000000;
+        z-index: -1;
+        flex-wrap: wrap;
+    }
+}

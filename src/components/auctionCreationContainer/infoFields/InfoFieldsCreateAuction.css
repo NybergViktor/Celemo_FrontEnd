@@ -18,4 +18,13 @@
   border-radius: 20px;
 }
 
-
+@media screen and (min-width: 490px) {
+  .picture-container {
+    top: 5rem;
+    right: 38%;
+    margin-left: 16rem;
+  }
+  .picture {
+    width: 63.5%;
+  }
+}

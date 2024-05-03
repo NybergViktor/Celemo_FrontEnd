@@ -46,3 +46,26 @@ textarea {
     font-size: 25px;
     margin-top: 15px;
 }
+
+
+@media screen and (min-width: 490px) {
+  .title-text-bottom {
+    position: relative;
+    top: -16rem;
+  }
+
+  .description-bottom {
+    top: 7rem;
+  }
+
+  .bid-bottom {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    
+  }
+
+  .end-time {
+    
+  }
+}

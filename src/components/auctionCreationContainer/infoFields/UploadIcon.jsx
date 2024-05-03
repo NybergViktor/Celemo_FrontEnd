@@ -11,7 +11,7 @@ const Icon = () => {
   const handleClick = () => {
     //if color is grey it updates the state to color orange
     if (changeColor === "grey") {
-      setChangeColor("orange");
+      setChangeColor("#F19D6F");
       // if color is something else then grey it upgrades the state to grey
     } else {
       setChangeColor("grey");
