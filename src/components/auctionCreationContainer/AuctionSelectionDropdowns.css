@@ -68,11 +68,12 @@
     background-color: #363636;
     width: 90%;
     height: 25%;
-    border-radius: 0px 100px 0px 100px;
+    border-radius: 50px;
     box-shadow: 5px 5px 10px 1px #000000;
   }
 
   .main-container {
-    height: 100vh;
+    height: 140vh;
+    max-width: 1000px;
   }
 }
