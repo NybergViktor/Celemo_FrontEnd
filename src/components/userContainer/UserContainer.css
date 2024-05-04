@@ -1,6 +1,7 @@
 .container {
-    max-width: 95%;
-    min-height: 100px;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 95% !important;
     background-color: white;
     border-radius: 10px;
     margin-left: 2% !important;
@@ -9,11 +10,12 @@
     margin-bottom: 2% !important;
     box-shadow: 1px 1px 5px gray;
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 100%;
     grid-template-rows: 30px 1fr;
     grid-template-areas: 
     "title"
     "content";
+    align-items: center;
 }
 .title {
     grid-area: title;
@@ -42,7 +44,7 @@
     padding-right: 2% !important;
 }
 .containerBtn:hover {
-    background-color: rgb(59, 180, 99);
+    background-color: rgb(172,172,172);
     color: black;
 }
 .showContainerBtn {
@@ -54,4 +56,5 @@
     flex-direction: column;
     padding: 1% !important;
     margin-bottom: 3% !important;
+    /* align-items: center; */
 }

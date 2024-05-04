@@ -43,6 +43,7 @@
   margin-left: 2rem;
   position: relative;
   grid-template-rows: repeat(3, 1fr);
+  cursor: pointer;
 }
 
 .dropdown div {
