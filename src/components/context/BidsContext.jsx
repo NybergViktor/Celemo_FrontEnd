@@ -1,10 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 
-const AuctionContext = createContext();
+const BidContext = createContext();
 
 const AuctionProvider = ({ children }) => {
-  const [auction, setAuction] = useState([]);
-  const [seller, setSeller] = useState([]);
+  const [bid, setbid] = useState([]);
 
   var options = {
     method: "POST",
@@ -13,32 +12,32 @@ const AuctionProvider = ({ children }) => {
     },
     credentials: "include",
     body: JSON.stringify({
-      auctionId: "6636962a4e494335e4e911c3",
+      startBid: "16000",
+      maxBid: "16000",
+      userId: "65f2dae72d51386685fd2e7f",
+      auctionId: "6636962a4e494335e4e911c3", // kommer senare att bli dynamisk och hämtas från startsidan
     }),
   };
 
-  const fetchAuction = async () => {
+  const fetchBid = async () => {
     try {
       let res = await fetch(
-        `${import.meta.env.VITE_API_URL}/auction/find-one`,
+        `${import.meta.env.VITE_API_URL}/bids/create`,
         options
       );
       const data = await res.json();
       console.log(data);
-      setAuction(data);
-      setSeller(data.seller);
+      setbid(data);
     } catch (err) {
       console.log("err: " + err);
     }
   };
 
   return (
-    <AuctionContext.Provider
-      value={{ auction, setAuction, fetchAuction, seller, setSeller }}
-    >
+    <BidContext.Provider value={{ bid, setbid, fetchBid }}>
       {children}
-    </AuctionContext.Provider>
+    </BidContext.Provider>
   );
 };
 
-export { AuctionContext, AuctionProvider };
+export { BidContext, BidContext };
