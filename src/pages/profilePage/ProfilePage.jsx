@@ -6,6 +6,7 @@ import UserContainerContent from "../../components/userContainerContent/UserCont
 import Header from "../../components/header/Header";
 import UserContext from "../../components/context/UserContext";
 import { useEffect, useContext, useState } from "react";
+import RandomPic from "../../components/auctionCreationContainer/checkboxRandomPicture/RandomPic";
 
 const ProfilePage = () => {
 
@@ -20,7 +21,11 @@ const ProfilePage = () => {
     <>
       <Header></Header>
       <main className="main">
+      
         <div className="userInfoContainer">
+        <>
+        <RandomPic />
+        </>
           {/* PROFILE PICTURE */}
           <div className="profilePicture">
             <img src={userData.photo} />
