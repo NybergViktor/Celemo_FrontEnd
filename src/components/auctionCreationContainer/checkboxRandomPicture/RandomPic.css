@@ -21,7 +21,7 @@
 .checkbox-container input {
   position: absolute;
   cursor: pointer;
-  width: 10rem; /* Set width to make the checkbox wider */
+  width: 10rem; 
   height: 2rem;
   opacity: 0;
 }
@@ -52,8 +52,8 @@
 .checkbox-container input:checked + .checkmark::after {
   display: block;
   content: "\2713";
-  font-size: 30px; /*  */
-  color: black; /* Change color as needed */
+  font-size: 30px;
+  color: black;
   text-align: center;
   line-height: 25px;
 }
@@ -65,27 +65,50 @@
 
 @media screen and (min-width: 847px) {
   .random {
+    flex-direction: row;
+    align-items: center;
     top: 2rem;
-    right: 21%;
-    /* margin-right: 10rem; */
-    /* margin-left: 10rem; */
-    height: 3rem;
-    width: 18.8rem;
+    left: 53%;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    position: absolute;
+    overflow: hidden;
+    justify-content: start;
+  }
+  .checkbox-container {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+  }
+  .random:hover,
+  .random:focus {
+    width: 10rem;
+    max-width: 15rem;
+    transition: right, 500ms;
   }
 
   .checkmark {
-    left: -3.5rem;
-    height: 2rem;
-    width: 2rem;
-    top: -0.1rem;
+    left: 0.25rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    top: 0.25rem;
   }
 
   .text {
-    font-size: 20px;
-    font-weight: 600;
+    display: flex;
+    font-size: 12px;
+    width: 6rem;
+    margin-left: 2rem;
+    margin-top: 0.5rem;
   }
+  .checkbox-container input {
+    width: 2rem;
+    left: -1rem;
+  }
+
   .checkbox-container input:checked + .checkmark::after {
-    font-size: 40px;
-    line-height: 33px;
+    font-size: 32px;
+    line-height: 23px;
   }
 }

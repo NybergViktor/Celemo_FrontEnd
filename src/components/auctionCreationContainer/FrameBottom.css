@@ -1,31 +1,60 @@
+/* Container for the whole bottom svg image */
 .svg-container {
   position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
-  z-index: 1;
+  margin-top: 2rem;
 }
-
+/* Prompted to your own file manager where you can choose the file you want to upload */
+/* input size is big so it dosnt matter if you click the browser or if you click the upload icon */
+.input-container {
+  position: absolute;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  bottom: 48rem;
+  z-index: 2;
+  left: 2rem;
+}
+/* styling the actual input */
+#file {
+  height: 17rem;
+  color: #ffff;
+}
+/* svg image */
 .svg {
   bottom: 10rem;
   position: relative;
   z-index: -1;
 }
 
+
+
+
+/* Media qureys to hide the svg image- */
+/* and instead display a container with different size for desktop */
+
 @media screen and (min-width: 847px) {
   .svg {
     display: none;
   }
-
   .svg-container {
     display: flex;
     background-color: #363636;
-    margin-top: 40px;
+    margin-top: 2rem;
     width: 90%;
-    height: 35%;
-    border-radius: 100px 0px 100px 0px;
-    box-shadow: 5px 5px 10px 1px #000000;
+    border-radius: 50px;
+    box-shadow: 5px 5px 10px 3px #000000;
     flex-wrap: wrap;
+  }
+  .input-container {
+    bottom: 19.2rem;
+    left: 29.9rem;
+  }
+  #file{
+    height: 18rem;
+    width: 19rem;
   }
 }

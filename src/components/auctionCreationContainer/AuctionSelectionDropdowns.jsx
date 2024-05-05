@@ -9,7 +9,7 @@ function AuctionSelectionDropdowns() {
       <div className="svg1">
         <svg
           width="368"
-          height="412"
+          height="410"
           viewBox="0 0 363 412"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
