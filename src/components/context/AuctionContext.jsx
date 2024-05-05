@@ -3,7 +3,6 @@ import { createContext, useEffect, useState } from "react";
 const AuctionContext = createContext();
 
 const AuctionProvider = ({ children }) => {
-  
   // ===============================================
   // FetchAuction SECTION ==========================
   const [auction, setAuction] = useState([]);
@@ -21,9 +20,9 @@ const AuctionProvider = ({ children }) => {
     }),
   };
 
-
+  const fetchAuction = async () => {
     try {
-      let res = await fetch(
+      const res = await fetch(
         `${import.meta.env.VITE_API_URL}/auction/find-one`,
         options
       );
@@ -37,16 +36,12 @@ const AuctionProvider = ({ children }) => {
   };
   // END FetchAuction SECTION ==========================
 
-
-  
-
   // ===================================================
   // FetchUsersAuctions SECTION ========================
- 
+
   const [usersAuctions, setUsersAuctions] = useState([]);
 
   const fetchUsersAuctions = async (userId) => {
-
     var options = {
       method: "POST",
       headers: {
@@ -59,7 +54,7 @@ const AuctionProvider = ({ children }) => {
     };
 
     try {
-      let res = await fetch(
+      const res = await fetch(
         `${import.meta.env.VITE_API_URL}/auction/find/all/user`,
         options
       );
@@ -74,15 +69,17 @@ const AuctionProvider = ({ children }) => {
   // END FetchUsersAuctions SECTION ====================
 
   return (
-    <AuctionContext.Provider value={
-      { auction, 
-      setAuction, 
-      fetchAuction, 
-      usersAuctions, 
-      fetchUsersAuctions ,
-      seller, setSeller
-      }}>
-
+    <AuctionContext.Provider
+      value={{
+        auction,
+        setAuction,
+        fetchAuction,
+        usersAuctions,
+        fetchUsersAuctions,
+        seller,
+        setSeller,
+      }}
+    >
       {children}
     </AuctionContext.Provider>
   );
