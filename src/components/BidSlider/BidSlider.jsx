@@ -6,29 +6,27 @@ import { BidContext, BidProvider } from "../context/BidsContext";
 const Slider = () => {
   const { auction, setAuction, fetchAuction } = useContext(AuctionContext);
 
-  const { bid, setBid, fetchBid } = useContext(BidContext);
-  const [newBid, setNewBid] = useState({ startBid: "", maxBid: "" });
+  const { maxBid, setMaxBid, startBid, setStartBid, fetchBid } =
+    useContext(BidContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (newBid.maxBid === "") {
-      newBid.maxBid = newBid.startBid;
-    }
 
     if (e.error) {
       console.log("error: " + e.error);
     }
 
-    console.log(newBid);
-    bid.startBid = newBid.startBid;
-    bid.maxBid = newBid.maxBid;
-    console.log(bid);
-    fetchBid()
-    bid.startBid = "";
-    bid.maxBid = "";
-    newBid.startBid = "";
-    newBid.maxBid = "";
+    if (maxBid === "") {
+      maxBid
+    }
+
+    console.log(startBid + " startb");
+    console.log(maxBid + " maxb");
+
+    fetchBid();
+
+    setStartBid("");
+    setMaxBid("");
   };
 
   //toggle autobid container
@@ -70,8 +68,8 @@ const Slider = () => {
             className="bid"
             type="text"
             placeholder="BID"
-            value={newBid.startBid}
-            onChange={(e) => setNewBid({ ...newBid, startBid: e.target.value })}
+            value={startBid}
+            onChange={(e) => setStartBid(e.target.value)}
             required
           />
           <div className="check-container">
@@ -89,8 +87,8 @@ const Slider = () => {
             className="auto-bid"
             type="text"
             placeholder="AUTO-BID"
-            value={newBid.maxBid}
-            onChange={(e) => setNewBid({ ...newBid, maxBid: e.target.value })}
+            value={maxBid}
+            onChange={(e) => setMaxBid(e.target.value)}
           />
         </div>
 

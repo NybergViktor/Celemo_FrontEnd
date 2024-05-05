@@ -2,8 +2,9 @@ import { createContext, useEffect, useState } from "react";
 
 const BidContext = createContext();
 
-const BidProvider = ({ children}) => {
-  const [bid, setbid] = useState([]);
+const BidProvider = ({ children }) => {
+  const [startBid, setStartBid] = useState();
+  const [maxBid, setMaxBid] = useState();
 
   var options = {
     method: "POST",
@@ -13,28 +14,33 @@ const BidProvider = ({ children}) => {
     credentials: "include",
 
     body: JSON.stringify({
-      bid,
+      startBid: `${startBid}`,
+      maxBid: `${maxBid}`,
       userId: "65eedef949aaf15adc303069",
       auctionId: "6636962a4e494335e4e911c3",
     }),
   };
-
+  
   const fetchBid = async () => {
-    console.log(bid.stringify + "fetch");
+    console.log(startBid + " fetch");
+    console.log(maxBid + " fetch");
     try {
       let res = await fetch(
         `${import.meta.env.VITE_API_URL}/bids/create`,
         options
       );
+      console.log(JSON.stringify(options) + " options");
       const data = await res.json();
-      console.log(data);
+      console.log(JSON.stringify(data) + " data");
     } catch (err) {
       console.log("err: " + err);
     }
   };
 
   return (
-    <BidContext.Provider value={{ bid, setbid, fetchBid }}>
+    <BidContext.Provider
+      value={{ startBid, setStartBid, maxBid, setMaxBid, fetchBid }}
+    >
       {children}
     </BidContext.Provider>
   );
