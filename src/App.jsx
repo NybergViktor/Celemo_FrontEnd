@@ -18,7 +18,7 @@ function App() {
           <AuctionProvider>
             <BrowserRouter>
               <Routes>
-                <Route exact path="/:page" element={<Startpage />} />
+                <Route exact path="/" element={<Startpage />} />
                 <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="/review" element={<ReviewPage />} />
