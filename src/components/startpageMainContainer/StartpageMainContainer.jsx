@@ -1,19 +1,21 @@
 import React, { useContext, useEffect } from "react";
 import "./StartpageMainContainer.css";
 import { AuctionContext } from "../context/AuctionContext";
+import { SearchContext } from "../context/SearchContext";
 
-const StartpageMainContainer = ({}) => {
+const StartpageMainContainer = () => {
   const { allAuctions, fetchAllAuctions } = useContext(AuctionContext);
+  const { searchAuctions, foundAuctions, pageNr, setPageNr } = useContext(SearchContext);
 
   useEffect(() => {
-    fetchAllAuctions();
+    searchAuctions("", 2);
   }, []);
 
   return (
     <div className="startpageMainContainer">
 
       {/** ONE AUCTION */}
-      {allAuctions.map((auction) => {
+      {foundAuctions.map((auction) => {
         return (
           // AUCTION WHITE BOX
           <div key={auction.id} className="startpageAuctionContainer">
