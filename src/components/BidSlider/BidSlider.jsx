@@ -17,11 +17,11 @@ const Slider = () => {
     }
 
     if (maxBid === "") {
-      
+      console.log("didnt work");
     }
 
-    console.log(startBid + " startb");
-    console.log(maxBid + " maxb");
+    console.log(startBid + " fetch start");
+    console.log(maxBid + " fetch max");
 
     fetchBid();
 
@@ -42,11 +42,13 @@ const Slider = () => {
     setSliderActive((current) => !current);
   };
 
+  let bids = [auction.bid];
+
   useEffect(() => {
     fetchAuction();
-  }, []);
+  }, [bids]);
 
-  let bids = [auction.bid];
+  
 
   return (
     <div className={sliderActive ? "sliderContainer" : "sliderContainerOff"}>
@@ -54,14 +56,14 @@ const Slider = () => {
         PLACE BID
       </button>
 
-      <div className="test">
-        <button className="min" type="button" onClick={handleSlider}>
-          <p>-</p>
-        </button>
-
+      <div className="firstRow">
+        
         <div className="currentPrice">{auction.currentPrice}Kr</div>
         <div className="bidsContainer">Bids: {bids.length}</div>
       </div>
+      <button className="min" type="button" onClick={handleSlider}>
+          <p>-</p>
+        </button>
       <form className="formContainer" onSubmit={handleSubmit}>
         <div className="auto-con">
           <input

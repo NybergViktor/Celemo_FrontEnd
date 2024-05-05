@@ -16,22 +16,21 @@ const BidProvider = ({ children }) => {
     body: JSON.stringify({
       startBid: `${startBid}`,
       maxBid: `${maxBid}`,
-      userId: "65eedef949aaf15adc303069",
+      userId: "65eedcca70f19c4ea0545463",
       auctionId: "6636962a4e494335e4e911c3",
     }),
   };
-  
+
   const fetchBid = async () => {
-    console.log(startBid + " fetch");
-    console.log(maxBid + " fetch");
     try {
-      let res = await fetch(
-        `${import.meta.env.VITE_API_URL}/bids/create`,
-        options
-      );
-      console.log(JSON.stringify(options) + " options");
-      const data = await res.json();
-      console.log(JSON.stringify(data) + " data");
+    let res = await fetch(
+      `${import.meta.env.VITE_API_URL}/bids/create`,
+      options
+    );
+
+    const data = await res.json();
+    console.log(JSON.stringify(data + " data"));
+    
     } catch (err) {
       console.log("err: " + err);
     }
