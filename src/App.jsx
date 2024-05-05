@@ -8,6 +8,8 @@ import { UserProvider } from "./components/context/UserContext";
 import ReviewPage from "./pages/reviewpage/ReviewPage";
 import AuctionPage from "./pages/auction-page/AuctionPage";
 import { AuctionProvider } from "./components/context/AuctionContext";
+import CreateAuctionPage from './pages/create-auction-page/CreateAuctionPage'
+
 
 function App() {
   return (
@@ -21,12 +23,14 @@ function App() {
               <Route path="/signup" element={<SignupPage />} />
               <Route path="/review" element={<ReviewPage />} />
               <Route path="/auction" element={<AuctionPage />} />
+                <Route path="/create-auction" element={<CreateAuctionPage />} />
             </Routes>
           </BrowserRouter>
         </AuctionProvider>
       </UserProvider>
     </LoginProvider>
   );
+
 }
 
 export default App;
