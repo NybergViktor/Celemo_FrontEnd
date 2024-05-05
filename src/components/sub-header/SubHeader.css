@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   height: 5rem;
+  border-bottom: 0.5px solid black;
 }
 .filter-container {
   order: 1;
