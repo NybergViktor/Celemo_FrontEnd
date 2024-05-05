@@ -17,7 +17,7 @@ const Slider = () => {
     }
 
     if (maxBid === "") {
-      maxBid
+      
     }
 
     console.log(startBid + " startb");
