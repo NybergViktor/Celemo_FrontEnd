@@ -17,8 +17,8 @@ const InputFields = () => {
             placeholder="description"
             cols="15"
             rows="8"
-            minlength="10"
-            maxlength="500"
+            // minlength="10"
+            // maxlength="500"
             required
           ></textarea>
         </label>
