@@ -1,189 +1,235 @@
-.sliderContainer {
+.sliderContainerOff {
   width: 100vw;
-  height: 20rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
   background-color: #363636;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-}
 
-.currentPrice {
-  color: white;
-  margin: 0.5rem;
-  width: 20%;
-  text-align: center;
-}
-
-.bidsContainer {
-  background-color: white;
-  border-radius: 15px;
-  width: 20%;
-  text-align: center;
-}
-
-.formContainer {
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 80%;
-  width: 70%;
+
+  .currentPrice,
+  .bidsContainer,
+  .bid,
+  .check-container,
+  .notActive,
+  .submit,
+  .min {
+    display: none;
+  }
+
+  .openSlider {
+    border-style: none;
+    border-radius: 10px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: #f19d6f;
+    color: white;
+    width: 70%;
+    height: 3rem;
+    font-size: 120%;
+    text-align: center;
+  }
 }
 
-.bid {
-  border-radius: 10px;
-  border-style: none;
-  text-align: center;
-  height: 100%;
-  width: 70%;
-}
-
-.auto-bid-container {
-  display: block;
-  text-align: center;
-  width: 100%;
-  height: 15%;
-}
-
-.notActive {
-  display: none;
-}
-
-.auto-bid {
-  height: 100%;
-  width: 100%;
-  border-radius: 10px;
-  border-style: none;
-  text-align: center;
-}
-
-.submit {
-  border-style: none;
-  border-radius: 10px;
-  margin: 2rem;
-  background-color: #f19d6f;
-  color: white;
-  width: 100%;
-  height: 20%;
-  font-size: 120%;
-  text-align: center;
-}
-.auto-con {
+.sliderContainer {
+  width: 100vw;
+  height: auto;
   display: flex;
-  flex-direction: row;
-  border-radius: 10px;
-  border-style: none;
-  text-align: center;
-  height: 15%;
-  width: 100%;
-  margin: 1rem;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-}
-
-.check-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 25%;
-  border: none;
-  background: none;
-}
-
-#myCheck {
-  display: none;
-}
-
-/* The container */
-.check {
-  display: block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  margin-right: 4.3rem;
-  margin-top: -2.4rem;
   background-color: #363636;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  .openSlider {
+    display: none;
+  }
+
+  .min {
+    border-style: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 3px;
+    background-color: rgb(114, 114, 114);
+    color: white;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 3;
+    margin-left: 7.5rem;
+    margin-bottom: 0.7rem;
+    margin-right: 0.7rem;
+  }
+
+  .min p {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    font-size: 130%;
+    margin-top: 0.2rem
+  }
+
+  .test {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 2rem;
+    width: 85%;
+    margin-left: 2.6rem;
+    margin-top: 1rem;
+  }
+
+  .currentPrice {
+    color: white;
+    margin: 0.5rem;
+    width: 20%;
+    text-align: center;
+    order: 1;
+    flex-grow: 1;
+
+  }
+
+  .bidsContainer {
+    background-color: white;
+    border-radius: 15px;
+    width: 20%;
+    text-align: center;
+    order: 2;
+    flex-grow: 1;
+  }
+
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80%;
+    width: 70%;
+  }
+
+  .bid {
+    border-radius: 10px;
+    border-style: none;
+    text-align: center;
+    height: 2.5rem;
+    width: 70%;
+  }
+
+  .auto-bid-container {
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 15%;
+  }
+
+  .notActive {
+    display: none;
+  }
+
+  .auto-bid {
+    height: 2.5rem;
+    width: 100%;
+    border-radius: 10px;
+    border-style: none;
+    text-align: center;
+  }
+
+  .submit {
+    border-style: none;
+    border-radius: 10px;
+    margin: 1rem;
+    background-color: #f19d6f;
+    color: white;
+    width: 100%;
+    height: 3rem;
+    font-size: 120%;
+    text-align: center;
+  }
+  .auto-con {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    border-style: none;
+    text-align: center;
+    height: 15%;
+    width: 100%;
+    margin: 1rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .check-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 25%;
+    border: none;
+    background: none;
+  }
+
+  #myCheck {
+    display: none;
+  }
+
+  /* The container */
+  .check {
+    display: block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-right: 4.3rem;
+    margin-top: -2.4rem;
+    background-color: #363636;
+  }
+
+  /* Hide the browser's default checkbox */
+  .check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    height: 38px;
+    width: 70px;
+    background-color: #eee;
+    border-radius: 8px;
+    color: black;
+    font-size: 15px;
+    color: rgb(150, 150, 150);
+  }
+
+  .ch {
+    position: absolute;
+    height: 38px;
+    width: 70px;
+    background-color: #6eaa71;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    color: rgb(150, 150, 150);
+  }
+
+  .checkmark p {
+    margin-top: 0.5rem;
+    font-weight: 600;
+  }
+  .ch p {
+    margin-top: 0.5rem;
+    font-weight: 600;
+    color: white;
+  }
 }
-
-/* Hide the browser's default checkbox */
-.check input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  height: 38px;
-  width: 70px;
-  background-color: #eee;
-  border-radius: 8px;
-  color: black;
-  font-size: 15px;
-  color: rgb(150, 150, 150);
-}
-
-.ch{
-  position: absolute;
-  height: 38px;
-  width: 70px;
-  background-color: #6eaa71;
-  border-radius: 8px;
-  color: white;
-  font-size: 15px;
-  color: rgb(150, 150, 150);
-}
-
-.checkmark p { 
-  margin-top: 0.5rem;
-  font-weight: 600;
-}
-.ch p{
-  margin-top: 0.5rem;
-  font-weight: 600;
-  color: white;
-}
-
-
-/* On mouse-over, add a grey background color */
-/* .check:hover input ~ .checkmark {
-  background-color: #ffffff;
-} */
-
-/* When the checkbox is checked, add a blue background */
-/* .check input:checked ~ .checkmark {
-  background-color: #2196f3;
-} */
-
-/* Create the checkmark/indicator (hidden when not checked) */
-/* .checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-} */
-
-/* Show the checkmark when checked */
-/* .check input:checked ~ .checkmark:after {
-  display: block;
-} */
-
-/* Style the checkmark/indicator */
-/* .check .checkmark:after {
-  left: 30px;
-  top: 7px;
-  width: 10px;
-  height: 20px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-} */

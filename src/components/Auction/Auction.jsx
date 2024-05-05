@@ -6,7 +6,6 @@ import { useContext, useState, useEffect } from "react";
 
 export const Auction = () => {
   const { auction, fetchAuction, seller } = useContext(AuctionContext);
-  
 
   useEffect(() => {
     fetchAuction();
@@ -25,10 +24,17 @@ export const Auction = () => {
           <div className="auction-title">{auction.title}</div>
           <div className="description">{auction.productDescription}</div>
 
-          <div className="location">{seller.adress_city}</div>
           <div className="seller">
             <div>@{seller.username}</div>
             <button>Reviews</button>
+          </div>
+          <div className="location">
+            <img
+              className="pin"
+              src="src/components/Auction/teenyicons_pin-solid.png"
+              alt="location"
+            />
+            {seller.adress_city}
           </div>
         </div>
         <div className="blankWhite"></div>
