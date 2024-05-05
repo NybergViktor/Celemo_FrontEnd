@@ -1,0 +1,39 @@
+.userContainerContentMain {
+    display: flex;
+    flex-direction: column;
+}
+.containerItem {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin: 1%;
+    background-color: rgba(229, 228, 228, 1);
+    border-radius: 20px;
+    padding-left: 2%;
+    padding-right: 5%;
+}
+.dynamicItem>a {
+    text-decoration: none;
+    color: black;
+}
+.dynamicItem>a:hover {
+    color: white;
+}
+
+.dynamicItemBtn {
+    background-color: rgba(241, 157, 111, 1);
+    border: none;
+    
+    margin-right: 1% !important;
+    margin-top: 1% !important;
+    margin-bottom: 1% !important;
+    
+    border-radius: 5px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+.dynamicItemBtn:hover {
+    /* background-color: rgba(54, 54, 54, 1); */
+    background-color: rgb(172, 172, 172);
+    
+}
