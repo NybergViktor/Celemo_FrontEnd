@@ -1,21 +1,17 @@
 .userContainerContentMain {
     display: flex;
+    flex-direction: column;
 }
 .containerItem {
     display: flex;
-    justify-content: center;
     justify-content:space-between;
     align-items: center;
-    margin: 2% !important;
-    width: 100%;
+    margin: 1%;
     background-color: rgba(229, 228, 228, 1);
     border-radius: 20px;
-    padding-left: 2% !important;
-    padding-right: 5% !important;
-    padding-bottom: 0.5% !important;
-    padding-top: 0.5% !important;
+    padding-left: 2%;
+    padding-right: 5%;
 }
-
 .dynamicItem>a {
     text-decoration: none;
     color: black;
@@ -26,10 +22,12 @@
 
 .dynamicItemBtn {
     background-color: rgba(241, 157, 111, 1);
+    border: none;
+    
     margin-right: 1% !important;
     margin-top: 1% !important;
     margin-bottom: 1% !important;
-    border: none;
+    
     border-radius: 5px;
     padding-left: 10px !important;
     padding-right: 10px !important;

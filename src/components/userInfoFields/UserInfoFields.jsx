@@ -1,5 +1,5 @@
 import "./UserInfoFields.css";
-import UserContext from "../context/UserContext";
+import {UserContext} from "../context/UserContext";
 import { useEffect, useContext, useState } from "react";
 
 const UserInfoFields = () => {

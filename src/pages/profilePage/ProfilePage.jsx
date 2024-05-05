@@ -2,9 +2,11 @@ import "./ProfilePage.css";
 import Footer from "../../components/footer/Footer";
 import UserContainer from "../../components/userContainer/UserContainer";
 import UserInfoFields from "../../components/userInfoFields/UserInfoFields";
-import UserContainerContent from "../../components/userContainerContent/UserContainerContent";
+import UserContainerMyAuctions from "../../components/userContainerMyAuctions/UserContainerMyAuctions";
+import UserContainerAuctions from "../../components/userContainerAuctions/UserContainerAuctions";
+import UserContainerFavourites from "../../components/userContainerFavourites/UserContainerFavourites";
 import Header from "../../components/header/Header";
-import UserContext from "../../components/context/UserContext";
+import {UserContext} from "../../components/context/UserContext";
 import { useEffect, useContext, useState } from "react";
 
 const ProfilePage = () => {
@@ -37,7 +39,7 @@ const ProfilePage = () => {
 
           {/* USERS OWN AUCTIONS */}
           <UserContainer containerTitle="My Auctions">
-            <UserContainerContent btnTitle="Edit"></UserContainerContent>
+            <UserContainerMyAuctions btnTitle="Edit"></UserContainerMyAuctions>
           </UserContainer>
 
           {/* AUCTIONS */}
@@ -46,12 +48,12 @@ const ProfilePage = () => {
             useContainerBtn="yes"
             btnTitle="Bid History"
             >
-            <UserContainerContent></UserContainerContent>
+            <UserContainerAuctions></UserContainerAuctions>
           </UserContainer>
 
           {/* FAVOURITES */}
           <UserContainer containerTitle="My Favourites">
-            <UserContainerContent></UserContainerContent>
+            <UserContainerFavourites></UserContainerFavourites>
           </UserContainer>
         </div>
       </main>
