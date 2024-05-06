@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 const ReviewContext = createContext();
 
 const ReviewProvider = ({ children }) => {
-  
+
   // START FetchAllReviews SECTION ==========================
 
   const [usersReviews, setUsersReviews] = useState([]);
@@ -34,12 +34,15 @@ const ReviewProvider = ({ children }) => {
     }
   };
 
+  // END FetchAllReviews SECTION ==========================
+  
 
   return (
     <ReviewContext.Provider value={{
         usersReviews,
         setUsersReviews,
-        fetchUsersReviews
+        fetchUsersReviews,
+        
     }}>
       {children}
     </ReviewContext.Provider>
