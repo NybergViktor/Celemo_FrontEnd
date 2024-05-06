@@ -1,35 +1,40 @@
-import { propTypes } from "react-bootstrap/esm/Image";
+
 import "./reviewContainerContent.css";
+import { useContext, useEffect, useState } from "react";
+import { ReviewContext } from "../context/ReviewContext";
 
-const ReviewContainerContent = (props) => {
+
+const ReviewContainerContent = () => {
+    const { usersReviews, fetchUsersReviews } = useContext(ReviewContext); 
+    const [loggedInUserId, setLoggedInUserId] = useState(localStorage.getItem("loggedInUserId"));
+    
+    useEffect(() => {
+        fetchUsersReviews(loggedInUserId);
+    }, []);
+
+    
     return(
-        <>
             <div className="reviewContainerContent">
-            <div className="user">
-                <h2>@{props.username}</h2>
-            </div>
-                <ul>                        
-                    <li>
-                        <div className="review">
-                            <div className="gradecontainer"> Grade:<div> {props.grade}</div>
+                {usersReviews.map((review) => {
+                    return (
+            <><div className="user">
+                            <h2>{review.reviewedUser.username}</h2>
+                        </div><ul>
+                                <li>
+                                    <div className="review">
+                                        <div className="gradecontainer"> Grade:<div> {review.grade}</div>
+                                        </div>
+                                        <div className="reviewtext">{review.reviewText}</div>
+                                        <h5>{review.createdBy.username}</h5>
                                     </div>
-                                    <div className="reviewtext">{props.reviewtext}</div>
-                            <h5>@{props.reviewinguser}</h5>
-                        </div>
-                    </li>
-                </ul>
+                                </li>
+                            </ul></>
+                )
+            }
+                )
+                }
             </div>
-        </>
-    )
-}
+    );
+};
 
-{/* This here makes it so we can debug easier by the console telling us if something isn't the same
-    data type as what's depicted in the propTypes */}
-
-ReviewContainerContent.propTypes = {
-    username: propTypes.string,
-    grade: propTypes.number,
-    reviewtext: propTypes.string,
-    reviewinguser: propTypes.string
-}
 export default ReviewContainerContent;
