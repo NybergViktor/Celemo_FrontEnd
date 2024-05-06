@@ -70,7 +70,7 @@ const StartpageMainContainer = () => {
                 <div className="auctionInfoUnder">
                   <div className="auctionInfoUnderTitle">{auction.title}</div>
                   <div className="auctionInfoUnderButton">
-                    <button>Place Bid</button>
+                    <button>PLACE BID</button>
                   </div>
                 </div>
               </div>
