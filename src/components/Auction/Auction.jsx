@@ -5,12 +5,10 @@ import { AuctionContext } from "../context/AuctionContext";
 import { useContext, useState, useEffect } from "react";
 
 export const Auction = () => {
-  const { auction, setAuction, fetchAuction } = useContext(AuctionContext);
-  // const [seller, setSeller] = useState([]);
+  const { auction, fetchAuction, seller } = useContext(AuctionContext);
 
   useEffect(() => {
     fetchAuction();
-    // setSeller(auction.seller);
   }, []);
 
   return (
@@ -24,13 +22,19 @@ export const Auction = () => {
             <p>{auction.celebrityName}</p>
           </div>
           <div className="auction-title">{auction.title}</div>
-          <div className="description"></div>
+          <div className="description">{auction.productDescription}</div>
 
-          <div className="location"></div>
           <div className="seller">
-            <div></div>
-            {/* <div>{auction.seller.username}</div>   FRÅGA HELENA VARFÖR DET INTE GÅR */}
+            <div>@{seller.username}</div>
             <button>Reviews</button>
+          </div>
+          <div className="location">
+            <img
+              className="pin"
+              src="src/components/Auction/teenyicons_pin-solid.png"
+              alt="location"
+            />
+            {seller.adress_city}
           </div>
         </div>
         <div className="blankWhite"></div>

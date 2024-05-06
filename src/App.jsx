@@ -8,24 +8,25 @@ import { UserProvider } from "./components/context/UserContext";
 import ReviewPage from "./pages/reviewpage/ReviewPage";
 import AuctionPage from "./pages/auction-page/AuctionPage";
 import { AuctionProvider } from "./components/context/AuctionContext";
+import { BidProvider } from "./components/context/BidsContext";
 import CreateAuctionPage from './pages/create-auction-page/CreateAuctionPage'
-
 
 function App() {
   return (
     <LoginProvider>
       <UserProvider>
         <AuctionProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Startpage />} />
-              <Route path="/profile" element={<ProfilePage />} />
-              <Route path="/signup" element={<SignupPage />} />
-              <Route path="/review" element={<ReviewPage />} />
-              <Route path="/auction" element={<AuctionPage />} />
-                <Route path="/create-auction" element={<CreateAuctionPage />} />
-            </Routes>
-          </BrowserRouter>
+          <BidProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Startpage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/signup" element={<SignupPage />} />
+                <Route path="/review" element={<ReviewPage />} />
+                <Route path="/auction" element={<AuctionPage />} />
+              </Routes>
+            </BrowserRouter>
+          </BidProvider>
         </AuctionProvider>
       </UserProvider>
     </LoginProvider>
