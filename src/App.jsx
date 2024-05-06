@@ -9,6 +9,7 @@ import ReviewPage from "./pages/reviewpage/ReviewPage";
 import AuctionPage from "./pages/auction-page/AuctionPage";
 import { AuctionProvider } from "./components/context/AuctionContext";
 import { BidProvider } from "./components/context/BidsContext";
+import CreateAuctionPage from './pages/create-auction-page/CreateAuctionPage'
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       </UserProvider>
     </LoginProvider>
   );
+
 }
 
 export default App;
