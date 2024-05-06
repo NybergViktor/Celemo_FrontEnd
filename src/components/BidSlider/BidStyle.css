@@ -26,6 +26,7 @@
   text-align: center;
   justify-content: center;
   position: relative;
+  max-width: 500px;
 }
 
 .sliderContainer .openSlider{
