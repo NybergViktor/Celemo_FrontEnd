@@ -8,7 +8,11 @@ import { UserProvider } from "./components/context/UserContext";
 import ReviewPage from "./pages/reviewpage/ReviewPage";
 import AuctionPage from "./pages/auction-page/AuctionPage";
 import { AuctionProvider } from "./components/context/AuctionContext";
+
 import { SearchProvider } from "./components/context/SearchContext";
+
+import { BidProvider } from "./components/context/BidsContext";
+
 import CreateAuctionPage from './pages/create-auction-page/CreateAuctionPage'
 
 function App() {
@@ -17,17 +21,24 @@ function App() {
       <UserProvider>
         <SearchProvider>
           <AuctionProvider>
+    <BidProvider>
             <BrowserRouter>
               <Routes>
-                <Route exact path="/" element={<Startpage />} />
+                <Route path="/" element={<Startpage />} />
+
+                <Route path="/" element={<Startpage />} />
+
                 <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="/review" element={<ReviewPage />} />
                 <Route path="/auction" element={<AuctionPage />} />
               </Routes>
             </BrowserRouter>
-          </AuctionProvider>
-        </SearchProvider>
+
+          </BidProvider>
+        </AuctionProvider>
+</SearchProvider>
+
       </UserProvider>
     </LoginProvider>
   );

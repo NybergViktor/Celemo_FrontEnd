@@ -5,6 +5,10 @@
   width: 100vw;
 }
 
+.auction{
+  max-width: 1000px;
+}
+
 .slider {
   position: fixed;
   left: 0;

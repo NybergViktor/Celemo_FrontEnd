@@ -1,24 +1,127 @@
+.sliderContainerOff {
+  width: 100vw;
+
+  background-color: #363636;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sliderContainerOff .openSlider {
+  border-style: none;
+  border-radius: 10px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background-color: #f19d6f;
+  color: white;
+  width:70%;
+  height: 3rem;
+  font-size: 120%;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  max-width: 500px;
+}
+
+.sliderContainer .openSlider{
+  display: none;
+}
+
+.sliderContainerOff .mainTwo{
+  display: none;
+
+}
+
+ .mainOne {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mainTwo{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .sliderContainer {
   width: 100vw;
-  height: 20rem;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #363636;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  flex-wrap: wrap;
+}
+
+.firstRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 2rem;
+  width: 70%;
+  margin-top: 1rem;
+  max-width: 500px;
+  margin-bottom: 0.8rem;
+}
+
+.min {
+  border-style: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 3px;
+  background-color: rgb(114, 114, 114);
+  color: white;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  align-self: start;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.min p {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  font-size: 130%;
+  margin-top: 0.2rem;
 }
 
 .currentPrice {
   color: white;
-  margin: 0.5rem;
+  width: 70%;
+  position: relative;
+  /* @media only screen and (max-width: 270px) {
+      margin-top: 2rem;
+
+    } */
 }
 
 .bidsContainer {
   background-color: white;
-  border-radius: 15px;
-  width: 20%;
+  border-radius: 8px;
+  width: 30%;
   text-align: center;
+
+  /* @media only screen and (max-width: 270px) {
+      margin-top: -3rem;
+
+    } */
 }
 
 .formContainer {
@@ -27,34 +130,130 @@
   align-items: center;
   height: 80%;
   width: 70%;
+  max-width: 500px;
 }
 
 .bid {
   border-radius: 10px;
   border-style: none;
   text-align: center;
-  height: 15%;
-  width: 100%;
-  margin: 1rem;
+  height: 2.5rem;
+  width: 60%;
 }
 
-.auto-bid {
-  border-radius: 10px;
-  border-style: none;
+.auto-bid-container {
+  display: block;
   text-align: center;
   width: 100%;
   height: 15%;
+  max-width: 1000px;
 }
 
-.formContainer button {
-    border-style: none;
-    border-radius: 10px;
-    margin: 2rem;
-    background-color: #F19D6F;
-    color: white;
-    width: 100%;
-    height: 20%;
-    font-size: 120%;
-    text-align: center;
+.notActive {
+  display: none;
+}
 
+.auto-bid {
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 10px;
+  border-style: none;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.submit {
+  border-style: none;
+  border-radius: 10px;
+  margin: 1rem;
+  margin-bottom: 2rem;
+  background-color: #f19d6f;
+  color: white;
+  width: 100%;
+  height: 3rem;
+  font-size: 120%;
+  text-align: center;
+}
+.auto-con {
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  border-style: none;
+  text-align: center;
+  height: 15%;
+  width: 100%;
+  margin: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.check-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 25%;
+  border: none;
+  background: none;
+}
+
+#myCheck {
+  display: none;
+}
+
+/* The container */
+.check {
+  display: block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-right: 5rem;
+  margin-top: -2.4rem;
+  background-color: #363636;
+  align-self: end;
+}
+
+/* Hide the browser's default checkbox */
+.check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  height: 38px;
+  width: 80px;
+  background-color: white;
+  border-radius: 8px;
+  color: black;
+  font-size: 15px;
+  color: rgb(150, 150, 150);
+}
+
+.ch {
+  position: absolute;
+  height: 38px;
+  width: 80px;
+  background-color: #6eaa71;
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+  color: rgb(150, 150, 150);
+}
+
+.checkmark p {
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+.ch p {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: white;
 }
