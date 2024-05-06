@@ -16,7 +16,7 @@ const ReviewContainerContent = () => {
     return(
             <div className="reviewContainerContent">
                 <div className="user">
-                            <h2>{reviewedUser.username}</h2>
+                            <h2>@{reviewedUser.username}</h2>
                         </div>
 
                 {usersReviews.length === 0 && <h1>No reviews yet</h1>}
@@ -31,7 +31,7 @@ const ReviewContainerContent = () => {
 
                                     <div className="reviewtext">{review.reviewText}</div>
 
-                                    <h5>{review.createdBy.username}</h5>
+                                    <h5>@{review.createdBy.username}</h5>
 
                                  </div>
                             </li>
