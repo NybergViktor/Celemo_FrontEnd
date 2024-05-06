@@ -13,7 +13,6 @@
   position: relative;
 }
 
-
 .sliderContainerOff .openSlider {
   border-style: none;
   border-radius: 10px;
@@ -210,9 +209,10 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  margin-right: 6rem;
+  margin-right: 5rem;
   margin-top: -2.4rem;
   background-color: #363636;
+  align-self: end;
 }
 
 /* Hide the browser's default checkbox */
@@ -229,7 +229,7 @@
   position: absolute;
   height: 38px;
   width: 80px;
-  background-color: #eee;
+  background-color: white;
   border-radius: 8px;
   color: black;
   font-size: 15px;
