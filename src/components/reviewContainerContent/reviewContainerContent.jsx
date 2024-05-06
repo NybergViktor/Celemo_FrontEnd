@@ -5,7 +5,7 @@ import { ReviewContext } from "../context/ReviewContext";
 
 
 const ReviewContainerContent = () => {
-    const { usersReviews, fetchUsersReviews } = useContext(ReviewContext); 
+    const { usersReviews, fetchUsersReviews, reviewedUser} = useContext(ReviewContext); 
     const [loggedInUserId, setLoggedInUserId] = useState(localStorage.getItem("loggedInUserId"));
     
     useEffect(() => {
@@ -15,15 +15,15 @@ const ReviewContainerContent = () => {
     
     return(
             <div className="reviewContainerContent">
+                <div className="user">
+                            <h2>{reviewedUser.username}</h2>
+                        </div>
 
                 {usersReviews.length === 0 && <h1>No reviews yet</h1>}
                 {usersReviews.map((review) => {
                     return (
             <>
             <div key={review.id} className="key"></div>
-            <div className="user">
-                            <h2>{review.reviewedUser.username}</h2>
-                        </div>
                         <ul>
                             <li>
                                  <div className="review">

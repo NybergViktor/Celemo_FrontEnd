@@ -7,8 +7,10 @@ const ReviewProvider = ({ children }) => {
   // START FetchAllReviews SECTION ==========================
 
   const [usersReviews, setUsersReviews] = useState([]);
+  const [reviewedUser, setReviewedUser] = useState([]);
 
   const fetchUsersReviews = async (userId) => {
+
 
     var options = {
       method: "POST",
@@ -28,6 +30,7 @@ const ReviewProvider = ({ children }) => {
       );
       const data = await res.json();
       console.log(data);
+      setReviewedUser(data[0].reviewedUser);
       setUsersReviews(data);
     } catch (err) {
       console.log("err: " + err);
@@ -42,6 +45,8 @@ const ReviewProvider = ({ children }) => {
         usersReviews,
         setUsersReviews,
         fetchUsersReviews,
+        reviewedUser,
+        setReviewedUser
         
     }}>
       {children}
