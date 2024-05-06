@@ -1,0 +1,44 @@
+
+
+/* style for button in mobile view */
+.publish-button-container {
+  display: block;
+  position: relative;
+  bottom: 7rem;
+}
+
+.publish-button {
+  height: 6rem;
+  width: 16rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #f19d6f;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+@media screen and (max-width: 847px) {
+  .publish-button{
+    box-shadow: 1px 5px 5px 0px #000000;
+  }
+}
+
+@media screen and (min-width: 847px) {
+
+  /* moving the button design aswell with moving it forward so its shown */
+  .publish-button-container{
+    z-index: 1;
+    bottom: 11.3rem;
+    left: 18%;
+  }
+
+  .publish-button {
+    height: 5rem;
+    width: 18.8rem;
+  }
+
+  .publish-button:hover,
+  .publish-button:focus {
+    box-shadow: 1px 5px 5px 0px #000000;
+  }
+}
