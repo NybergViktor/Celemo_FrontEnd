@@ -15,24 +15,26 @@ const ReviewContainerContent = () => {
     
     return(
             <div className="reviewContainerContent">
+                {usersReviews.length === 0 && <h1>No reviews yet</h1>}
                 {usersReviews.map((review) => {
                     return (
-            <><div className="user">
+            <>
+            <div key={review.id}></div>
+            <div className="user">
                             <h2>{review.reviewedUser.username}</h2>
-                        </div><ul>
-                                <li>
-                                    <div className="review">
-                                        <div className="gradecontainer"> Grade:<div> {review.grade}</div>
-                                        </div>
-                                        <div className="reviewtext">{review.reviewText}</div>
-                                        <h5>{review.createdBy.username}</h5>
+                        </div>
+                        <ul>
+                            <li>
+                                 <div className="review">
+                                    <div className="gradecontainer"> Grade:<div> {review.grade}</div>
                                     </div>
-                                </li>
-                            </ul></>
-                )
-            }
-                )
-                }
+                                    <div className="reviewtext">{review.reviewText}</div>
+                                    <h5>{review.createdBy.username}</h5>
+                                 </div>
+                            </li>
+                        </ul>
+                    </>
+                )})}
             </div>
     );
 };

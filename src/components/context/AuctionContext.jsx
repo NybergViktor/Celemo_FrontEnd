@@ -3,32 +3,33 @@ import { createContext, useEffect, useState } from "react";
 const AuctionContext = createContext();
 
 const AuctionProvider = ({ children }) => {
-  
   // ===============================================
   // FetchAuction SECTION ==========================
   const [auction, setAuction] = useState([]);
-  
+
+  const [seller, setSeller] = useState([]);
+
+  var options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify({
+      auctionId: "6636962a4e494335e4e911c3",
+    }),
+  };
+
   const fetchAuction = async () => {
-
-    var options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify({
-        auctionId: "65f81f6866a5913190fc0dd3",
-      }),
-    };
-
     try {
-      let res = await fetch(
+      const res = await fetch(
         `${import.meta.env.VITE_API_URL}/auction/find-one`,
         options
       );
       const data = await res.json();
       console.log(data);
       setAuction(data);
+      setSeller(data.seller);
     } catch (err) {
       console.log("err: " + err);
     }
@@ -37,11 +38,10 @@ const AuctionProvider = ({ children }) => {
 
   // ===================================================
   // FetchUsersAuctions SECTION ========================
- 
+
   const [usersAuctions, setUsersAuctions] = useState([]);
 
   const fetchUsersAuctions = async (userId) => {
-
     var options = {
       method: "POST",
       headers: {
@@ -54,7 +54,7 @@ const AuctionProvider = ({ children }) => {
     };
 
     try {
-      let res = await fetch(
+      const res = await fetch(
         `${import.meta.env.VITE_API_URL}/auction/find/all/user`,
         options
       );
@@ -69,13 +69,17 @@ const AuctionProvider = ({ children }) => {
   // END FetchUsersAuctions SECTION ====================
 
   return (
-    <AuctionContext.Provider value={
-      { auction, 
-      setAuction, 
-      fetchAuction, 
-      usersAuctions, 
-      fetchUsersAuctions 
-      }}>
+    <AuctionContext.Provider
+      value={{
+        auction,
+        setAuction,
+        fetchAuction,
+        usersAuctions,
+        fetchUsersAuctions,
+        seller,
+        setSeller,
+      }}
+    >
       {children}
     </AuctionContext.Provider>
   );
