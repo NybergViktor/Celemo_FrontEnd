@@ -68,18 +68,40 @@ const AuctionProvider = ({ children }) => {
 
   // END FetchUsersAuctions SECTION ====================
 
+  // ===================================================
+  // FetchAllAuctions SECTION ==========================
+
+  const [ allAuctions, setAllAuctions ] = useState([]);
+  const [ totalItems, setTotalItems ] = useState(0);
+
+  const fetchAllAuctions = async () => {
+
+    try {
+      let res = await fetch(
+        `${import.meta.env.VITE_API_URL}/auction/find/all`);
+      const data = await res.json();
+      // console.log(data);
+      setAllAuctions(data);
+      setTotalItems(data.length);
+    } catch (err) {
+      console.log("err: " + err);
+    }
+  };
+  // END FetchAllAuctions SECTION ======================
+
   return (
-    <AuctionContext.Provider
-      value={{
-        auction,
-        setAuction,
-        fetchAuction,
-        usersAuctions,
-        fetchUsersAuctions,
-        seller,
-        setSeller,
-      }}
-    >
+    <AuctionContext.Provider value={
+      { auction, 
+      setAuction, 
+      fetchAuction, 
+      usersAuctions, 
+      fetchUsersAuctions,
+      allAuctions,
+      fetchAllAuctions,
+      totalItems ,
+      seller,
+        setSeller
+      }}>
       {children}
     </AuctionContext.Provider>
   );

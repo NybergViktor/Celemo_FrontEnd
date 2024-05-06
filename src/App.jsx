@@ -8,7 +8,11 @@ import { UserProvider } from "./components/context/UserContext";
 import ReviewPage from "./pages/reviewPage/ReviewPage";
 import AuctionPage from "./pages/auction-page/AuctionPage";
 import { AuctionProvider } from "./components/context/AuctionContext";
+
+import { SearchProvider } from "./components/context/SearchContext";
+
 import { BidProvider } from "./components/context/BidsContext";
+
 import CreateAuctionPage from './pages/create-auction-page/CreateAuctionPage'
 import { ReviewProvider } from "./components/context/ReviewContext";
 
@@ -17,6 +21,7 @@ function App() {
   return (
     <LoginProvider>
       <UserProvider>
+        <SearchProvider>
         <AuctionProvider>
           <BidProvider>
           <ReviewProvider>
@@ -33,6 +38,7 @@ function App() {
           </ReviewProvider>
           </BidProvider>
         </AuctionProvider>
+    </SearchProvider>
       </UserProvider>
     </LoginProvider>
   );
