@@ -16,7 +16,7 @@ const BidProvider = ({ children }) => {
     body: JSON.stringify({
       startBid: `${startBid}`,
       maxBid: `${maxBid}`,
-      userId: "65eedcca70f19c4ea0545463",
+      userId: "65eeddd849aaf15adc303068",
       auctionId: "6636962a4e494335e4e911c3",
     }),
   };
