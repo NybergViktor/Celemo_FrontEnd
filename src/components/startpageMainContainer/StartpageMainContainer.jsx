@@ -83,6 +83,14 @@ const StartpageMainContainer = () => {
       {/** FROM BOOTSTRAP */}
       <nav aria-label="Page navigation example">
         <ul class="pagination">
+          
+
+          <li class="page-item middle-item">
+            <a class="page-link" href="#" onClick={handleFirst}>
+              First
+            </a>
+          </li>
+
           <li class="page-item">
             <a
               class="page-link"
@@ -94,21 +102,9 @@ const StartpageMainContainer = () => {
             </a>
           </li>
 
-          <li class="page-item middle-item">
-            <a class="page-link" href="#" onClick={handleFirst}>
-              First
-            </a>
-          </li>
-
           <li class="page-item middle-item disabled">
             <a class="page-link" href="#">
               {pageNr + 1} / {pages}
-            </a>
-          </li>
-
-          <li class="page-item middle-item">
-            <a class="page-link" href="#" onClick={handleLast}>
-              Last
             </a>
           </li>
 
@@ -122,6 +118,14 @@ const StartpageMainContainer = () => {
               <span aria-hidden="true">&gt;</span>
             </a>
           </li>
+
+          <li class="page-item middle-item">
+            <a class="page-link" href="#" onClick={handleLast}>
+              Last
+            </a>
+          </li>
+
+          
         </ul>
       </nav>
     </>
