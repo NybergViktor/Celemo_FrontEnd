@@ -49,8 +49,11 @@
 .fg{
     grid-column: 1/2;
     grid-row: 4;
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 20px;
+    margin-left: 10px;
+    
+
 }
 
 .ca{
@@ -58,6 +61,11 @@
     grid-row: 4;
     color: white;
     font-size: 20px;
+    float: right;
+    margin-right: 5px;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 
@@ -65,8 +73,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    display: flex;
-    
+    display: flex;  
 }
 
 @media (min-width:600px) {
