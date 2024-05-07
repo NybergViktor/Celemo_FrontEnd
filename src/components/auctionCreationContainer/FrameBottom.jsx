@@ -1,5 +1,4 @@
 import "../auctionCreationContainer/FrameBottom.css";
-import RandomPic from "./checkboxRandomPicture/RandomPic";
 import InfoFieldsCreateAuction from "./infoFields/InfoFieldsCreateAuction";
 
 const FrameBottom = () => {
