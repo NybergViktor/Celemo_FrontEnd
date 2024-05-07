@@ -1,12 +1,11 @@
 import "../auctionCreationContainer/FrameBottom.css";
-import RandomPic from "./checkboxRandomPicture/RandomPic";
 import InfoFieldsCreateAuction from "./infoFields/InfoFieldsCreateAuction";
 
 const FrameBottom = () => {
   return (
     <div className="svg-container">
       <div className="input-container">
-        <input type="file" name="file-browser" id="file" accept="image/*, .jpg, .png, .pdf" required />
+        <input type="file" name="file-browser" id="file" accept="image/*, .jpg, .png" required />
       </div>
       <InfoFieldsCreateAuction />
       <div className="svg">

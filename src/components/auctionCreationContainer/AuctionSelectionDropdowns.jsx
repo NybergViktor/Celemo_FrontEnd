@@ -1,9 +1,11 @@
+import { useState, useEffect } from "react";
 import "../auctionCreationContainer/AuctionSelectionDropdowns.css";
 import FrameBottom from "./FrameBottom";
 import PublishButton from "./PublishButton";
 
-
 function AuctionSelectionDropdowns() {
+
+
   return (
     <div className="main-container">
       <div className="svg1">
@@ -26,10 +28,18 @@ function AuctionSelectionDropdowns() {
             <h2 className="title-text">Create Auction</h2>
           </div>
           <select className="category" id="category">
-            <option value="category">Category</option>
+            <option value="">Select Category</option>
+            {/* {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))} */}
           </select>
           <select className="sub-category" id="sub-category">
-            <option value="sub-category">Sub Category</option>
+            <option value="sub-category" disabled>
+              Sub Category
+            </option>
+            <option value="other">Other</option>
           </select>
           <select className="celebrity-category" id="celebrity-category">
             <option value="celebrities">Celebrities</option>
@@ -37,10 +47,8 @@ function AuctionSelectionDropdowns() {
         </div>
       </div>
       <FrameBottom />
-      <PublishButton />
+      <PublishButton>Publish Auction</PublishButton>
     </div>
-    
   );
 }
-
 export default AuctionSelectionDropdowns;

@@ -2,6 +2,7 @@
 import AuctionSelectionDropdowns from "../../components/auctionCreationContainer/AuctionSelectionDropdowns";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
+import "../create-auction-page/CreateAuctionPage.css"
 
 
 
@@ -9,7 +10,7 @@ import Header from "../../components/header/Header";
 function CreateAuctionPage() {
     
     return (
-        <div>
+        <div className="auction-page-container">
             <Header />
             <AuctionSelectionDropdowns />
             <Footer />
