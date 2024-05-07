@@ -8,7 +8,7 @@ import UserContainerFavourites from "../../components/userContainerFavourites/Us
 import Header from "../../components/header/Header";
 import {UserContext} from "../../components/context/UserContext";
 import { useEffect, useContext, useState } from "react";
-import RandomPic from "../../components/auctionCreationContainer/checkboxRandomPicture/RandomPic";
+
 
 const ProfilePage = () => {
 
