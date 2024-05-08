@@ -8,10 +8,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-right: 1rem;
+  /* padding-right: 1rem; */
   position: relative;
-  top: 11rem;
-  right: 3.5rem;
+  /* top: 11rem; */
+  /* right: 3.5rem; */
+  /* left: 8rem; */
 }
 
 .checkbox-container {
@@ -30,10 +31,10 @@
   position: absolute;
   top: 0;
   left: -1.5rem;
-  width: 25px;
-  height: 25px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 20%;
+  width: 25px !important;
+  height: 25px !important;
+  background-color: rgb(255, 255, 255) !important;
+  border-radius: 20% !important;
   border: 1px solid black;
   cursor: pointer;
 }
@@ -67,12 +68,10 @@
   .random {
     flex-direction: row;
     align-items: center;
-    top: 19rem;
-    left: 25.24%;
     height: 2rem;
     width: 2rem;
     cursor: pointer;
-    position: absolute;
+    position: relative;
     overflow: hidden;
     justify-content: start;
   }

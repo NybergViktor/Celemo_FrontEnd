@@ -1,9 +1,12 @@
 import "../SignupBody/Body.css"
+import RandomPic from "./checkboxRandomPicture/RandomPic";
+
 
 const Body = () => {
     return (
         <div className="signUpContainer">
             <h1>Sign up</h1>
+            <RandomPic />
             <form className="signUpForm">
                 <input type="text" className="inputUsername" placeholder="Username" />
                 <input type="password" className="inputPassword" placeholder="Password" />
