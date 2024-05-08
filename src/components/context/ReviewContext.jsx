@@ -4,28 +4,27 @@ const ReviewContext = createContext();
 
 const ReviewProvider = ({ children }) => {
 
-  // START FetchAllReviews SECTION ==========================
+  // START FetchAllReviews SECTION ========================== Will maybe change this to fetch only for logged in user ==========================
 
   const [usersReviews, setUsersReviews] = useState([]);
   const [reviewedUser, setReviewedUser] = useState([]);
 
   const fetchUsersReviews = async (userId) => {
 
+    userId = localStorage.getItem("loggedInUserId");
+
 
     var options = {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
       credentials: "include",
-      body: JSON.stringify({
-        userId: `${userId}`,
-      }),
     };
 
     try {
       let res = await fetch(
-        `${import.meta.env.VITE_API_URL}/reviews/find/all-user`,
+        `${import.meta.env.VITE_API_URL}/reviews/find/all-${userId}`,
         options
       );
       const data = await res.json();

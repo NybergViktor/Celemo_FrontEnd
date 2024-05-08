@@ -11,7 +11,7 @@ import { SearchProvider } from "./components/context/SearchContext";
 import { BidProvider } from "./components/context/BidsContext";
 import CreateAuctionPage from "./pages/create-auction-page/CreateAuctionPage";
 import { ReviewProvider } from "./components/context/ReviewContext";
-import ReviewPage from "./pages/reviewpage/ReviewPage";
+import ReviewPage from "./pages/reviewPage/ReviewPage";
 
 function App() {
   return (
@@ -21,18 +21,18 @@ function App() {
           <AuctionProvider>
             <BidProvider>
               <ReviewProvider>
-    <BrowserRouter>
-                <Routes>
-                  <Route path="/" element={<Startpage />} />
-                  <Route path="/" element={<Startpage />} />
-                  <Route path="/profile" element={<ProfilePage />} />
-                  <Route path="/signup" element={<SignupPage />} />
-                  <Route path="/review" element={<ReviewPage />} />
-                  <Route path="/auction" element={<AuctionPage />} />
-                  <Route path="/create-auction" element={<CreateAuctionPage />} />
-                </Routes>
-              </BrowserRouter>
-</ReviewProvider>
+                <BrowserRouter>
+                  <Routes>
+                    <Route path="/" element={<Startpage />} />
+                    <Route path="/" element={<Startpage />} />
+                    <Route path="/profile" element={<ProfilePage />} />
+                    <Route path="/signup" element={<SignupPage />} />
+                    <Route path="/review" element={<ReviewPage />} />
+                    <Route path="/auction" element={<AuctionPage />} />
+                    <Route path="/create-auction" element={<CreateAuctionPage />} />
+                  </Routes>
+                </BrowserRouter>
+              </ReviewProvider>
             </BidProvider>
           </AuctionProvider>
         </SearchProvider>
