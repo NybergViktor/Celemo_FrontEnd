@@ -8,11 +8,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* padding-right: 1rem; */
   position: relative;
-  /* top: 11rem; */
-  /* right: 3.5rem; */
-  /* left: 8rem; */
 }
 
 .checkbox-container {
