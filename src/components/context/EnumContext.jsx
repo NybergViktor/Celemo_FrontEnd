@@ -4,7 +4,7 @@
 const EnumProvide = () => {
 
 
-    const [categories, setCategories] = useState([]);
+    const [categories, getCategories] = useState([]);
 
     useEffect(() => {
       fetchCategories();
