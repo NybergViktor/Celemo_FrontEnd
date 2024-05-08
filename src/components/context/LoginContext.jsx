@@ -3,7 +3,9 @@ import { createContext } from "react";
 const LoginContext = createContext();
 
 export const LoginProvider = ({ children, username, password }) => {
-  const logIn = async () => {
+  // Login metod
+  // call with ' logIn("username", "password") '
+  const logIn = async (username, password) => {
     const loginData = {
       username: `${username}`,
       password: `${password}`,
@@ -18,25 +20,33 @@ export const LoginProvider = ({ children, username, password }) => {
       body: JSON.stringify(loginData),
     };
 
-    const response = await fetch(
-      "http://localhost:8080/api/auth/signin",
-      options
-    );
-    if (response.status > 202) {
-      console.log("something went wrong, check password or username");
-    } else {
-      console.log(`Logged in as ${username}`);
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/auth/signin`,
+        options
+      );
+      if (response.ok) {
+        console.log(`Logged in as ${username}`);
+      }
+      const fetchData = await response.json();
+      localStorage.setItem("loggedInUserId", fetchData.id);
+      // Console output for debugging
+      console.log(response.status);
+      console.log(fetchData.id);
+    } catch (error) {
+      console.log("Error: " + error);
     }
-    return response;
   };
 
   // Temp function for button in Header.jsx
   const handleLoginClick = async () => {
-    await logIn((username = "admin45"), (password = "admin45"));
+    await logIn((username = "admin46"), (password = "admin46"));
   };
 
   return (
-    <LoginContext.Provider value={{ logIn, handleLoginClick }}>
+    <LoginContext.Provider
+      value={{ logIn, handleLoginClick, username, password }}
+    >
       {children}
     </LoginContext.Provider>
   );

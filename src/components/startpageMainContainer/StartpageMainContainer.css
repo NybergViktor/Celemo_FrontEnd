@@ -1,0 +1,118 @@
+.startpageMainContainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+@media only screen and (min-width: 700px) {
+    .startpageAuctionContainer{
+        max-width: 22rem;
+        justify-content: space-between;
+        margin: auto;
+    }
+    .startpageMainContainer {
+max-width: 900px;
+display: flex;
+margin: auto;
+    }
+    
+}
+.startpageAuctionContainer {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px gray;
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    height: 22rem;
+    
+}
+.auctionPicture {
+    border-bottom: 0.5px solid gray;
+    display:inline-block;
+    overflow: hidden;
+    border-radius: 20px 20px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.auctionPicture img {
+    width: 100%;
+    scale: 1.1;
+}
+.auctionInfo {
+    display: flex;
+    flex-direction: column;
+}
+.auctionInfoOver {
+    padding-left: 10px;
+    padding-right: 20px;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: space-between;
+}
+.auctionInfoOverCeleb p {
+    font-size: 11;
+    font-weight: 700 !important;
+    max-width: 12rem;
+    margin-top: 0.3rem;
+}
+.auctionInfoOverPrice {
+    margin-top: 0.3rem;
+    font-weight: 700 !important;
+}
+.auctionInfoUnder {
+    padding-left: 10px;
+    padding-right: 10px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    align-items:end;
+}
+.auctionInfoUnderTitle {
+    max-width: 12rem;
+    overflow: hidden;
+    font-size: smaller;
+}
+.auctionInfoUnderButton button {
+    background-color: rgba(241, 157, 111, 1);
+    border: none;
+    border-radius: 20px;
+    width: 9rem;
+    font-size: 12px;
+    font-weight: 600 !important;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    box-shadow: 1px 1px 3px gray;
+}
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+.page-item {
+    box-shadow: 1px 1px 5px gray;
+    border-radius: 8px;
+    
+}
+.page-item:hover {
+    background-color: rgba(241, 157, 111, 1) !important;
+    border-radius: 8px;
+}
+.middle-item {
+    border-radius: 0px;
+}
+.page-link {
+    font-size: large !important;
+    color: black !important;
+}
+.page-link:hover {
+    /* background-color: rgb(101, 101, 255) !important; */
+    background-color: rgba(241, 157, 111, 1) !important;
+    color: white !important;
+}

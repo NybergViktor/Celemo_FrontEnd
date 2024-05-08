@@ -1,7 +1,21 @@
+@media only screen and (max-width: 740px) {
+  
+ 
+  
+}
+
+
+.con{
+  width: 100vW;
+  border-bottom: 0.5px solid black;
+}
+
 .sub-header-container {
   display: flex;
-  justify-content: center;
+  justify-content:space-between;
   height: 5rem;
+  margin: auto;
+  max-width: 850px;
 }
 .filter-container {
   order: 1;
@@ -9,10 +23,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40%;
+  width: 45%;
   border-radius: 15px;
   box-shadow: 1px 1px 5px gray;
   margin: 1rem;
+  margin-right: 3.5rem;
+  margin-left: 2.2rem;
+
 }
 .filter-button {
   color: white;
@@ -30,9 +47,12 @@
   align-items: center;
   justify-content: center;
   border-radius: 15px;
-  width: 40%;
+  width: 45%;
   box-shadow: 1px 1px 5px gray;
+
   margin: 1rem;
+  margin-right: 2.2rem;
+  margin-left: 2.5;
 }
 .search-button:hover {
   background-color: #484848;
