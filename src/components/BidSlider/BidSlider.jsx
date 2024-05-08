@@ -83,7 +83,7 @@ const Slider = () => {
                     id="myCheck"
                     onClick={handleClick}
                   ></button>
-                  <span className={isActive ? "ch" : "checkmark"}>
+                  <span className={isActive ? "ch" : "checkmark-button"}>
                     <p>Auto-Bid</p>
                   </span>
                 </label>
