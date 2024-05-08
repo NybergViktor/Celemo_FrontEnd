@@ -1,26 +1,29 @@
 import "../SignupBody/Body.css"
 import {useContext, useEffect, useState} from "react";
-import {SignupContext} from "../context/SignupContext";
+import { SignupContext, SignupProvider } from "../context/SignupContext";
 
 const Body = () => {
+    const {fetchSignup} = useContext(SignupContext);
 
-    const [signup, setInputValue] = useState({
-        firstName:           "",
-        lastName:            "",
-        username:            "",
-        password:            "",
-        email:              "",
-        dateOfBirth:             "",
-        address_street:          "",
-        address_city:            "",
-        address_postalCode:          "",
+    const [signupValue, setSignupValue] = useState({
+        firstName:              "",
+        lastName:               "",
+        username:               "",
+        password:               "",
+        email:                  "",
+        dateOfBirth:            "",
+        address_street:         "",
+        address_city:           "",
+        address_postalCode:     "",
     });
+
+    
 
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
 
-        setInputValue({ ...signup, [name]: value});
+        setSignupValue({ ...signupValue, [name]: value});
     }
 
     return (
@@ -30,7 +33,7 @@ const Body = () => {
 
               <input
               name="username" 
-              value={signup.username}
+              value={signupValue.username}
               type="text" 
               id="username" 
               className="inputUsername" 
@@ -39,7 +42,7 @@ const Body = () => {
 
               <input
               name="password" 
-              value={signup.password} 
+              value={signupValue.password} 
               type="password" 
               id="password" 
               className="inputPassword" 
@@ -48,7 +51,7 @@ const Body = () => {
 
               <input
               name="firstName" 
-              value={signup.firstName} 
+              value={signupValue.firstName} 
               type="text" 
               id="fname" 
               className="inputFname" 
@@ -57,7 +60,7 @@ const Body = () => {
 
               <input
               name="lastName" 
-              value={signup.lastName} 
+              value={signupValue.lastName} 
               type="text" 
               id="lname" 
               className="inputLname" 
@@ -66,7 +69,7 @@ const Body = () => {
 
               <input
               name="email" 
-              value={signup.email} 
+              value={signupValue.email} 
               type="email" 
               id="email" 
               className="inputEmail" 
@@ -75,7 +78,7 @@ const Body = () => {
 
               <input
               name="dateOfBirth" 
-              value={signup.dateOfBirth} 
+              value={signupValue.dateOfBirth} 
               type="date" 
               id="dob" 
               className="inputDOB" 
@@ -84,7 +87,7 @@ const Body = () => {
 
               <input
               name="address_street" 
-              value={signup.address_street} 
+              value={signupValue.address_street} 
               type="text" 
               id="address" 
               className="inputAddress" 
@@ -93,7 +96,7 @@ const Body = () => {
 
               <input
               name="address_city" 
-              value={signup.address_city} 
+              value={signupValue.address_city} 
               type="text" 
               id="city" 
               className="inputCity" 
@@ -102,7 +105,7 @@ const Body = () => {
 
               <input
               name="address_postalCode" 
-              value={signup.address_postalCode} 
+              value={signupValue.address_postalCode} 
               type="number" 
               id="postal" 
               className="inputPostal" 
@@ -110,6 +113,7 @@ const Body = () => {
               onChange={handleChange}/>
 
               <button id="signUpButton" 
+              onClick={() => fetchSignup(signupValue)}
               className="signUpButton">Sign up
               </button>
             </form>

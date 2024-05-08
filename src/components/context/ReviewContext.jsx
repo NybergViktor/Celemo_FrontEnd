@@ -44,7 +44,7 @@ const ReviewProvider = ({ children }) => {
         setUsersReviews,
         fetchUsersReviews,
         reviewedUser,
-        setReviewedUser
+        setReviewedUser,
         
     }}>
       {children}

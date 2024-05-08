@@ -14,17 +14,18 @@ import { BidProvider } from "./components/context/BidsContext";
 import CreateAuctionPage from "./pages/create-auction-page/CreateAuctionPage";
 import { ReviewProvider } from "./components/context/ReviewContext";
 import ReviewPage from "./pages/reviewPage/ReviewPage";
+import { SignupProvider } from "./components/context/SignupContext";
 
 function App() {
   return (
+  <SignupProvider>
     <LoginProvider>
-
-      <UserProvider>
+        <UserProvider>
         <SearchProvider>
           <AuctionProvider>
             <BidProvider>
               <ReviewProvider>
-    <BrowserRouter>
+                <BrowserRouter>
                 <Routes>
                   <Route path="/" element={<Startpage />} />
                   <Route path="/" element={<Startpage />} />
@@ -41,8 +42,9 @@ function App() {
           </AuctionProvider>
         </SearchProvider>
       </UserProvider>
-
+      
     </LoginProvider>
+  </SignupProvider>
   );
 }
 

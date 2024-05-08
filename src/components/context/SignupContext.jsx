@@ -3,17 +3,18 @@ import {createContext, useEffect, useState} from "react";
 const SignupContext = createContext();
 
 const SignupProvider = ({children}) => {
+    const [signupValue, setSignupValue] = useState();
 
-    const [signup, setSignup] = useState();
-
-    const fetchSignup = async () => {
+    // START FetchSignup SECTION ==========================
+    
+    const fetchSignup = async (signupValue) => {
         var options = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             credentials: "include",
-            body: JSON.stringify(signup),
+            body: JSON.stringify({signupValue}),
         };
 
         try {
@@ -31,12 +32,13 @@ const SignupProvider = ({children}) => {
 
     return (
         <SignupContext.Provider value={{
-            signup,
-            setSignup,
             fetchSignup,
-            inputHandler
+            signupValue,
+            setSignupValue
         }}>
             {children}
         </SignupContext.Provider>
     );
 }
+
+export {SignupContext, SignupProvider};
