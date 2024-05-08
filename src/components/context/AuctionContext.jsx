@@ -5,9 +5,8 @@ const AuctionContext = createContext();
 const AuctionProvider = ({ children }) => {
   // ===============================================
   // FetchAuction SECTION ==========================
-  const [auction, setAuction] = useState([]);
-
-  const [seller, setSeller] = useState([]);
+  const [auction, setAuction] = useState({});
+  const [seller, setSeller] = useState({});
 
   var options = {
     method: "GET",
@@ -21,19 +20,25 @@ const AuctionProvider = ({ children }) => {
   };
 
   const fetchAuction = async (auctionId) => {
-    try {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/auction/find-one/${auctionId}`,
-        options
-      );
-      const data = await res.json();
-      console.log(data);
-      setAuction(data);
-      setSeller(data.seller);
-    } catch (err) {
-      console.log("err: " + err);
+    if (auctionId !== undefined) {
+      try {
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/auction/find-one/${auctionId}`,
+          options
+        );
+        const data = await res.json();
+        setAuction(data);
+        setSeller(data.seller);
+        // console.log(data);
+      } catch (err) {
+        console.log("err: " + err);
+      }
     }
+    
   };
+
+  
+
   // END FetchAuction SECTION ==========================
 
   // ===================================================
@@ -89,6 +94,10 @@ const AuctionProvider = ({ children }) => {
   };
   // END FetchAllAuctions SECTION ======================
 
+  // useEffect(() => {
+  //   setSeller(auction.seller);
+  // }, [])
+
   return (
     <AuctionContext.Provider value={
       { auction, 
@@ -100,7 +109,7 @@ const AuctionProvider = ({ children }) => {
       fetchAllAuctions,
       totalItems ,
       seller,
-        setSeller
+      setSeller
       }}>
       {children}
     </AuctionContext.Provider>
