@@ -9,19 +9,19 @@ const UserProvider = ({ children }) => {
 
   const getUserFromId = async (userId) => {
     const options = {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
       credentials: "include",
-      body: JSON.stringify({
-        userId: userId,
-      }),
+      // body: JSON.stringify({
+      //   userId: userId,
+      // }),
     };
     // console.log(userId)
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/user/find-one`,
+        `${import.meta.env.VITE_API_URL}/user/find-one/${userId}`,
         options
       );
       const fetchData = await response.json();
