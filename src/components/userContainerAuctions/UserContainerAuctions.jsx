@@ -1,3 +1,4 @@
+import { AuctionContext } from "../context/AuctionContext";
 import "./UserContainerAuctions.css";
 
 import { useContext, useEffect, useState } from "react";
@@ -5,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 const UserContainerAuctions = ({ btnTitle }) => {
   
   const [loggedInUserId, setLoggedInUserId] = useState(localStorage.getItem("loggedInUserId"));
+  const { usersAuctions, fetchUsersAuctions } = useContext(AuctionContext);
 
   useEffect(() => {
     
@@ -15,7 +17,7 @@ const UserContainerAuctions = ({ btnTitle }) => {
       
         {/* {usersAuctions.map((auction) => {
           return (
-            <div key="" className="containerItem">
+            <div key={auction.id} className="containerItem">
               <div className="dynamicItem">
                 <p>Title: , Celebrity: </p>
               </div>

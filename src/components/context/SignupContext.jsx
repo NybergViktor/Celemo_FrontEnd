@@ -8,23 +8,14 @@ const SignupProvider = ({children}) => {
     // START FetchSignup SECTION ==========================
     
     const fetchSignup = async (signupValue) => {
+        console.log("we up here");
         var options = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             credentials: "include",
-            body: JSON.stringify({
-                firstName: `${signupValue.firstName}`,
-                lastName: `${signupValue.lastName}`,
-                username: `${signupValue.username}`,
-                password: `${signupValue.password}`,
-                email: `${signupValue.email}`,
-                dateOfBirth: `${signupValue.dateOfBirth}`,
-                address_street: `${signupValue.address_street}`,
-                address_city: `${signupValue.address_city}`,
-                address_postalCode: `${signupValue.address_postalCode}`
-            }),
+            body: JSON.stringify(signupValue.username, signupValue.password, signupValue.email, signupValue.firstName, signupValue.lastName, signupValue.dateOfBirth, signupValue.address_street, signupValue.address_city, signupValue.address_postalCode),
         };
 
         try {

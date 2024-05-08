@@ -26,11 +26,7 @@ const Body = () => {
         setSignupValue({ ...signupValue, [name]: value});
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (e.error) {
-            console.log("error: " + e.error);
-        }
+    const handleSubmit = (signupValue) => {
 
         fetchSignup(signupValue);
         console.log(JSON.stringify(signupValue));
