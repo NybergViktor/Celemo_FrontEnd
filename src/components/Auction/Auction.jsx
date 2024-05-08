@@ -11,15 +11,7 @@ export const Auction = () => {
 
   useEffect(() => {
     fetchAuction(auctionId);
-    
-    
-  }, [auctionId]);
-
-  useEffect(() => {
-    setSeller(auction.seller)
-    console.log(auction.seller);
-    console.log(auction);
-  }, [auction]);
+  }, []);
 
   
 
@@ -38,7 +30,7 @@ export const Auction = () => {
 
           <div className="seller">
             <div>
-            {/* @{seller.username} */}
+            @{seller.username}
             </div>
             <button>Reviews</button>
           </div>
@@ -48,7 +40,7 @@ export const Auction = () => {
               src="src/components/Auction/teenyicons_pin-solid.png"
               alt="location"
             />
-            {/* {seller.adress_city} */}
+            {seller.adress_city}
           </div>
         </div>
         <div className="blankWhite"></div>

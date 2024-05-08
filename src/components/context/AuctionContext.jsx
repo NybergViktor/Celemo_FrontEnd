@@ -6,7 +6,7 @@ const AuctionProvider = ({ children }) => {
   // ===============================================
   // FetchAuction SECTION ==========================
   const [auction, setAuction] = useState({});
-  const [seller, setSeller] = useState({});
+  const [seller, setSeller] = useState([]);
 
   var options = {
     method: "GET",
