@@ -1,12 +1,10 @@
 import { createContext, useState, useEffect } from "react";
 
-
 const ECategoryContext = createContext();
 
 
 
 const EnumProvide = () => {
-
 
   // ==============================================
     const [categories, setCategories] = useState([]);
