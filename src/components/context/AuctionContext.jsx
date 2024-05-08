@@ -10,20 +10,20 @@ const AuctionProvider = ({ children }) => {
   const [seller, setSeller] = useState([]);
 
   var options = {
-    method: "POST",
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
     credentials: "include",
-    body: JSON.stringify({
-      auctionId: "6636962a4e494335e4e911c3",
-    }),
+    // body: JSON.stringify({
+    //   auctionId: "6636962a4e494335e4e911c3",
+    // }),
   };
 
-  const fetchAuction = async () => {
+  const fetchAuction = async (auctionId) => {
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/auction/find-one`,
+        `${import.meta.env.VITE_API_URL}/auction/find-one/${auctionId}`,
         options
       );
       const data = await res.json();
@@ -43,19 +43,19 @@ const AuctionProvider = ({ children }) => {
 
   const fetchUsersAuctions = async (userId) => {
     var options = {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
       credentials: "include",
-      body: JSON.stringify({
-        userId: `${userId}`,
-      }),
+      // body: JSON.stringify({
+      //   userId: `${userId}`,
+      // }),
     };
 
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/auction/find/all/user`,
+        `${import.meta.env.VITE_API_URL}/auction/find/all/user/${userId}`,
         options
       );
       const data = await res.json();

@@ -13,19 +13,19 @@ const ReviewProvider = ({ children }) => {
 
 
     var options = {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
       credentials: "include",
-      body: JSON.stringify({
-        userId: `${userId}`,
-      }),
+      // body: JSON.stringify({
+      //   userId: `${userId}`,
+      // }),
     };
 
     try {
       let res = await fetch(
-        `${import.meta.env.VITE_API_URL}/reviews/find/all-user`,
+        `${import.meta.env.VITE_API_URL}/reviews/find/all-user/${userId}`,
         options
       );
       const data = await res.json();

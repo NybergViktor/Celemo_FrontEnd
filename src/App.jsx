@@ -21,18 +21,21 @@ function App() {
           <AuctionProvider>
             <BidProvider>
               <ReviewProvider>
-    <BrowserRouter>
-                <Routes>
-                  <Route path="/" element={<Startpage />} />
-                  <Route path="/" element={<Startpage />} />
-                  <Route path="/profile" element={<ProfilePage />} />
-                  <Route path="/signup" element={<SignupPage />} />
-                  <Route path="/review" element={<ReviewPage />} />
-                  <Route path="/auction" element={<AuctionPage />} />
-                  <Route path="/create-auction" element={<CreateAuctionPage />} />
-                </Routes>
-              </BrowserRouter>
-</ReviewProvider>
+                <BrowserRouter>
+                  <Routes>
+                    <Route path="/" element={<Startpage />} />
+                    <Route path="/" element={<Startpage />} />
+                    <Route path="/profile" element={<ProfilePage />} />
+                    <Route path="/signup" element={<SignupPage />} />
+                    <Route path="/review" element={<ReviewPage />} />
+                    <Route path="/auction" element={<AuctionPage />} />
+                    <Route
+                      path="/create-auction"
+                      element={<CreateAuctionPage />}
+                    />
+                  </Routes>
+                </BrowserRouter>
+              </ReviewProvider>
             </BidProvider>
           </AuctionProvider>
         </SearchProvider>
