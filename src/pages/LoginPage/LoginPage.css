@@ -10,7 +10,7 @@
     #header-container {
         background-color: #8f8f8f;
         border-bottom: 1px solid rgb(255, 255, 255);
-        height: 9rem;
+        height: 8rem;
         margin-top: -6px;
         background-image: url('data:image/svg+xml,<svg width="697" height="215" viewBox="0 0 697 215" fill="none" xmlns="http://www.w3.org/2000/svg"><g style="mix-blend-mode:overlay" filter="url(%23filter0_d_545_75)"><path d="M447.551 6H693V213H4.5V172.5L447.551 6Z" fill="white"/></g><defs><filter id="filter0_d_545_75" x="0.5" y="0" width="696.5" height="215" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="-2"/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_545_75"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_545_75" result="shape"/></filter></defs></svg>');
         background-repeat: no-repeat;
@@ -34,16 +34,19 @@
     }
    
     .logo-a{
-        justify-content: center;
-        align-items: center;
         width: 100%;
         display: block;
+        margin-bottom: -5rem;
         
     }
     
 }
-
-.logo-a{
-    display: none;
+@media (min-width:459px ) {
+    .logo-a{
+        display: none;
+    }
+    
 }
+
+
 
