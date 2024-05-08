@@ -58,7 +58,7 @@ const SearchProvider = ({ children }) => {
   };
 
   const handleLast = () => {
-    setPageNr(pages - 1);
+    setPageNr(Math.round(pages) - 1);
   };
 
   const handleBack = () => {

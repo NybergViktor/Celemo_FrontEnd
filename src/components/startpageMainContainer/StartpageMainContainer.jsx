@@ -104,7 +104,7 @@ const StartpageMainContainer = () => {
 
           <li className="page-item middle-item disabled">
             <a className="page-link" href="#">
-              {pageNr + 1} / {pages}
+              {pageNr + 1} / {Math.round(pages)}
             </a>
           </li>
 
