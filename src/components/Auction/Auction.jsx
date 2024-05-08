@@ -5,11 +5,15 @@ import { AuctionContext } from "../context/AuctionContext";
 import { useContext, useState, useEffect } from "react";
 
 export const Auction = () => {
-  const { auction, fetchAuction, seller } = useContext(AuctionContext);
+  const { auction, setAuction, fetchAuction, seller, setSeller } = useContext(AuctionContext);
+  const [auctionId, setAuctionId] = useState("65f81f6866a5913190fc0dd3")
+  
 
   useEffect(() => {
-    fetchAuction();
+    fetchAuction(auctionId);
   }, []);
+
+  
 
   return (
     <main>
@@ -25,7 +29,9 @@ export const Auction = () => {
           <div className="description">{auction.productDescription}</div>
 
           <div className="seller">
-            <div>@{seller.username}</div>
+            <div>
+            @{seller.username}
+            </div>
             <button>Reviews</button>
           </div>
           <div className="location">
