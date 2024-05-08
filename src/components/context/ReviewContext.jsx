@@ -10,8 +10,6 @@ const ReviewProvider = ({ children }) => {
   const [reviewedUser, setReviewedUser] = useState([]);
 
   const fetchUsersReviews = async (userId) => {
-
-
     var options = {
       method: "POST",
       headers: {
