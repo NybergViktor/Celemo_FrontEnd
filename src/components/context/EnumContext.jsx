@@ -1,10 +1,15 @@
+import { createContext, useState, useEffect } from "react";
+
+
+const ECategoryContext = createContext();
 
 
 
 const EnumProvide = () => {
 
 
-    const [categories, getCategories] = useState([]);
+  // ==============================================
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
       fetchCategories();
