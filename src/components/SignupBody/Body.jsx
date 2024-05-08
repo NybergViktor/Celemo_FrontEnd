@@ -12,24 +12,26 @@ const Body = () => {
         password:               "",
         email:                  "",
         dateOfBirth:            "",
-        address_street:         "",
-        address_city:           "",
-        address_postalCode:     "",
+        adress_street:         "",
+        adress_city:           "",
+        adress_postalCode:     "",
+        gender: "MALE",
     });
-
-    
 
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-
         setSignupValue({ ...signupValue, [name]: value});
     }
 
-    const handleSubmit = (signupValue) => {
-
+    const handleSubmit = (e, signupValue) => {
+        e.preventDefault();
+        if (signupValue.error) {
+            console.log("error: " + signupValue.error);
+        }
         fetchSignup(signupValue);
-        console.log(JSON.stringify(signupValue));
+        console.log(signupValue);
+        
     }
 
     return (
@@ -92,17 +94,17 @@ const Body = () => {
               onChange={handleChange}/>
 
               <input
-              name="address_street" 
-              value={signupValue.address_street} 
+              name="adress_street" 
+              value={signupValue.adress_street} 
               type="text" 
-              id="address" 
-              className="inputAddress" 
-              placeholder="Address Street" 
+              id="adress" 
+              className="inputAdress" 
+              placeholder="Adress Street" 
               onChange={handleChange}/>
 
               <input
-              name="address_city" 
-              value={signupValue.address_city} 
+              name="adress_city" 
+              value={signupValue.adress_city} 
               type="text" 
               id="city" 
               className="inputCity" 
@@ -110,8 +112,8 @@ const Body = () => {
               onChange={handleChange}/>
 
               <input
-              name="address_postalCode" 
-              value={signupValue.address_postalCode} 
+              name="adress_postalCode" 
+              value={signupValue.adress_postalCode} 
               type="number" 
               id="postal" 
               className="inputPostal" 
@@ -119,7 +121,7 @@ const Body = () => {
               onChange={handleChange}/>
 
               <button id="signUpButton" 
-              onClick={() => handleSubmit(signupValue)}
+              onClick={(e) => handleSubmit(e, signupValue)}
               className="signUpButton">Sign up
               </button>
             </form>

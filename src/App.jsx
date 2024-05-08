@@ -15,7 +15,6 @@ import CreateAuctionPage from "./pages/create-auction-page/CreateAuctionPage";
 import { ReviewProvider } from "./components/context/ReviewContext";
 import ReviewPage from "./pages/reviewPage/ReviewPage";
 import { SignupProvider } from "./components/context/SignupContext";
-import ReviewPage from "./pages/reviewPage/ReviewPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 
 function App() {
