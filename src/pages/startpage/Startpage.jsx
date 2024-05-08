@@ -5,6 +5,7 @@ import Header from "../../components/header/Header";
 import StartpageMainContainer from "../../components/startpageMainContainer/StartpageMainContainer";
 
 
+
 const Startpage = () => {
     return (
         <div className="startpage">
