@@ -15,7 +15,7 @@ const Body = () => {
         adress_street:         "",
         adress_city:           "",
         adress_postalCode:     "",
-        gender: "MALE",
+        gender:                 "",
     });
 
     const handleChange = (e) => {
@@ -83,6 +83,11 @@ const Body = () => {
               className="inputEmail" 
               placeholder="Email" 
               onChange={handleChange}/>
+
+            <select name="gender" placeholder="Gender" onChange={handleChange}>
+            <option value="MALE">Male</option>
+            <option value="FEMALE">Female</option>        //TODO: Make this look better
+            </select> 
 
               <input
               name="dateOfBirth" 
