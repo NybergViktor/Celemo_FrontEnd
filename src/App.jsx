@@ -1,6 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Startpage from "./pages/startpage/Startpage";
+import Login from "./pages/LoginPage/LoginPage"
+
 import ProfilePage from "./pages/profilePage/ProfilePage";
 import SignupPage from "./pages/signupPage/SignupPage";
 import { LoginProvider } from "./components/context/LoginContext";
@@ -11,11 +13,12 @@ import { SearchProvider } from "./components/context/SearchContext";
 import { BidProvider } from "./components/context/BidsContext";
 import CreateAuctionPage from "./pages/create-auction-page/CreateAuctionPage";
 import { ReviewProvider } from "./components/context/ReviewContext";
-import ReviewPage from "./pages/reviewpage/ReviewPage";
+import ReviewPage from "./pages/reviewPage/ReviewPage";
 
 function App() {
   return (
     <LoginProvider>
+
       <UserProvider>
         <SearchProvider>
           <AuctionProvider>
@@ -36,10 +39,12 @@ function App() {
                   </Routes>
                 </BrowserRouter>
               </ReviewProvider>
+
             </BidProvider>
           </AuctionProvider>
         </SearchProvider>
       </UserProvider>
+
     </LoginProvider>
   );
 }

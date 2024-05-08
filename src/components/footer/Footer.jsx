@@ -7,10 +7,10 @@ const Footer = () => {
       <div className="under">
         <a href="#">Contact</a>
         <a href="#">About</a>
-        <a href="#">Home</a>
+        <a href="/">Home</a>
       </div>
       <div className="over">
-        <a href="#">Sign In / Register</a>
+        {/*<a href="#">Sign In / Register</a>*/}
       </div>
       <div className="footer-desktop">
         <Link to="">About</Link>
