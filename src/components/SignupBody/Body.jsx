@@ -119,7 +119,7 @@ const Body = () => {
               onChange={handleChange}/>
 
               <button id="signUpButton" 
-              onSubmit={() => handleSubmit(signupValue)}
+              onClick={() => handleSubmit(signupValue)}
               className="signUpButton">Sign up
               </button>
             </form>
