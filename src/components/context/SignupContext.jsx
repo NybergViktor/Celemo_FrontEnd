@@ -3,7 +3,7 @@ import {createContext, useEffect, useState} from "react";
 const SignupContext = createContext();
 
 const SignupProvider = ({children}) => {
-    const [signupValue, setSignupValue] = useState();
+    const [signupValue, setSignupValue] = useState([]);
 
     // START FetchSignup SECTION ==========================
     
@@ -14,7 +14,17 @@ const SignupProvider = ({children}) => {
                 "Content-Type": "application/json",
             },
             credentials: "include",
-            body: JSON.stringify({signupValue}),
+            body: JSON.stringify({
+                firstName: `${signupValue.firstName}`,
+                lastName: `${signupValue.lastName}`,
+                username: `${signupValue.username}`,
+                password: `${signupValue.password}`,
+                email: `${signupValue.email}`,
+                dateOfBirth: `${signupValue.dateOfBirth}`,
+                address_street: `${signupValue.address_street}`,
+                address_city: `${signupValue.address_city}`,
+                address_postalCode: `${signupValue.address_postalCode}`
+            }),
         };
 
         try {

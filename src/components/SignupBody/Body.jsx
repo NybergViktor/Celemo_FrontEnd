@@ -26,6 +26,16 @@ const Body = () => {
         setSignupValue({ ...signupValue, [name]: value});
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (e.error) {
+            console.log("error: " + e.error);
+        }
+
+        fetchSignup(signupValue);
+        console.log(JSON.stringify(signupValue));
+    }
+
     return (
         <div className="signUpContainer">
             <h1>Sign up</h1>
@@ -113,7 +123,7 @@ const Body = () => {
               onChange={handleChange}/>
 
               <button id="signUpButton" 
-              onClick={() => fetchSignup(signupValue)}
+              onSubmit={() => handleSubmit(signupValue)}
               className="signUpButton">Sign up
               </button>
             </form>
