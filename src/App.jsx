@@ -1,6 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Startpage from "./pages/startpage/Startpage";
+import Login from "./pages/LoginPage/LoginPage"
+
 import ProfilePage from "./pages/profilePage/ProfilePage";
 import SignupPage from "./pages/signupPage/SignupPage";
 import { LoginProvider } from "./components/context/LoginContext";
@@ -16,6 +18,7 @@ import ReviewPage from "./pages/reviewpage/ReviewPage";
 function App() {
   return (
     <LoginProvider>
+
       <UserProvider>
         <SearchProvider>
           <AuctionProvider>
@@ -30,6 +33,7 @@ function App() {
                   <Route path="/review" element={<ReviewPage />} />
                   <Route path="/auction" element={<AuctionPage />} />
                   <Route path="/create-auction" element={<CreateAuctionPage />} />
+                    <Route path="login" element ={<Login/>} />
                 </Routes>
               </BrowserRouter>
 </ReviewProvider>
@@ -37,6 +41,7 @@ function App() {
           </AuctionProvider>
         </SearchProvider>
       </UserProvider>
+
     </LoginProvider>
   );
 }
