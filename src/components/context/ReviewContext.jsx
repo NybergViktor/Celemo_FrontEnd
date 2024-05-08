@@ -10,10 +10,7 @@ const ReviewProvider = ({ children }) => {
   const [reviewedUser, setReviewedUser] = useState([]);
 
   const fetchUsersReviews = async (userId) => {
-
-    userId = localStorage.getItem("loggedInUserId");
-
-
+  
     var options = {
       method: "GET",
       headers: {
