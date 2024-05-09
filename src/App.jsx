@@ -1,8 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Startpage from "./pages/startpage/Startpage";
-import Login from "./pages/LoginPage/LoginPage";
-
 import ProfilePage from "./pages/profilePage/ProfilePage";
 import SignupPage from "./pages/signupPage/SignupPage";
 import { LoginProvider } from "./components/context/LoginContext";
