@@ -226,7 +226,7 @@
 }
 
 /* Create a custom checkbox */
-.checkmark {
+.checkmark-button {
   position: absolute;
   height: 38px;
   width: 80px;
@@ -248,7 +248,7 @@
   color: rgb(150, 150, 150);
 }
 
-.checkmark p {
+.checkmark-button p {
   margin-top: 0.5rem;
   font-weight: 600;
 }

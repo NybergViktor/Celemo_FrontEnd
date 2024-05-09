@@ -1,4 +1,4 @@
-import "../BidSlider/BidStyle.css";
+ import "../BidSlider/BidStyle.css";
 import { AuctionContext } from "../context/AuctionContext";
 import { useContext, useState, useEffect } from "react";
 import { BidContext, BidProvider } from "../context/BidsContext";
@@ -8,7 +8,7 @@ const Slider = () => {
 
   const { maxBid, setMaxBid, startBid, setStartBid, fetchBid } =
     useContext(BidContext);
-
+    
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -83,7 +83,7 @@ const Slider = () => {
                     id="myCheck"
                     onClick={handleClick}
                   ></button>
-                  <span className={isActive ? "ch" : "checkmark"}>
+                  <span className={isActive ? "ch" : "checkmark-button"}>
                     <p>Auto-Bid</p>
                   </span>
                 </label>

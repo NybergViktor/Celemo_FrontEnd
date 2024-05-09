@@ -13,20 +13,20 @@ const SearchProvider = ({ children }) => {
 
   const searchAuctions = async (search, pageSize) => {
     var options = {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
       credentials: "include",
-      body: JSON.stringify({
-        search: `${search}`,
-        pageSize: `${pageSize}`,
-      }),
+      // body: JSON.stringify({
+      //   search: `${search}`,
+      //   pageSize: `${pageSize}`,
+      // }),
     };
 
     try {
       let res = await fetch(
-        `${import.meta.env.VITE_API_URL}/search/page/${pageNr}`,
+        `${import.meta.env.VITE_API_URL}/search/${search}/${pageSize}/page/${pageNr}`,
         options
       );
       const data = await res.json();
@@ -58,7 +58,7 @@ const SearchProvider = ({ children }) => {
   };
 
   const handleLast = () => {
-    setPageNr(pages - 1);
+    setPageNr(Math.round(pages) - 1);
   };
 
   const handleBack = () => {

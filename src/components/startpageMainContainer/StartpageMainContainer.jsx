@@ -17,7 +17,7 @@ const StartpageMainContainer = () => {
     pages,
     setPages,
   } = useContext(SearchContext);
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState("getall");
   const [pageSize, setPageSize] = useState(2);
 
   useEffect(() => {
@@ -82,18 +82,18 @@ const StartpageMainContainer = () => {
 
       {/** FROM BOOTSTRAP */}
       <nav aria-label="Page navigation example">
-        <ul class="pagination">
+        <ul className="pagination">
           
 
-          <li class="page-item middle-item">
-            <a class="page-link" href="#" onClick={handleFirst}>
+          <li className="page-item middle-item">
+            <a className="page-link" href="#" onClick={handleFirst}>
               First
             </a>
           </li>
 
-          <li class="page-item">
+          <li className="page-item">
             <a
-              class="page-link"
+              className="page-link"
               href="#"
               onClick={handleBack}
               aria-label="Previous"
@@ -102,15 +102,15 @@ const StartpageMainContainer = () => {
             </a>
           </li>
 
-          <li class="page-item middle-item disabled">
-            <a class="page-link" href="#">
-              {pageNr + 1} / {pages}
+          <li className="page-item middle-item disabled">
+            <a className="page-link" href="#">
+              {pageNr + 1} / {Math.round(pages)}
             </a>
           </li>
 
-          <li class="page-item">
+          <li className="page-item">
             <a
-              class="page-link"
+              className="page-link"
               href="#"
               onClick={handleNext}
               aria-label="Next"
@@ -119,8 +119,8 @@ const StartpageMainContainer = () => {
             </a>
           </li>
 
-          <li class="page-item middle-item">
-            <a class="page-link" href="#" onClick={handleLast}>
+          <li className="page-item middle-item">
+            <a className="page-link" href="#" onClick={handleLast}>
               Last
             </a>
           </li>

@@ -38,7 +38,12 @@ const BidProvider = ({ children }) => {
 
   return (
     <BidContext.Provider
-      value={{ startBid, setStartBid, maxBid, setMaxBid, fetchBid }}
+      value={{
+        startBid,
+        setStartBid, 
+        maxBid, 
+        setMaxBid, 
+        fetchBid }}
     >
       {children}
     </BidContext.Provider>

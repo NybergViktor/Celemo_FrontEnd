@@ -10,22 +10,20 @@ const ReviewProvider = ({ children }) => {
   const [reviewedUser, setReviewedUser] = useState([]);
 
   const fetchUsersReviews = async (userId) => {
-
-
     var options = {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
       credentials: "include",
-      body: JSON.stringify({
-        userId: `${userId}`,
-      }),
+      // body: JSON.stringify({
+      //   userId: `${userId}`,
+      // }),
     };
 
     try {
       let res = await fetch(
-        `${import.meta.env.VITE_API_URL}/reviews/find/all-user`,
+        `${import.meta.env.VITE_API_URL}/reviews/find/all-user/${userId}`,
         options
       );
       const data = await res.json();
@@ -46,7 +44,7 @@ const ReviewProvider = ({ children }) => {
         setUsersReviews,
         fetchUsersReviews,
         reviewedUser,
-        setReviewedUser
+        setReviewedUser,
         
     }}>
       {children}
