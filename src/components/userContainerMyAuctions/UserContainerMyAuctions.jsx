@@ -4,9 +4,7 @@ import { useContext, useEffect, useState } from "react";
 
 const UserContainerMyAuctions = ({ btnTitle }) => {
   const { usersAuctions, fetchUsersAuctions } = useContext(AuctionContext);
-  const [loggedInUserId, setLoggedInUserId] = useState(
-    localStorage.getItem("loggedInUserId")
-  );
+  const [loggedInUserId, setLoggedInUserId] = useState(localStorage.getItem("loggedInUserId"));
 
   useEffect(() => {
     fetchUsersAuctions(loggedInUserId);
@@ -14,7 +12,6 @@ const UserContainerMyAuctions = ({ btnTitle }) => {
 
   return (
     <div className="userContainerContentMain">
-      
         {usersAuctions.map((auction) => {
           return (
             <div key={auction.id} className="containerItem">
@@ -26,8 +23,9 @@ const UserContainerMyAuctions = ({ btnTitle }) => {
               </div>
             </div>
           );
-        })}
-      
+        }
+      )
+        }
     </div>
   );
 };

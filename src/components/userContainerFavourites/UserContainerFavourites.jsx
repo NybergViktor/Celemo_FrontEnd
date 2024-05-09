@@ -8,7 +8,7 @@ const UserContainerFavourites = ({ btnTitle }) => {
 
   useEffect(() => {
     getUserFromId(loggedInUserId);
-    // console.log(userData);
+     console.log(userData);
   }, []);
 
   return (

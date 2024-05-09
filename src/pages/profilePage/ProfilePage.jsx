@@ -25,9 +25,7 @@ const ProfilePage = () => {
       <main className="main">
       
         <div className="userInfoContainer">
-        <>
-        <RandomPic />
-        </>
+        
           {/* PROFILE PICTURE */}
           <div className="profilePicture">
             <img src={userData.photo} />
