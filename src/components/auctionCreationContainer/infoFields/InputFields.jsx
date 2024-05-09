@@ -2,7 +2,6 @@ import "../infoFields/InputFields.css";
 
 const InputFields = () => {
   
-
   return (
     <>
       <div className="title-text-bottom">
@@ -44,26 +43,4 @@ const InputFields = () => {
     </>
   );
 };
-
 export default InputFields;
-
-
-
-
-
-
-
-
-
-// const [eCategory, setECategory] = useState(localStorage.getItem("eCategory"));
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   setNewTitle((currentTitle) => {
-  //     return [
-  //       ...currentTitle,
-  //       { id: crypto.randomUUID(), title: newTitle, completed: false },
-  //     ];
-  //   });
-  // };
