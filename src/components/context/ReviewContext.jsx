@@ -10,8 +10,6 @@ const ReviewProvider = ({ children }) => {
   const [reviewedUser, setReviewedUser] = useState([]);
 
   const fetchUsersReviews = async (userId) => {
-
-
     var options = {
       method: "GET",
       headers: {
@@ -46,7 +44,7 @@ const ReviewProvider = ({ children }) => {
         setUsersReviews,
         fetchUsersReviews,
         reviewedUser,
-        setReviewedUser
+        setReviewedUser,
         
     }}>
       {children}
