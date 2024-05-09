@@ -8,6 +8,7 @@ const SignupProvider = ({children}) => {
 
     // START FetchSignup SECTION ==========================
     const [signupValue, setSignupValue] = useState([]);
+    const [error, setError] = useState([]);
 
     const fetchSignup = async (signupValue) => {
         
@@ -16,6 +17,18 @@ const SignupProvider = ({children}) => {
         }
         catch (error) {
             console.log(error);
+            setError(error);
+            if (error.response.data.message === "Error: username already exists!") {
+                alert("Username already exists!");
+            }
+            if (error.response.data.message === "Error: email already exists!") {
+                alert("Email already exists!");
+            }
+            if (error.response.data.message ===
+                "JSON parse error: Cannot coerce empty String (\"\") to `sidkbk.celemo.models.EGender` value (but could if coercion was enabled using `CoercionConfig`)") {
+                    alert("Please choose gender!");
+                }
+            console.log(error.response.data.message);
         }
     }
 

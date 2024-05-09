@@ -85,7 +85,7 @@ const Body = () => {
               onChange={handleChange}/>
 
             <select name="gender" placeholder="Gender" onChange={handleChange}>
-            <option value="none">CHOOSE GENDER</option>
+            <option value="">CHOOSE GENDER</option>
             <option value="MALE">Male</option>
             <option value="FEMALE">Female</option>        //TODO: Make this look better
             </select> 
