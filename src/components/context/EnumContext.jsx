@@ -1,26 +1,36 @@
-import { createContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { createContext } from "react";
 
 const ECategoryContext = createContext();
 
+const EnumProvide = ({ children }) => {
 
 
-const EnumProvide = () => {
+  // ================FETCH ALL ENUMS START============================
 
-  // ==============================================
-    const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState([]);
 
-    useEffect(() => {
-      fetchCategories();
-    }, []);
-  
-    const fetchCategories = async () => {
-      try {
-        const response = await fetch("/api/category");
-        const data = await response.json();
-        setCategories(data);
-      } catch (error) {
-        console.error("Error fetching categories:", error);
-      }
-    };
+  useEffect(() => {
+    fetchCategories();
+  }, []);
 
-}
+  const fetchCategories = async () => {
+    try {
+      let res = await fetch(`${import.meta.env.VITE_API_URL}/category/find`);
+      const data = await res.json();
+      setCategories(data);
+    } catch (err) {
+      console.log("err: " + err);
+    }
+  };
+  // ================FETCH ALL ENUMS END==============================
+
+
+
+  return (
+    <ECategoryContext.Provider value={{ categories }}>
+      {children}
+    </ECategoryContext.Provider>
+  )
+};
+export default { ECategoryContext, EnumProvide };
