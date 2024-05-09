@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { ECategoryContext, EnumProvide } from "../context/EnumContext";
+import { EnumContext, EnumProvider } from "../context/EnumContext";
 import "../auctionCreationContainer/AuctionSelectionDropdowns.css";
 import FrameBottom from "./FrameBottom";
 import PublishButton from "./PublishButton";
 
 
 function AuctionSelectionDropdowns() {
-  const { categories } = useContext([ECategoryContext]);
+  const { categories } = useContext(EnumContext);
  
 
   return (
@@ -31,9 +31,11 @@ function AuctionSelectionDropdowns() {
             <h2 className="title-text">Create Auction</h2>
           </div>
           <select className="category" id="category">
+
             {categories.map((category) => (
               <option key={category}>{category}</option>
             ))}
+
           </select>
           <select className="sub-category" id="sub-category">
             <option value="sub-category" disabled>
