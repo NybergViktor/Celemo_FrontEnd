@@ -27,7 +27,7 @@ function AuctionSelectionDropdowns() {
       </div>
       <div className="selection-container-top">
         <div className="selection-dropdown-top">
-          <div className="title">
+          <div className="title-h1">
             <h2 className="title-text">Create Auction</h2>
           </div>
           <select className="category" id="category">

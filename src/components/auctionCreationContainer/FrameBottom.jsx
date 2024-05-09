@@ -5,6 +5,7 @@ const FrameBottom = () => {
   return (
     <div className="svg-container">
       <div className="input-container">
+        {/* only accepting (.jpg and .png) */}
         <input type="file" name="file-browser" id="file" accept="image/*, .jpg, .png" required />
       </div>
       <InfoFieldsCreateAuction />
