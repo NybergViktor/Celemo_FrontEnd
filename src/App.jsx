@@ -27,7 +27,7 @@ function App() {
           <AuctionProvider>
             <BidProvider>
               <ReviewProvider>
-                <BrowserRouter>
+              <BrowserRouter>
                   <Routes>
                     <Route path="/" element={<Startpage />} />
                     <Route path="/login" element={<LoginPage />} />
@@ -35,10 +35,8 @@ function App() {
                     <Route path="/signup" element={<SignupPage />} />
                     <Route path="/review" element={<ReviewPage />} />
                     <Route path="/auction" element={<AuctionPage />} />
-                    <Route
-                      path="/create-auction"
-                      element={<CreateAuctionPage />}
-                    />
+                    <Route path="/create-auction" element={<CreateAuctionPage />} />
+                    <Route path="login" element ={<Login/>} />
                   </Routes>
                 </BrowserRouter>
               </ReviewProvider>
