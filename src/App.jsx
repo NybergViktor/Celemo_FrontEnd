@@ -7,7 +7,7 @@ import { LoginProvider } from "./components/context/LoginContext";
 import { UserProvider } from "./components/context/UserContext";
 import AuctionPage from "./pages/auction-page/AuctionPage";
 import { AuctionProvider } from "./components/context/AuctionContext";
-import { CreateAuctionProvider, EnumProvider } from "./components/context/EnumContext";
+import { CreateAuctionProvider } from "./components/context/CreateAuctionContext";
 import { SearchProvider } from "./components/context/SearchContext";
 import { BidProvider } from "./components/context/BidsContext";
 import CreateAuctionPage from "./pages/create-auction-page/CreateAuctionPage";
