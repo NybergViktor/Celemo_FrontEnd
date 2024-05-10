@@ -3,13 +3,13 @@ import { createContext, useEffect, useState } from "react";
 const SearchContext = createContext();
 
 const SearchProvider = ({ children }) => {
-
   // ===========================================================
   // SearchAuctions SECTION ====================================
 
   const [foundAuctions, setFoundAuctions] = useState([]);
   const [pageNr, setPageNr] = useState(0);
-  
+
+  const [auctionId, setAuctionId] = useState([]);
 
   const searchAuctions = async (search, pageSize) => {
     var options = {
@@ -26,11 +26,13 @@ const SearchProvider = ({ children }) => {
 
     try {
       let res = await fetch(
-        `${import.meta.env.VITE_API_URL}/search/${search}/${pageSize}/page/${pageNr}`,
+        `${
+          import.meta.env.VITE_API_URL
+        }/search/${search}/${pageSize}/page/${pageNr}`,
         options
       );
       const data = await res.json();
-      setFoundAuctions(data);      
+      setFoundAuctions(data);
     } catch (err) {
       console.log("err: " + err);
     }
@@ -41,7 +43,7 @@ const SearchProvider = ({ children }) => {
   // ===========================================================
   // Page functions SECTION ====================================
 
-  const [ pages, setPages ] = useState(0);
+  const [pages, setPages] = useState(0);
 
   useEffect(() => {
     console.log("Updated pageNr: ", pageNr);
@@ -82,6 +84,8 @@ const SearchProvider = ({ children }) => {
         handleLast,
         setPages,
         pages,
+        auctionId,
+        setAuctionId,
       }}
     >
       {children}

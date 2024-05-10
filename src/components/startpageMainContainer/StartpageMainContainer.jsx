@@ -2,10 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import "./StartpageMainContainer.css";
 import { SearchContext } from "../context/SearchContext";
 import { AuctionContext } from "../context/AuctionContext";
+import AuctionPage from "../../pages/auction-page/AuctionPage";
+
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 
 const StartpageMainContainer = () => {
-  const { fetchAllAuctions, totalItems } =
-    useContext(AuctionContext);
+  const inputRef = React.useRef(null);
+
+  const { fetchAllAuctions, totalItems } = useContext(AuctionContext);
   const {
     searchAuctions,
     foundAuctions,
@@ -16,9 +20,13 @@ const StartpageMainContainer = () => {
     handleLast,
     pages,
     setPages,
+    auctionId,
+    setAuctionId,
   } = useContext(SearchContext);
   const [searchValue, setSearchValue] = useState("getall");
   const [pageSize, setPageSize] = useState(2);
+
+  console.log(auctionId + " auction id console");
 
   useEffect(() => {
     console.log(totalItems);
@@ -42,13 +50,20 @@ const StartpageMainContainer = () => {
   return (
     <>
       <div className="startpageMainContainer">
-        
         {/** ONE AUCTION */}
         {foundAuctions.map((auction) => {
           return (
             // AUCTION WHITE BOX
+            
+            
+            <div
+              key={auction.id}
+              className="startpageAuctionContainer"
+              ref={inputRef}
+              onClick={() => setAuctionId(auction.id)}
+            >
 
-            <div key={auction.id} className="startpageAuctionContainer">
+              
               {/** PICTURE */}
               <div className="auctionPicture">
                 <img src={auction.productPhoto} />
@@ -83,8 +98,6 @@ const StartpageMainContainer = () => {
       {/** FROM BOOTSTRAP */}
       <nav aria-label="Page navigation example">
         <ul className="pagination">
-          
-
           <li className="page-item middle-item">
             <a className="page-link" href="#" onClick={handleFirst}>
               First
@@ -124,8 +137,6 @@ const StartpageMainContainer = () => {
               Last
             </a>
           </li>
-
-          
         </ul>
       </nav>
     </>

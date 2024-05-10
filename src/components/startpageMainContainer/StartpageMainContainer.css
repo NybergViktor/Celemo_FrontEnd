@@ -26,6 +26,7 @@ margin: auto;
     display: flex;
     flex-direction: column;
     height: 22rem;
+    cursor: pointer;
     
 }
 .auctionPicture {

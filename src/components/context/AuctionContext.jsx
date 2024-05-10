@@ -1,4 +1,5 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { SearchContext } from "./SearchContext";
 
 const AuctionContext = createContext();
 
