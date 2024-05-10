@@ -36,7 +36,7 @@ const Body = () => {
 
     return (
         <div className="signupBody">
-            
+
         <div className="signUpContainer">
             
             <form className="signUpForm">
@@ -87,7 +87,7 @@ const Body = () => {
               onChange={handleChange}/>
 
               <select name="gender" placeholder="Gender" onChange={handleChange}>
-              <option value="">CHOOSE GENDER</option>
+              <option value="">Choose gender</option>
               <option value="MALE">Male</option>
               <option value="FEMALE">Female</option>        //TODO: Make this look better
               </select> 
