@@ -1,0 +1,10 @@
+.auction-page-container {
+    width: fit-content;
+}
+
+
+@media screen and (min-width: 391px) {
+    .auction-page-container {
+        width: 100%;
+    }
+}
