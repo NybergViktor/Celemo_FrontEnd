@@ -29,7 +29,8 @@ export const DropDown = () => {
           <Link className="dd-link" to="">Contact</Link>
           <Link className="dd-link" to="/profile">Profile</Link>
           <Link className="dd-link" to="/create-auction">Create auction</Link>
-          <Link className="dd-link" to="/signup">Sign in / Register</Link>
+          <Link className="dd-link" to="/signup">Register</Link>
+          <Link className="dd-link" to="/login">Log in</Link>
       </div>
     </>
   );
