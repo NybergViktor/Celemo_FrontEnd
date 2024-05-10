@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     align-self: center;
-    
 }
 .signUpContainer{
     padding: 2rem;
@@ -44,5 +43,6 @@
     color: black;
     padding: 10px;
     border-radius: 14px;
+    border-style: none;
     margin: 2rem;
 }
