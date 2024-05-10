@@ -1,13 +1,30 @@
-.signUpContainer{
+.signupPage {
     display: flex;
     flex-direction: column;
-    margin-left: 10%;
+    align-items: center;
+    align-self: center;
+    
+}
+.signUpContainer{
+    padding: 2rem;
     margin-top: 2rem;
+    background-color: #363636;
+    align-items: center;
+    width: 90%;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    }
+.signupBody{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    
 }
 .signUpForm {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    align-self: center;
 }
 .signUpForm input {
     margin: 10px 0;
@@ -15,9 +32,16 @@
     border-radius: 5px;
     border: 1px solid #ccc;
 }
+.signUpForm select {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+
+}
 .signUpButton{
-    background-color: black;
-    color: #ccc;
+    background-color: #F19D6F;
+    color: black;
     padding: 10px;
     border-radius: 14px;
     margin: 2rem;
