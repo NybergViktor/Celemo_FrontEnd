@@ -24,21 +24,22 @@
   align-items: center;
   justify-content: center;
   width: 45%;
+  border: 0;
   border-radius: 15px;
   box-shadow: 1px 1px 5px gray;
   margin: 1rem;
   margin-right: 3.5rem;
   margin-left: 2.2rem;
-
+  color: white;
 }
-.filter-button {
+/* .filter-button {
   color: white;
   display: flex;
   align-items: center;
-}
-.filter-label {
+} */
+/* .filter-label {
   color: white;
-}
+} */
 .search-button {
   order: 2;
   background-color: #363636;
@@ -46,10 +47,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 0;
   border-radius: 15px;
   width: 45%;
   box-shadow: 1px 1px 5px gray;
-
   margin: 1rem;
   margin-right: 2.2rem;
   margin-left: 2.5;
