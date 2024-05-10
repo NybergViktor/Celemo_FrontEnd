@@ -7,7 +7,7 @@ import { LoginProvider } from "./components/context/LoginContext";
 import { UserProvider } from "./components/context/UserContext";
 import AuctionPage from "./pages/auction-page/AuctionPage";
 import { AuctionProvider } from "./components/context/AuctionContext";
-import { EnumProvider } from "./components/context/EnumContext";
+import { CreateAuctionProvider, EnumProvider } from "./components/context/EnumContext";
 import { SearchProvider } from "./components/context/SearchContext";
 import { BidProvider } from "./components/context/BidsContext";
 import CreateAuctionPage from "./pages/create-auction-page/CreateAuctionPage";
@@ -22,7 +22,7 @@ function App() {
       <LoginProvider>
         <UserProvider>
           <SearchProvider>
-            <EnumProvider>
+            <CreateAuctionProvider>
               <AuctionProvider>
                 <BidProvider>
                   <ReviewProvider>
@@ -43,7 +43,7 @@ function App() {
                   </ReviewProvider>
                 </BidProvider>
               </AuctionProvider>
-            </EnumProvider>
+            </CreateAuctionProvider>
           </SearchProvider>
         </UserProvider>
       </LoginProvider>

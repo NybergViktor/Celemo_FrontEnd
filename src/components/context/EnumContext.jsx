@@ -1,9 +1,9 @@
 import { useState, useEffect, createContext } from "react";
 
 
-const EnumContext = createContext();
+const CreateAuctionContext = createContext();
 
-const EnumProvider = ({ children }) => {
+const CreateAuctionProvider = ({ children }) => {
   // ================FETCH ALL ENUMS START============================
 
   const [categories, setCategories] = useState([]);
@@ -24,9 +24,9 @@ const EnumProvider = ({ children }) => {
   // ================FETCH ALL ENUMS END==============================
 
   return (
-    <EnumContext.Provider value={{ categories, setCategories }}>
+    <CreateAuctionContext.Provider value={{ categories, setCategories }}>
       {children}
-    </EnumContext.Provider>
+    </CreateAuctionContext.Provider>
   );
 };
-export { EnumContext, EnumProvider };
+export { CreateAuctionContext, CreateAuctionProvider };

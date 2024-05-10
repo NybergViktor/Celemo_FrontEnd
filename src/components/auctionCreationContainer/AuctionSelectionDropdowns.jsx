@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { EnumContext, EnumProvider } from "../context/EnumContext";
+import { CreateAuctionContext, CreateAuctionProvider } from "../context/EnumContext";
 import "../auctionCreationContainer/AuctionSelectionDropdowns.css";
 import FrameBottom from "./FrameBottom";
 import PublishButton from "./PublishButton";
 
 
 function AuctionSelectionDropdowns() {
-  const { categories } = useContext(EnumContext);
+  const { categories } = useContext(CreateAuctionContext);
  
 
   return (
