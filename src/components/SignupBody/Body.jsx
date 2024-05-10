@@ -12,9 +12,9 @@ const Body = () => {
         password:               "",
         email:                  "",
         dateOfBirth:            "",
-        adress_street:         "",
-        adress_city:           "",
-        adress_postalCode:     "",
+        adress_street:          "",
+        adress_city:            "",
+        adress_postalCode:      "",
         gender:                 "",
     });
 
@@ -29,14 +29,16 @@ const Body = () => {
         if (signupValue.error) {
             console.log("error: " + signupValue.error);
         }
-        fetchSignup(signupValue);
+        fetchSignup(signupValue);   
         console.log(signupValue);
         
     }
 
     return (
+        <div className="signupBody">
+
         <div className="signUpContainer">
-            <h1>Sign up</h1>
+            
             <form className="signUpForm">
 
               <input
@@ -84,11 +86,11 @@ const Body = () => {
               placeholder="Email" 
               onChange={handleChange}/>
 
-            <select name="gender" placeholder="Gender" onChange={handleChange}>
-            <option value="">CHOOSE GENDER</option>
-            <option value="MALE">Male</option>
-            <option value="FEMALE">Female</option>        //TODO: Make this look better
-            </select> 
+              <select name="gender" placeholder="Gender" onChange={handleChange}>
+              <option value="">Choose gender</option>
+              <option value="MALE">Male</option>
+              <option value="FEMALE">Female</option>        //TODO: Make this look better
+              </select> 
 
               <input
               name="dateOfBirth" 
@@ -131,6 +133,7 @@ const Body = () => {
               className="signUpButton">Sign up
               </button>
             </form>
+        </div>
         </div>
     )
 }
