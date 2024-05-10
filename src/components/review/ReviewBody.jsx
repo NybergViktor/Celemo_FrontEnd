@@ -1,11 +1,11 @@
 import "../review/ReviewBody.css";
-import ReviewContainer from "../../components/reviewContainer/reviewContainer";
+import ReviewContainerContent from "../../components/reviewContainerContent/reviewContainerContent";
 
 const ReviewBody = () => {
     return (
     <>
         <div className="reviewBody">
-            <ReviewContainer> </ReviewContainer>
+            <ReviewContainerContent/>
         </div>
     </>
     );
