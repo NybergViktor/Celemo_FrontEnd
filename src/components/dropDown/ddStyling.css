@@ -9,7 +9,6 @@
 .dropdown {
   grid-template-rows: repeat(3, 1fr);
   margin-left: 2rem;
-  margin-top: 2rem;
   cursor: pointer;
 }
 

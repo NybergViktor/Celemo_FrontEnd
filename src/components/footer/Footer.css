@@ -34,7 +34,7 @@
 a:link {
   text-decoration: none;
 }
-a:hover {
+.b:hover {
   background-color: rgba(54, 54, 54, 1);
   color: white;
   border-radius: 5px;
