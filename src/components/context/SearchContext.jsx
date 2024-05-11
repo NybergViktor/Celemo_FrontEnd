@@ -26,9 +26,15 @@ const SearchProvider = ({ children }) => {
         `${import.meta.env.VITE_API_URL}/search/${search}/${pageSize}/page/${pageNr}`,
         options
       );
-      const data = await res.json();
+      if (!res.ok) {
+        console.log("No auctions found!");
+        setFoundAuctions([]);
+        setPageNr(0);
+        setPages(0);
+      } else {
+        const data = await res.json();
       setFoundAuctions(data);  
-      console.log(data.length) 
+      }
     } catch (err) {
       console.log("err: " + err);
     }
@@ -54,7 +60,7 @@ const SearchProvider = ({ children }) => {
       );
       const data = await res.json();  
       setTotalItems(data.length);
-      console.log(data.length) 
+      // console.log(data.length) 
     } catch (err) {
       console.log("err: " + err);
     }

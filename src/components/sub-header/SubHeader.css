@@ -45,6 +45,7 @@
   position: absolute;
   top: 180px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
@@ -55,7 +56,7 @@
   gap: 10px;
   
 }
-@media screen and (max-width: 389px) {
+@media screen and (max-width: 420px) {
   .filter-dropdown-active {
     left: 10px;
   }
@@ -70,13 +71,19 @@
 .filter-dropdown-not-active .dd-item {
   display: none;
 }
-.dd-item {
-  
+.dd-cat {
+  color: white;
 }
 .dd-select {
-  background-color: #363636;
+  background-color: #828282;
   border: 0;
   color: white;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+.dd-con {
+  display: flex;
+  gap: 5px;
 }
 
 /*###############################################*/

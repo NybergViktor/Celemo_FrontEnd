@@ -24,7 +24,7 @@ const EnumProvider = ({ children }) => {
   // ================FETCH ALL ENUMS END==============================
 
   return (
-    <EnumContext.Provider value={{ categories, setCategories }}>
+    <EnumContext.Provider value={{ categories, setCategories, fetchCategories }}>
       {children}
     </EnumContext.Provider>
   );
