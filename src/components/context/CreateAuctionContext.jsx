@@ -1,6 +1,5 @@
 import { useState, useEffect, createContext } from "react";
 
-
 const CreateAuctionContext = createContext();
 
 const CreateAuctionProvider = ({ children }) => {
@@ -22,6 +21,52 @@ const CreateAuctionProvider = ({ children }) => {
     }
   };
   // ================FETCH ALL ENUMS END==============================
+
+  // ================fetch API NINJAS START ==========================
+
+
+  let name = 'Michael Jordan'
+
+  let options = {
+    method: "GET",
+    headers: { "x-api-key": "EVXs0Tdo4GvAQnEzNgwfEg==pXAm2A6bA2zNwHFl" },
+  };
+
+  let url = "https://api.api-ninjas.com/v1/celebrity?name=" + name;
+
+  fetch(url, options)
+    .then((res) => res.json()) // parse response as JSON
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((err) => {
+      console.log(`error ${err}`);
+    });
+
+
+
+
+
+
+
+
+
+
+    
+
+  // var name = 'Michael Jordan'
+  // $.ajax({
+  //     method: 'GET',
+  //     url: 'https://api.api-ninjas.com/v1/celebrity?name=' + name,
+  //     headers: { 'X-Api-Key': 'AIzaSyBXHNglsyPG90KJQzfiMGpS68TcXE6jtsY'},
+  //     contentType: 'application/json',
+  //     success: function(result) {
+  //         console.log(result);
+  //     },
+  //     error: function ajaxError(jqXHR) {
+  //         console.error('Error: ', jqXHR.responseText);
+  //     }
+  // });
 
   return (
     <CreateAuctionContext.Provider value={{ categories, setCategories }}>
