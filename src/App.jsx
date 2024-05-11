@@ -13,7 +13,7 @@ import { BidProvider } from "./components/context/BidsContext";
 import CreateAuctionPage from "./pages/create-auction-page/CreateAuctionPage";
 import { ReviewProvider } from "./components/context/ReviewContext";
 import { SignupProvider } from "./components/context/SignupContext";
-import ReviewPage from "./pages/reviewPage";
+import ReviewPage from "./pages/reviewpage/ReviewPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 
 function App() {
