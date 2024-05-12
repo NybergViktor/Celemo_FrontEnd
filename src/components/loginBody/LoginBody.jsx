@@ -6,7 +6,7 @@ const LoginBody =() =>{
 
    const [username, setUsername] = useState("")
    const [password, setPassword] = useState("")
-   const[userId, setuserId] = useState("")
+  
 
 
 
@@ -50,8 +50,6 @@ const LoginBody =() =>{
                 <input type="password" placeholder="Password" className="password"
                 value={password} 
                 onChange={(e) => setPassword(e.target.value)}/>
-
-                <span value={userId} onChange={(e) => setuserId(e.target.value)}></span>
 
                 <button type="submit" className="button">Sign In</button>
 
