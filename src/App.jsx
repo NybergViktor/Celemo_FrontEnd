@@ -14,10 +14,12 @@ import { ReviewProvider } from "./components/context/ReviewContext";
 import { SignupProvider } from "./components/context/SignupContext";
 import ReviewPage from "./pages/reviewPage/ReviewPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import { AuthProvider } from "./components/context/AuthContext";
 
 function App() {
   return (
-  <SignupProvider>
+  <AuthProvider>
+    <SignupProvider>
     <LoginProvider>
       <UserProvider>
         <SearchProvider>
@@ -45,6 +47,7 @@ function App() {
       </UserProvider>
     </LoginProvider>
   </SignupProvider>
+  </AuthProvider>
   );
 }
 

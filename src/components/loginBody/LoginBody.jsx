@@ -1,17 +1,24 @@
 import "./LoginBody.css";
-import{useState} from "react"
+import{useState, useContext} from "react"
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 
 const LoginBody =() =>{
 
    const [username, setUsername] = useState("")
    const [password, setPassword] = useState("")
-  
 
+   const navigate = useNavigate()
 
+   const {
+    state: { user },
+    dispatch
+   }= useContext(AuthContext)
 
   const handleSubmit = async (e) =>{
     e.preventDefault()
+
 
     if(!username || !password && password != (data)){
       alert("Fill in Username and password")
@@ -23,13 +30,20 @@ const LoginBody =() =>{
       {
           username,
           password
-      }
-  )
+      })
+
+      dispatch({
+        type: "LOGIN",
+        payload: data
+      })
+
 
      window.localStorage.setItem("user", JSON.stringify(data))
-     console.log("user Login " + username  )
+     console.log("user Login: " + username)
+     console.log("userId: " + data.id)
 
-  
+  // readirect user to home
+  return navigate("/")
 
    }catch(err){
 
