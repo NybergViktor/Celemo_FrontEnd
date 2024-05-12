@@ -28,20 +28,21 @@ function AuctionSelectionDropdowns() {
           <div className="title-h1">
             <h2 className="title-text">Create Auction</h2>
           </div>
+          
           <select className="category" id="category">
             {categories.map((category) => (
               <option key={category}>{category}</option>
             ))}
           </select>
+
           <select className="sub-category" id="sub-category">
-            <option value="sub-category" disabled>
-              Sub Category
-            </option>
             <option value="other">Other</option>
           </select>
-          <select className="celebrity-category" id="celebrity-category">
-            <option value="celebrities">Celebrities</option>
-          </select>
+
+          <label className="celebrity-category" id="celebrity-category">
+            <input type="search" name="celeb" id="celebrityInput" />
+          </label>
+
         </div>
       </div>
       <FrameBottom />

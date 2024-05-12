@@ -23,25 +23,14 @@ const CreateAuctionProvider = ({ children }) => {
   // ================FETCH ALL ENUMS END==============================
 
   // ================fetch API NINJAS START ==========================
+  // const [celebrity, setCelebrity] = useState("");
 
-
-  let name = 'Michael Jordan'
-
-  let options = {
-    method: "GET",
-    headers: { "x-api-key": "EVXs0Tdo4GvAQnEzNgwfEg==pXAm2A6bA2zNwHFl" },
-  };
-
-  let url = "https://api.api-ninjas.com/v1/celebrity?name=" + name;
-
-  fetch(url, options)
-    .then((res) => res.json()) // parse response as JSON
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((err) => {
-      console.log(`error ${err}`);
-    });
+  // const celebrityInput = (promptMessage) => {
+  //   return prompt(promptMessage)
+  // }
+  // const celebrityInput = document.getElementById('celebrityInput');
+  // const input = celebrityInput.value;
+  // const celebrityName = input;
 
 
 
@@ -52,7 +41,33 @@ const CreateAuctionProvider = ({ children }) => {
 
 
 
-    
+  
+
+    let name = "michael jacksson"
+    let options = {
+      method: "GET",
+      headers: { "x-api-key": "EVXs0Tdo4GvAQnEzNgwfEg==pXAm2A6bA2zNwHFl" },
+    };
+
+    let url = "https://api.api-ninjas.com/v1/celebrity?name=" + celebrityName;
+
+    fetch(url, options)
+      .then((res) => res.json()) // parse response as JSON
+      .then((data) => {
+        
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(`error ${err}`);
+      });
+
+
+
+
+
+
+
+
 
   // var name = 'Michael Jordan'
   // $.ajax({
