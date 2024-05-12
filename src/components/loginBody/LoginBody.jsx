@@ -1,62 +1,57 @@
 import "./LoginBody.css";
+import{useState} from "react"
 import axios from "axios";
-import { AuthContext } from "../context/AuthContext";
 
 const LoginBody =() =>{
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
 
-    const{
-      state : {user},
-      dispatch,
-    }=useContext(AuthContext)
+   const [username, setUsername] = useState("")
+   const [password, setPassword] = useState("")
+   const[userId, setuserId] = useState("")
 
 
-    const handleSubmit = async (e) => {
-      e.preventDefault()
 
-      if(!username || !password){
-          alert("fill in username and password")
-          return
+  const handleSubmit = async (e) =>{
+    e.preventDefault()
+
+    if(!username || !password && password != (data)){
+      alert("Fill in Username and password")
+      return
+    }
+  
+    try{
+      const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/auth/signin`,
+      {
+          username,
+          password
       }
+  )
 
-      try{
-          const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/auth/signin`,
-              {
-                  username,
-                  password
-              }
-          )
-          dispatch({
-              type:"LOGIN",
-              payload: data
-          })
+     window.localStorage.setItem("user", JSON.stringify(data))
+     console.log("user Login " + username  )
 
-          window.localStorage.setItem("user", JSON.stringify(data))
-          console.log("user Login ")
+  
 
-          return navigator("/")
+   }catch(err){
 
-
-        }catch(err){
-
-          console.log("Error: +"  + err)
-        }
+   console.log("Error: +"  + err)
+      alert("Lösenordet du har angivit är felaktigt")
+   }
 
   }
-
-
-
-
+  
 
     return (
-      <div className="LoginContainer" onSubmit={handleSubmit}>
-             <form className="loginForm">
+      <div className="LoginContainer" >
+             <form className="loginForm" onSubmit={handleSubmit} >
                 <input type="text" placeholder="Username" className="username"
-                value={username} onChange={(e) => setUsername(e.target.value)}/>
+                value={username} 
+                onChange={(e) => setUsername(e.target.value)}/>
 
                 <input type="password" placeholder="Password" className="password"
-                value={password} onChange={(e) => setPassword(e.target.value)}/>
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)}/>
+
+                <span value={userId} onChange={(e) => setuserId(e.target.value)}></span>
 
                 <button type="submit" className="button">Sign In</button>
 
