@@ -1,6 +1,6 @@
-import ".profilePage.css";
 import { UserContext } from "../../components/context/UserContext";
-import { useParams, useEffect, useContext } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useContext, useEffect } from "react";
 import PubProfileComp from "../../components/pubprofilecomp/PubProfileComp";
 
 const PubProfile = () => {
