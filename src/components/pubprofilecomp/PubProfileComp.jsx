@@ -1,3 +1,4 @@
+import "./PubProfileComp.css";
 import React from "react";
 
 import { UserContext } from "../context/UserContext";
@@ -14,17 +15,38 @@ export const PubProfileComp = () => {
         getPublicUserFromId(userId);
     }, [userId]);
     return (
-        <div>
-            <h1>Pub Profile</h1>
-            <div className="Userinfo">
+        <section className="fieldsMainContainer">
+            <div className="userinfo">
                 <div key={userData.id}>
-                    <h2>{userData.username}</h2>
-                    <p>{userData.email}</p>
-                    <p>{userData.adress_city}</p>
-                    <p>{userData.grade}</p>
+
+                    <div className="profilePic">
+                    <img src={userData.photo} />
+                    </div>
+
+                    <div className="fieldContainer">
+                      <p className="fieldName">Username:</p>
+                      <div className="fieldContent">
+                        <p>{userData.username}</p>
+                      </div>
+                    </div>
+
+                    <div className="fieldContainer">
+                            <p className="fieldName">City:</p>
+                                <div className="fieldContent">
+                            <p>{userData.adress_city}</p>
+                        </div>
+                    </div>
+
+                    <div className="fieldContainer">
+                        <p className="fieldName">Grade:</p>
+                            <div className="fieldContent">
+                        <p>{Math.round(userData.grade)}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+            
     );
 };
 
