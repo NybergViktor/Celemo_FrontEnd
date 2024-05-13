@@ -4,14 +4,12 @@ import { SearchContext } from "../context/SearchContext";
 import { AuctionContext } from "../context/AuctionContext";
 import { Link } from "react-router-dom";
 
-
 const StartpageMainContainer = () => {
   const inputRef = React.useRef(null);
 
-  const { fetchAllAuctions, totalItems } = useContext(AuctionContext);
-
   // STARTPAGE CONTENT STUFF
   const {
+    fetchAllAuctions,
     searchAuctions,
     foundAuctions,
     pageNr,
@@ -23,19 +21,18 @@ const StartpageMainContainer = () => {
     setPages,
     auctionId,
     setAuctionId,
-    searchValue, 
+    searchValue,
     setSearchValue,
     totalItems,
-    searchAuctionsNoPaging
+    searchAuctionsNoPaging,
   } = useContext(SearchContext);
-  
+
   const [pageSize, setPageSize] = useState(2);
 
-
   useEffect(() => {
-    searchAuctionsNoPaging(`${searchValue}`) // Only used to get number of pages.
+    searchAuctionsNoPaging(`${searchValue}`); // Only used to get number of pages.
     searchAuctions(`${searchValue}`, pageSize);
-  }, [searchValue])
+  }, [searchValue]);
 
   useEffect(() => {
     console.log(`items: ` + totalItems);
@@ -47,15 +44,15 @@ const StartpageMainContainer = () => {
   }, [pages]);
 
   useEffect(() => {
-    searchAuctionsNoPaging(`${searchValue}`) // Only used to get number of pages.
+    searchAuctionsNoPaging(`${searchValue}`); // Only used to get number of pages.
     searchAuctions(`${searchValue}`, pageSize);
   }, [pageNr]);
 
   const noAuctions = (totalItems) => {
     if (totalItems === 0) {
-      return <p id="no-auctions">No auctions found!</p>
+      return <p id="no-auctions">No auctions found!</p>;
     }
-  }
+  };
 
   return (
     <>
@@ -63,7 +60,7 @@ const StartpageMainContainer = () => {
       {/** STARTPAGE CONTENT */}
       <div className="startpageMainContainer">
         {/** ONE AUCTION */}
-        
+
         {foundAuctions.map((auction) => {
           return (
             // AUCTION WHITE BOX
@@ -75,12 +72,11 @@ const StartpageMainContainer = () => {
               onClick={() => setAuctionId(auction.id)}
               to={`/auction/find-one/${auction.id}`}
             >
-              
-                {/** PICTURE */}
-                <div className="auctionPicture">
-                  <img src={auction.productPhoto} />
-                </div>
-              
+              {/** PICTURE */}
+              <div className="auctionPicture">
+                <img src={auction.productPhoto} />
+              </div>
+
               {/** AUCTION INFO */}
               <div className="auctionInfo">
                 {/** INFO OVER SIDE */}
@@ -97,7 +93,7 @@ const StartpageMainContainer = () => {
                 <div className="auctionInfoUnder">
                   <div className="auctionInfoUnderTitle">{auction.title}</div>
                   <div className="auctionInfoUnderButton">
-                      <button>PLACE BID</button>
+                    <button>PLACE BID</button>
                   </div>
                 </div>
               </div>

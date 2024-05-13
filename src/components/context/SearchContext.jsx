@@ -10,6 +10,7 @@ const SearchProvider = ({ children }) => {
   const [pageNr, setPageNr] = useState(0);
   const [searchValue, setSearchValue] = useState("getall");
   const [ totalItems, setTotalItems ] = useState(0);
+  const [auctionId, setAuctionId] = useState([]);
 
   const searchAuctions = async (search, pageSize) => {
     var options = {
