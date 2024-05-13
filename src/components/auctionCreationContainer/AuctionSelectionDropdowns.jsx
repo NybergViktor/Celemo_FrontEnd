@@ -108,17 +108,54 @@ function AuctionSelectionDropdowns() {
                 search
               </button>
             </label>
-           
+          <div>
+            
+            <div >
+                {celebrityData.map((data) => {
+                  return (
+                    <p style={{color: "white"}} key={data}>
+                      name: {data.name}
+                      <br />
+                      Occupation: {data.occupation[0]}
+                    </p>
+                  )
+                })}
+             
+             </div>
+          </div>
 
+           {/** FILTER DROPDOWN */}
+          {/* <div
+            className={
+              isFilterActive
+                ? "filter-dropdown-active"
+                : "filter-dropdown-not-active"
+            }
+          >
+            <label className="dd-item dd-cat">Select Category</label>
+            <div className="dd-con">
+              <select className="dd-select dd-item" onChange={handleInputChange}>
+                <option value="">none</option>
+                {celebrityData.map((data) => {
+                  return (
+                    <option key={data} value={celebrityData}>
+                      {cat}
+                    </option>
+                  );
+                })}
+              </select>
+              <button
+                id="search-btn"
+                className="dd-item"
+                onClick={searchHandler}
+              >
+                Select
+              </button>
             </div>
+          </div> */}
+        {/** END FILTER BUTTON CONTAINER */}
 
-
-
-
-
-
-
-
+           
             {/* <div style={{ color: "white" }}>
               {celebrityData.map((data) => (
                 <p key={data}>
