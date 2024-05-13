@@ -36,7 +36,7 @@ function AuctionSelectionDropdowns() {
     }
   };
 
-  // Fetch the celebrity data based on the search term
+  // when button i clicked i call the getCelebrity so that it dosnt gets called whenever a user types something. This is due to to many api reqs.
   const searchHandler = () => {
     if (searchTerm.trim !== "") {
       getCelebrity(searchTerm);
