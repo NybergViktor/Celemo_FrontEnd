@@ -17,6 +17,9 @@ const BidProvider = ({ children }) => {
     localStorage.getItem("loggedInUserId")
   );
 
+  useEffect(() => {
+    getUserFromId(loggedInUserId);
+  }, []);
 
   //##############################################################
   // Create Bid ##################################################
