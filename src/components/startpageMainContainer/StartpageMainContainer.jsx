@@ -6,16 +6,9 @@ import { Link } from "react-router-dom";
 
 
 const StartpageMainContainer = () => {
-<<<<<<< HEAD
-
-  // STARTPAGE CONTENT STUFF
-  const { fetchAllAuctions,  } =
-    useContext(AuctionContext);
-=======
   const inputRef = React.useRef(null);
 
   const { fetchAllAuctions, totalItems } = useContext(AuctionContext);
->>>>>>> 37128d055c5cdebc6c76ef11112d4e740a18bd6a
   const {
     searchAuctions,
     foundAuctions,
@@ -26,15 +19,8 @@ const StartpageMainContainer = () => {
     handleLast,
     pages,
     setPages,
-<<<<<<< HEAD
-    searchValue, 
-    setSearchValue,
-    totalItems,
-    searchAuctionsNoPaging
-=======
     auctionId,
     setAuctionId,
->>>>>>> 37128d055c5cdebc6c76ef11112d4e740a18bd6a
   } = useContext(SearchContext);
   
   const [pageSize, setPageSize] = useState(2);
