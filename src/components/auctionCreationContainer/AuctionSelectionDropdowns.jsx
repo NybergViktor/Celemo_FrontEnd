@@ -1,21 +1,18 @@
 import { useContext, useState } from "react";
-import {
-  CreateAuctionContext,
-  CreateAuctionProvider,
-} from "../context/CreateAuctionContext";
+import { CreateAuctionContext, CreateAuctionProvider } from "../context/CreateAuctionContext";
 import "../auctionCreationContainer/AuctionSelectionDropdowns.css";
 import FrameBottom from "./FrameBottom";
 import PublishButton from "./PublishButton";
 
 function AuctionSelectionDropdowns() {
   const { categories } = useContext(CreateAuctionContext);
-  const [searchTerm, setSearchTerm] = useState(" ");
+  const [searchTerm, setSearchTerm] = useState([" "]);
   // const { searchTerm, setSearchTerm  } = useContext(CreateAuctionContext);
 
 
 
   const getCelebrity = async (name) => {
-    let name = setSearchTerm;
+    // let name = setSearchTerm;
     
     let options = {
       method: "GET",
