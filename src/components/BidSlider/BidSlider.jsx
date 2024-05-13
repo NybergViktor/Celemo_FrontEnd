@@ -6,6 +6,7 @@ import { BidContext, BidProvider } from "../context/BidsContext";
 const Slider = () => {
   const { auction, setAuction, fetchAuction } = useContext(AuctionContext);
 
+
   const { maxBid, setMaxBid, startBid, setStartBid, fetchBid } =
     useContext(BidContext);
     

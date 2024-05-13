@@ -1,6 +1,13 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { SearchContext } from "./SearchContext";
 
 const BidContext = createContext();
+const {auctionId} = useContext(SearchContext)
+
+  const [loggedInUserId, setLoggedInUserId] = useState(localStorage.getItem("loggedInUserId"));
+
+  
+
 
 const BidProvider = ({ children }) => {
 
@@ -19,8 +26,8 @@ const BidProvider = ({ children }) => {
     body: JSON.stringify({
       startBid: `${startBid}`,
       maxBid: `${maxBid}`,
-      userId: "65eeddd849aaf15adc303068",
-      auctionId: "6636962a4e494335e4e911c3",
+      userId: `${loggedInUserId}`,
+      auctionId: `${auctionId}`,
     }),
   };
 

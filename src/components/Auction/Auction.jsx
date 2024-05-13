@@ -5,16 +5,18 @@ import "../Auction/AuctionStyle.css";
 import { AuctionContext } from "../context/AuctionContext";
 import { useContext, useState, useEffect } from "react";
 import { SearchContext } from "../context/SearchContext";
+import { useParams } from "react-router-dom";
 
 export const Auction = () => {
   const { auction, setAuction, fetchAuction, seller, setSeller } = useContext(AuctionContext);
-  const {auctionId, setAuctionId} = useContext(SearchContext);
+  // const {auctionId, setAuctionId} = useContext(SearchContext);
+  const { auctionId } = useParams(SearchContext)
   
 
   useEffect(() => {
     fetchAuction(auctionId);
     console.log(auctionId + "auction page")
-  }, []);
+  }, [auctionId]);
 
 
   
