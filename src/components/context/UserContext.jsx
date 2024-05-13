@@ -10,15 +10,10 @@ const UserProvider = ({ children }) => {
   const getUserFromId = async (userId) => {
     const options = {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: {"Content-Type": "application/json",},
       credentials: "include",
-      // body: JSON.stringify({
-      //   userId: userId,
-      // }),
     };
-    // console.log(userId)
+
     try {
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/user/find-one/${userId}`,
@@ -37,7 +32,7 @@ const UserProvider = ({ children }) => {
 // GET PUBLIC USER FROM ID
 
   const getPublicUserFromId = async (userId) => {
-    const options = {
+    const options2 = {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +42,7 @@ const UserProvider = ({ children }) => {
     try {
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/user/public-user/${userId}`,
-        options
+        options2
       );
       const fetchData = await response.json();
       setUserData(fetchData);
