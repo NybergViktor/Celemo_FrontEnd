@@ -3,6 +3,13 @@
     flex-wrap: wrap;
     padding: 20px;
 }
+#no-auctions {
+    background-color: bisque;
+    padding: 10px;
+    text-align: center;
+    font-size: larger;
+    font-weight: 800 !important;
+}
 @media only screen and (min-width: 700px) {
     .startpageAuctionContainer{
         max-width: 22rem;
@@ -97,7 +104,7 @@ margin: auto;
 }
 .page-item {
     box-shadow: 1px 1px 5px gray;
-    border-radius: 8px;
+    border-radius: 0px;
     
 }
 .page-item:hover {
@@ -105,7 +112,7 @@ margin: auto;
     border-radius: 8px;
 }
 .middle-item {
-    border-radius: 0px;
+    border-radius: 7px;
 }
 .page-link {
     font-size: large !important;

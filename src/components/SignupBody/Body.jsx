@@ -29,7 +29,7 @@ const Body = () => {
         if (signupValue.error) {
             console.log("error: " + signupValue.error);
         }
-        fetchSignup(signupValue);   
+        fetchSignup(signupValue);
         console.log(signupValue);
         
     }
@@ -125,7 +125,7 @@ const Body = () => {
               type="number" 
               id="postal" 
               className="inputPostal" 
-              placeholder="Postal Code" 
+              placeholder="Postal Code"
               onChange={handleChange}/>
 
               <button id="signUpButton" 

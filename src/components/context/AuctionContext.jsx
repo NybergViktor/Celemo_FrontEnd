@@ -77,7 +77,7 @@ const AuctionProvider = ({ children }) => {
   // FetchAllAuctions SECTION ==========================
 
   const [ allAuctions, setAllAuctions ] = useState([]);
-  const [ totalItems, setTotalItems ] = useState(0);
+  
 
   const fetchAllAuctions = async () => {
 
@@ -87,7 +87,7 @@ const AuctionProvider = ({ children }) => {
       const data = await res.json();
       // console.log(data);
       setAllAuctions(data);
-      setTotalItems(data.length);
+      
     } catch (err) {
       console.log("err: " + err);
     }
@@ -107,7 +107,6 @@ const AuctionProvider = ({ children }) => {
       fetchUsersAuctions,
       allAuctions,
       fetchAllAuctions,
-      totalItems ,
       seller,
       setSeller
       }}>
