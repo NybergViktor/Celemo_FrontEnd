@@ -9,6 +9,7 @@ const StartpageMainContainer = () => {
   const inputRef = React.useRef(null);
 
   const { fetchAllAuctions, totalItems } = useContext(AuctionContext);
+
   const {
     searchAuctions,
     foundAuctions,
@@ -27,7 +28,7 @@ const StartpageMainContainer = () => {
 
 
   useEffect(() => {
-    console.log(totalItems);
+    console.log(totalItems + " totalItems");
     setPages(totalItems / pageSize);
   }, [totalItems]);
 
