@@ -95,6 +95,7 @@ const SearchProvider = ({ children }) => {
     <SearchContext.Provider
       value={{
         searchAuctions,
+        searchAuctionsNoPaging,
         foundAuctions,
         pageNr,
         setPageNr,

@@ -5,7 +5,8 @@ import "../Auction/AuctionStyle.css";
 import { AuctionContext } from "../context/AuctionContext";
 import { useContext, useState, useEffect } from "react";
 import { SearchContext } from "../context/SearchContext";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+
 
 export const Auction = () => {
   const { auction, setAuction, fetchAuction, seller, setSeller } = useContext(AuctionContext);
@@ -35,7 +36,15 @@ export const Auction = () => {
 
           <div className="seller">
             <div>
+            <Link
+              key={seller.id}
+              className="seller-link"
+              ref={inputRef}
+              onClick={() => setUserId(seller.id)}
+              to={`/pubprofile/${seller.id}`}
+            >
             @{seller.username}
+            </Link>
             </div>
             <button>Reviews</button>
           </div>

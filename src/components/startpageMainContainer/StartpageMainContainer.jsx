@@ -22,42 +22,33 @@ const StartpageMainContainer = () => {
     auctionId,
     setAuctionId,
   } = useContext(SearchContext);
-  
+  const [searchValue, setSearchValue] = useState("getall");
   const [pageSize, setPageSize] = useState(2);
 
 
   useEffect(() => {
-    searchAuctionsNoPaging(`${searchValue}`) // Only used to get number of pages.
-    searchAuctions(`${searchValue}`, pageSize);
-  }, [searchValue])
-
-  useEffect(() => {
-    console.log(`items: ` + totalItems);
+    console.log(totalItems);
     setPages(totalItems / pageSize);
   }, [totalItems]);
 
   useEffect(() => {
-    console.log(`pages: ` + pages);
+    console.log(pages);
   }, [pages]);
 
   useEffect(() => {
-    searchAuctionsNoPaging(`${searchValue}`) // Only used to get number of pages.
+    fetchAllAuctions();
+    searchAuctions(`${searchValue}`, pageSize);
+  }, []);
+
+  useEffect(() => {
+    fetchAllAuctions();
     searchAuctions(`${searchValue}`, pageSize);
   }, [pageNr]);
 
-  const noAuctions = (totalItems) => {
-    if (totalItems === 0) {
-      return <p id="no-auctions">No auctions found!</p>
-    }
-  }
-
   return (
     <>
-      {noAuctions(totalItems)}
-      {/** STARTPAGE CONTENT */}
       <div className="startpageMainContainer">
         {/** ONE AUCTION */}
-        
         {foundAuctions.map((auction) => {
           return (
             // AUCTION WHITE BOX
