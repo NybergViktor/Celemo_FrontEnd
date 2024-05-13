@@ -1,11 +1,56 @@
-import { useContext } from "react";
-import { CreateAuctionContext, CreateAuctionProvider } from "../context/CreateAuctionContext";
+import { useContext, useState } from "react";
+import {
+  CreateAuctionContext,
+  CreateAuctionProvider,
+} from "../context/CreateAuctionContext";
 import "../auctionCreationContainer/AuctionSelectionDropdowns.css";
 import FrameBottom from "./FrameBottom";
 import PublishButton from "./PublishButton";
 
 function AuctionSelectionDropdowns() {
   const { categories } = useContext(CreateAuctionContext);
+  const [searchTerm, setSearchTerm] = useState(" ");
+  // const { searchTerm, setSearchTerm  } = useContext(CreateAuctionContext);
+
+
+
+  const getCelebrity = async (name) => {
+    let name = setSearchTerm;
+    
+    let options = {
+      method: "GET",
+      headers: { "x-api-key": "EVXs0Tdo4GvAQnEzNgwfEg==pXAm2A6bA2zNwHFl" },
+    };
+
+    let url = "https://api.api-ninjas.com/v1/celebrity?name=" + name; // name
+
+    try {
+      let res = await fetch(url, options);
+      const data = await res.json();
+      console.log(data); // Log the fetched data
+    } catch (err) {
+      console.log(`error ${err}`);
+    }
+
+    // Fetch the celebrity data based on the search term
+     setEffect(() => {
+       getCelebrity(searchTerm);
+     }, [searchTerm]);
+    
+  };
+    
+    
+    
+    
+  // console.log(setSearchTerm);
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+    console.log(e.target.value);
+  };
+
+    
+    
+  
 
   return (
     <div className="main-container">
@@ -28,7 +73,7 @@ function AuctionSelectionDropdowns() {
           <div className="title-h1">
             <h2 className="title-text">Create Auction</h2>
           </div>
-          
+
           <select className="category" id="category">
             {categories.map((category) => (
               <option key={category}>{category}</option>
@@ -40,10 +85,16 @@ function AuctionSelectionDropdowns() {
           </select>
 
           <label className="celebrity-category" id="celebrity-category">
-            <input type="search" name="celeb" id="celebrityInput" />
+            <input
+              type="text"
+              name="celeb"
+              id="celebrityInput"
+              value={searchTerm}
+              onChange={handleInputChange}
+            />
           </label>
-
         </div>
+        
       </div>
       <FrameBottom />
       <PublishButton>Publish Auction</PublishButton>
