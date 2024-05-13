@@ -24,7 +24,7 @@ const SubHeader = () => {
     setSearchValue(inputSearch);
     setInputSearch("");
     setIsFilterActive((current) => !current);
-    setIsRedoActive((current) => !current);
+    setIsRedoActive(true);
     setPageNr(0);
     console.log(`Set category: ` + inputSearch);
   };
@@ -42,7 +42,7 @@ const SubHeader = () => {
     setSearchValue(inputSearch);
     setInputSearch("");
     setIsSearchActive((current) => !current);
-    setIsRedoActive((current) => !current);
+    setIsRedoActive(true);
     setPageNr(0);
     
   };
