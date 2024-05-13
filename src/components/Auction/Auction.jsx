@@ -9,6 +9,7 @@ import { Link, useParams } from "react-router-dom";
 
 
 export const Auction = () => {
+  const inputRef = React.useRef(null);
   const { auction, setAuction, fetchAuction, seller, setSeller } = useContext(AuctionContext);
   // const {auctionId, setAuctionId} = useContext(SearchContext);
   const { auctionId } = useParams(SearchContext)
@@ -40,7 +41,6 @@ export const Auction = () => {
               key={seller.id}
               className="seller-link"
               ref={inputRef}
-              onClick={() => setUserId(seller.id)}
               to={`/pubprofile/${seller.id}`}
             >
             @{seller.username}

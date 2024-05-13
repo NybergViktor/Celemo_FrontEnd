@@ -6,27 +6,23 @@ import { useParams } from "react-router-dom";
 import { SearchContext } from "../context/SearchContext";
 
 export const PubProfileComp = () => {
-    const { userData, setUserData, getUserFromId } = useContext(UserContext);
+    const { userData, setUserData, getPublicUserFromId } = useContext(UserContext);
     const { userId } = useParams(SearchContext);
 
+    console.log(userId);
     useEffect(() => {
-        getUserFromId(userId);
+        getPublicUserFromId(userId);
     }, [userId]);
     return (
         <div>
             <h1>Pub Profile</h1>
             <div className="Userinfo">
-                
-                    <div key={user.id}>
-                        <h2>{user.username}</h2>
-                        <p>{user.email}</p>
-                        <p>{user.phone}</p>
-                        <p>{user.address}</p>
-                        <p>{user.postal}</p>
-                        <p>{user.city}</p>
-                        <p>{user.country}</p>
-                    </div>
-                
+                <div key={userData.id}>
+                    <h2>{userData.username}</h2>
+                    <p>{userData.email}</p>
+                    <p>{userData.adress_city}</p>
+                    <p>{userData.grade}</p>
+                </div>
             </div>
         </div>
     );
