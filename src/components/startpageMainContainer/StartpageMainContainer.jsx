@@ -25,7 +25,6 @@ const StartpageMainContainer = () => {
   const [searchValue, setSearchValue] = useState("getall");
   const [pageSize, setPageSize] = useState(2);
 
-  console.log(auctionId + " auction id console");
 
   useEffect(() => {
     console.log(totalItems);

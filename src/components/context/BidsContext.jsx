@@ -1,12 +1,17 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { SearchContext } from "./SearchContext";
+import { UserContext } from "./UserContext";
 
 const BidContext = createContext();
 
 const BidProvider = ({ children }) => {
-  const [loggedInUserId, setLoggedInUserId] = useState(
-    localStorage.getItem("loggedInUserId")
-  );
+  const { userData, getUserFromId} = useContext(UserContext);
+  const [loggedInUserId, setLoggedInUserId] = useState(localStorage.getItem("loggedInUserId"));
+
+  useEffect(() => {
+    getUserFromId(loggedInUserId);
+  }, []);
+
 
   const { auctionId } = useContext(SearchContext);
 
@@ -32,6 +37,11 @@ const BidProvider = ({ children }) => {
 
   const fetchBid = async () => {
     try {
+
+      
+      console.log(JSON.stringify(options) + " options")
+
+
       let res = await fetch(
         `${import.meta.env.VITE_API_URL}/bids/create`,
         options
