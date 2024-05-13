@@ -6,8 +6,9 @@ const CreateAuctionProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
 
 
-  // ================FETCH ALL ENUMS START============================
 
+
+  // ================FETCH ALL ENUMS START============================
   const fetchCategories = async () => {
     try {
       let res = await fetch(`${import.meta.env.VITE_API_URL}/category/find`);
@@ -20,10 +21,15 @@ const CreateAuctionProvider = ({ children }) => {
   useEffect(() => {
     fetchCategories();
   }, []);
-
   // ================FETCH ALL ENUMS END==============================
 
   
+
+
+
+
+
+
 
   return (
     <CreateAuctionContext.Provider
@@ -32,14 +38,17 @@ const CreateAuctionProvider = ({ children }) => {
       {children}
     </CreateAuctionContext.Provider>
   );
+
+
 };
+
 export { CreateAuctionContext, CreateAuctionProvider };
 
 
 
 
 
-// THINGS TO BRING BACK IN CODE =================
+// THINGS TO potentially BRING BACK IN CODE =================
 
 
 // var name = 'Michael Jordan'
@@ -55,6 +64,10 @@ export { CreateAuctionContext, CreateAuctionProvider };
 //         console.error('Error: ', jqXHR.responseText);
 //     }
 // });
+
+
+
+
 
 //  const fetchCelebrity = async () => {
 
@@ -78,19 +91,20 @@ export { CreateAuctionContext, CreateAuctionProvider };
 //     }
 //   };
 
+
+
 //   // Fetch the celebrity data based on the search term
 //    useEffect(() => {
 //      fetchCelebrity(searchTerm);
 //    }, [searchTerm]);
+
 
 // let name = "michael jordan";
 // let options = {
 //   method: "GET",
 //   headers: { "x-api-key": "EVXs0Tdo4GvAQnEzNgwfEg==pXAm2A6bA2zNwHFl" },
 // };
-
 // let url = "https://api.api-ninjas.com/v1/celebrity?name=" + name;
-
 // fetch(url, options)
 //   .then((res) => res.json()) // parse response as JSON
 //   .then((data) => {

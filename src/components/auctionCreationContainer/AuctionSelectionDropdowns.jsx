@@ -9,10 +9,8 @@ import PublishButton from "./PublishButton";
 
 function AuctionSelectionDropdowns() {
   const { categories } = useContext(CreateAuctionContext);
-
-  const [searchTerm, setSearchTerm] = useState("");
-
   const [celebrityData, setCelebrityData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   // takes the new value and updates the state
   const handleInputChange = (e) => {
@@ -27,7 +25,7 @@ function AuctionSelectionDropdowns() {
     };
 
     let url = "https://api.api-ninjas.com/v1/celebrity?name=" + name; // name
-
+    
     try {
       let res = await fetch(url, options);
       const data = await res.json();
@@ -39,11 +37,11 @@ function AuctionSelectionDropdowns() {
   };
 
   // Fetch the celebrity data based on the search term
-  useEffect(() => {
-    if (searchTerm !== "") {
+  const searchHandler = () => {
+    if (searchTerm.trim !== "") {
       getCelebrity(searchTerm);
     }
-  }, [searchTerm]);
+  };
 
   return (
     <>
@@ -89,9 +87,7 @@ function AuctionSelectionDropdowns() {
 
               <button
                 typeof="button"
-                onClick={() => {
-                  getCelebrity(searchTerm);
-                }}
+                onClick={searchHandler}
               >
                 search
               </button>
