@@ -8,6 +8,13 @@ section {
   border-radius: 8px;
 }
 
+.fieldcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-right: 2%;
+    
+}
 .fieldcontent {
     background-color: gray;
 }
