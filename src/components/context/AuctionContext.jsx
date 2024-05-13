@@ -35,6 +35,40 @@ const AuctionProvider = ({ children }) => {
 
   // END FetchAuction SECTION ==========================
 
+  // ===============================================
+  // FetchAuction  timeleft SECTION ==========================
+
+
+  const [timeleft, setTimeleft] = useState([]);
+  
+
+  const fetchAuctionTimeleft = async (auctionId) => {
+
+    var optionsTime = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    };
+
+    if (auctionId !== undefined) {
+      try {
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/auction/find-one/timeleft/${auctionId}`,
+          optionsTime
+        );
+        const data = await res.json();
+        setTimeleft(data)
+        console.log(data);
+      } catch (err) {
+        console.log("err: " + err);
+      }
+    }
+  };
+
+  // END FetchAuction SECTION ==========================
+
   // ===================================================
   // FetchUsersAuctions SECTION ========================
 
@@ -103,6 +137,9 @@ const AuctionProvider = ({ children }) => {
         totalItems,
         seller,
         setSeller,
+        fetchAuctionTimeleft,
+        timeleft,
+        setTimeleft
       }}
     >
       {children}

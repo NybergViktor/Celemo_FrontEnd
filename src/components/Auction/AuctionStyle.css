@@ -122,6 +122,12 @@ main {
   margin-right: 0.3rem;
 }
 
+.endtime{
+  border-top: #363636 1px solid;
+ max-width: 300px;
+ width: 90%;
+ text-align: center;
+}
 
 
 .seller {

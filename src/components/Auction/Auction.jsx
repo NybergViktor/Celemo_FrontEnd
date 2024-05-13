@@ -1,23 +1,27 @@
 import React from "react";
 import "../Auction/AuctionStyle.css";
 
-
 import { AuctionContext } from "../context/AuctionContext";
 import { useContext, useState, useEffect } from "react";
 import { SearchContext } from "../context/SearchContext";
 import { useParams } from "react-router-dom";
 
 export const Auction = () => {
-  const { auction, setAuction, fetchAuction, seller, setSeller } = useContext(AuctionContext);
-  const { auctionId } = useParams(SearchContext)
-  
+  const {
+    auction,
+    setAuction,
+    fetchAuction,
+    seller,
+    setSeller,
+    fetchAuctionTimeleft,
+    timeleft,
+  } = useContext(AuctionContext);
+  const { auctionId } = useParams(SearchContext);
 
   useEffect(() => {
     fetchAuction(auctionId);
+    fetchAuctionTimeleft(auctionId);
   }, [auctionId]);
-
-
-  
 
   return (
     <main>
@@ -32,10 +36,10 @@ export const Auction = () => {
           <div className="auction-title">{auction.title}</div>
           <div className="description">{auction.productDescription}</div>
 
+          <div className="endtime">{timeleft[0]} <br /> {timeleft[1]}</div>
+
           <div className="seller">
-            <div>
-            @{seller.username}
-            </div>
+            <div>@{seller.username}</div>
             <button>Reviews</button>
           </div>
           <div className="location">
