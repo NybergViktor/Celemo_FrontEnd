@@ -60,12 +60,14 @@ export const PubProfileComp = () => {
             </div>
         </section>
         <section className="publicContainer">
+            <div className="publicBox">
         <div className="publicUserInfo">
         <div className="publicTitle">
                     Auctions
                     </div>
             {usersAuctions.map((auction) => {
                 return (
+                    
                     <div key={auction.id}>
                         <div className="publicAuctionContainer">
                             <div className="publicAuctionContent">
@@ -77,13 +79,15 @@ export const PubProfileComp = () => {
                             onClick={() => setAuctionId(auction.id)}
                             to={`/auction/find-one/${auction.id}`}>
 
-                            <button className="auctionbutton" >View</button>
+                            <button className="auctionbutton">View</button>
 
                             </Link>
                         </div>
                     </div>
             </div>
+            
     );})}
+    </div>
     </div>
     </section>
     </>
