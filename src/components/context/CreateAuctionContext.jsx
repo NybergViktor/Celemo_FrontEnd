@@ -4,7 +4,7 @@ const CreateAuctionContext = createContext();
 
 const CreateAuctionProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
-  // const [searchTerm, setSearchTerm] = useState("");
+
 
   // ================FETCH ALL ENUMS START============================
 
@@ -23,7 +23,7 @@ const CreateAuctionProvider = ({ children }) => {
 
   // ================FETCH ALL ENUMS END==============================
 
-  // ================fetch API NINJAS START ==========================
+  
 
   return (
     <CreateAuctionContext.Provider
@@ -40,17 +40,6 @@ export { CreateAuctionContext, CreateAuctionProvider };
 
 
 // THINGS TO BRING BACK IN CODE =================
-
-// searchTerm, setSearchTerm
-
-
-
-
-
-
-
-
-
 
 
 // var name = 'Michael Jordan'
