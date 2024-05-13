@@ -32,7 +32,7 @@ const LoginBody =() =>{
           password
       },
       {
-        withCredentials: true, // kaka
+        withCredentials: true, //showing the cookie
       })
      
 
@@ -48,6 +48,7 @@ const LoginBody =() =>{
 
   // readirect user to home
   return navigate("/")
+
 
    }catch(err){
 
