@@ -15,6 +15,7 @@ import { ReviewProvider } from "./components/context/ReviewContext";
 import { SignupProvider } from "./components/context/SignupContext";
 import ReviewPage from "./pages/reviewPage/ReviewPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import PubProfile from "./pages/pubprofile/pubProfile";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
                           path="/create-auction"
                           element={<CreateAuctionPage />}
                         />
+                        <Route path="/pubprofile" element={<PubProfile />} />
                       </Routes>
                     </BrowserRouter>
                   </ReviewProvider>
@@ -49,6 +51,6 @@ function App() {
       </LoginProvider>
     </SignupProvider>
   );
-}
+};
 
 export default App;
