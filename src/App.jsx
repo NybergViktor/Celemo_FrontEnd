@@ -39,7 +39,7 @@ function App() {
                           path="/create-auction"
                           element={<CreateAuctionPage />}
                         />
-                        <Route path="/pubprofile" element={<PubProfile />} />
+                        <Route path="/pubprofile/:userId" element={<PubProfile />} />
                       </Routes>
                     </BrowserRouter>
                   </ReviewProvider>
