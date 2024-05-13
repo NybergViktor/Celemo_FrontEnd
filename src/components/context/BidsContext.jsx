@@ -1,8 +1,19 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { SearchContext } from "./SearchContext";
+import { UserContext } from "./UserContext";
 
 const BidContext = createContext();
 
 const BidProvider = ({ children }) => {
+  const { userData, getUserFromId} = useContext(UserContext);
+  const [loggedInUserId, setLoggedInUserId] = useState(localStorage.getItem("loggedInUserId"));
+
+  useEffect(() => {
+    getUserFromId(loggedInUserId);
+  }, []);
+
+
+  const { auctionId } = useContext(SearchContext);
 
   //##############################################################
   // Create Bid ##################################################
@@ -19,21 +30,25 @@ const BidProvider = ({ children }) => {
     body: JSON.stringify({
       startBid: `${startBid}`,
       maxBid: `${maxBid}`,
-      userId: "65eeddd849aaf15adc303068",
-      auctionId: "6636962a4e494335e4e911c3",
+      userId: `${loggedInUserId}`,
+      auctionId: `${auctionId}`,
     }),
   };
 
   const fetchBid = async () => {
     try {
-    let res = await fetch(
-      `${import.meta.env.VITE_API_URL}/bids/create`,
-      options
-    );
 
-    const data = await res.json();
-    console.log(JSON.stringify(data + " data"));
-    
+      
+      console.log(JSON.stringify(options) + " options")
+
+
+      let res = await fetch(
+        `${import.meta.env.VITE_API_URL}/bids/create`,
+        options
+      );
+
+      const data = await res.json();
+      console.log(JSON.stringify(data + " data"));
     } catch (err) {
       console.log("err: " + err);
     }
@@ -42,8 +57,8 @@ const BidProvider = ({ children }) => {
   //##############################################################
   // Get Bids for user ###########################################
 
-  const [ usersBids, setUsersBids ] = useState([]);
-  const [ noBids, setNoBids ] = useState("");
+  const [usersBids, setUsersBids] = useState([]);
+  const [noBids, setNoBids] = useState("");
 
   var options = {
     method: "GET",
@@ -57,39 +72,40 @@ const BidProvider = ({ children }) => {
     if (userId !== undefined) {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/bids/find/all-user/${userId}`, options);
+          `${import.meta.env.VITE_API_URL}/bids/find/all-user/${userId}`,
+          options
+        );
 
-          if (response.status === 404) {
-            setNoBids("No bids");
-            console.log(noBids);
-          }
-          if (response.ok) {
-            const data = await response.json();
-            setUsersBids(data);
-          }
-        } catch (error) {
-          console.log(error);
-        }  
-      
+        if (response.status === 404) {
+          setNoBids("No bids");
+          console.log(noBids);
+        }
+        if (response.ok) {
+          const data = await response.json();
+          setUsersBids(data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
-  }
+  };
 
   useEffect(() => {
     console.log(noBids);
-  }, [noBids])
+  }, [noBids]);
 
   return (
     <BidContext.Provider
       value={{
         startBid,
-        setStartBid, 
-        maxBid, 
-        setMaxBid, 
+        setStartBid,
+        maxBid,
+        setMaxBid,
         fetchBid,
         getBidsForUser,
         usersBids,
-        noBids
-        }}
+        noBids,
+      }}
     >
       {children}
     </BidContext.Provider>

@@ -34,7 +34,7 @@ function App() {
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/signup" element={<SignupPage />} />
                         <Route path="/review" element={<ReviewPage />} />
-                        <Route path="/auction" element={<AuctionPage />} />
+                        <Route path="/auction/find-one/:auctionId" element={<AuctionPage />} />
                         <Route
                           path="/create-auction"
                           element={<CreateAuctionPage />}

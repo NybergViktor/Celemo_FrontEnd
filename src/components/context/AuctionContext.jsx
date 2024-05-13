@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const AuctionContext = createContext();
 
@@ -14,9 +14,6 @@ const AuctionProvider = ({ children }) => {
       "Content-Type": "application/json",
     },
     credentials: "include",
-    // body: JSON.stringify({
-    //   auctionId: "6636962a4e494335e4e911c3",
-    // }),
   };
 
   const fetchAuction = async (auctionId) => {
@@ -34,10 +31,7 @@ const AuctionProvider = ({ children }) => {
         console.log("err: " + err);
       }
     }
-    
   };
-
-  
 
   // END FetchAuction SECTION ==========================
 
@@ -76,14 +70,12 @@ const AuctionProvider = ({ children }) => {
   // ===================================================
   // FetchAllAuctions SECTION ==========================
 
-  const [ allAuctions, setAllAuctions ] = useState([]);
-  
+  const [allAuctions, setAllAuctions] = useState([]);
+  const [totalItems, setTotalItems] = useState(0);
 
   const fetchAllAuctions = async () => {
-
     try {
-      let res = await fetch(
-        `${import.meta.env.VITE_API_URL}/auction/find/all`);
+      let res = await fetch(`${import.meta.env.VITE_API_URL}/auction/find/all`);
       const data = await res.json();
       // console.log(data);
       setAllAuctions(data);
@@ -99,17 +91,20 @@ const AuctionProvider = ({ children }) => {
   // }, [])
 
   return (
-    <AuctionContext.Provider value={
-      { auction, 
-      setAuction, 
-      fetchAuction, 
-      usersAuctions, 
-      fetchUsersAuctions,
-      allAuctions,
-      fetchAllAuctions,
-      seller,
-      setSeller
-      }}>
+    <AuctionContext.Provider
+      value={{
+        auction,
+        setAuction,
+        fetchAuction,
+        usersAuctions,
+        fetchUsersAuctions,
+        allAuctions,
+        fetchAllAuctions,
+        totalItems,
+        seller,
+        setSeller,
+      }}
+    >
       {children}
     </AuctionContext.Provider>
   );

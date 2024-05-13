@@ -1,4 +1,4 @@
- import "../BidSlider/BidStyle.css";
+import "../BidSlider/BidStyle.css";
 import { AuctionContext } from "../context/AuctionContext";
 import { useContext, useState, useEffect } from "react";
 import { BidContext, BidProvider } from "../context/BidsContext";
@@ -8,7 +8,7 @@ const Slider = () => {
 
   const { maxBid, setMaxBid, startBid, setStartBid, fetchBid } =
     useContext(BidContext);
-    
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -66,7 +66,7 @@ const Slider = () => {
           <button className="min" type="button" onClick={handleSlider}>
             <p>-</p>
           </button>
-          <form className="formContainer" onSubmit={handleSubmit}>
+          <form method="post" className="formContainer" onSubmit={handleSubmit}>
             <div className="auto-con">
               <input
                 className="bid"
@@ -100,9 +100,8 @@ const Slider = () => {
               />
             </div>
 
-            <button className="submit" type="submit">
-              PLACE BID
-            </button>
+            <input className="submit" type="submit" value="PLACE BID" placeholder="PLACE BID">
+            </input>
           </form>
         </div>
       </div>

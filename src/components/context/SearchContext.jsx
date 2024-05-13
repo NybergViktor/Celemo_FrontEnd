@@ -3,14 +3,18 @@ import { createContext, useEffect, useState } from "react";
 const SearchContext = createContext();
 
 const SearchProvider = ({ children }) => {
-
   // ===========================================================
   // SearchAuctions SECTION ====================================
 
   const [foundAuctions, setFoundAuctions] = useState([]);
   const [pageNr, setPageNr] = useState(0);
+<<<<<<< HEAD
   const [searchValue, setSearchValue] = useState("getall");
   const [ totalItems, setTotalItems ] = useState(0);
+=======
+
+  const [auctionId, setAuctionId] = useState([]);
+>>>>>>> 37128d055c5cdebc6c76ef11112d4e740a18bd6a
 
   const searchAuctions = async (search, pageSize) => {
     var options = {
@@ -23,9 +27,12 @@ const SearchProvider = ({ children }) => {
 
     try {
       let res = await fetch(
-        `${import.meta.env.VITE_API_URL}/search/${search}/${pageSize}/page/${pageNr}`,
+        `${
+          import.meta.env.VITE_API_URL
+        }/search/${search}/${pageSize}/page/${pageNr}`,
         options
       );
+<<<<<<< HEAD
       if (!res.ok) {
         console.log("No auctions found!");
         setFoundAuctions([]);
@@ -36,6 +43,10 @@ const SearchProvider = ({ children }) => {
         const data = await res.json();
       setFoundAuctions(data);  
       }
+=======
+      const data = await res.json();
+      setFoundAuctions(data);
+>>>>>>> 37128d055c5cdebc6c76ef11112d4e740a18bd6a
     } catch (err) {
       console.log("err: " + err);
     }
@@ -70,7 +81,7 @@ const SearchProvider = ({ children }) => {
   // ===========================================================
   // Page functions SECTION ====================================
 
-  const [ pages, setPages ] = useState(0);
+  const [pages, setPages] = useState(0);
 
   // useEffect(() => {
   //   console.log("Updated pageNr: ", pageNr);
@@ -111,10 +122,15 @@ const SearchProvider = ({ children }) => {
         handleLast,
         setPages,
         pages,
+<<<<<<< HEAD
         searchValue, 
         setSearchValue,
         totalItems,
         searchAuctionsNoPaging
+=======
+        auctionId,
+        setAuctionId,
+>>>>>>> 37128d055c5cdebc6c76ef11112d4e740a18bd6a
       }}
     >
       {children}

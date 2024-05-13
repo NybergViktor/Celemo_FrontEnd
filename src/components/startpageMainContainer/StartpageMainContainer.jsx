@@ -2,12 +2,20 @@ import React, { useContext, useEffect, useState } from "react";
 import "./StartpageMainContainer.css";
 import { SearchContext } from "../context/SearchContext";
 import { AuctionContext } from "../context/AuctionContext";
+import { Link } from "react-router-dom";
+
 
 const StartpageMainContainer = () => {
+<<<<<<< HEAD
 
   // STARTPAGE CONTENT STUFF
   const { fetchAllAuctions,  } =
     useContext(AuctionContext);
+=======
+  const inputRef = React.useRef(null);
+
+  const { fetchAllAuctions, totalItems } = useContext(AuctionContext);
+>>>>>>> 37128d055c5cdebc6c76ef11112d4e740a18bd6a
   const {
     searchAuctions,
     foundAuctions,
@@ -18,13 +26,19 @@ const StartpageMainContainer = () => {
     handleLast,
     pages,
     setPages,
+<<<<<<< HEAD
     searchValue, 
     setSearchValue,
     totalItems,
     searchAuctionsNoPaging
+=======
+    auctionId,
+    setAuctionId,
+>>>>>>> 37128d055c5cdebc6c76ef11112d4e740a18bd6a
   } = useContext(SearchContext);
   
   const [pageSize, setPageSize] = useState(2);
+
 
   useEffect(() => {
     searchAuctionsNoPaging(`${searchValue}`) // Only used to get number of pages.
@@ -56,19 +70,25 @@ const StartpageMainContainer = () => {
       {noAuctions(totalItems)}
       {/** STARTPAGE CONTENT */}
       <div className="startpageMainContainer">
-        
         {/** ONE AUCTION */}
         
         {foundAuctions.map((auction) => {
           return (
             // AUCTION WHITE BOX
 
-            <div key={auction.id} className="startpageAuctionContainer">
-              {/** PICTURE */}
-              <div className="auctionPicture">
-                <img src={auction.productPhoto} />
-              </div>
-
+            <Link
+              key={auction.id}
+              className="startpageAuctionContainer"
+              ref={inputRef}
+              onClick={() => setAuctionId(auction.id)}
+              to={`/auction/find-one/${auction.id}`}
+            >
+              
+                {/** PICTURE */}
+                <div className="auctionPicture">
+                  <img src={auction.productPhoto} />
+                </div>
+              
               {/** AUCTION INFO */}
               <div className="auctionInfo">
                 {/** INFO OVER SIDE */}
@@ -85,11 +105,11 @@ const StartpageMainContainer = () => {
                 <div className="auctionInfoUnder">
                   <div className="auctionInfoUnderTitle">{auction.title}</div>
                   <div className="auctionInfoUnderButton">
-                    <button>PLACE BID</button>
+                      <button>PLACE BID</button>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })}
         {/** END ONE AUCTION */}
@@ -98,8 +118,6 @@ const StartpageMainContainer = () => {
       {/** FROM BOOTSTRAP */}
       <nav aria-label="Page navigation example">
         <ul className="pagination">
-          
-
           <li className="page-item middle-item">
             <a className="page-link" href="#" onClick={handleFirst}>
               First
@@ -139,8 +157,6 @@ const StartpageMainContainer = () => {
               Last
             </a>
           </li>
-
-          
         </ul>
       </nav>
     </>
