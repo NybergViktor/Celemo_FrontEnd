@@ -11,13 +11,24 @@ function AuctionSelectionDropdowns() {
   const { categories } = useContext(CreateAuctionContext);
   const [celebrityData, setCelebrityData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isFilterActive, setIsFilterActive] = useState(false);
+
+
+
+  // FILTER
+  const handleFilterButton = () => {
+    setIsFilterActive((current) => !current);
+  }
+
+
+
 
   // takes the new value and updates the state
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
   };
 
-  // ================fetch API NINJAS START ==========================
+  // FETCH API NINJAS START
   const getCelebrity = async (name) => {
     let options = {
       method: "GET",
@@ -35,8 +46,13 @@ function AuctionSelectionDropdowns() {
       console.log(`error ${err}`);
     }
   };
+  
 
-  // when button i clicked i call the getCelebrity so that it dosnt gets called whenever a user types something. This is due to to many api reqs.
+
+
+  
+  // LOAD
+  // when search button is clicked i call the getCelebrity so that it's not called whenever a user types something. This is due to, to many api reqs.
   const searchHandler = () => {
     if (searchTerm.trim !== "") {
       getCelebrity(searchTerm);
@@ -92,8 +108,18 @@ function AuctionSelectionDropdowns() {
                 search
               </button>
             </label>
+           
 
-            <div style={{ color: "white" }}>
+            </div>
+
+
+
+
+
+
+
+
+            {/* <div style={{ color: "white" }}>
               {celebrityData.map((data) => (
                 <p key={data}>
                   Name: {data.name}
@@ -101,7 +127,7 @@ function AuctionSelectionDropdowns() {
                   Occupation: {data.occupation[0]}
                 </p>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
         <FrameBottom />
