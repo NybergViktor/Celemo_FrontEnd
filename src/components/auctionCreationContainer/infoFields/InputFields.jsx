@@ -1,11 +1,16 @@
 import "../infoFields/InputFields.css";
 
 const InputFields = () => {
+  
   return (
     <>
       <div className="title-text-bottom">
         <label className="lable">
-          <input className="title-input" type="text" placeholder="Title" />
+          <input
+            className="title-input"
+            type="text"
+            placeholder="Title"
+          />
         </label>
       </div>
 
@@ -17,8 +22,6 @@ const InputFields = () => {
             placeholder="description"
             cols="15"
             rows="8"
-            // minlength="10"
-            // maxlength="500"
             required
           ></textarea>
         </label>
@@ -40,5 +43,4 @@ const InputFields = () => {
     </>
   );
 };
-
 export default InputFields;

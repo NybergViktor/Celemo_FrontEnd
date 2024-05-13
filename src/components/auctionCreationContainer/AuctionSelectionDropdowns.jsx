@@ -1,9 +1,14 @@
+import { useContext } from "react";
+import { EnumContext, EnumProvider } from "../context/EnumContext";
 import "../auctionCreationContainer/AuctionSelectionDropdowns.css";
 import FrameBottom from "./FrameBottom";
 import PublishButton from "./PublishButton";
 
 
 function AuctionSelectionDropdowns() {
+  const { categories } = useContext(EnumContext);
+ 
+
   return (
     <div className="main-container">
       <div className="svg1">
@@ -22,14 +27,21 @@ function AuctionSelectionDropdowns() {
       </div>
       <div className="selection-container-top">
         <div className="selection-dropdown-top">
-          <div className="title">
+          <div className="title-h1">
             <h2 className="title-text">Create Auction</h2>
           </div>
           <select className="category" id="category">
-            <option value="category">Category</option>
+
+            {categories.map((category) => (
+              <option key={category}>{category}</option>
+            ))}
+
           </select>
           <select className="sub-category" id="sub-category">
-            <option value="sub-category">Sub Category</option>
+            <option value="sub-category" disabled>
+              Sub Category
+            </option>
+            <option value="other">Other</option>
           </select>
           <select className="celebrity-category" id="celebrity-category">
             <option value="celebrities">Celebrities</option>
@@ -37,10 +49,8 @@ function AuctionSelectionDropdowns() {
         </div>
       </div>
       <FrameBottom />
-      <PublishButton />
+      <PublishButton>Publish Auction</PublishButton>
     </div>
-    
   );
 }
-
 export default AuctionSelectionDropdowns;

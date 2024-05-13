@@ -70,7 +70,7 @@ const UserInfoFields = () => {
       <div className="fieldContainer">
         <p className="fieldName">Grade:</p>
         <div className="fieldContent">
-          <p>{userData.grade}</p>
+          <p>{Math.round(userData.grade)}</p>
         </div>
       </div>
       <div className="fieldContainer">

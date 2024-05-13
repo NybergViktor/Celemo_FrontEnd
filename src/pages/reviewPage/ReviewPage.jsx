@@ -1,14 +1,14 @@
 import "./ReviewPage.css";
 import Footer from '../../components/footer/Footer';
 import Header from "../../components/header/Header";
-import ReviewBody from "../../components/review/ReviewBody";
+import ReviewContainerContent from "../../components/reviewContainerContent/ReviewContainerContent";
 
 const ReviewPage = () => {
     return (
         <>
         <div className="reviewpage">
             <Header></Header>
-            <ReviewBody></ReviewBody>
+            <ReviewContainerContent></ReviewContainerContent>
             <Footer></Footer>
         </div>
         </>

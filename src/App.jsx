@@ -7,6 +7,7 @@ import { LoginProvider } from "./components/context/LoginContext";
 import { UserProvider } from "./components/context/UserContext";
 import AuctionPage from "./pages/auction-page/AuctionPage";
 import { AuctionProvider } from "./components/context/AuctionContext";
+import { EnumProvider } from "./components/context/EnumContext";
 import { SearchProvider } from "./components/context/SearchContext";
 import { BidProvider } from "./components/context/BidsContext";
 import CreateAuctionPage from "./pages/create-auction-page/CreateAuctionPage";
@@ -23,26 +24,28 @@ function App() {
     <LoginProvider>
       <UserProvider>
         <SearchProvider>
-          <AuctionProvider>
-            <BidProvider>
-              <ReviewProvider>
-                <BrowserRouter>
-                  <Routes>
-                    <Route path="/" element={<Startpage />} />
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route path="/profile" element={<ProfilePage />} />
-                    <Route path="/signup" element={<SignupPage />} />
-                    <Route path="/review" element={<ReviewPage />} />
-                    <Route path="/auction" element={<AuctionPage />} />
-                    <Route
-                      path="/create-auction"
-                      element={<CreateAuctionPage />}
-                    />
-                  </Routes>
-                </BrowserRouter>
-              </ReviewProvider>
-            </BidProvider>
-          </AuctionProvider>
+          <EnumProvider>
+            <AuctionProvider>
+              <BidProvider>
+                <ReviewProvider>
+                  <BrowserRouter>
+                    <Routes>
+                      <Route path="/" element={<Startpage />} />
+                      <Route path="/login" element={<LoginPage />} />
+                      <Route path="/profile" element={<ProfilePage />} />
+                      <Route path="/signup" element={<SignupPage />} />
+                      <Route path="/review" element={<ReviewPage />} />
+                      <Route path="/auction" element={<AuctionPage />} />
+                      <Route
+                        path="/create-auction"
+                        element={<CreateAuctionPage />}
+                      />
+                    </Routes>
+                  </BrowserRouter>
+                </ReviewProvider>
+              </BidProvider>
+            </AuctionProvider>
+          </EnumProvider>
         </SearchProvider>
       </UserProvider>
     </LoginProvider>
