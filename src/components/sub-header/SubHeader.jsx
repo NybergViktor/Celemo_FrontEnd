@@ -89,7 +89,7 @@ const SubHeader = () => {
             <label className="dd-item dd-cat">Select Category</label>
             <div className="dd-con">
               <select className="dd-select dd-item" onChange={handleFilter}>
-                <option value="getall">none</option>
+                <option value="">none</option>
                 {categories.map((cat, i) => {
                   return (
                     <option key={i} value={cat}>
