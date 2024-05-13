@@ -2,14 +2,13 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { SearchContext } from "./SearchContext";
 
 const BidContext = createContext();
-const {auctionId} = useContext(SearchContext)
-
-  const [loggedInUserId, setLoggedInUserId] = useState(localStorage.getItem("loggedInUserId"));
-
-  
-
 
 const BidProvider = ({ children }) => {
+  const [loggedInUserId, setLoggedInUserId] = useState(
+    localStorage.getItem("loggedInUserId")
+  );
+
+  const { auctionId } = useContext(SearchContext);
 
   //##############################################################
   // Create Bid ##################################################
@@ -33,14 +32,13 @@ const BidProvider = ({ children }) => {
 
   const fetchBid = async () => {
     try {
-    let res = await fetch(
-      `${import.meta.env.VITE_API_URL}/bids/create`,
-      options
-    );
+      let res = await fetch(
+        `${import.meta.env.VITE_API_URL}/bids/create`,
+        options
+      );
 
-    const data = await res.json();
-    console.log(JSON.stringify(data + " data"));
-    
+      const data = await res.json();
+      console.log(JSON.stringify(data + " data"));
     } catch (err) {
       console.log("err: " + err);
     }
@@ -49,8 +47,8 @@ const BidProvider = ({ children }) => {
   //##############################################################
   // Get Bids for user ###########################################
 
-  const [ usersBids, setUsersBids ] = useState([]);
-  const [ noBids, setNoBids ] = useState("");
+  const [usersBids, setUsersBids] = useState([]);
+  const [noBids, setNoBids] = useState("");
 
   var options = {
     method: "GET",
@@ -64,39 +62,40 @@ const BidProvider = ({ children }) => {
     if (userId !== undefined) {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/bids/find/all-user/${userId}`, options);
+          `${import.meta.env.VITE_API_URL}/bids/find/all-user/${userId}`,
+          options
+        );
 
-          if (response.status === 404) {
-            setNoBids("No bids");
-            console.log(noBids);
-          }
-          if (response.ok) {
-            const data = await response.json();
-            setUsersBids(data);
-          }
-        } catch (error) {
-          console.log(error);
-        }  
-      
+        if (response.status === 404) {
+          setNoBids("No bids");
+          console.log(noBids);
+        }
+        if (response.ok) {
+          const data = await response.json();
+          setUsersBids(data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
-  }
+  };
 
   useEffect(() => {
     console.log(noBids);
-  }, [noBids])
+  }, [noBids]);
 
   return (
     <BidContext.Provider
       value={{
         startBid,
-        setStartBid, 
-        maxBid, 
-        setMaxBid, 
+        setStartBid,
+        maxBid,
+        setMaxBid,
         fetchBid,
         getBidsForUser,
         usersBids,
-        noBids
-        }}
+        noBids,
+      }}
     >
       {children}
     </BidContext.Provider>

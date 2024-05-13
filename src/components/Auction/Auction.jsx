@@ -15,7 +15,6 @@ export const Auction = () => {
 
   useEffect(() => {
     fetchAuction(auctionId);
-    console.log(auctionId + "auction page")
   }, [auctionId]);
 
 

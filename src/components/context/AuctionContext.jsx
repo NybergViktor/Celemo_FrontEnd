@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { SearchContext } from "./SearchContext";
 
 const AuctionContext = createContext();
 
@@ -15,9 +14,6 @@ const AuctionProvider = ({ children }) => {
       "Content-Type": "application/json",
     },
     credentials: "include",
-    // body: JSON.stringify({
-    //   auctionId: "6636962a4e494335e4e911c3",
-    // }),
   };
 
   const fetchAuction = async (auctionId) => {
