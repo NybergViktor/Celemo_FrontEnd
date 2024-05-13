@@ -1,11 +1,12 @@
 import "./UserInfoFields.css";
-import {UserContext} from "../context/UserContext";
+import { UserContext } from "../../context/UserContext";
 import { useEffect, useContext, useState } from "react";
 
 const UserInfoFields = () => {
-  
-  const { userData, getUserFromId} = useContext(UserContext);
-  const [loggedInUserId, setLoggedInUserId] = useState(localStorage.getItem("loggedInUserId"));
+  const { userData, getUserFromId } = useContext(UserContext);
+  const [loggedInUserId, setLoggedInUserId] = useState(
+    localStorage.getItem("loggedInUserId")
+  );
 
   useEffect(() => {
     getUserFromId(loggedInUserId);

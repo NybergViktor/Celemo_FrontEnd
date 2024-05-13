@@ -1,6 +1,6 @@
 import "./reviewContainerContent.css";
 import { useContext, useEffect, useState } from "react";
-import { ReviewContext } from "../context/ReviewContext";
+import { ReviewContext } from "../../context/ReviewContext";
 
 const ReviewContainerContent = () => {
   const { usersReviews, fetchUsersReviews, reviewedUser } =
