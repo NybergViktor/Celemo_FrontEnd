@@ -45,15 +45,6 @@ function AuctionSelectionDropdowns() {
     }
   }, [searchTerm]);
 
-  //  const showCelebrityData = () => {
-  //    if (celebrityData.length > 0) {
-  //      const data = celebrityData[0];
-  //     document.getElementById(
-  //       "celebrity-info"
-  //      ).textContent = `Name: ${data.name}, Birthday: ${data.birthday}, Net Worth: ${data.net_worth}`;
-  //    }
-  //  };
-
   return (
     <>
       <div className="main-container">
@@ -110,8 +101,8 @@ function AuctionSelectionDropdowns() {
               {celebrityData.map((data) => (
                 <p key={data}>
                    Name: {data.name}
-                   Birthday: {data.birthday}
-                   Net Worth: {data.net_worth}
+                   <br></br>
+                   Yrke: {data.occupation[0]}
                    </p>
               ))}
             </div>
