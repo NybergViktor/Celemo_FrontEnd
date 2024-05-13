@@ -1,11 +1,17 @@
-import { createContext, useContext, useEffect, useState , useParams} from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useParams,
+} from "react";
 import { SearchContext } from "./SearchContext";
 import { UserContext } from "./UserContext";
 
 const BidContext = createContext();
 
 const BidProvider = ({ children }) => {
-  const { auctionId } = useContext(SearchContext)
+  const { auctionId } = useContext(SearchContext);
   const { userData, getUserFromId } = useContext(UserContext);
   const [loggedInUserId, setLoggedInUserId] = useState(
     localStorage.getItem("loggedInUserId")
@@ -15,15 +21,12 @@ const BidProvider = ({ children }) => {
     getUserFromId(loggedInUserId);
   }, []);
 
-  
-  
-
   //##############################################################
   // Create Bid ##################################################
-  const [startBid, setStartBid] = useState();
-  const [maxBid, setMaxBid] = useState();
+  const [startBid, setStartBid] = useState("");
+  const [maxBid, setMaxBid] = useState("");
 
-  var options = {
+  var optionsPost = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -40,11 +43,12 @@ const BidProvider = ({ children }) => {
 
   const fetchBid = async () => {
     try {
-      console.log(JSON.stringify(options) + " options");
+      console.log(JSON.stringify(optionsPost) + " options");
+      console.log(optionsPost.body);
 
       let res = await fetch(
         `${import.meta.env.VITE_API_URL}/bids/create`,
-        options
+        optionsPost
       );
 
       const data = await res.json();
