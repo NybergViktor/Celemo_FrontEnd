@@ -1,7 +1,7 @@
 import "../BidSlider/BidStyle.css";
-import { AuctionContext } from "../../context/AuctionContext";
+import { AuctionContext } from "../context/AuctionContext";
 import { useContext, useState, useEffect } from "react";
-import { BidContext, BidProvider } from "../../context/BidsContext";
+import { BidContext, BidProvider } from "../context/BidsContext";
 
 const Slider = () => {
   const { auction, setAuction, fetchAuction } = useContext(AuctionContext);
@@ -47,6 +47,8 @@ const Slider = () => {
   useEffect(() => {
     fetchAuction();
   }, []);
+
+
 
   return (
     <>
