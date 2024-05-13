@@ -30,7 +30,11 @@ const LoginBody =() =>{
       {
           username,
           password
+      },
+      {
+        withCredentials: true, // kaka
       })
+     
 
       dispatch({
         type: "LOGIN",

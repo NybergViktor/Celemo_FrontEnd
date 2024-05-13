@@ -32,7 +32,7 @@ export const LoginProvider = ({ children, username, password }) => {
       localStorage.setItem("loggedInUserId", fetchData.id);
       // Console output for debugging
       console.log(response.status);
-      console.log(fetchData.id);
+      console.log(fetchData.id);  
     } catch (error) {
       console.log("Error: " + error);
     }
