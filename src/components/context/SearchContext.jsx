@@ -31,6 +31,7 @@ const SearchProvider = ({ children }) => {
         setFoundAuctions([]);
         setPageNr(0);
         setPages(0);
+        setTotalItems(0);
       } else {
         const data = await res.json();
       setFoundAuctions(data);  

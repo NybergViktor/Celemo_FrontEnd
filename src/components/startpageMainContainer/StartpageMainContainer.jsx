@@ -45,14 +45,20 @@ const StartpageMainContainer = () => {
     searchAuctions(`${searchValue}`, pageSize);
   }, [pageNr]);
 
+  const noAuctions = (totalItems) => {
+    if (totalItems === 0) {
+      return <p id="no-auctions">No auctions found!</p>
+    }
+  }
+
   return (
     <>
-      
-
+      {noAuctions(totalItems)}
       {/** STARTPAGE CONTENT */}
       <div className="startpageMainContainer">
         
         {/** ONE AUCTION */}
+        
         {foundAuctions.map((auction) => {
           return (
             // AUCTION WHITE BOX

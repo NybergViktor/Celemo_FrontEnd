@@ -44,6 +44,7 @@ const SubHeader = () => {
     setIsSearchActive((current) => !current);
     setIsRedoActive((current) => !current);
     setPageNr(0);
+    
   };
   // REDO
   const handleRedoClick = () => {
@@ -58,6 +59,10 @@ const SubHeader = () => {
   useEffect(() => {
     fetchCategories();
   }, []);
+
+  // useEffect(() => {
+  //   setSearchValue("getall");
+  // }, [handleRedoClick])
 
   
 
@@ -109,7 +114,7 @@ const SubHeader = () => {
           className={isRedoActive ? "redo-active" : "redo-not-active"}
           onClick={handleRedoClick}
         >
-          <img src="public/redo_icon.svg" width="50px" />
+          <img src="/redo_icon.svg" width="50px" />
         </button>
         {/** END REDO BUTTON */}
 
