@@ -100,10 +100,10 @@ function AuctionSelectionDropdowns() {
             <div style={{ color: "white" }}>
               {celebrityData.map((data) => (
                 <p key={data}>
-                   Name: {data.name}
-                   <br></br>
-                   Yrke: {data.occupation[0]}
-                   </p>
+                  Name: {data.name}
+                  <br></br>
+                  Occupation: {data.occupation[0]}
+                </p>
               ))}
             </div>
           </div>
