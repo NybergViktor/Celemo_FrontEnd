@@ -8,8 +8,8 @@ const SearchProvider = ({ children }) => {
 
   const [foundAuctions, setFoundAuctions] = useState([]);
   const [pageNr, setPageNr] = useState(0);
-
-  const [auctionId, setAuctionId] = useState([]);
+  const [searchValue, setSearchValue] = useState("getall");
+  const [ totalItems, setTotalItems ] = useState(0);
 
   const searchAuctions = async (search, pageSize) => {
     var options = {
@@ -18,10 +18,6 @@ const SearchProvider = ({ children }) => {
         "Content-Type": "application/json",
       },
       credentials: "include",
-      // body: JSON.stringify({
-      //   search: `${search}`,
-      //   pageSize: `${pageSize}`,
-      // }),
     };
 
     try {
@@ -31,8 +27,16 @@ const SearchProvider = ({ children }) => {
         }/search/${search}/${pageSize}/page/${pageNr}`,
         options
       );
-      const data = await res.json();
-      setFoundAuctions(data);
+      if (!res.ok) {
+        console.log("No auctions found!");
+        setFoundAuctions([]);
+        setPageNr(0);
+        setPages(0);
+        setTotalItems(0);
+      } else {
+        const data = await res.json();
+      setFoundAuctions(data);  
+      }
     } catch (err) {
       console.log("err: " + err);
     }
@@ -40,14 +44,38 @@ const SearchProvider = ({ children }) => {
 
   // END SearchAuctions SECTION ======================================
 
+  //##################################################################
+  // Search no paging
+  const searchAuctionsNoPaging = async (search) => {
+    var options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    };
+
+    try {
+      let res = await fetch(
+        `${import.meta.env.VITE_API_URL}/search/${search}`,
+        options
+      );
+      const data = await res.json();  
+      setTotalItems(data.length);
+      // console.log(data.length) 
+    } catch (err) {
+      console.log("err: " + err);
+    }
+  };
+
   // ===========================================================
   // Page functions SECTION ====================================
 
   const [pages, setPages] = useState(0);
 
-  useEffect(() => {
-    console.log("Updated pageNr: ", pageNr);
-  }, [pageNr]);
+  // useEffect(() => {
+  //   console.log("Updated pageNr: ", pageNr);
+  // }, [pageNr]);
 
   const handleNext = () => {
     if (pageNr < pages - 1) {
@@ -86,6 +114,10 @@ const SearchProvider = ({ children }) => {
         pages,
         auctionId,
         setAuctionId,
+        searchValue, 
+        setSearchValue,
+        totalItems,
+        searchAuctionsNoPaging
       }}
     >
       {children}

@@ -9,6 +9,8 @@ const StartpageMainContainer = () => {
   const inputRef = React.useRef(null);
 
   const { fetchAllAuctions, totalItems } = useContext(AuctionContext);
+
+  // STARTPAGE CONTENT STUFF
   const {
     searchAuctions,
     foundAuctions,
@@ -21,34 +23,47 @@ const StartpageMainContainer = () => {
     setPages,
     auctionId,
     setAuctionId,
+    searchValue, 
+    setSearchValue,
+    totalItems,
+    searchAuctionsNoPaging
   } = useContext(SearchContext);
-  const [searchValue, setSearchValue] = useState("getall");
+  
   const [pageSize, setPageSize] = useState(2);
 
 
   useEffect(() => {
-    console.log(totalItems);
+    searchAuctionsNoPaging(`${searchValue}`) // Only used to get number of pages.
+    searchAuctions(`${searchValue}`, pageSize);
+  }, [searchValue])
+
+  useEffect(() => {
+    console.log(`items: ` + totalItems);
     setPages(totalItems / pageSize);
   }, [totalItems]);
 
   useEffect(() => {
-    console.log(pages);
+    console.log(`pages: ` + pages);
   }, [pages]);
 
   useEffect(() => {
-    fetchAllAuctions();
-    searchAuctions(`${searchValue}`, pageSize);
-  }, []);
-
-  useEffect(() => {
-    fetchAllAuctions();
+    searchAuctionsNoPaging(`${searchValue}`) // Only used to get number of pages.
     searchAuctions(`${searchValue}`, pageSize);
   }, [pageNr]);
 
+  const noAuctions = (totalItems) => {
+    if (totalItems === 0) {
+      return <p id="no-auctions">No auctions found!</p>
+    }
+  }
+
   return (
     <>
+      {noAuctions(totalItems)}
+      {/** STARTPAGE CONTENT */}
       <div className="startpageMainContainer">
         {/** ONE AUCTION */}
+        
         {foundAuctions.map((auction) => {
           return (
             // AUCTION WHITE BOX
