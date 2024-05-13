@@ -9,7 +9,6 @@ import { useParams } from "react-router-dom";
 
 export const Auction = () => {
   const { auction, setAuction, fetchAuction, seller, setSeller } = useContext(AuctionContext);
-  // const {auctionId, setAuctionId} = useContext(SearchContext);
   const { auctionId } = useParams(SearchContext)
   
 

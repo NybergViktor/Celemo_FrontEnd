@@ -100,8 +100,9 @@ const Slider = () => {
               />
             </div>
 
-            <input className="submit" type="submit" value="PLACE BID" placeholder="PLACE BID">
-            </input>
+            <button className="submit" type="submit">
+              PLACE BID
+            </button>
           </form>
         </div>
       </div>
