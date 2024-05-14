@@ -119,7 +119,6 @@ const SearchProvider = ({ children }) => {
         searchValue, 
         setSearchValue,
         totalItems,
-        searchAuctionsNoPaging
       }}
     >
       {children}

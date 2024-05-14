@@ -4,7 +4,7 @@ import "../Auction/AuctionStyle.css";
 import { AuctionContext } from "../context/AuctionContext";
 import { useContext, useState, useEffect } from "react";
 import { SearchContext } from "../context/SearchContext";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
 export const Auction = () => {
@@ -43,7 +43,9 @@ console.log(auction.seller + " seller id")
 
           <div className="endtime">{timeleft[0]} <br /> {timeleft[1]}</div>
           <div className="seller">
+            <Link to={`/pubprofile/${auction.seller}`}>
             <div>@{userData.username}</div>
+            </Link>
             <button>Reviews</button>
           </div>
           <div className="location">
