@@ -116,11 +116,7 @@ main {
   box-shadow: 1px 1px 5px gray;
 }
 
-.pin{
-  scale: 0.8;
-  margin: auto;
-  margin-right: 0.3rem;
-}
+
 
 .endtime{
   border-top: #363636 1px solid;
@@ -151,6 +147,10 @@ main {
     justify-content: center;
 
     }
+  }
+
+  .seller a:link , .seller a:active, .seller a:visited, .seller a:hover{
+    color: white;
   }
 
 

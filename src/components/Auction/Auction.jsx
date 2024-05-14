@@ -8,26 +8,22 @@ import { Link, useParams } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
 export const Auction = () => {
-  const {
-    auction,
-    fetchAuction,
-    fetchAuctionTimeleft,
-    timeleft,
-  } = useContext(AuctionContext);
+  const { auction, fetchAuction, fetchAuctionTimeleft, timeleft } =
+    useContext(AuctionContext);
 
   const { auctionId } = useParams(SearchContext);
 
-  const { userData, getUserFromId } = useContext(UserContext)
+  const { userData, getUserFromId } = useContext(UserContext);
 
   useEffect(() => {
     fetchAuction(auctionId);
     fetchAuctionTimeleft(auctionId);
   }, [auctionId]);
- useEffect(() => {
-  getUserFromId(auction.seller);
+  useEffect(() => {
+    getUserFromId(auction.seller);
   }, [auction.seller]);
 
-console.log(auction.seller + " seller id")
+  console.log(auction.seller + " seller id");
   return (
     <main>
       <div className="auction-container">
@@ -41,22 +37,28 @@ console.log(auction.seller + " seller id")
           <div className="auction-title">{auction.title}</div>
           <div className="description">{auction.productDescription}</div>
 
-          <div className="endtime">{timeleft[0]} <br /> {timeleft[1]}</div>
+          <div className="endtime">
+            {timeleft[0]} <br /> {timeleft[1]}
+          </div>
           <div className="seller">
             <Link to={`/pubprofile/${auction.seller}`}>
-            <div>@{userData.username}</div>
+              <div className="seller-username">@{userData.username}</div>
             </Link>
             <button>Reviews</button>
           </div>
           <div className="location">
-            <img
-              className="pin"
-              src="src/components/Auction/teenyicons_pin-solid.png"
-              alt="location"
-            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-geo-alt-fill"
+              viewBox="0 0 16 16"
+            >
+              <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+            </svg>
             {userData.adress_city}
           </div>
-         
         </div>
         <div className="blankWhite"></div>
       </div>
