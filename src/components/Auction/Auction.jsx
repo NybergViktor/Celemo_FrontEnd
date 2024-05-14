@@ -37,14 +37,10 @@ export const Auction = () => {
           <div className="auction-title">{auction.title}</div>
           <div className="description">{auction.productDescription}</div>
 
+          <div className="price">{auction.currentPrice}Kr</div>
+
           <div className="endtime">
             {timeleft[0]} <br /> {timeleft[1]}
-          </div>
-          <div className="seller">
-            <Link to={`/pubprofile/${auction.seller}`}>
-              <div className="seller-username">@{userData.username}</div>
-            </Link>
-            <button>Reviews</button>
           </div>
           <div className="location">
             <svg
@@ -59,6 +55,13 @@ export const Auction = () => {
             </svg>
             {userData.adress_city}
           </div>
+          <div className="seller">
+            <Link to={`/pubprofile/${auction.seller}`}>
+              <div className="seller-username">@{userData.username}</div>
+            </Link>
+            <button>Reviews</button>
+          </div>
+          
         </div>
         <div className="blankWhite"></div>
       </div>
