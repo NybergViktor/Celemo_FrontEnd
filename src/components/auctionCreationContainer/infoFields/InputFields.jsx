@@ -1,16 +1,29 @@
 import "../infoFields/InputFields.css";
-
+import { useState } from "react";
 const InputFields = () => {
-  
+  const [inputData, setInputData] = useState({
+    title: "",
+    description: "",
+    startingBid: "",
+    endTime: "",
+    file: null,
+  });
+
+  const handleInputDataChange = (e) => {
+    const { name, value } = e.target;
+    setInputData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const
+
   return (
     <>
       <div className="title-text-bottom">
         <label className="lable">
-          <input
-            className="title-input"
-            type="text"
-            placeholder="Title"
-          />
+          <input className="title-input" type="text" placeholder="Title" />
         </label>
       </div>
 
