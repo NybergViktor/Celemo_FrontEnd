@@ -113,6 +113,7 @@ const AuctionProvider = ({ children }) => {
       const data = await res.json();
       // console.log(data);
       setAllAuctions(data);
+      setTotalItems(data.length);
       
     } catch (err) {
       console.log("err: " + err);

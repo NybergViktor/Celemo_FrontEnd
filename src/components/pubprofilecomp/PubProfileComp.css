@@ -1,0 +1,96 @@
+.publicTitle {
+    background-color: black;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: -10px;
+    border-top: black 10px solid;
+}
+.publicUserInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.publicBox {
+    background-color: #f5f5f5;
+    box-shadow: 0 0 10px #717171;
+    border-radius: 7px;
+}
+.auctionbutton{
+background-color: rgba(241, 157, 111, 1);
+  border: black 1px solid;
+  margin-right: 1% !important;
+  margin-top: 1% !important;
+  margin-bottom: 1% !important;
+  border-radius: 5px;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  box-shadow: 1px 1px 1px 1px #888888;
+}
+.publicContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 7px;
+    background-color: #f5f5f5;
+    border: 1px solid #717171;
+    box-shadow: 0 0 10px #717171;
+}
+
+.publicfieldContainer {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    height: 100%;
+    border: 1px solid #717171;
+    border-radius: 10px;
+}
+.publicfieldContainer p {
+    margin: 0 10px 0 10px;
+    text-align: center;
+}
+.publicfieldContent {
+    margin-left: 1rem;
+    background-color: #b0b0b0;
+    border-radius: 9px;
+    align-self: flex-end;
+    align-items: center;
+    width: 90%;
+}
+.publicAuctionContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.publicAuctionContent {
+    margin-right: 1rem;
+    background-color: #b0b0b0;
+    border-radius: 9px;
+    align-self: flex-end;
+    width: 90%;
+}
+.publicAuctionContent p {
+    margin: 0 10px 0 10px;
+    text-align: center;
+}
+button {
+    margin: 0 10px 0 10px;
+    align-self: flex-end;
+}
+.publicProfilePic img{
+    box-shadow: 0 0 10px #717171;
+    border-radius: 50%;
+    max-width: 300px;
+    max-height: 300px;
+    width: 300px;
+    height: 300px;
+}
