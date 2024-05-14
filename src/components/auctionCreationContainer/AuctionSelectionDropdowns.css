@@ -84,7 +84,7 @@
     width: 45%;
   }
 
-  .celebrity-category{
+  .celebrity-category {
     width: 45%;
     padding: 0;
     display: flex;
@@ -110,46 +110,42 @@
   .output-container {
     justify-content: start;
     position: absolute;
-    top: 14.7rem;
+    top: 15.7rem;
     left: 15rem;
     width: 31%;
-    height: 10rem;
+    /* height: 0; FOR TRANSITION*/ 
     border: none;
-    /* background-color: #363636; */
-    background-color: whitesmoke;
+    background-color: #605e5e5a;
     border-radius: 10px;
-    opacity: 1;
+    /* opacity: 0; FOR TRANSITION */
+    overflow: hidden;
+    /* transition: height 2s ease 0s; FOR TRANSITION */
     z-index: 3;
-    overflow: scroll;
+  }
+
+  .output-container.show {
+    height: 5rem;
+    opacity: 1;
   }
 
   .p-container {
     max-width: 17rem;
     border: none;
-    width: 16.65rem;
-    flex-direction: column;
+    width: 100%;
     font-size: 10px;
     position: absolute;
     z-index: 3;
     padding: 5px;
   }
   #select {
-    height: auto;
+    display: flex;
+    justify-content: center;
+    text-align: start;
     width: 100%;
     border-radius: 10px;
     background-color: #363636;
     color: white;
-    font-size: 11px;
+    font-size: 15px;
     padding: 5px;
   }
-
-  
-
-
-  /* .output-container:hover,
-  .output-container:focus{
-    
-    opacity: 1;
-  } */
-
 }

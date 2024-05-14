@@ -1,5 +1,5 @@
-import { v4 as uuidv4 } from 'uuid';
-import { useContext, useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { useContext, useEffect, useState, useRef } from "react";
 import {
   CreateAuctionContext,
   CreateAuctionProvider,
@@ -11,7 +11,9 @@ import PublishButton from "./PublishButton";
 function AuctionSelectionDropdowns() {
   const { categories } = useContext(CreateAuctionContext);
   const [celebrityData, setCelebrityData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [title, setTitle] = useState("");
+  const containerRef = useRef(null);
   // const [isFilterActive, setIsFilterActive] = useState(false);
 
   // FILTER
@@ -19,6 +21,12 @@ function AuctionSelectionDropdowns() {
   //   setIsFilterActive((current) => !current);
   // };
 
+  // if data is not clear, setCelebrityData to clear.
+  const handleClickOutside = (e) => {
+    if (containerRef.current && !containerRef.current.contains(e.target)) {
+      setCelebrityData([]);
+    }
+  };
   // takes the new value and updates the state
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
@@ -36,7 +44,14 @@ function AuctionSelectionDropdowns() {
     try {
       let res = await fetch(url, options);
       const data = await res.json();
-      setCelebrityData(data.map(item => ({...item, id: uuidv4()})));                              //(prevData => [...prevData, ...data]);
+      // TRYING TO ADD AN ID TO EACH INDEX OF EACH CELEBRITY OBJECT IN THE ARRAY, cant make it to work.
+      const celebrityId = data.map((celebrity, index) => ({
+        ...celebrity,
+        id: index,
+      }));
+      setCelebrityData(celebrityId);
+      localStorage.setItem(data, name);
+      // setCelebrityData(prevData => [...prevData, ...celebrityId]);                                      // setCelebrityData(data.map(item => ({...item, id: uuidv4()})));
       console.log(data); // Log the fetched data
     } catch (err) {
       console.log(`error ${err}`);
@@ -49,9 +64,16 @@ function AuctionSelectionDropdowns() {
     if (searchTerm !== "") {
       getCelebrity(searchTerm);
     } else {
-      return console.log("wrong input")
+      return console.log("wrong input");
     }
   };
+  // adding a mousedown instead of click due to have read that it sometimes can be better working due to it is triggerd before any other clickhandlers.
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -102,20 +124,23 @@ function AuctionSelectionDropdowns() {
 
             {celebrityData.map((data) => {
               return (
-                <>
-                <div className="output-container">
+                <div
+                  className="output-container show"
+                  key={data.id}
+                  ref={containerRef}
+                >
                   <div className="p-container">
-                    <div list="browsers" id="select">
-                    <p key={data}>
-                      
-                      Name: {data.name} <br/>
-                      Occupation: {data.occupation && data.occupation.length > 0 ? data.occupation[0] : "Not available"}
-                      
-                    </p>
+                    <div id="select">
+                      <p>
+                        Name: {data.name} <br />
+                        Occupation:{" "}
+                        {data.occupation && data.occupation.length > 0
+                          ? data.occupation[0]
+                          : "Not available"}
+                      </p>
                     </div>
                   </div>
                 </div>
-                </>
               );
             })}
           </div>
@@ -128,13 +153,11 @@ function AuctionSelectionDropdowns() {
 }
 export default AuctionSelectionDropdowns;
 
-
-
-
-
-
-            {/** FILTER DROPDOWN */}
-            {/* <div
+{
+  /** FILTER DROPDOWN */
+}
+{
+  /* <div
             className={
               isFilterActive
                 ? "filter-dropdown-active"
@@ -161,10 +184,14 @@ export default AuctionSelectionDropdowns;
                 Select
               </button>
             </div>
-          </div> */}
-            {/** END FILTER BUTTON CONTAINER */}
+          </div> */
+}
+{
+  /** END FILTER BUTTON CONTAINER */
+}
 
-            {/* <div style={{ color: "white" }}>
+{
+  /* <div style={{ color: "white" }}>
               {celebrityData.map((data) => (
                 <p key={data}>
                   Name: {data.name}
@@ -172,4 +199,5 @@ export default AuctionSelectionDropdowns;
                   Occupation: {data.occupation[0]}
                 </p>
               ))}
-            </div> */}
+            </div> */
+}
