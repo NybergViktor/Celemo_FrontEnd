@@ -22,8 +22,11 @@ export const Auction = () => {
   useEffect(() => {
     fetchAuction(auctionId);
     fetchAuctionTimeleft(auctionId);
-    getUserFromId(auction.seller);
   }, [auctionId]);
+ useEffect(() => {
+  getUserFromId(auction.seller);
+  }, [auction.seller]);
+
 console.log(auction.seller + " seller id")
   return (
     <main>
