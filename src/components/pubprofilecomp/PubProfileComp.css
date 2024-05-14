@@ -86,3 +86,11 @@ button {
     margin: 0 10px 0 10px;
     align-self: flex-end;
 }
+.publicProfilePic img{
+    box-shadow: 0 0 10px #717171;
+    border-radius: 50%;
+    max-width: 300px;
+    max-height: 300px;
+    width: 300px;
+    height: 300px;
+}
