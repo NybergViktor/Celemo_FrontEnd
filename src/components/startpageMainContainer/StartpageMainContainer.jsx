@@ -7,12 +7,7 @@ import { Link } from "react-router-dom";
 const StartpageMainContainer = () => {
   const inputRef = React.useRef(null);
 
-<<<<<<< HEAD
   // STARTPAGE CONTENT STUFF
-=======
-  const { fetchAllAuctions, totalItems } = useContext(AuctionContext);
-
->>>>>>> b9b4abc83193615fe8369202923bda97aeb08509
   const {
     fetchAllAuctions,
     searchAuctions,
@@ -26,30 +21,21 @@ const StartpageMainContainer = () => {
     setPages,
     auctionId,
     setAuctionId,
-<<<<<<< HEAD
     searchValue,
     setSearchValue,
     totalItems,
     searchAuctionsNoPaging,
   } = useContext(SearchContext);
 
-=======
-  } = useContext(SearchContext);
-  const [searchValue, setSearchValue] = useState("getall");
->>>>>>> b9b4abc83193615fe8369202923bda97aeb08509
   const [pageSize, setPageSize] = useState(2);
 
   useEffect(() => {
-<<<<<<< HEAD
     searchAuctionsNoPaging(`${searchValue}`); // Only used to get number of pages.
     searchAuctions(`${searchValue}`, pageSize);
   }, [searchValue]);
 
   useEffect(() => {
     console.log(`items: ` + totalItems);
-=======
-    console.log(totalItems + " totalItems");
->>>>>>> b9b4abc83193615fe8369202923bda97aeb08509
     setPages(totalItems / pageSize);
   }, [totalItems]);
 
@@ -58,7 +44,6 @@ const StartpageMainContainer = () => {
   }, [pages]);
 
   useEffect(() => {
-<<<<<<< HEAD
     searchAuctionsNoPaging(`${searchValue}`); // Only used to get number of pages.
     searchAuctions(`${searchValue}`, pageSize);
   }, [pageNr]);
@@ -69,25 +54,10 @@ const StartpageMainContainer = () => {
     }
   };
 
-=======
-    fetchAllAuctions();
-    searchAuctions(`${searchValue}`, pageSize);
-  }, []);
-
-  useEffect(() => {
-    fetchAllAuctions();
-    searchAuctions(`${searchValue}`, pageSize);
-  }, [pageNr]);
-
->>>>>>> b9b4abc83193615fe8369202923bda97aeb08509
   return (
     <>
       <div className="startpageMainContainer">
         {/** ONE AUCTION */}
-<<<<<<< HEAD
-
-=======
->>>>>>> b9b4abc83193615fe8369202923bda97aeb08509
         {foundAuctions.map((auction) => {
           return (
             // AUCTION WHITE BOX
