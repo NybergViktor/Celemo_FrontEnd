@@ -13,9 +13,7 @@ const BidContext = createContext();
 const BidProvider = ({ children }) => {
   const { auctionId } = useContext(SearchContext);
   const { userData, getUserFromId } = useContext(UserContext);
-  const [loggedInUserId, setLoggedInUserId] = useState(
-    localStorage.getItem("loggedInUserId")
-  );
+  const [loggedInUserId, setLoggedInUserId] = useState(localStorage.getItem("loggedInUserId"));
 
   useEffect(() => {
     getUserFromId(loggedInUserId);
