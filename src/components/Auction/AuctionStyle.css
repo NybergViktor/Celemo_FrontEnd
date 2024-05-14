@@ -116,12 +116,14 @@ main {
   box-shadow: 1px 1px 5px gray;
 }
 
-.pin{
-  scale: 0.8;
-  margin: auto;
-  margin-right: 0.3rem;
-}
 
+
+.endtime{
+  border-top: #363636 1px solid;
+ max-width: 300px;
+ width: 90%;
+ text-align: center;
+}
 
 
 .seller {
@@ -147,6 +149,10 @@ main {
     }
   }
 
+  .seller a:link , .seller a:active, .seller a:visited, .seller a:hover{
+    color: white;
+  }
+
 
 .seller button {
   border-style: none;
@@ -157,6 +163,7 @@ main {
     padding-left: 1rem;
     padding-right: 1rem;
   margin-right: 2%;
+  margin-bottom: 5px;
 }
   @media only screen and (min-width: 1000px) {
     .seller button {
