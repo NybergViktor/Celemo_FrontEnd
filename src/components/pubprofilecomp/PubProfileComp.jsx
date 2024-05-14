@@ -8,9 +8,9 @@ import { AuctionContext } from "../context/AuctionContext";
 
 export const PubProfileComp = () => {
     const inputRef = React.useRef(null);
-    const { userData, setUserData, getPublicUserFromId } = useContext(UserContext);
+    const { userData, getPublicUserFromId } = useContext(UserContext);
     const { userId } = useParams(SearchContext);
-    const { auction, usersAuctions, fetchUsersAuctions} = useContext(AuctionContext);
+    const { usersAuctions, fetchUsersAuctions} = useContext(AuctionContext);
 
     console.log(userId);
     useEffect(() => {
@@ -21,13 +21,20 @@ export const PubProfileComp = () => {
     if (!userData) {
         return <div>Loading...</div>;
     }
-    
+    if(userData.photo === null) {
+        return userData.photo = "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png";
+     }
     return (
         <>
         <section className="publicContainer">
-            <div className="publicUserInfo">
+            
                 <div key={userData.id}>
-                    <div className="publicProfilePic">
+
+                   
+
+                    <div className="publicUserInfo">
+                        
+                     <div className="publicProfilePic">
                     <img src={userData.photo} alt="No photo"/>
                     </div>
 
@@ -55,11 +62,14 @@ export const PubProfileComp = () => {
                         <p>{Math.round(userData.grade)}</p>
                         </div>
                     </div>
+                    <button className="auctionbutton">See Reviews</button> //TODO: Fix reviews
                     </div>
                 </div>
             </div>
+            
         </section>
         <section className="publicContainer">
+
             <div className="publicBox">
         <div className="publicUserInfo">
         <div className="publicTitle">
@@ -70,7 +80,7 @@ export const PubProfileComp = () => {
                     
                     <div key={auction.id}>
                         <div className="publicAuctionContainer">
-                            <div className="publicAuctionContent">
+                            <div className="publicfieldContainer">
                             <p>{auction.title}</p>
                             <Link
                             key={auction.id}
