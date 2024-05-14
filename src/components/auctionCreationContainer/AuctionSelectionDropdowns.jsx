@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import { useContext, useEffect, useState } from "react";
 import {
   CreateAuctionContext,
@@ -10,18 +11,13 @@ import PublishButton from "./PublishButton";
 function AuctionSelectionDropdowns() {
   const { categories } = useContext(CreateAuctionContext);
   const [celebrityData, setCelebrityData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [isFilterActive, setIsFilterActive] = useState(false);
-
-
+  const [searchTerm, setSearchTerm] = useState('');
+  // const [isFilterActive, setIsFilterActive] = useState(false);
 
   // FILTER
-  const handleFilterButton = () => {
-    setIsFilterActive((current) => !current);
-  }
-
-
-
+  // const handleFilterButton = () => {
+  //   setIsFilterActive((current) => !current);
+  // };
 
   // takes the new value and updates the state
   const handleInputChange = (e) => {
@@ -36,26 +32,24 @@ function AuctionSelectionDropdowns() {
     };
 
     let url = "https://api.api-ninjas.com/v1/celebrity?name=" + name; // name
-    
+
     try {
       let res = await fetch(url, options);
       const data = await res.json();
-      setCelebrityData(data);
+      setCelebrityData(data.map(item => ({...item, id: uuidv4()})));                              //(prevData => [...prevData, ...data]);
       console.log(data); // Log the fetched data
     } catch (err) {
       console.log(`error ${err}`);
     }
   };
-  
 
-
-
-  
   // LOAD
   // when search button is clicked i call the getCelebrity so that it's not called whenever a user types something. This is due to, to many api reqs.
   const searchHandler = () => {
-    if (searchTerm.trim !== "") {
+    if (searchTerm !== "") {
       getCelebrity(searchTerm);
+    } else {
+      return console.log("wrong input")
     }
   };
 
@@ -101,31 +95,46 @@ function AuctionSelectionDropdowns() {
                 onChange={handleInputChange}
               />
 
-              <button
-                typeof="button"
-                onClick={searchHandler}
-              >
+              <button id="api-btn" typeof="button" onClick={searchHandler}>
                 search
               </button>
             </label>
-          <div>
-            
-            <div >
-                {celebrityData.map((data) => {
-                  return (
-                    <p style={{color: "white"}} key={data}>
-                      name: {data.name}
-                      <br />
-                      Occupation: {data.occupation[0]}
-                    </p>
-                  )
-                })}
-             
-             </div>
-          </div>
 
-           {/** FILTER DROPDOWN */}
-          {/* <div
+            {celebrityData.map((data) => {
+              return (
+                <>
+                <div className="output-container">
+                  <div className="p-container">
+                    <div list="browsers" id="select">
+                    <p key={data}>
+                      
+                      Name: {data.name} <br/>
+                      Occupation: {data.occupation && data.occupation.length > 0 ? data.occupation[0] : "Not available"}
+                      
+                    </p>
+                    </div>
+                  </div>
+                </div>
+                </>
+              );
+            })}
+          </div>
+        </div>
+        <FrameBottom />
+        <PublishButton>Publish Auction</PublishButton>
+      </div>
+    </>
+  );
+}
+export default AuctionSelectionDropdowns;
+
+
+
+
+
+
+            {/** FILTER DROPDOWN */}
+            {/* <div
             className={
               isFilterActive
                 ? "filter-dropdown-active"
@@ -153,9 +162,8 @@ function AuctionSelectionDropdowns() {
               </button>
             </div>
           </div> */}
-        {/** END FILTER BUTTON CONTAINER */}
+            {/** END FILTER BUTTON CONTAINER */}
 
-           
             {/* <div style={{ color: "white" }}>
               {celebrityData.map((data) => (
                 <p key={data}>
@@ -165,12 +173,3 @@ function AuctionSelectionDropdowns() {
                 </p>
               ))}
             </div> */}
-          </div>
-        </div>
-        <FrameBottom />
-        <PublishButton>Publish Auction</PublishButton>
-      </div>
-    </>
-  );
-}
-export default AuctionSelectionDropdowns;
