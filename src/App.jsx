@@ -15,43 +15,45 @@ import { ReviewProvider } from "./components/context/ReviewContext";
 import { SignupProvider } from "./components/context/SignupContext";
 import ReviewPage from "./pages/reviewPage/ReviewPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import PubProfile from "./pages/pubprofile/PubProfile";
 import { AuthProvider } from "./components/context/AuthContext";
 
 function App() {
   return (
   <AuthProvider>
     <SignupProvider>
-    <LoginProvider>
-      <UserProvider>
-        <SearchProvider>
-          <EnumProvider>
-            <AuctionProvider>
-              <BidProvider>
-                <ReviewProvider>
-                  <BrowserRouter>
-                    <Routes>
-                      <Route path="/" element={<Startpage />} />
-                      <Route path="/login" element={<LoginPage />} />
-                      <Route path="/profile" element={<ProfilePage />} />
-                      <Route path="/signup" element={<SignupPage />} />
-                      <Route path="/review" element={<ReviewPage />} />
-                      <Route path="/auction" element={<AuctionPage />} />
-                      <Route
-                        path="/create-auction"
-                        element={<CreateAuctionPage />}
-                      />
-                    </Routes>
-                  </BrowserRouter>
-                </ReviewProvider>
-              </BidProvider>
-            </AuctionProvider>
-          </EnumProvider>
-        </SearchProvider>
-      </UserProvider>
-    </LoginProvider>
-  </SignupProvider>
+      <LoginProvider>
+        <UserProvider>
+          <SearchProvider>
+            <EnumProvider>
+              <AuctionProvider>
+                <BidProvider>
+                  <ReviewProvider>
+                    <BrowserRouter>
+                      <Routes>
+                        <Route path="/" element={<Startpage />} />
+                        <Route path="/login" element={<LoginPage />} />
+                        <Route path="/profile" element={<ProfilePage />} />
+                        <Route path="/signup" element={<SignupPage />} />
+                        <Route path="/review" element={<ReviewPage />} />
+                        <Route path="/auction/find-one/:auctionId" element={<AuctionPage />} />
+                        <Route
+                          path="/create-auction"
+                          element={<CreateAuctionPage />}
+                        />
+                        <Route path="/pubprofile/:userId" element={<PubProfile />} />
+                      </Routes>
+                    </BrowserRouter>
+                  </ReviewProvider>
+                </BidProvider>
+              </AuctionProvider>
+            </EnumProvider>
+          </SearchProvider>
+        </UserProvider>
+      </LoginProvider>
+    </SignupProvider>
   </AuthProvider>
   );
-}
+};
 
 export default App;

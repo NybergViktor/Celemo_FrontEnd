@@ -23,6 +23,7 @@ margin: auto;
     }
     
 }
+
 .startpageAuctionContainer {
     background-color: white;
     border-radius: 20px;
@@ -33,8 +34,14 @@ margin: auto;
     display: flex;
     flex-direction: column;
     height: 22rem;
+    cursor: pointer;
     
 }
+
+.startpageAuctionContainer:link , .startpageAuctionContainer:visited, .startpageAuctionContainer:hover, .startpageAuctionContainer:active {
+    color: black;
+}
+
 .auctionPicture {
     border-bottom: 0.5px solid gray;
     display:inline-block;

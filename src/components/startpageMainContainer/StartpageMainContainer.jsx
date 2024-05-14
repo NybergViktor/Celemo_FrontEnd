@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import "./StartpageMainContainer.css";
 import { SearchContext } from "../context/SearchContext";
 import { AuctionContext } from "../context/AuctionContext";
+import { Link } from "react-router-dom";
 
 const StartpageMainContainer = () => {
+  const inputRef = React.useRef(null);
 
   // STARTPAGE CONTENT STUFF
-  const { fetchAllAuctions,  } =
-    useContext(AuctionContext);
   const {
+    fetchAllAuctions,
     searchAuctions,
     foundAuctions,
     pageNr,
@@ -18,18 +19,20 @@ const StartpageMainContainer = () => {
     handleLast,
     pages,
     setPages,
-    searchValue, 
+    auctionId,
+    setAuctionId,
+    searchValue,
     setSearchValue,
     totalItems,
-    searchAuctionsNoPaging
+    searchAuctionsNoPaging,
   } = useContext(SearchContext);
-  
+
   const [pageSize, setPageSize] = useState(2);
 
   useEffect(() => {
-    searchAuctionsNoPaging(`${searchValue}`) // Only used to get number of pages.
+    searchAuctionsNoPaging(`${searchValue}`); // Only used to get number of pages.
     searchAuctions(`${searchValue}`, pageSize);
-  }, [searchValue])
+  }, [searchValue]);
 
   useEffect(() => {
     console.log(`items: ` + totalItems);
@@ -37,33 +40,35 @@ const StartpageMainContainer = () => {
   }, [totalItems]);
 
   useEffect(() => {
-    console.log(`pages: ` + pages);
+    console.log(pages);
   }, [pages]);
 
   useEffect(() => {
-    searchAuctionsNoPaging(`${searchValue}`) // Only used to get number of pages.
+    searchAuctionsNoPaging(`${searchValue}`); // Only used to get number of pages.
     searchAuctions(`${searchValue}`, pageSize);
   }, [pageNr]);
 
   const noAuctions = (totalItems) => {
     if (totalItems === 0) {
-      return <p id="no-auctions">No auctions found!</p>
+      return <p id="no-auctions">No auctions found!</p>;
     }
-  }
+  };
 
   return (
     <>
-      {noAuctions(totalItems)}
-      {/** STARTPAGE CONTENT */}
       <div className="startpageMainContainer">
-        
         {/** ONE AUCTION */}
-        
         {foundAuctions.map((auction) => {
           return (
             // AUCTION WHITE BOX
 
-            <div key={auction.id} className="startpageAuctionContainer">
+            <Link
+              key={auction.id}
+              className="startpageAuctionContainer"
+              ref={inputRef}
+              onClick={() => setAuctionId(auction.id)}
+              to={`/auction/find-one/${auction.id}`}
+            >
               {/** PICTURE */}
               <div className="auctionPicture">
                 <img src={auction.productPhoto} />
@@ -89,7 +94,7 @@ const StartpageMainContainer = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })}
         {/** END ONE AUCTION */}
@@ -98,8 +103,6 @@ const StartpageMainContainer = () => {
       {/** FROM BOOTSTRAP */}
       <nav aria-label="Page navigation example">
         <ul className="pagination">
-          
-
           <li className="page-item middle-item">
             <a className="page-link" href="#" onClick={handleFirst}>
               First
@@ -139,8 +142,6 @@ const StartpageMainContainer = () => {
               Last
             </a>
           </li>
-
-          
         </ul>
       </nav>
     </>
