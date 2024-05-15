@@ -11,7 +11,7 @@
     box-shadow: 1px 1px 5px gray;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 30px 1fr;
+    grid-template-rows: 40px 1fr;
     grid-template-areas: 
     "title"
     "content";
@@ -24,8 +24,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 110%;
-    margin: 0 !important
+    height: 100%;    
 }
 .title>p {
     margin-left: 5% !important;
@@ -37,8 +36,7 @@
     display: none;
     background-color: rgba(241, 157, 111, 1);
     margin-right: 5% !important;
-    margin-top: 1% !important;
-    margin-bottom: 1% !important;
+    margin-bottom: 8px !important;
     border: none;
     border-radius: 5px;
     padding-left: 2% !important;
@@ -57,5 +55,4 @@
     flex-direction: column;
     padding: 1% !important;
     margin-bottom: 3% !important;
-    /* align-items: center; */
 }
