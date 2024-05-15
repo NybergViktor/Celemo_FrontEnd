@@ -11,6 +11,7 @@ export const PubProfileComp = () => {
   const { userData, getPublicUserFromId } = useContext(PubUserContext);
   const { userId } = useParams(SearchContext);
   const { usersAuctions, fetchUsersAuctions } = useContext(AuctionContext);
+  const reviewedUsername = userData.username; 
 
   useEffect(() => {
     getPublicUserFromId(userId);
@@ -59,11 +60,9 @@ export const PubProfileComp = () => {
                   
                     
                     <Link
-                      key={userId}
+                      
                       onClick={() => {
-                        localStorage.setItem[
-                          ("reviewedUsername", userData.username)
-                        ];
+                      localStorage.setItem("reviewedUsername", reviewedUsername);
                         localStorage.setItem("reviewedUserId", userId);
                       }}
                       to={`/reviews/create`}
