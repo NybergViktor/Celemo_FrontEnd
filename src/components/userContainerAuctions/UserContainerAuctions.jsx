@@ -9,8 +9,6 @@ const UserContainerAuctions = ({ btnTitle }) => {
   const [loggedInUserId] = useState(localStorage.getItem("loggedInUserId"));
   const { getBidsForUser, usersBids, noBids } = useContext(BidContext);
   const { allAuctions, fetchAllAuctions, fetchAuction } = useContext(AuctionContext);
-  const [ auctionTitle, setAuctionTitle ] = useState("Loading...");
-  const [ loading, setLoading ] = useState(true);
 
   useEffect(() => {
     getBidsForUser(loggedInUserId);
@@ -38,8 +36,16 @@ const UserContainerAuctions = ({ btnTitle }) => {
   }
 
   const getTitle = (auctionId) => {
-    const data = fetchAuction(auctionId);
-    return data.title
+    
+    const data = allAuctions.map((auction) => {
+      if (auction.id === auctionId) {
+        return auction.title;
+      }
+    })
+    return data;
+  }
+  if (!allAuctions) {
+    return <p>Loading...</p>
   }
 
   // CONTAINS USERS ALL BIDS
@@ -52,8 +58,9 @@ const UserContainerAuctions = ({ btnTitle }) => {
           <div key={bid.id} className="containerItem">
           <div className="dynamicItem">
             <div className="dynamicItemInfo">
-              <p>Auction Title: {getTitle(bid.auctionId)}</p>
-              <p>Current Price: {bid.currentPrice} kr, Max Bid: {bid.maxPrice} kr</p>
+              
+              <p>Auction: {getTitle(bid.auctionId)}</p>
+              <p>Bid: {bid.currentPrice} kr, Max Bid: {bid.maxPrice} kr</p>
             </div>
           </div>
         </div>

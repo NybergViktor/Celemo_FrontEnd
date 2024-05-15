@@ -47,7 +47,7 @@ const ProfilePage = () => {
 
           {/* AUCTIONS */}
           <UserContainer
-            containerTitle="All my bids"
+            containerTitle="My bids"
             useContainerBtn="yes"
             btnTitle="Bid History"
             >
