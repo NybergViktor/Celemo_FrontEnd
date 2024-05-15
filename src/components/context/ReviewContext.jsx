@@ -73,22 +73,13 @@ const ReviewProvider = ({ children }) => {
     };
 
     try {
-      console.log(
-        "grade: " +
-          grade +
-          " reviewText: " +
-          reviewText +
-          " loggedInUserId: " +
-          createdById +
-          " reviewedUserId: " +
-          reviewedId
+      
+      let res = await fetch(
+        `${import.meta.env.VITE_API_URL}/reviews/create`,
+        options
       );
-      // let res = await fetch(
-      //   `${import.meta.env.VITE_API_URL}/reviews/create`,
-      //   options
-      // );
-      // const data = await res.json();
-      // console.log(data);
+      const data = await res.json();
+      console.log(data);
     } catch (err) {
       console.log("err: " + err);
     }

@@ -57,11 +57,10 @@ export const PubProfileComp = () => {
                   </div>
                 </div>
                 <div className="auctionbuttons">
-                  <button>
-                    Review User
+                  
+                    
                     <Link
                       key={userId}
-                      className="startpageAuctionContainer"
                       onClick={() => {
                         localStorage.setItem[
                           ("reviewedUsername", userData.username)
@@ -72,8 +71,8 @@ export const PubProfileComp = () => {
                     >
                       Review User
                     </Link>
-                  </button>
-                  <button>See Review</button>
+                  
+                  <Link>See Review</Link>
                 </div>
               </div>
             </div>

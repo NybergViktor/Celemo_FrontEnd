@@ -9,7 +9,7 @@
   background-color: white;
   padding: 10px;
   font-weight: 600;
-  position: absolute;
+  position: static;
   width: 100vw;
   bottom: 0;
 }
