@@ -1,4 +1,5 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
+import { UserContext } from "./UserContext";
 
 const ReviewContext = createContext();
 
@@ -41,7 +42,18 @@ const ReviewProvider = ({ children }) => {
   const [grade, setGrade] = useState("");
   const [reviewText, setReviewText] = useState("");
   const [createdById, setCreatedById] = useState("");
-  const [reviewedUserId, setReviewedUserId] = useState("");
+  const [reviewedUserId, setReviewedUserId] = useState(
+    localStorage.getItem("reviewedUserId")
+  );
+
+  //const { userData, getUserFromId} = useContext(UserContext);
+  const [loggedInUserId, setLoggedInUserId] = useState(
+    localStorage.getItem("loggedInUserId")
+  );
+
+  // useEffect(() => {
+  //   getUserFromId(loggedInUserId);
+  // }, []);
 
   const createReviews = async () => {
     var options = {
@@ -53,18 +65,28 @@ const ReviewProvider = ({ children }) => {
       body: JSON.stringify({
         grade: `${grade}`,
         reviewText: `${reviewText}`,
-        createdById: `${createdById}`,
+        createdById: `${loggedInUserId}`,
         reviewedUserId: `${reviewedUserId}`,
       }),
     };
 
     try {
-      let res = await fetch(
-        `${import.meta.env.VITE_API_URL}/reviews/create`,
-        options
+      console.log(
+        "grade: " +
+          grade +
+          " reviewText: " +
+          reviewText +
+          " loggedInUserId: " +
+          loggedInUserId +
+          " reviewedUserId: " +
+          reviewedUserId
       );
-      const data = await res.json();
-      console.log(data);
+      // let res = await fetch(
+      //   `${import.meta.env.VITE_API_URL}/reviews/create`,
+      //   options
+      // );
+      // const data = await res.json();
+      // console.log(data);
     } catch (err) {
       console.log("err: " + err);
     }
@@ -88,7 +110,7 @@ const ReviewProvider = ({ children }) => {
         setCreatedById,
         reviewedUserId,
         setReviewedUserId,
-        createReviews
+        createReviews,
       }}
     >
       {children}

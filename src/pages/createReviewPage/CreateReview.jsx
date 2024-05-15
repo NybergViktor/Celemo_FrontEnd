@@ -15,24 +15,16 @@ export const CreateReview = () => {
     reviewText,
     setReviewText,
     createdById,
-    setCreatedById,
-    
-    reviewedUserId,
-    setReviewedUserId,
     createReviews,
   } = useContext(ReviewContext);
 
-  const { userData, getPublicUserFromId } = useContext(UserContext);
-
-  useEffect(() => {
-    setReviewedUserId(userData.id)
-  }, []);
-
-//   console.log(userId + " createReview param");
-//   console.log(userData.id + userData.username + " createReview userdata");
-  console.log(
-    "reviewedUserId " + reviewedUserId + " createdById: " + createdById
+  const [reviewedUserId, setReviewedUserId] = useState(
+    localStorage.getItem("reviewedUserId")
   );
+  const [reviewedUsername, setReviewedUsername] = useState(
+    localStorage.getItem("reviewedUsername")
+  );
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,21 +32,18 @@ export const CreateReview = () => {
     if (e.error) {
       console.log("error: " + e.error);
     }
-    console.log(
-      "reviewedUserId " + reviewedUserId + " createdById: " + createdById
-    );
-    console.log("grade: " + grade + " review: " + reviewText);
-    //createReviews();
 
-    setGrade(""), setReviewText(""), setCreatedById(""), setReviewedUserId("");
+    createReviews();
+
+    setGrade(""), setReviewText("");
   };
 
   return (
     <>
       <Header></Header>
       <main className="review-main">
-        <div className="review-container" key={userData.id}>
-          <h1 className="username-review">Review: {userData.username}</h1>
+        <div className="review-container" key={reviewedUserId}>
+          <h1 className="username-review">Review: {reviewedUsername}</h1>
           <form className="review-form-container" onSubmit={handleSubmit}>
             <label>
               <select

@@ -12,13 +12,12 @@ export const PubProfileComp = () => {
   const { userData, getPublicUserFromId } = useContext(UserContext);
   const { userId } = useParams(SearchContext);
   const { usersAuctions, fetchUsersAuctions } = useContext(AuctionContext);
-  const {setReviewedUserId} = useContext(ReviewContext)
+  const { setReviewedUserId } = useContext(ReviewContext);
 
   console.log(userId + "pubProfile");
   useEffect(() => {
     getPublicUserFromId(userId);
     fetchUsersAuctions(userId);
-    setReviewedUserId(userId)
   }, [userId]);
 
   if (!userData) {
@@ -63,9 +62,14 @@ export const PubProfileComp = () => {
                   <button>
                     Review User
                     <Link
-                      key={userData.id}
+                      key={userId}
                       className="startpageAuctionContainer"
-                      onClick={setReviewedUserId(userData.id)}
+                      onClick={() => {
+                        localStorage.setItem[
+                          ("reviewedUsername", userData.username)
+                        ];
+                        localStorage.setItem("reviewedUserId", userId);
+                      }}
                       to={`/reviews/create`}
                     >
                       Review User
