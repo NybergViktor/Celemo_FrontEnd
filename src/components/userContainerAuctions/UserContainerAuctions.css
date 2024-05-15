@@ -9,17 +9,23 @@
     margin: 1%;
     background-color: rgba(229, 228, 228, 1);
     border-radius: 20px;
-    padding-left: 2%;
-    padding-right: 5%;
+    padding: 5px;
+    /* padding-left: 2%;
+    padding-right: 5%; */
 }
 .dynamicItem>a {
     text-decoration: none;
     color: black;
 }
+.dynamicItem p {
+    margin-bottom: 0;
+}
 .dynamicItem>a:hover {
     color: white;
 }
-
+.pp-link {
+    color: black;
+}
 .dynamicItemBtn {
     background-color: rgba(241, 157, 111, 1);
     border: none;
