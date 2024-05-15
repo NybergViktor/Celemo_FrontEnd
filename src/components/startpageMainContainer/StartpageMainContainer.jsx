@@ -27,7 +27,7 @@ const StartpageMainContainer = () => {
     searchAuctionsNoPaging,
   } = useContext(SearchContext);
 
-  const [pageSize, setPageSize] = useState(2);
+  const [pageSize, setPageSize] = useState(6);
 
   useEffect(() => {
     searchAuctionsNoPaging(`${searchValue}`); // Only used to get number of pages.
