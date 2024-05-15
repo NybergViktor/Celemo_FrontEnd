@@ -13,7 +13,6 @@ export const PubProfileComp = () => {
   const { userId } = useParams(SearchContext);
   const { usersAuctions, fetchUsersAuctions } = useContext(AuctionContext);
 
-  console.log(userId + "pubProfile");
   useEffect(() => {
     getPublicUserFromId(userId);
     fetchUsersAuctions(userId);

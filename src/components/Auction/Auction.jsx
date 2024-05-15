@@ -23,7 +23,6 @@ export const Auction = () => {
     getUserFromId(auction.seller);
   }, [auction.seller]);
 
-  console.log(auction.seller + " seller id");
   return (
     <main>
       <div className="auction-container">

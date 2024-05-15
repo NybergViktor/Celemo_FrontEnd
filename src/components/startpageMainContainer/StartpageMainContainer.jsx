@@ -35,13 +35,10 @@ const StartpageMainContainer = () => {
   }, [searchValue]);
 
   useEffect(() => {
-    console.log(`items: ` + totalItems);
     setPages(totalItems / pageSize);
   }, [totalItems]);
 
-  useEffect(() => {
-    console.log(pages);
-  }, [pages]);
+  
 
   useEffect(() => {
     searchAuctionsNoPaging(`${searchValue}`); // Only used to get number of pages.
