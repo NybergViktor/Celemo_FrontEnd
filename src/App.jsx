@@ -1,25 +1,27 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import Startpage from "./pages/startpage/Startpage";
 import ProfilePage from "./pages/profilePage/ProfilePage";
 import SignupPage from "./pages/signupPage/SignupPage";
+import AuctionPage from "./pages/auction-page/AuctionPage";
+import CreateAuctionPage from "./pages/create-auction-page/CreateAuctionPage";
+import ReviewPage from "./pages/reviewPage/ReviewPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import PubProfile from "./pages/pubprofile/PubProfile";
+import PrivateRoute from "./components/privateRoute/PrivateRoute";
+
+import { CreateReview } from "./pages/createReviewPage/CreateReview";
+import { ReturnHome } from "./pages/returnHome/ReturnHome";
 import { LoginProvider } from "./components/context/LoginContext";
 import { UserProvider } from "./components/context/UserContext";
-import AuctionPage from "./pages/auction-page/AuctionPage";
 import { AuctionProvider } from "./components/context/AuctionContext";
 import { EnumProvider } from "./components/context/EnumContext";
 import { SearchProvider } from "./components/context/SearchContext";
 import { BidProvider } from "./components/context/BidsContext";
-import CreateAuctionPage from "./pages/create-auction-page/CreateAuctionPage";
 import { ReviewProvider } from "./components/context/ReviewContext";
 import { SignupProvider } from "./components/context/SignupContext";
-import ReviewPage from "./pages/reviewPage/ReviewPage";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import PubProfile from "./pages/pubprofile/PubProfile";
 import { AuthProvider } from "./components/context/AuthContext";
-import { CreateReview } from "./pages/createReviewPage/CreateReview";
-import { ReturnHome } from "./pages/returnHome/ReturnHome";
-import PrivateRoute from "./components/privateRoute/PrivateRoute";
 import { PubUserProvider } from "./components/context/PubUserContext";
 
 function App() {
