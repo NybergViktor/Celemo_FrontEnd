@@ -1,0 +1,57 @@
+.AboutContainerPage{
+   margin: 0%;
+   width: 100%;
+   height: auto;
+   align-items: center;
+   justify-content: center;
+   
+}
+
+.AboutContainer{
+    display: grid;
+    inline-size: 100%;
+    align-items: center;
+    justify-content: center;
+      
+}
+.h1C{
+    align-items: center;
+    justify-content: center;
+    grid-column: 1, -1;
+    grid-row: 1;
+    display: flex;
+}
+.aboutCelemo{
+    align-items: center;
+    justify-content: center;
+    grid-column: 2, -2;
+    display: flex;
+    grid-row: 2;
+}
+
+.About{
+   display: grid;
+   align-items: center;
+   justify-content: center;
+   grid-template-rows: repeat(5, 1fr);
+}
+
+.Matti{
+    grid-row: 1; 
+}
+
+.Tomme{
+    grid-row: 2;
+}
+
+.Joahn{
+    grid-row: 3;
+}
+
+.John{
+    grid-row: 4;
+}
+
+.Viktor{
+    grid-row: 5;
+}

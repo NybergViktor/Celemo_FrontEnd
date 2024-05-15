@@ -18,6 +18,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import PubProfile from "./pages/pubprofile/PubProfile";
 import { AuthProvider } from "./components/context/AuthContext";
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
+import AboutPage from "./pages/aboutPage/AboutPage";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
                     <ReviewProvider>
                       <BrowserRouter>
                         <Routes>
+                          <Route path="/about" element={<AboutPage></AboutPage>} />
                           <Route path="/" element={<Startpage />} />
                           <Route path="/login" element={<LoginPage />} />
                           <Route
