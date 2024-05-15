@@ -5,17 +5,20 @@ import { useContext, useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { SearchContext } from "../context/SearchContext";
 import { AuctionContext } from "../context/AuctionContext";
+import { ReviewContext } from "../context/ReviewContext";
 
 export const PubProfileComp = () => {
   const inputRef = React.useRef(null);
   const { userData, getPublicUserFromId } = useContext(UserContext);
   const { userId } = useParams(SearchContext);
   const { usersAuctions, fetchUsersAuctions } = useContext(AuctionContext);
+  const {setReviewedUserId} = useContext(ReviewContext)
 
   console.log(userId + "pubProfile");
   useEffect(() => {
     getPublicUserFromId(userId);
     fetchUsersAuctions(userId);
+    setReviewedUserId(userId)
   }, [userId]);
 
   if (!userData) {
@@ -62,7 +65,7 @@ export const PubProfileComp = () => {
                     <Link
                       key={userData.id}
                       className="startpageAuctionContainer"
-                      ref={inputRef}
+                      onClick={setReviewedUserId(userData.id)}
                       to={`/reviews/create`}
                     >
                       Review User

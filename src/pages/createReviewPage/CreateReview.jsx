@@ -14,16 +14,25 @@ export const CreateReview = () => {
     setGrade,
     reviewText,
     setReviewText,
+    createdById,
     setCreatedById,
+    
+    reviewedUserId,
     setReviewedUserId,
     createReviews,
   } = useContext(ReviewContext);
 
   const { userData, getPublicUserFromId } = useContext(UserContext);
-  const { userId } = useParams(SearchContext);
 
-  console.log(userId + " createReview param");
-  console.log(userData.id + userData.username + " createReview userdata");
+  useEffect(() => {
+    setReviewedUserId(userData.id)
+  }, []);
+
+//   console.log(userId + " createReview param");
+//   console.log(userData.id + userData.username + " createReview userdata");
+  console.log(
+    "reviewedUserId " + reviewedUserId + " createdById: " + createdById
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,8 +40,11 @@ export const CreateReview = () => {
     if (e.error) {
       console.log("error: " + e.error);
     }
-
-    createReviews();
+    console.log(
+      "reviewedUserId " + reviewedUserId + " createdById: " + createdById
+    );
+    console.log("grade: " + grade + " review: " + reviewText);
+    //createReviews();
 
     setGrade(""), setReviewText(""), setCreatedById(""), setReviewedUserId("");
   };
@@ -45,7 +57,11 @@ export const CreateReview = () => {
           <h1 className="username-review">Review: {userData.username}</h1>
           <form className="review-form-container" onSubmit={handleSubmit}>
             <label>
-              <select name="grade" className="grade">
+              <select
+                name="grade"
+                className="grade"
+                onChange={(e) => setGrade(e.target.value)}
+              >
                 <option value="">Grade</option>
                 <option value="ONE">1</option>
                 <option value="TWO">2</option>
