@@ -16,12 +16,14 @@ import { SignupProvider } from "./components/context/SignupContext";
 import ReviewPage from "./pages/reviewPage/ReviewPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import PubProfile from "./pages/pubprofile/PubProfile";
+import { PubUserProvider } from "./components/context/PubUserContext";
 import { AuthProvider } from "./components/context/AuthContext";
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
 
 function App() {
   return (
     <AuthProvider>
+      <PubUserProvider>
       <SignupProvider>
         <LoginProvider>
           <UserProvider>
@@ -70,6 +72,7 @@ function App() {
           </UserProvider>
         </LoginProvider>
       </SignupProvider>
+      </PubUserProvider>
     </AuthProvider>
   );
 }

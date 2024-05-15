@@ -1,6 +1,6 @@
 import React from "react";
 import "./PubProfileComp.css";
-import { UserContext } from "../context/UserContext";
+import { PubUserContext } from "../context/PubUserContext";
 import { useContext, useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { SearchContext } from "../context/SearchContext";
@@ -8,7 +8,7 @@ import { AuctionContext } from "../context/AuctionContext";
 
 export const PubProfileComp = () => {
     const inputRef = React.useRef(null);
-    const { userData, getPublicUserFromId } = useContext(UserContext);
+    const { userData, getPublicUserFromId } = useContext(PubUserContext);
     const { userId } = useParams(SearchContext);
     const { usersAuctions, fetchUsersAuctions} = useContext(AuctionContext);
 
