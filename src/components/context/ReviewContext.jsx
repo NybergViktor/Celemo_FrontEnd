@@ -64,13 +64,11 @@ const ReviewProvider = ({ children }) => {
 
     try {
       let res = await fetch(
-        `${import.meta.env.VITE_API_URL}/reviews/find/all-user/${userId}`,
+        `${import.meta.env.VITE_API_URL}/reviews/create/${userId}`,
         options
       );
       const data = await res.json();
       console.log(data);
-      setReviewedUser(data[0].reviewedUser);
-      setUsersReviews(data);
     } catch (err) {
       console.log("err: " + err);
     }
