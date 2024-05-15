@@ -12,13 +12,12 @@ export const Auction = () => {
   const { auction, fetchAuction, fetchAuctionTimeleft, timeleft } =
     useContext(AuctionContext);
 
-  const { bidsAmount, fetchBidsAmount, fetchOneBid } = useContext(BidContext);
+  const { bidsAmount, fetchBidsAmount, fetchOneBid, currentWinner } =
+    useContext(BidContext);
 
   const { auctionId } = useParams(SearchContext);
 
-  const { userData, getUserFromId } = useContext(UserContext);
-
-  const [currentWinner, setCurrentWinner] = useState();
+  const { userData, getUserFromId, winningBidUser } = useContext(UserContext);
 
   useEffect(() => {
     fetchAuction(auctionId);
@@ -34,7 +33,7 @@ export const Auction = () => {
   }, [auction.seller]);
 
   useEffect(() => {
-    setCurrentWinner(fetchOneBid(auction.bid));
+    fetchOneBid(auction.bid);
   }, [auction.bid]);
 
   console.log(auction.seller + " seller id");
@@ -52,7 +51,7 @@ export const Auction = () => {
           <div className="description">{auction.productDescription}</div>
 
           <div className="price">{auction.currentPrice}Kr </div>
-          <div className="currentWinner">{currentWinner}</div>
+          <div className="currentWinner">Currently winning bid: {winningBidUser.username}</div>
 
           <div className="endtime">
             <div className="amount">Amount of bids: {bidsAmount}</div>

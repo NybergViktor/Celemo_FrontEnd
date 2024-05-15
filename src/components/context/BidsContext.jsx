@@ -12,7 +12,8 @@ const BidContext = createContext();
 
 const BidProvider = ({ children }) => {
   const { auctionId } = useContext(SearchContext);
-  const { userData, getUserFromId } = useContext(UserContext);
+  const { userData, getUserFromId, getUserWinningBidFromId } =
+    useContext(UserContext);
   const [loggedInUserId, setLoggedInUserId] = useState(
     localStorage.getItem("loggedInUserId")
   );
@@ -136,6 +137,8 @@ const BidProvider = ({ children }) => {
   //##############################################################
   // Get bid from bidId ###########################################
 
+  const [currentWinner, setCurrentWinner] = useState("");
+
   var options = {
     method: "GET",
     headers: {
@@ -152,7 +155,10 @@ const BidProvider = ({ children }) => {
       );
 
       const data = await res.json();
-      console.log(JSON.stringify(data + " data"));
+      console.log(data);
+      setCurrentWinner(data.user);
+      console.log(data.user + "datauser");
+      getUserWinningBidFromId(currentWinner);
     } catch (error) {
       console.log(error);
     }
@@ -175,6 +181,7 @@ const BidProvider = ({ children }) => {
         fetchBidsAmount,
         bidsAmount,
         fetchOneBid,
+        currentWinner,
       }}
     >
       {children}
