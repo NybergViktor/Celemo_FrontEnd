@@ -66,7 +66,7 @@ export const CreateReview = () => {
                 type="text"
                 value={reviewText}
                 onChange={(e) => setReviewText(e.target.value)}
-                maxlength="50"
+                maxLength="50"
                 required
                 placeholder="max 50 characters"
               />

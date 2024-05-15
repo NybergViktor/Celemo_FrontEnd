@@ -42,7 +42,7 @@ const ReviewProvider = ({ children }) => {
   const [grade, setGrade] = useState();
   const [reviewText, setReviewText] = useState("");
   const [createdById, setCreatedById] = useState();
-  const [reviewedId, setReviewedId] = useState();
+  const [reviewedId, setReviewedId] = useState("");
 
   const [reviewedUserId, setReviewedUserId] = useState(
     localStorage.getItem("reviewedUserId")
