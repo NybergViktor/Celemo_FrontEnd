@@ -17,6 +17,7 @@ import ReviewPage from "./pages/reviewPage/ReviewPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import PubProfile from "./pages/pubprofile/PubProfile";
 import { AuthProvider } from "./components/context/AuthContext";
+import { CreateReview } from "./pages/createReviewPage/CreateReview";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
                           element={<CreateAuctionPage />}
                         />
                         <Route path="/pubprofile/:userId" element={<PubProfile />} />
+                        <Route path="/reviews/create" element={<CreateReview/>} />
                       </Routes>
                     </BrowserRouter>
                   </ReviewProvider>
