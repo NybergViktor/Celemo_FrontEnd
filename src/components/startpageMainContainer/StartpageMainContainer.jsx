@@ -53,9 +53,13 @@ const StartpageMainContainer = () => {
       return <p id="no-auctions">No auctions found!</p>;
     }
   };
+  const refresh = () => {
+    window.location.reload();
+  }
 
   return (
     <>
+      {noAuctions(totalItems)}
       <div className="startpageMainContainer">
         {/** ONE AUCTION */}
         {foundAuctions.map((auction) => {
