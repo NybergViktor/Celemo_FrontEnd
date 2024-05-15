@@ -1,6 +1,8 @@
 import { BidContext } from "../context/BidsContext";
 import { AuctionContext } from "../context/AuctionContext";
+import { useParams } from "react-router-dom";
 import "./UserContainerAuctions.css";
+import { Link } from "react-router-dom";
 
 import { useContext, useEffect, useState } from "react";
 
@@ -59,7 +61,7 @@ const UserContainerAuctions = ({ btnTitle }) => {
           <div className="dynamicItem">
             <div className="dynamicItemInfo">
               
-              <p>Auction: {getTitle(bid.auctionId)}</p>
+              <Link className="pp-link" to={`/auction/find-one/${bid.auctionId}`}><p>Title: {getTitle(bid.auctionId)}</p></Link>
               <p>Bid: {bid.currentPrice} kr, Max Bid: {bid.maxPrice} kr</p>
             </div>
           </div>
