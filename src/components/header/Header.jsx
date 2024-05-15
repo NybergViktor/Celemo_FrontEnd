@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../header/Header.css";
+import logo from "../../assets/logo.png";
 import { useContext } from "react";
 import LoginContext, { LoginProvider } from "../context/LoginContext";
 import { DropDown } from "../dropDown/DropDown";
@@ -18,7 +19,8 @@ const Header = () => {
 
       <div className="logo-container">
         <Link to="/">
-          <img src="src/assets/logo.png" className="logo" href="index.html" />
+          <img src= {logo} className="logo" href="index.html"/>
+
         </Link>
       </div>
     </div>

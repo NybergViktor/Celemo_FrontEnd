@@ -19,6 +19,7 @@ import PubProfile from "./pages/pubprofile/PubProfile";
 import { AuthProvider } from "./components/context/AuthContext";
 import { CreateReview } from "./pages/createReviewPage/CreateReview";
 import { ReturnHome } from "./pages/returnHome/ReturnHome";
+import PrivateRoute from "./components/privateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -40,9 +41,13 @@ function App() {
                         <Route path="/review" element={<ReviewPage />} />
                         <Route path="/auction/find-one/:auctionId" element={<AuctionPage />} />
                         <Route
-                          path="/create-auction"
-                          element={<CreateAuctionPage />}
-                        />
+                            path="/create-auction"
+                            element={
+                              <PrivateRoute>
+                                <CreateAuctionPage />
+                              </PrivateRoute>
+                            }
+                          />
                         <Route path="/pubprofile/:userId" element={<PubProfile />} />
                         <Route path="/reviews/create" element={<CreateReview/>} />
                         <Route path="/return" element={<ReturnHome/>}/>
@@ -57,7 +62,8 @@ function App() {
       </LoginProvider>
     </SignupProvider>
   </AuthProvider>
+
   );
-};
+}
 
 export default App;

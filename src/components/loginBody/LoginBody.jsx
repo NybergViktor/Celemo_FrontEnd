@@ -47,8 +47,10 @@ const LoginBody =() =>{
      console.log("user Login: " + username)
      console.log("userId: " + data.id)
 
-  // readirect user to home
-  return navigate("/")
+    // readirect user to home
+    
+    await navigate("/");
+    window.location.reload();
 
 
    }catch(err){

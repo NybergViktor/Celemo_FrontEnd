@@ -6,10 +6,13 @@ import { useContext, useState, useEffect } from "react";
 import { SearchContext } from "../context/SearchContext";
 import { Link, useParams } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import { BidContext } from "../context/BidsContext";
 
 export const Auction = () => {
   const { auction, fetchAuction, fetchAuctionTimeleft, timeleft } =
     useContext(AuctionContext);
+
+  const { bidsAmount, fetchBidsAmount } = useContext(BidContext);
 
   const { auctionId } = useParams(SearchContext);
 
@@ -19,6 +22,11 @@ export const Auction = () => {
     fetchAuction(auctionId);
     fetchAuctionTimeleft(auctionId);
   }, [auctionId]);
+
+  useEffect(() => {
+    fetchBidsAmount(auctionId);
+  }, [bidsAmount]);
+
   useEffect(() => {
     getUserFromId(auction.seller);
   }, [auction.seller]);
@@ -39,6 +47,7 @@ export const Auction = () => {
           <div className="price">{auction.currentPrice}Kr</div>
 
           <div className="endtime">
+          <div className="amount">Amount of bids: {bidsAmount}</div>
             {timeleft[0]} <br /> {timeleft[1]}
           </div>
           <div className="location">
@@ -47,7 +56,7 @@ export const Auction = () => {
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-geo-alt-fill"
+              className="bi bi-geo-alt-fill"
               viewBox="0 0 16 16"
             >
               <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />

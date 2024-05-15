@@ -96,6 +96,38 @@ const BidProvider = ({ children }) => {
     console.log(noBids);
   }, [noBids]);
 
+  const [bidsAmount, setAmountBids] = useState([]);
+
+  var options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  };
+
+  const fetchBidsAmount = async (auctionId) => {
+    if (auctionId !== undefined) {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/bids/find/bidsamount/${auctionId}`,
+          options
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          setAmountBids(data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    console.log(bidsAmount);
+  }, [bidsAmount]);
+  
   return (
     <BidContext.Provider
       value={{
@@ -107,6 +139,8 @@ const BidProvider = ({ children }) => {
         getBidsForUser,
         usersBids,
         noBids,
+        fetchBidsAmount,
+        bidsAmount
       }}
     >
       {children}
