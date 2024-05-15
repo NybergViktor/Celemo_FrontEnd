@@ -13,7 +13,9 @@ const BidContext = createContext();
 const BidProvider = ({ children }) => {
   const { auctionId } = useContext(SearchContext);
   const { userData, getUserFromId } = useContext(UserContext);
-  const [loggedInUserId, setLoggedInUserId] = useState(localStorage.getItem("loggedInUserId"));
+  const [loggedInUserId, setLoggedInUserId] = useState(
+    localStorage.getItem("loggedInUserId")
+  );
 
   useEffect(() => {
     getUserFromId(loggedInUserId);
@@ -96,6 +98,9 @@ const BidProvider = ({ children }) => {
     console.log(noBids);
   }, [noBids]);
 
+  //##############################################################
+  // Get Bids amount for  auction ###########################################
+
   const [bidsAmount, setAmountBids] = useState([]);
 
   var options = {
@@ -127,7 +132,35 @@ const BidProvider = ({ children }) => {
   useEffect(() => {
     console.log(bidsAmount);
   }, [bidsAmount]);
-  
+
+  //##############################################################
+  // Get bid from bidId ###########################################
+
+  var options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  };
+
+  const fetchOneBid = async (bidId) => {
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/bids/find-one/${bidId}`,
+        options
+      );
+
+      const data = await res.json();
+      console.log(JSON.stringify(data + " data"));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //##############################################################
+  //  ###########################################
+
   return (
     <BidContext.Provider
       value={{
@@ -140,7 +173,8 @@ const BidProvider = ({ children }) => {
         usersBids,
         noBids,
         fetchBidsAmount,
-        bidsAmount
+        bidsAmount,
+        fetchOneBid,
       }}
     >
       {children}
