@@ -3,7 +3,6 @@ import { createContext, useEffect, useState } from "react";
 const ReviewContext = createContext();
 
 const ReviewProvider = ({ children }) => {
-
   // START FetchAllReviews SECTION ==========================
 
   const [usersReviews, setUsersReviews] = useState([]);
@@ -42,10 +41,9 @@ const ReviewProvider = ({ children }) => {
   const [grade, setGrade] = useState("");
   const [reviewText, setReviewText] = useState("");
   const [createdById, setCreatedById] = useState("");
-  const [reviewUserId, setreviewUserId] = useState("");
+  const [reviewedUserId, setReviewedUserId] = useState("");
 
-
-  const createReviews = async (userId) => {
+  const createReviews = async () => {
     var options = {
       method: "POST",
       headers: {
@@ -53,18 +51,16 @@ const ReviewProvider = ({ children }) => {
       },
       credentials: "include",
       body: JSON.stringify({
-        
-          grade: `${grade}`,
-          reviewText: `${reviewText}`,
-          createdById: `${createdById}`,
-          reviewedUserId: `${reviewUserId}`
-      
+        grade: `${grade}`,
+        reviewText: `${reviewText}`,
+        createdById: `${createdById}`,
+        reviewedUserId: `${reviewedUserId}`,
       }),
     };
 
     try {
       let res = await fetch(
-        `${import.meta.env.VITE_API_URL}/reviews/create/${userId}`,
+        `${import.meta.env.VITE_API_URL}/reviews/create`,
         options
       );
       const data = await res.json();
@@ -75,17 +71,26 @@ const ReviewProvider = ({ children }) => {
   };
 
   // END createReviews SECTION ==========================
-  
 
   return (
-    <ReviewContext.Provider value={{
+    <ReviewContext.Provider
+      value={{
         usersReviews,
         setUsersReviews,
         fetchUsersReviews,
         reviewedUser,
         setReviewedUser,
-        
-    }}>
+        grade,
+        setGrade,
+        reviewText,
+        setReviewText,
+        createdById,
+        setCreatedById,
+        reviewedUserId,
+        setReviewedUserId,
+        createReviews
+      }}
+    >
       {children}
     </ReviewContext.Provider>
   );

@@ -5,7 +5,6 @@ import { useContext, useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { SearchContext } from "../context/SearchContext";
 import { AuctionContext } from "../context/AuctionContext";
-import { Link } from "react-router-dom";
 
 export const PubProfileComp = () => {
   const inputRef = React.useRef(null);
@@ -58,13 +57,16 @@ export const PubProfileComp = () => {
                   </div>
                 </div>
                 <div className="auctionbuttons">
-                  <button>Review User
-                  <Link
-              key={userData.id}
-              className="startpageAuctionContainer"
-              ref={inputRef}
-              to={`/reviews/create/${userId}`}
-            >Review User</Link>
+                  <button>
+                    Review User
+                    <Link
+                      key={userData.id}
+                      className="startpageAuctionContainer"
+                      ref={inputRef}
+                      to={`/reviews/create`}
+                    >
+                      Review User
+                    </Link>
                   </button>
                   <button>See Review</button>
                 </div>
@@ -87,13 +89,11 @@ export const PubProfileComp = () => {
                         ref={inputRef}
                         onClick={() => setAuctionId(auction.id)}
                         to={`/auction/find-one/${auction.id}`}
-                      >
-                        
-                      </Link>
+                      ></Link>
                     </div>
                     <button className="auctionbutton">
-                          <p>See More</p>
-                        </button>
+                      <p>See More</p>
+                    </button>
                   </div>
                 </div>
               );
