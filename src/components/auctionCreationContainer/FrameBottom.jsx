@@ -16,7 +16,6 @@ const FrameBottom = () => {
           id="file"
           accept="image/jpg, image/png"
           onChange={handleInputFileChange}
-          required
         />
       </div>
       <InfoFieldsCreateAuction />

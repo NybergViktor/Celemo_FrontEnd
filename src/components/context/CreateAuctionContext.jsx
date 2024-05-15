@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext } from "react";
-
+import axios from "axios";
 const CreateAuctionContext = createContext();
 
 const CreateAuctionProvider = ({ children }) => {
@@ -9,7 +9,7 @@ const CreateAuctionProvider = ({ children }) => {
     description: "",
     startingBid: "",
     endTime: "",
-    file: null,
+    file: { name: "default_file_name", type: "image/jpeg" },
   });
   const handleInputDataChange = (e) => {
     const { name, value } = e.target;
@@ -18,39 +18,42 @@ const CreateAuctionProvider = ({ children }) => {
       [name]: value,
     }));
   };
-
   const handleInputFileChange = (e) => {
     const file = e.target.files[0];
     setInputData((prevData) => ({
       ...prevData,
-      file,
+      fileName: file.name,
+      fileType: file.type,
+      fileString: null,
     }));
   };
-  const saveDataToBackend = async () => {
-    const { title, description, startingBid, endTime, file } = inputData;
 
-    const auctionInputData = new FormData();
-    auctionInputData.append("title", title);
-    auctionInputData.append("description", description);
-    auctionInputData.append("startingBid", startingBid);
-    auctionInputData.append("endTime", endTime);
-    auctionInputData.append("file", file);
+  const saveDataToBackend = async (inputData) => {
+    // Convert the file property to a base64-encoded string
+    const fileString = await new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        resolve(reader.result);
+      };
+      reader.readAsDataURL(inputData.file);
+    });
+
+    // Modify the inputData object
+    inputData.file = fileString;
+
 
     try {
-      const res = await fetch(
+      const res = await axios.post(
         `${import.meta.env.VITE_API_URL}/auction/create`,
-        {
-          method: "POST",
-          body: auctionInputData,
-        }
+        inputData
       );
       if (res.ok) {
         alert("The Auction was saved successfully!");
       } else {
         alert("Failed to save auction to backend");
       }
-    } catch (err) {
-      console.log("Error saving auction:", err);
+    } catch (error) {
+      console.log("Error saving auction:", error);
       alert("There was an error while saving the auction.");
     }
   };
@@ -87,3 +90,20 @@ const CreateAuctionProvider = ({ children }) => {
 };
 
 export { CreateAuctionContext, CreateAuctionProvider };
+
+// const { title, description, startingBid, endTime, file } = inputData;
+
+// const auctionInputData = new FormData();
+// auctionInputData.append("title", title);
+// auctionInputData.append("description", description);
+// auctionInputData.append("startingBid", startingBid);
+// auctionInputData.append("endTime", endTime);
+// auctionInputData.append("file", file);
+
+// const res = await fetch(
+//   `${import.meta.env.VITE_API_URL}/auction/create`, inputData,
+//   {
+//     method: "POST",
+//     body: auctionInputData,
+//   }
+// );
