@@ -60,7 +60,7 @@ export const CreateReview = () => {
               </select>
             </label>
             <label>
-              <p className="review-p">Review Text:</p>
+              <p className="review-p">Review Text:{(e) => e.target.value}</p>
               <input
                 className="review-text"
                 type="text"
@@ -68,6 +68,7 @@ export const CreateReview = () => {
                 onChange={(e) => setReviewText(e.target.value)}
                 maxlength="50"
                 required
+                placeholder="max 50 characters"
               />
             </label>
             <Link to="/return" className="place-review-button">
