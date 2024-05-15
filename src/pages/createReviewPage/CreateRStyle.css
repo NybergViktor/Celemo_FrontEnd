@@ -18,8 +18,8 @@
   align-items: center;
   margin-bottom: 5rem;
 }
-.username-review{
-    margin-bottom: 2rem;
+.username-review {
+  margin-bottom: 2rem;
 }
 .review-form-container {
   display: flex;
@@ -44,11 +44,10 @@
   color: gray;
 }
 
-.review-form-container label:nth-child(1){
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+.review-form-container label:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .review-text {
@@ -73,5 +72,6 @@
   border-radius: 10px;
   background-color: white;
   height: 2rem;
-  
 }
+
+

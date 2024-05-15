@@ -18,6 +18,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import PubProfile from "./pages/pubprofile/PubProfile";
 import { AuthProvider } from "./components/context/AuthContext";
 import { CreateReview } from "./pages/createReviewPage/CreateReview";
+import { ReturnHome } from "./pages/returnHome/ReturnHome";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
                         />
                         <Route path="/pubprofile/:userId" element={<PubProfile />} />
                         <Route path="/reviews/create" element={<CreateReview/>} />
+                        <Route path="/return" element={<ReturnHome/>}/>
                       </Routes>
                     </BrowserRouter>
                   </ReviewProvider>

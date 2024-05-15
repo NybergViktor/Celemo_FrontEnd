@@ -39,10 +39,10 @@ const ReviewProvider = ({ children }) => {
 
   // START createReviews SECTION ==========================
 
-  const [grade, setGrade] = useState("");
+  const [grade, setGrade] = useState();
   const [reviewText, setReviewText] = useState("");
-  const [createdById, setCreatedById] = useState("");
-  const [reviewedId, setReviewedId] = useState("");
+  const [createdById, setCreatedById] = useState();
+  const [reviewedId, setReviewedId] = useState();
 
   const [reviewedUserId, setReviewedUserId] = useState(
     localStorage.getItem("reviewedUserId")
@@ -73,13 +73,16 @@ const ReviewProvider = ({ children }) => {
     };
 
     try {
-      
+      console.log(options);
+
       let res = await fetch(
         `${import.meta.env.VITE_API_URL}/reviews/create`,
         options
       );
       const data = await res.json();
       console.log(data);
+      setGrade();
+      setReviewText("");
     } catch (err) {
       console.log("err: " + err);
     }

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ReviewContext } from "../../components/context/ReviewContext";
 import { useState, useContext, useEffect } from "react";
 import "../createReviewPage/CreateRStyle.css";
@@ -24,7 +24,6 @@ export const CreateReview = () => {
   const [reviewedUsername, setReviewedUsername] = useState(
     localStorage.getItem("reviewedUsername")
   );
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,11 +51,11 @@ export const CreateReview = () => {
                 onChange={(e) => setGrade(e.target.value)}
               >
                 <option value="">Grade</option>
-                <option value="ONE">1</option>
-                <option value="TWO">2</option>
-                <option value="THREE">3</option>
-                <option value="FOUR">4</option>
-                <option value="FIVE">5</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
               </select>
             </label>
             <label>
@@ -69,12 +68,15 @@ export const CreateReview = () => {
                 required
               />
             </label>
-            <button className="place-review-button" type="submit">
-              Place Review
-            </button>
+            <Link to="/return" className="place-review-button">
+              <button className="place-review-button" type="submit">
+                Place Review
+              </button>
+            </Link>
           </form>
         </div>
       </main>
+
       <Footer></Footer>
     </>
   );
