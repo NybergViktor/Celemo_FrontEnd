@@ -42,18 +42,20 @@ const ReviewProvider = ({ children }) => {
   const [grade, setGrade] = useState("");
   const [reviewText, setReviewText] = useState("");
   const [createdById, setCreatedById] = useState("");
+  const [reviewedId, setReviewedId] = useState("");
+
   const [reviewedUserId, setReviewedUserId] = useState(
     localStorage.getItem("reviewedUserId")
   );
 
-  //const { userData, getUserFromId} = useContext(UserContext);
   const [loggedInUserId, setLoggedInUserId] = useState(
     localStorage.getItem("loggedInUserId")
   );
 
-  // useEffect(() => {
-  //   getUserFromId(loggedInUserId);
-  // }, []);
+  useEffect(() => {
+    setCreatedById(loggedInUserId);
+    setReviewedId(reviewedUserId);
+  }, []);
 
   const createReviews = async () => {
     var options = {
@@ -65,8 +67,8 @@ const ReviewProvider = ({ children }) => {
       body: JSON.stringify({
         grade: `${grade}`,
         reviewText: `${reviewText}`,
-        createdById: `${loggedInUserId}`,
-        reviewedUserId: `${reviewedUserId}`,
+        createdById: `${createdById}`,
+        reviewedUserId: `${reviewedId}`,
       }),
     };
 
@@ -77,9 +79,9 @@ const ReviewProvider = ({ children }) => {
           " reviewText: " +
           reviewText +
           " loggedInUserId: " +
-          loggedInUserId +
+          createdById +
           " reviewedUserId: " +
-          reviewedUserId
+          reviewedId
       );
       // let res = await fetch(
       //   `${import.meta.env.VITE_API_URL}/reviews/create`,
@@ -108,8 +110,6 @@ const ReviewProvider = ({ children }) => {
         setReviewText,
         createdById,
         setCreatedById,
-        reviewedUserId,
-        setReviewedUserId,
         createReviews,
       }}
     >

@@ -12,7 +12,6 @@ export const PubProfileComp = () => {
   const { userData, getPublicUserFromId } = useContext(UserContext);
   const { userId } = useParams(SearchContext);
   const { usersAuctions, fetchUsersAuctions } = useContext(AuctionContext);
-  const { setReviewedUserId } = useContext(ReviewContext);
 
   console.log(userId + "pubProfile");
   useEffect(() => {
