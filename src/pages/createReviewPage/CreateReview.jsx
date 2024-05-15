@@ -49,6 +49,7 @@ export const CreateReview = () => {
                 name="grade"
                 className="grade"
                 onChange={(e) => setGrade(e.target.value)}
+                required
               >
                 <option value="">Grade</option>
                 <option value="1">1</option>
@@ -65,11 +66,16 @@ export const CreateReview = () => {
                 type="text"
                 value={reviewText}
                 onChange={(e) => setReviewText(e.target.value)}
+                maxlength="50"
                 required
               />
             </label>
             <Link to="/return" className="place-review-button">
-              <button className="place-review-button" type="submit" onClick={handleSubmit}>
+              <button
+                className="place-review-button"
+                type="submit"
+                onClick={handleSubmit}
+              >
                 Place Review
               </button>
             </Link>
