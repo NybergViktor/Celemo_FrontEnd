@@ -69,7 +69,7 @@ export const CreateReview = () => {
               />
             </label>
             <Link to="/return" className="place-review-button">
-              <button className="place-review-button" type="submit">
+              <button className="place-review-button" type="submit" onClick={handleSubmit}>
                 Place Review
               </button>
             </Link>
