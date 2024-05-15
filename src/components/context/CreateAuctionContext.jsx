@@ -36,6 +36,7 @@ const CreateAuctionProvider = ({ children }) => {
         resolve(reader.result);
       };
       reader.readAsDataURL(inputData.file);
+      
     });
 
     // Modify the inputData object
