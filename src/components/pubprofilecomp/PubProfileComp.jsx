@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import "./PubProfileComp.css";
 import { PubUserContext } from "../context/PubUserContext";
 import { useContext, useState, useEffect } from "react";
@@ -11,7 +11,6 @@ export const PubProfileComp = () => {
     const { userData, getPublicUserFromId } = useContext(PubUserContext);
     const { userId } = useParams(SearchContext);
     const { usersAuctions, fetchUsersAuctions} = useContext(AuctionContext);
-
     console.log(userId);
     useEffect(() => {
         getPublicUserFromId(userId);
