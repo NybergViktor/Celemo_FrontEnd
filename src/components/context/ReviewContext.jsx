@@ -36,6 +36,47 @@ const ReviewProvider = ({ children }) => {
   };
 
   // END FetchAllReviews SECTION ==========================
+
+  // START createReviews SECTION ==========================
+
+  const [grade, setGrade] = useState("");
+  const [reviewText, setReviewText] = useState("");
+  const [createdById, setCreatedById] = useState("");
+  const [reviewUserId, setreviewUserId] = useState("");
+
+
+  const createReviews = async (userId) => {
+    var options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        
+          grade: `${grade}`,
+          reviewText: `${reviewText}`,
+          createdById: `${createdById}`,
+          reviewedUserId: `${reviewUserId}`
+      
+      }),
+    };
+
+    try {
+      let res = await fetch(
+        `${import.meta.env.VITE_API_URL}/reviews/find/all-user/${userId}`,
+        options
+      );
+      const data = await res.json();
+      console.log(data);
+      setReviewedUser(data[0].reviewedUser);
+      setUsersReviews(data);
+    } catch (err) {
+      console.log("err: " + err);
+    }
+  };
+
+  // END createReviews SECTION ==========================
   
 
   return (
