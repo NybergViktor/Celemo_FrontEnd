@@ -1,16 +1,21 @@
+import { useContext } from "react";
 import "../auctionCreationContainer/FrameBottom.css";
 import InfoFieldsCreateAuction from "./infoFields/InfoFieldsCreateAuction";
+import { CreateAuctionContext } from "../context/CreateAuctionContext";
 
 const FrameBottom = () => {
+  const { handleInputFileChange } = useContext(CreateAuctionContext);
+
   return (
     <div className="svg-container">
       <div className="input-container">
         {/* only accepting (.jpg and .png) */}
         <input
           type="file"
-          name="file-browser"
+          name="file"
           id="file"
           accept="image/jpg, image/png"
+          onChange={handleInputFileChange}
           required
         />
       </div>

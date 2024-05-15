@@ -77,6 +77,14 @@ textarea {
     font-size: 20px
   }
   .end-time{
-    font-size: 20px;
+    position: relative;
+    right: 1rem;
   }
+  .endTime{
+    width: 19rem;
+    font-size: 23px;
+    border: none;
+    border-radius: 10px;
+  }
+  
 }

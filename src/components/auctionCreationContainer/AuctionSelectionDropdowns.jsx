@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import { useContext, useEffect, useState, useRef } from "react";
 import {
   CreateAuctionContext,
@@ -12,7 +11,6 @@ function AuctionSelectionDropdowns() {
   const { categories } = useContext(CreateAuctionContext);
   const [celebrityData, setCelebrityData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  
   const containerRef = useRef(null);
 
   // FETCH API NINJAS START
@@ -21,7 +19,9 @@ function AuctionSelectionDropdowns() {
       method: "GET",
       headers: { "x-api-key": "EVXs0Tdo4GvAQnEzNgwfEg==pXAm2A6bA2zNwHFl" },
     };
-    let url = "https://api.api-ninjas.com/v1/celebrity?name=" + name; // name
+
+    let url = `https://api.api-ninjas.com/v1/celebrity?name=${name}`; // name
+
     try {
       let res = await fetch(url, options);
       const data = await res.json();
@@ -30,9 +30,11 @@ function AuctionSelectionDropdowns() {
         ...celebrity,
         id: index,
       }));
+
       setCelebrityData(celebrityId);
       localStorage.setItem("celebrity", JSON.stringify(name));
       // setCelebrityData(prevData => [...prevData, ...celebrityId]);                                      // setCelebrityData(data.map(item => ({...item, id: uuidv4()})));
+
       console.log(data); // Log the fetched data
     } catch (err) {
       console.log(`error ${err}`);
@@ -45,7 +47,7 @@ function AuctionSelectionDropdowns() {
     if (searchTerm !== "") {
       getCelebrity(searchTerm);
     } else {
-      return console.log("wrong input");
+      console.log("wrong input");
     }
   };
   // if data is not clear, setCelebrityData to clear.
@@ -67,7 +69,7 @@ function AuctionSelectionDropdowns() {
   }, []);
 
   return (
-    <>
+    <CreateAuctionProvider>
       <div className="main-container">
         <div className="svg1">
           <svg
@@ -134,7 +136,7 @@ function AuctionSelectionDropdowns() {
         <FrameBottom />
         <PublishButton>Publish Auction</PublishButton>
       </div>
-    </>
+    </CreateAuctionProvider>
   );
 }
 export default AuctionSelectionDropdowns;

@@ -1,29 +1,25 @@
 import "../infoFields/InputFields.css";
-import { useState } from "react";
+import { useContext } from "react";
+import { CreateAuctionContext} from "../../context/CreateAuctionContext";
+
+
+
 const InputFields = () => {
-  const [inputData, setInputData] = useState({
-    title: "",
-    description: "",
-    startingBid: "",
-    endTime: "",
-    file: null,
-  });
+  const { inputData, handleInputDataChange } = useContext(CreateAuctionContext);
 
-  const handleInputDataChange = (e) => {
-    const { name, value } = e.target;
-    setInputData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const
 
   return (
     <>
       <div className="title-text-bottom">
         <label className="lable">
-          <input className="title-input" type="text" placeholder="Title" />
+          <input
+            className="title-input"
+            type="text"
+            name="title"
+            placeholder="Title"
+            value={inputData.title}
+            onChange={handleInputDataChange}
+          />
         </label>
       </div>
 
@@ -31,29 +27,42 @@ const InputFields = () => {
         <label className="lable">
           <textarea
             className="textarea"
-            name="myTextarea"
-            placeholder="description"
+            name="description"
+            placeholder="Write description here"
             cols="15"
             rows="8"
+            value={inputData.description}
+            onChange={handleInputDataChange}
             required
-          ></textarea>
+          />
         </label>
         <div className="bid-bottom">
           <label className="lable">
             <input
               className="bid-input"
-              type="text"
+              type="number"
+              name="startingBid"
               placeholder="Starting Bid"
+              value={inputData.startingBid}
+              onChange={handleInputDataChange}
             />
           </label>
-          <select className="end-time" id="endtime">
-            <option value="endtime" required hidden>
-              End Time
-            </option>
-          </select>
+          <label className="end-time" id="endtime">
+          <input
+            type="datetime-local"
+            className="endTime"
+            name="endTime"
+            value={inputData.endTime}
+            onChange={handleInputDataChange}
+            required
+          />
+          </label>
         </div>
       </div>
     </>
   );
 };
+
+
+
 export default InputFields;
