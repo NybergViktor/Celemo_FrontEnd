@@ -20,10 +20,12 @@ import { AuthProvider } from "./components/context/AuthContext";
 import { CreateReview } from "./pages/createReviewPage/CreateReview";
 import { ReturnHome } from "./pages/returnHome/ReturnHome";
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
+import { PubUserProvider } from "./components/context/PubUserContext";
 
 function App() {
   return (
   <AuthProvider>
+    <PubUserProvider>
     <SignupProvider>
       <LoginProvider>
         <UserProvider>
@@ -61,6 +63,7 @@ function App() {
         </UserProvider>
       </LoginProvider>
     </SignupProvider>
+    </PubUserProvider>
   </AuthProvider>
 
   );
