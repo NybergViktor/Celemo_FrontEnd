@@ -35,6 +35,7 @@ export const CreateReview = () => {
     createReviews();
 
     setGrade(""), setReviewText("");
+
   };
 
   return (
@@ -71,15 +72,17 @@ export const CreateReview = () => {
                 placeholder="max 50 characters"
               />
             </label>
-            <Link to="/return" className="place-review-button">
+            
               <button
                 className="place-review-button"
                 type="submit"
                 onClick={handleSubmit}
+                
               >
-                Place Review
+                <Link to="/return">Place Review</Link>
+                
               </button>
-            </Link>
+            
           </form>
         </div>
       </main>
