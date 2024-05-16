@@ -4,8 +4,8 @@ const PubUserContext = createContext();
 
 const PubUserProvider = ({ children }) => {
 
-  const [userData, setUserData] = useState({});
-
+  const [userData, setUserData] = useState({username: "", adress_city: "", grade: ""});
+  const [loading, setLoading] = useState(false);
 // ===========================================================
 // GET PUBLIC USER FROM ID
 
@@ -18,6 +18,7 @@ const PubUserProvider = ({ children }) => {
       credentials:"include",
     };
     try {
+      setLoading(true);
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/user/public-user/${userId}`,
         options
@@ -27,11 +28,14 @@ const PubUserProvider = ({ children }) => {
     } catch (error) {
       console.log("Error fetching: " + error);
     }
+    finally {
+      setLoading(false);
+    }
   };
 
 
   return (
-    <PubUserContext.Provider value={{ userData, getPublicUserFromId }}>
+    <PubUserContext.Provider value={{ loading, userData, getPublicUserFromId }}>
       {children}
     </PubUserContext.Provider>
   );

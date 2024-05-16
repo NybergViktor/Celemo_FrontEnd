@@ -8,7 +8,7 @@ import { AuctionContext } from "../context/AuctionContext";
 
 export const PubProfileComp = () => {
   const inputRef = React.useRef(null);
-  const { userData, getPublicUserFromId } = useContext(PubUserContext);
+  const { loading, userData, getPublicUserFromId } = useContext(PubUserContext);
   const { userId } = useParams(SearchContext);
   const { usersAuctions, fetchUsersAuctions } = useContext(AuctionContext);
   const reviewedUsername = userData.username; 
@@ -24,6 +24,9 @@ export const PubProfileComp = () => {
   if (userData.photo === null) {
     return (userData.photo =
       "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png");
+  }
+  if (!loading) {
+    return <h1>Loading...</h1>;
   }
   return (
     <main className="pub-main-p-container">
