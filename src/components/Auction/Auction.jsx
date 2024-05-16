@@ -12,11 +12,12 @@ export const Auction = () => {
   const { auction, fetchAuction, fetchAuctionTimeleft, timeleft } =
     useContext(AuctionContext);
 
-  const { bidsAmount, fetchBidsAmount } = useContext(BidContext);
+  const { bidsAmount, fetchBidsAmount, fetchOneBid, currentWinner } =
+    useContext(BidContext);
 
   const { auctionId } = useParams(SearchContext);
 
-  const { userData, getUserFromId } = useContext(UserContext);
+  const { userData, getUserFromId, winningBidUser } = useContext(UserContext);
 
   useEffect(() => {
     fetchAuction(auctionId);
@@ -31,6 +32,13 @@ export const Auction = () => {
     getUserFromId(auction.seller);
   }, [auction.seller]);
 
+
+  useEffect(() => {
+    fetchOneBid(auction.bid);
+  }, [auction.bid]);
+
+  console.log(auction.seller + " seller id");
+
   return (
     <main>
       <div className="auction-container">
@@ -44,10 +52,11 @@ export const Auction = () => {
           <div className="auction-title">{auction.title}</div>
           <div className="description">{auction.productDescription}</div>
 
-          <div className="price">{auction.currentPrice}Kr</div>
+          <div className="price">{auction.currentPrice}Kr </div>
+          <div className="currentWinner">Currently winning bid: {winningBidUser.username}</div>
 
           <div className="endtime">
-          <div className="amount">Amount of bids: {bidsAmount}</div>
+            <div className="amount">Amount of bids: {bidsAmount}</div>
             {timeleft[0]} <br /> {timeleft[1]}
           </div>
           <div className="location">
@@ -69,7 +78,6 @@ export const Auction = () => {
             </Link>
             <button>Reviews</button>
           </div>
-          
         </div>
         <div className="blankWhite"></div>
       </div>

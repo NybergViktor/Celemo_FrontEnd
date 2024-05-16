@@ -6,6 +6,7 @@ const UserProvider = ({ children }) => {
 
   const [userData, setUserData] = useState([]);
   const [favourites, setFavourites] = useState([]);
+  const [winningBidUser, setWinningBidUser] = useState([]);
 
   const getUserFromId = async (userId) => {
     const options = {
@@ -30,6 +31,7 @@ const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider value={{ userData, getUserFromId, favourites }}>
+
       {children}
     </UserContext.Provider>
   );

@@ -6,7 +6,6 @@ import LoginContext, { LoginProvider } from "../context/LoginContext";
 import { DropDown } from "../dropDown/DropDown";
 
 const Header = () => {
-  const { handleLoginClick } = useContext(LoginContext);
 
   return (
     <div className="header-container">
@@ -14,8 +13,7 @@ const Header = () => {
         <DropDown></DropDown>
       </div>
 
-      {/** Temp button to login as admin, can be deleted later */}
-      <button className="admin-login" onClick={handleLoginClick}>Admin Login</button>
+      
 
       <div className="logo-container">
         <Link to="/">

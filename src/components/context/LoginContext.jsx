@@ -38,14 +38,11 @@ export const LoginProvider = ({ children, username, password }) => {
     }
   };
 
-  // Temp function for button in Header.jsx
-  const handleLoginClick = async () => {
-    await logIn((username = "admin46"), (password = "admin46"));
-  };
+  
 
   return (
     <LoginContext.Provider
-      value={{ logIn, handleLoginClick, username, password }}
+      value={{ logIn, username, password }}
     >
       {children}
     </LoginContext.Provider>
