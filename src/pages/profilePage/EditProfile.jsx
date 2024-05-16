@@ -159,7 +159,8 @@ const EditProfile = () => {
         </div>
         </div>
         <div className="editProfileDeleteAccount">
-            <button id="deleteAccountButton" onClick={handleDelete}>Delete account</button>
+            <div className="deleteAccountHeader">Warning, deleting your account makes you lose everything stored on the site.</div>
+            <button id="deleteAccountButton" className="deleteAccountButton" onClick={handleDelete}>Delete account</button>
         </div>
         <Footer></Footer>
         </>
