@@ -9,12 +9,13 @@
     align-items: center;
     justify-content: center;
     inset-inline: 23px;
+    
   
 }
 .side-cotainer{
     margin: 0 40px;
     position: relative;
-    
+   
    
 }
 .card{
@@ -22,6 +23,7 @@
     border-radius: 25px;
     background-color: white;
     gap: 20px;
+    box-shadow: 1px 1px 5px gray;
    
 }
 .side-content{
@@ -30,7 +32,7 @@
     display: flex;
     flex-wrap: wrap;
     width: auto;
-
+    
    
 }
 
@@ -52,7 +54,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: rgb(151, 87, 3);
+    background-color: #363636;
     border-radius: 0px 25px 0 25px;
 }
 
