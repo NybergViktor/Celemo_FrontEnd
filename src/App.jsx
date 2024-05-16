@@ -12,6 +12,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import PubProfile from "./pages/pubprofile/PubProfile";
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
 import ContactPage from "./pages/contactpage/ContactPage";
+import EditProfile from "./pages/profilePage/EditProfile";
 
 // PROVIDERS
 import { CreateReview } from "./pages/createReviewPage/CreateReview";
@@ -62,6 +63,7 @@ function App() {
                           <Route path="/contact" element={<ContactPage />} />
                          <Route path="/reviews/create" element={<CreateReview/>} />
                         <Route path="/return" element={<ReturnHome/>}/>
+                        <Route path="/edit-profile" element={<EditProfile/>}/>
                       </Routes>
                     </BrowserRouter>
                   </ReviewProvider>
