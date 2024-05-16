@@ -25,7 +25,7 @@ export const PubProfileComp = () => {
     return (userData.photo =
       "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png");
   }
-  if (!loading) {
+  if (loading) {
     return <h1>Loading...</h1>;
   }
   return (
