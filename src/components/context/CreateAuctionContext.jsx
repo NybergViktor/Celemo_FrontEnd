@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from "react";
 import axios from "axios";
+
 const CreateAuctionContext = createContext();
 
 const CreateAuctionProvider = ({ children }) => {
@@ -11,6 +12,8 @@ const CreateAuctionProvider = ({ children }) => {
     endDate: 7,
     file: { name: "default_file_name", type: "image/jpeg" },
   });
+  // const [selectedFile, setSelectedFile] = useState();
+
   const handleInputDataChange = (e) => {
     const { name, value } = e.target;
     setInputData((prevData) => ({
@@ -18,16 +21,17 @@ const CreateAuctionProvider = ({ children }) => {
       [name]: value,
     }));
   };
+
   const handleInputFileChange = (e) => {
+    console.log('handleInputFileChange called');
     const file = e.target.files[0];
     setInputData((prevData) => ({
       ...prevData,
-      fileName: file.name,
-      fileType: file.type,
-      fileString: null,
+      productPhotot: file
     }));
+    console.log(inputData);
   };
-
+  
   const saveDataToBackend = async (inputData) => {
     // Convert the file property to a base64-encoded string
     const fileString = await new Promise((resolve) => {
@@ -35,13 +39,14 @@ const CreateAuctionProvider = ({ children }) => {
       reader.onload = () => {
         resolve(reader.result);
       };
-      reader.readAsDataURL(inputData.file);
-      
+      FileReader.onerror = function (event) {
+        console.error("Error reading file:", event.target.error);
+      };
+      reader.readAsDataURL(file);
     });
 
     // Modify the inputData object
-    inputData.file = fileString;
-
+    file = fileString;
 
     try {
       const res = await axios.post(
@@ -72,6 +77,7 @@ const CreateAuctionProvider = ({ children }) => {
   useEffect(() => {
     fetchCategories();
   }, []);
+
   // ================FETCH ALL ENUMS END==============================
 
   return (
@@ -83,6 +89,8 @@ const CreateAuctionProvider = ({ children }) => {
         handleInputDataChange,
         handleInputFileChange,
         saveDataToBackend,
+        // selectedFile,
+        // setSelectedFile,
       }}
     >
       {children}
