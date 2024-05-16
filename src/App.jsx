@@ -18,6 +18,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import PubProfile from "./pages/pubprofile/PubProfile";
 import { AuthProvider } from "./components/context/AuthContext";
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
+import ContactPage from "./pages/contactpage/ContactPage";
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
                             path="/pubprofile/:userId"
                             element={<PubProfile />}
                           />
+                          <Route path="/contact" element={<ContactPage />} />
                         </Routes>
                       </BrowserRouter>
                     </ReviewProvider>
