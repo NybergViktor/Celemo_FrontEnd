@@ -8,9 +8,12 @@ const CreateAuctionProvider = ({ children }) => {
   const [inputData, setInputData] = useState({
     title: "",
     productDescription: "",
+    productPhoto: null,
+    celebrityName: "APA",
     startPrice: "",
+    categoryList: ["HOCKEY"],
     endDate: 7,
-    productPhotot: null,
+    sellerId: localStorage.getItem("loggedInUserId")
   });
 
   const handleInputDataChange = (e) => {
@@ -26,14 +29,14 @@ const CreateAuctionProvider = ({ children }) => {
     const file = e.target.files[0];
     setInputData((prevData) => ({
       ...prevData,
-      productPhotot: file,
+      productPhoto: file,
     }));
     console.log(inputData);
   };
 
   const saveDataToBackend = async () => {
     // Convert the file property to a base64-encoded string
-    const file = inputData.productPhotot;
+    const file = inputData.productPhoto;
     const fileString = await new Promise((resolve) => {
       const reader = new FileReader();
       reader.onload = () => {
@@ -50,15 +53,15 @@ const CreateAuctionProvider = ({ children }) => {
 
     const modifiedInputData = {
       ...inputData,
-      productPhotot: fileString,
+      productPhoto: fileString,
     };
 
     try {
       const res = await axios.post(
         `${import.meta.env.VITE_API_URL}/auction/create`,
         modifiedInputData
-        console.log(modifiedInputData);
       );
+      console.log(modifiedInputData);
       if (res.ok) {
         alert("The Auction was saved successfully!");
       } else {

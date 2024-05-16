@@ -12,7 +12,7 @@ const FrameBottom = () => {
         {/* only accepting (.jpg and .png) */}
         <input
           type="file"
-          name="file"
+          name="productPhoto"
           id="file"
           accept="image/*, image/jpg, image/png"
           onChange={handleInputFileChange}
