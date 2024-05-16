@@ -1,9 +1,9 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
+import { UserContext } from "./UserContext";
 
 const ReviewContext = createContext();
 
 const ReviewProvider = ({ children }) => {
-
   // START FetchAllReviews SECTION ==========================
 
   const [usersReviews, setUsersReviews] = useState([]);
@@ -36,17 +36,77 @@ const ReviewProvider = ({ children }) => {
   };
 
   // END FetchAllReviews SECTION ==========================
-  
+
+  // START createReviews SECTION ==========================
+
+  const [grade, setGrade] = useState();
+  const [reviewText, setReviewText] = useState("");
+  const [createdById, setCreatedById] = useState();
+  const [reviewedId, setReviewedId] = useState();
+
+  const [reviewedUserId, setReviewedUserId] = useState(
+    localStorage.getItem("reviewedUserId")
+  );
+
+  const [loggedInUserId, setLoggedInUserId] = useState(
+    localStorage.getItem("loggedInUserId")
+  );
+
+  useEffect(() => {
+    setCreatedById(loggedInUserId);
+    setReviewedId(reviewedUserId);
+  }, []);
+
+  const createReviews = async () => {
+    var options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        grade: `${grade}`,
+        reviewText: `${reviewText}`,
+        createdById: `${createdById}`,
+        reviewedUserId: `${reviewedId}`,
+      }),
+    };
+
+    try {
+      console.log(options);
+
+      let res = await fetch(
+        `${import.meta.env.VITE_API_URL}/reviews/create`,
+        options
+      );
+      const data = await res.json();
+      console.log(data);
+      setGrade();
+      setReviewText("");
+    } catch (err) {
+      console.log("err: " + err);
+    }
+  };
+
+  // END createReviews SECTION ==========================
 
   return (
-    <ReviewContext.Provider value={{
+    <ReviewContext.Provider
+      value={{
         usersReviews,
         setUsersReviews,
         fetchUsersReviews,
         reviewedUser,
         setReviewedUser,
-        
-    }}>
+        grade,
+        setGrade,
+        reviewText,
+        setReviewText,
+        createdById,
+        setCreatedById,
+        createReviews,
+      }}
+    >
       {children}
     </ReviewContext.Provider>
   );

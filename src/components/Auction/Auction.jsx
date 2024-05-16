@@ -32,11 +32,13 @@ export const Auction = () => {
     getUserFromId(auction.seller);
   }, [auction.seller]);
 
+
   useEffect(() => {
     fetchOneBid(auction.bid);
   }, [auction.bid]);
 
   console.log(auction.seller + " seller id");
+
   return (
     <main>
       <div className="auction-container">
