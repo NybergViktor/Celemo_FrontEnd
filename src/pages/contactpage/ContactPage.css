@@ -2,16 +2,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 72vh;
+    width: 100vw;
 }
 .contact-page-box {
     background-color: #ffffff;
     border-radius: 12px;
     padding: 10px;
     display: flex;
+    width: 80%;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 3rem;
-    margin-top: 3rem;
+    
     box-shadow: 1px 1px 1px 1px #888888;
 }
 .contact-page h1 {
@@ -37,4 +40,10 @@
 }
 .email {
     text-align: center;
+}
+
+@media only screen and (min-width: 600px) {
+.contact-page{
+    height: 83vh;
+}
 }
