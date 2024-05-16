@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+// PAGES
 import Startpage from "./pages/startpage/Startpage";
 import ProfilePage from "./pages/profilePage/ProfilePage";
 import SignupPage from "./pages/signupPage/SignupPage";
@@ -10,7 +11,9 @@ import ReviewPage from "./pages/reviewPage/ReviewPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import PubProfile from "./pages/pubprofile/PubProfile";
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
+import ContactPage from "./pages/contactpage/ContactPage";
 
+// PROVIDERS
 import { CreateReview } from "./pages/createReviewPage/CreateReview";
 import { ReturnHome } from "./pages/returnHome/ReturnHome";
 import { LoginProvider } from "./components/context/LoginContext";
@@ -22,8 +25,6 @@ import { BidProvider } from "./components/context/BidsContext";
 import { ReviewProvider } from "./components/context/ReviewContext";
 import { SignupProvider } from "./components/context/SignupContext";
 import { AuthProvider } from "./components/context/AuthContext";
-import PrivateRoute from "./components/privateRoute/PrivateRoute";
-import ContactPage from "./pages/contactpage/ContactPage";
 import { PubUserProvider } from "./components/context/PubUserContext";
 
 function App() {
