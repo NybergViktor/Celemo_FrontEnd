@@ -1,0 +1,28 @@
+.returnMain{
+    height: 72vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.returnContainer{
+    width: 90%;
+    height: 10rem;
+    border-radius: 20px;
+    box-shadow: 0 0 5px gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    max-width: 1000px;
+}
+
+.returnTo {
+    background-color: #f19d6f;
+    border-radius: 10px;
+    border-style: none;
+    height: 4rem;
+    width: 12rem;
+    
+  }
