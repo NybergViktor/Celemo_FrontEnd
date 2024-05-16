@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="under">
         <a className="b" href="#">Contact</a>
-        <a className="b" href="#">About</a>
+        <a className="b" href="/about">About</a>
         <a className="b" href="/">Home</a>
       </div>
       <div className="over">

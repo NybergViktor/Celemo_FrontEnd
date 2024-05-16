@@ -1,6 +1,6 @@
 import AboutBody from "../../components/about/AboutBody";
 import Footer from "../../components/footer/Footer";
-import Header from "../../components/loginheader/LoginHeader";
+import Header from "../../components/header/Header";
 
 
 import React from 'react'
