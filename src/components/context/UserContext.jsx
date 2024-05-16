@@ -28,9 +28,29 @@ const UserProvider = ({ children }) => {
       console.log("Error fetching: " + error);
     }
   };
+  
+  const getUserWinningBidFromId = async (userId) => {
+    const options = {
+      method: "GET",
+      headers: {"Content-Type": "application/json",},
+      credentials: "include",
+    };
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/user/find-one/${userId}`,
+        options
+      );
+      const fetchData = await response.json();
+      setWinningBidUser(fetchData)
+    } catch (error) {
+      console.log("Error fetching: " + error);
+    }
+  };
+
 
   return (
-    <UserContext.Provider value={{ userData, getUserFromId, favourites }}>
+    <UserContext.Provider value={{ userData, getUserFromId, favourites, getUserWinningBidFromId }}>
 
       {children}
     </UserContext.Provider>
