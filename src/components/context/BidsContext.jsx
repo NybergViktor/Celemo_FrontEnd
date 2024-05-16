@@ -156,9 +156,9 @@ const BidProvider = ({ children }) => {
 
       const data = await res.json();
       console.log(data);
-      setCurrentWinner(data.user);
-      console.log(data.user + "datauser");
-      getUserWinningBidFromId(currentWinner);
+      //setCurrentWinner(data.user);
+      console.log(data.user + " datauser");
+      getUserWinningBidFromId(data.user);
     } catch (error) {
       console.log(error);
     }
