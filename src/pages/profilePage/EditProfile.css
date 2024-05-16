@@ -25,8 +25,8 @@
     margin-bottom: 2rem;
 }
 .deleteAccountButton{
-    background-color: red !important;
-    color: white;
+    background-color: white;
+    color: tomato;
     border-radius: 12px;
     padding: 20px;
     margin: 10px;
@@ -36,6 +36,10 @@
     cursor: pointer;
     box-shadow: 1px 1px 5px gray;
 }
+.deleteAccountButton:hover {
+    background-color: tomato;
+    color: white;
+}
 .deleteAccountHeader{
     background-color: rgba(54, 54, 54, 1);
     display: flex;
@@ -44,6 +48,9 @@
     color: rgb(75, 75, 75);
     font-size: 20px;
     background-color: aliceblue;
+    border-radius: 7px;
+    padding: 2px;
+    border: 2px solid black;
 }
 .editProfileHeader {
     background-color: rgba(54, 54, 54, 1);
