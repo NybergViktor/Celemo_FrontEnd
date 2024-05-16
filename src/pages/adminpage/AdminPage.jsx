@@ -2,6 +2,7 @@ import { ReportsContext, ReportsProvider } from "../../components/context/Report
 import "./AdminPage.css"
 import { useContext, useEffect } from "react";
 import { ReviewContext } from "../../components/context/ReviewContext";
+import Header from "../../components/header/Header";
 
 const AdminPage = () => { 
     const {allReviews, fetchallReviews} = useContext(ReviewContext);
@@ -9,11 +10,11 @@ const AdminPage = () => {
 
     useEffect(() => {
         getAllReports(reportsData);
-    }, [reportsData]);
+    }, []);
 
     useEffect(() => {
         fetchallReviews(allReviews);
-    }, [allReviews]);
+    }, []);
 
 
 
@@ -27,6 +28,8 @@ const AdminPage = () => {
 
 
     return (
+        <>
+        <Header/>
         <div className="adminPage">
             <h1>Admin Page</h1>
 
@@ -58,7 +61,7 @@ const AdminPage = () => {
             ))}
             </div></div>
             
-        </div>
+        </div></>
     )
  }
 
