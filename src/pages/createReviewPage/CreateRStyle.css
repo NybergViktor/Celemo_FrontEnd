@@ -1,0 +1,87 @@
+.review-main {
+  height: auto;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.review-container {
+  margin-top: 5rem;
+  width: 100%;
+  height: 25rem;
+  border-radius: 20px;
+  box-shadow: 0 0 5px lightgray;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+  max-width: 1000px;
+}
+.username-review {
+  margin-bottom: 2rem;
+}
+.review-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  gap: 2rem;
+  max-width: 500px;
+}
+.place-review-button {
+  width: 100%;
+  border-style: none;
+  height: 2.5rem;
+  border-radius: 15px;
+  background-color: #f19d6f;
+  box-shadow: 0 0 5px gray;
+  font-size: large;
+}
+
+.place-review-button:link{
+  color: black;
+}
+
+.review-form-container label {
+  width: 100%;
+  color: gray;
+}
+
+.review-form-container label:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-text {
+  height: 8rem;
+  width: 100%;
+  border-style: none;
+  box-shadow: 0 0 5px gray;
+  border-radius: 10px;
+}
+.review-p {
+  position: absolute;
+
+  margin-top: 0.2rem;
+  margin-left: 0.3rem;
+  color: gray;
+}
+.grade {
+  width: 100%;
+  text-align: center;
+  border-style: none;
+  box-shadow: 0 0 5px gray;
+  border-radius: 10px;
+  background-color: white;
+  height: 2rem;
+}
+
+.place-review-button a:any-link{
+  color: black;
+}
+
+

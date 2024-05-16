@@ -6,6 +6,7 @@ const UserProvider = ({ children }) => {
 
   const [userData, setUserData] = useState([]);
   const [favourites, setFavourites] = useState([]);
+  const [winningBidUser, setWinningBidUser] = useState([]);
 
   const getUserFromId = async (userId) => {
     const options = {
@@ -27,25 +28,21 @@ const UserProvider = ({ children }) => {
       console.log("Error fetching: " + error);
     }
   };
-
-// ===========================================================
-// GET PUBLIC USER FROM ID
-
-  const getPublicUserFromId = async (userId) => {
-    const options2 = {
+  
+  const getUserWinningBidFromId = async (userId) => {
+    const options = {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials:"include",
+      headers: {"Content-Type": "application/json",},
+      credentials: "include",
     };
+
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/user/public-user/${userId}`,
-        options2
+        `${import.meta.env.VITE_API_URL}/user/find-one/${userId}`,
+        options
       );
       const fetchData = await response.json();
-      setUserData(fetchData);
+      setWinningBidUser(fetchData)
     } catch (error) {
       console.log("Error fetching: " + error);
     }
@@ -53,7 +50,8 @@ const UserProvider = ({ children }) => {
 
 
   return (
-    <UserContext.Provider value={{ userData, getUserFromId, favourites, getPublicUserFromId }}>
+    <UserContext.Provider value={{ userData, getUserFromId, favourites, winningBidUser, getUserWinningBidFromId }}>
+
       {children}
     </UserContext.Provider>
   );
