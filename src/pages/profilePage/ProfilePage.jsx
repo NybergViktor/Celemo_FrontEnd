@@ -9,6 +9,7 @@ import Header from "../../components/header/Header";
 import {UserContext} from "../../components/context/UserContext";
 import { useEffect, useContext, useState } from "react";
 import RandomPic from "../../components/auctionCreationContainer/checkboxRandomPicture/RandomPic";
+import { Link } from "react-router-dom";
 
 const ProfilePage = () => {
 
@@ -37,6 +38,7 @@ const ProfilePage = () => {
             useContainerBtn="yes"
             btnTitle="Edit"
             >
+              
             <UserInfoFields></UserInfoFields>
           </UserContainer>
 
