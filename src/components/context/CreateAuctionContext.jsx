@@ -8,7 +8,7 @@ const CreateAuctionProvider = ({ children }) => {
     title: "",
     description: "",
     startingBid: "",
-    endTime: "",
+    endDate: 7,
     file: { name: "default_file_name", type: "image/jpeg" },
   });
   const handleInputDataChange = (e) => {

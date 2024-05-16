@@ -47,15 +47,20 @@ const InputFields = () => {
               onChange={handleInputDataChange}
             />
           </label>
-          <label className="end-time" id="endtime">
-          <input
-            type="datetime-local"
-            className="endTime"
-            name="endTime"
-            value={inputData.endTime}
+          <label className="end-time" id="endDate">
+          <select
+            type="number"
+            className="endDate"
+            name="endDate"
+            value={inputData.endDate}
             onChange={handleInputDataChange}
             required
-          />
+          >
+            <option value={7} > Select end date </option>
+            <option value={3} > 3 days </option>
+            <option value={5} > 5 days </option>
+            <option value={7} > 7 days </option>
+          </select>
           </label>
         </div>
       </div>
