@@ -2,42 +2,24 @@ import React from "react";
 import "../Auction/AuctionStyle.css";
 
 import { AuctionContext } from "../context/AuctionContext";
-import { useContext, useState, useEffect } from "react";
-import { SearchContext } from "../context/SearchContext";
-import { Link, useParams } from "react-router-dom";
+import { useContext, useEffect} from "react";
+import { Link} from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { BidContext } from "../context/BidsContext";
 
 export const Auction = () => {
-  const { auction, fetchAuction, fetchAuctionTimeleft, timeleft } =
+
+  const { auction, timeleft } =
     useContext(AuctionContext);
 
-  const { bidsAmount, fetchBidsAmount, fetchOneBid, currentWinner } =
+  const { bidsAmount} =
     useContext(BidContext);
 
-  const { auctionId } = useParams(SearchContext);
-
-  const { userData, getUserFromId, winningBidUser } = useContext(UserContext);
-
-  useEffect(() => {
-    fetchAuction(auctionId);
-    fetchAuctionTimeleft(auctionId);
-  }, [auctionId]);
-
-  useEffect(() => {
-    fetchBidsAmount(auctionId);
-  }, [bidsAmount]);
+  const { userData, winningBidUser, getUserFromId } = useContext(UserContext);
 
   useEffect(() => {
     getUserFromId(auction.seller);
   }, [auction.seller]);
-
-
-  useEffect(() => {
-    fetchOneBid(auction.bid);
-  }, [auction.bid]);
-
-  console.log(auction.seller + " seller id");
 
   return (
     <main>
