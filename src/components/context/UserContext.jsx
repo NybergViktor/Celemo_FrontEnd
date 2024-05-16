@@ -50,7 +50,7 @@ const UserProvider = ({ children }) => {
 
 
   return (
-    <UserContext.Provider value={{ userData, getUserFromId, favourites, getUserWinningBidFromId }}>
+    <UserContext.Provider value={{ userData, getUserFromId, favourites, winningBidUser, getUserWinningBidFromId }}>
 
       {children}
     </UserContext.Provider>
