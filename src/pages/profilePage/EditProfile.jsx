@@ -1,12 +1,16 @@
 import "./EditProfile.css"
 import {useContext, useEffect, useState} from "react";
 import { UserContext   } from "../../components/context/UserContext";
+import { AuthContext } from "../../components/context/AuthContext";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
+import React from "react";
+import { redirect } from "react-router-dom";
 
 const EditProfile = () => {
     
-    const {fetchUpdateUser, getUserFromId, userData } = useContext(UserContext);
+    const {fetchUpdateUser, getUserFromId, userData, fetchDeleteUser } = useContext(UserContext);
+    const {logout} = useContext(AuthContext);
     const [loggedInUser, setLoggedInUser ] = useState((JSON.parse(localStorage.getItem("user"))))
     const [userValue, setuserValue] = useState({
         userId:                 loggedInUser.id,
@@ -20,6 +24,14 @@ const EditProfile = () => {
         const name = e.target.name;
         const value = e.target.value;
         setuserValue({ ...userValue, [name]: value});
+    }
+
+    const handleDelete = async () => {
+        if (window.confirm("Are you sure you want to delete your account?")){
+            fetchDeleteUser(userData.id);
+            await logout();
+            window.location.href = "/";
+        }
     }
 
     const handleSubmit = (e, userValue) => {
@@ -145,6 +157,9 @@ const EditProfile = () => {
             </form>
         </div>
         </div>
+        </div>
+        <div className="editProfileDeleteAccount">
+            <button id="deleteAccountButton" onClick={handleDelete}>Delete account</button>
         </div>
         <Footer></Footer>
         </>

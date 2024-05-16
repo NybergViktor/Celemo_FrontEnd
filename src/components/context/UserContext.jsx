@@ -48,6 +48,28 @@ const UserProvider = ({ children }) => {
     }
   };
 
+  const fetchDeleteUser = async (userId) => {
+    
+    const options = {
+      method: "DELETE",
+      headers: {"Content-Type": "application/json",},
+      credentials: "include",
+      body: JSON.stringify({
+        userId: `${userId}`,
+      }),
+    };
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/user/delete`,
+        options
+      );
+      const fetchData = await response.json();
+      console.log(fetchData);
+    } catch (error) {
+      console.log("Error fetching: " + error);
+    }
+  }
 
   const [updatedUser, setUpdatedUser] = useState([]);
   
@@ -75,7 +97,7 @@ const UserProvider = ({ children }) => {
 
 
   return (
-    <UserContext.Provider value={{ fetchUpdateUser, updatedUser, userData, getUserFromId, favourites, winningBidUser, getUserWinningBidFromId }}>
+    <UserContext.Provider value={{ fetchDeleteUser, fetchUpdateUser, updatedUser, userData, getUserFromId, favourites, winningBidUser, getUserWinningBidFromId }}>
 
       {children}
     </UserContext.Provider>
