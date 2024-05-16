@@ -27,11 +27,11 @@ const InputFields = () => {
         <label className="lable">
           <textarea
             className="textarea"
-            name="description"
+            name="productDescription"
             placeholder="Write description here"
             cols="15"
             rows="8"
-            value={inputData.description}
+            value={inputData.productDescription}
             onChange={handleInputDataChange}
             required
           />
@@ -41,9 +41,9 @@ const InputFields = () => {
             <input
               className="bid-input"
               type="number"
-              name="startingBid"
+              name="startPrice"
               placeholder="Starting Bid"
-              value={inputData.startingBid}
+              value={inputData.startPrice}
               onChange={handleInputDataChange}
             />
           </label>

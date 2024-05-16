@@ -7,12 +7,11 @@ const CreateAuctionProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
   const [inputData, setInputData] = useState({
     title: "",
-    description: "",
-    startingBid: "",
+    productDescription: "",
+    startPrice: "",
     endDate: 7,
-    file: { name: "default_file_name", type: "image/jpeg" },
+    productPhotot: null,
   });
-  // const [selectedFile, setSelectedFile] = useState();
 
   const handleInputDataChange = (e) => {
     const { name, value } = e.target;
@@ -23,35 +22,42 @@ const CreateAuctionProvider = ({ children }) => {
   };
 
   const handleInputFileChange = (e) => {
-    console.log('handleInputFileChange called');
+    console.log("handleInputFileChange called");
     const file = e.target.files[0];
     setInputData((prevData) => ({
       ...prevData,
-      productPhotot: file
+      productPhotot: file,
     }));
     console.log(inputData);
   };
-  
-  const saveDataToBackend = async (inputData) => {
+
+  const saveDataToBackend = async () => {
     // Convert the file property to a base64-encoded string
+    const file = inputData.productPhotot;
     const fileString = await new Promise((resolve) => {
       const reader = new FileReader();
       reader.onload = () => {
         resolve(reader.result);
       };
-      FileReader.onerror = function (event) {
+      reader.onerror = function (event) {
         console.error("Error reading file:", event.target.error);
       };
       reader.readAsDataURL(file);
     });
 
     // Modify the inputData object
-    file = fileString;
+    // file = fileString;
+
+    const modifiedInputData = {
+      ...inputData,
+      productPhotot: fileString,
+    };
 
     try {
       const res = await axios.post(
         `${import.meta.env.VITE_API_URL}/auction/create`,
-        inputData
+        modifiedInputData
+        console.log(modifiedInputData);
       );
       if (res.ok) {
         alert("The Auction was saved successfully!");
@@ -62,6 +68,7 @@ const CreateAuctionProvider = ({ children }) => {
       console.log("Error saving auction:", error);
       alert("There was an error while saving the auction.");
     }
+    
   };
 
   // ================FETCH ALL ENUMS START============================
@@ -89,8 +96,6 @@ const CreateAuctionProvider = ({ children }) => {
         handleInputDataChange,
         handleInputFileChange,
         saveDataToBackend,
-        // selectedFile,
-        // setSelectedFile,
       }}
     >
       {children}
