@@ -6,16 +6,19 @@ function AboutBody() {
     <div className='AboutContainerPage'>
       <div className='side-cotainer'>
         <div className='side-content'>
+        <div className='celemo'>
+        <h1 className='omTeam'>Meet Our Team</h1>
+      </div>
           <div className='card-wrapper'>
             <div className='card'>
               <div className='img-content'>
                 <span className='overlay'></span>
                 <div className='crad-imge'>
-                  <img src="src/assets/user.png" alt="" className='crad-img'/>
+                  <img src="src/assets/pr.img/m.png" alt="" className='crad-img'/>
                 </div>
               </div>
               <div className='card-content'>
-                <h2 className='name'>matti</h2>
+                <h2 className='name'>Matti</h2>
                 <p className='dexription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla vero harum error non? Recusandae, consequatur! Placeat dignissimos deserunt odit saepe iste architecto atque odio. Laudantium sapiente atque repudiandae nulla?</p>
               </div>
             </div>
@@ -26,7 +29,7 @@ function AboutBody() {
               <div className='img-content'>
                 <span className='overlay'></span>
                 <div className='crad-imge'>
-                  <img src="src/assets/user.png" alt="" className='crad-img'/>
+                  <img src="src/assets/pr.img/Johan.jpeg" alt="" className='crad-img'/>
                 </div>
               </div>
               <div className='card-content'>
@@ -41,7 +44,7 @@ function AboutBody() {
               <div className='img-content'>
                 <span className='overlay'></span>
                 <div className='crad-imge'>
-                  <img src="src/assets/user.png" alt="" className='crad-img'/>
+                  <img src="src/assets/pr.img/T.png" alt="" className='crad-img'/>
                 </div>
               </div>
               <div className='card-content'>
@@ -56,7 +59,7 @@ function AboutBody() {
               <div className='img-content'>
                 <span className='overlay'></span>
                 <div className='crad-imge'>
-                  <img src="src/assets/user.png" alt="" className='crad-img'/>
+                  <img src="src/assets/pr.img/j.png" alt="" className='crad-img'/>
                 </div>
               </div>
               <div className='card-content'>
@@ -71,7 +74,7 @@ function AboutBody() {
               <div className='img-content'>
                 <span className='overlay'></span>
                 <div className='crad-imge'>
-                  <img src="src/assets/user.png" alt="" className='crad-img'/>
+                  <img src="src/assets/pr.img/v.png" alt="" className='crad-img'/>
                 </div>
               </div>
               <div className='card-content'>
@@ -79,13 +82,16 @@ function AboutBody() {
                 <p className='dexription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla vero harum error non? Recusandae, consequatur! Placeat dignissimos deserunt odit saepe iste architecto atque odio. Laudantium sapiente atque repudiandae nulla?</p>
               </div>
             </div>
-
           </div>
-
+          <div className='celemo'>
+        <div className='celemPdiv'>
+        <h1 className='omCelemo'>Om CELEMO</h1>
+        <p className='CelemoP'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia debitis sapiente officiis, sint odio dolorum iste? Voluptatibus consequatur sit labore itaque quos, sunt quasi ipsa consectetur quo? In, eius reprehenderit.
+        </p>
         </div>
-
       </div>
-        
+        </div>
+      </div>
     </div>
   )
 }
