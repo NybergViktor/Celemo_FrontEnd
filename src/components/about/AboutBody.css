@@ -1,57 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:  border-box;
+    gap: 20px;
+}
 .AboutContainerPage{
-   margin: 0%;
-   width: 100%;
-   height: auto;
-   align-items: center;
-   justify-content: center;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    inset-inline: 23px;
+  
+}
+.side-cotainer{
+    margin: 0 40px;
+    position: relative;
+    
+   
+}
+.card{
+    max-width: 330px;
+    border-radius: 25px;
+    background-color: white;
+    gap: 20px;
+   
+}
+.side-content{
+    margin: 0 40px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+
    
 }
 
-.AboutContainer{
-    display: grid;
-    inline-size: 100%;
-    align-items: center;
-    justify-content: center;
-      
-}
-.h1C{
-    align-items: center;
-    justify-content: center;
-    grid-column: 1, -1;
-    grid-row: 1;
+.img-content,
+.card-content{
     display: flex;
-}
-.aboutCelemo{
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    grid-column: 2, -2;
-    display: flex;
-    grid-row: 2;
+    padding: 10px 14px;
 }
 
-.About{
-   display: grid;
-   align-items: center;
-   justify-content: center;
-   grid-template-rows: repeat(5, 1fr);
+.img-content{
+    row-gap: 15px;
+    position: relative;
+    width: auto;
 }
 
-.Matti{
-    grid-row: 1; 
+.overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(151, 87, 3);
+    border-radius: 0px 25px 0 25px;
 }
 
-.Tomme{
-    grid-row: 2;
+
+
+.crad-imge{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    padding: 3px;
+}
+.crad-imge .crad-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+   
+}
+.name{
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(20, 18, 18);
 }
 
-.Joahn{
-    grid-row: 3;
+.dexription{
+    font-size: 14px;
+    left: 0;
+    top: 0;
+    color: silver;
+    text-align: center;
+   
 }
 
-.John{
-    grid-row: 4;
-}
 
-.Viktor{
-    grid-row: 5;
-}
+
+
+
