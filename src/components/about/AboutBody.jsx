@@ -14,11 +14,11 @@ function AboutBody() {
               <div className='img-content'>
                 <span className='overlay'></span>
                 <div className='crad-imge'>
-                  <img src="src/assets/pr.img/m.png" alt="" className='crad-img'/>
+                  <img src="src/assets/pr.img/Matti.jpg" alt="Matti" className='crad-img'/>
                 </div>
               </div>
               <div className='card-content'>
-                <h2 className='name'>Matti</h2>
+                <h2 className='name'>Matti Yaqoob</h2>
                 <p className='dexription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla vero harum error non? Recusandae, consequatur! Placeat dignissimos deserunt odit saepe iste architecto atque odio. Laudantium sapiente atque repudiandae nulla?</p>
               </div>
             </div>
@@ -44,12 +44,12 @@ function AboutBody() {
               <div className='img-content'>
                 <span className='overlay'></span>
                 <div className='crad-imge'>
-                  <img src="src/assets/pr.img/T.png" alt="" className='crad-img'/>
+                  <img src="src/assets/pr.img/image.png" alt="Tommy" className='crad-img'/>
                 </div>
               </div>
               <div className='card-content'>
-                <h2 className='name'>Tomme</h2>
-                <p className='dexription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla vero harum error non? Recusandae, consequatur! Placeat dignissimos deserunt odit saepe iste architecto atque odio. Laudantium sapiente atque repudiandae nulla?</p>
+                <h2 className='name'>Tommy Dahlin</h2>
+                <p className='dexription'>I am just trying to do my best with what i have and if i cant do what i should i do what i can.</p>
               </div>
             </div>
 

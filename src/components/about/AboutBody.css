@@ -82,7 +82,7 @@
     top: 0;
     color: rgb(129, 128, 128);
     text-align: center;
-   
+   height: 100px;
 }
 
 .celemo{
@@ -90,6 +90,7 @@
     justify-content: center;
     width: 98%;
     text-align: center;
+    
    
 }
 .omTeam{
@@ -97,7 +98,6 @@
     text-align: center;
     align-items: center;
     justify-items: center;
-    text-shadow: 2px 2px 5px rgb(116, 112, 112);
     margin-bottom: 20px;
 }
 
@@ -111,6 +111,7 @@
 .CelemoP{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: 30px;
+    
 }
 
 .celemPdiv{
