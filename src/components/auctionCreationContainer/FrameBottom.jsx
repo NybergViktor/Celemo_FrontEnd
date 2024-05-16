@@ -4,8 +4,8 @@ import InfoFieldsCreateAuction from "./infoFields/InfoFieldsCreateAuction";
 import { CreateAuctionContext } from "../context/CreateAuctionContext";
 
 const FrameBottom = () => {
-  const { handleInputFileChange } = useContext(CreateAuctionContext);
-
+  const { handleInputFileChange} = useContext(CreateAuctionContext);
+ 
   return (
     <div className="svg-container">
       <div className="input-container">
@@ -14,8 +14,9 @@ const FrameBottom = () => {
           type="file"
           name="file"
           id="file"
-          accept="image/jpg, image/png"
+          accept="image/*, image/jpg, image/png"
           onChange={handleInputFileChange}
+          
         />
       </div>
       <InfoFieldsCreateAuction />
