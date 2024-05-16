@@ -40,6 +40,7 @@ export const DropDown = () => {
 
       <div className={isActive ? "dropdown-active" : "dropdown-not-active"}>
           {loggedInUser ? <><p className="dd-misc">Logged in as: {loggedInUser.username}</p><p className="dd-misc">____________</p></> : null}
+          {loggedInUser.role[0] === "ROLE_ADMIN" ? <Link className="dd-link" to="/admin">Admin page</Link> : null}
           <Link className="dd-link" to="/">Auctions</Link>
           {auth ? <Link className="dd-link" to="/profile">Profile</Link> : null}
           {auth ? <Link className="dd-link" to="/create-auction">Create auction</Link> : null}
