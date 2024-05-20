@@ -19,7 +19,7 @@ function AboutBody() {
               </div>
               <div className='card-content'>
                 <h2 className='name'>Matti Yaqoob</h2>
-                <p className='dexription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla vero harum error non? Recusandae, consequatur! Placeat dignissimos deserunt odit saepe iste architecto atque odio. Laudantium sapiente atque repudiandae nulla?</p>
+                <p className='dexription'> ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla vero harum error non? Recusandae, consequatur! Placeat dignissimos deserunt odit saepe iste architecto atque odio. Laudantium sapiente atque repudiandae nulla?</p>
               </div>
             </div>
 
@@ -29,12 +29,12 @@ function AboutBody() {
               <div className='img-content'>
                 <span className='overlay'></span>
                 <div className='crad-imge'>
-                  <img src="src/assets/pr.img/Johan.jpeg" alt="" className='crad-img'/>
+                  <img src="src/assets/pr.img/jag_ny.jpg" alt="Joahn" className='crad-img'/>
                 </div>
               </div>
               <div className='card-content'>
                 <h2 className='name'>Johan</h2>
-                <p className='dexription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla vero harum error non? Recusandae, consequatur! Placeat dignissimos deserunt odit saepe iste architecto atque odio. Laudantium sapiente atque repudiandae nulla?</p>
+                <p className='dexription'>My name is Johan and I'm 39 years old. I'm learning programming because I want to try something new after I have been a industrial worker my whole life. My hobbies are computers, games, old cars and I enjoy the simple life of the country.</p>
               </div>
             </div>
 
@@ -59,7 +59,7 @@ function AboutBody() {
               <div className='img-content'>
                 <span className='overlay'></span>
                 <div className='crad-imge'>
-                  <img src="src/assets/pr.img/j.png" alt="" className='crad-img'/>
+                  <img src="src/assets/pr.img/john.png" alt="John" className='crad-img'/>
                 </div>
               </div>
               <div className='card-content'>
