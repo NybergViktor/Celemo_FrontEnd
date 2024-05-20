@@ -19,7 +19,7 @@ function AboutBody() {
               </div>
               <div className='card-content'>
                 <h2 className='name'>Matti Yaqoob</h2>
-                <p className='dexription'> ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla vero harum error non? Recusandae, consequatur! Placeat dignissimos deserunt odit saepe iste architecto atque odio. Laudantium sapiente atque repudiandae nulla?</p>
+                <p className='dexription'> My name is Matti, and I am passionate about programming. I am dedicated to pursuing a career in programming because it excites and challenges me. I love what I am doing and am committed to honing my skills every day.</p>
               </div>
             </div>
 
@@ -64,7 +64,7 @@ function AboutBody() {
               </div>
               <div className='card-content'>
                 <h2 className='name'>John</h2>
-                <p className='dexription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla vero harum error non? Recusandae, consequatur! Placeat dignissimos deserunt odit saepe iste architecto atque odio. Laudantium sapiente atque repudiandae nulla?</p>
+                <p className='dexription'>sit amet consectetur adipisicing elit. Repellendus nulla vero harum error non? Recusandae, consequatur! Placeat dignissimos deserunt odit saepe iste architecto atque odio. Laudantium sapiente atque repudiandae nulla?</p>
               </div>
             </div>
 
@@ -78,8 +78,8 @@ function AboutBody() {
                 </div>
               </div>
               <div className='card-content'>
-                <h2 className='name'>Viktor</h2>
-                <p className='dexription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nulla vero harum error non? Recusandae, consequatur! Placeat dignissimos deserunt odit saepe iste architecto atque odio. Laudantium sapiente atque repudiandae nulla?</p>
+                <h2 className='name'>Viktor Nyberg</h2>
+                <p className='dexription'>I am 24 years old and currently studying Java programming. Previously, I worked in the industrial sector, but now I am looking for a new career. I have discovered that I really enjoy programming and I am excited to develop my skills in this field.</p>
               </div>
             </div>
           </div>
