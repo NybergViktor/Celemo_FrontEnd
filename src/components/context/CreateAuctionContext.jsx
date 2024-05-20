@@ -6,18 +6,22 @@ const CreateAuctionContext = createContext();
 const CreateAuctionProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
   const [celebrities, setCelebrities] = useState("");
-  const [inputCategory, setInputCategory] = useState({
-    categoryList: categories,
-  });
+  const [selectedCategory, SetSelectedCategory] = useState([]);
+  const [selectedCelebrity, setSelectedCelebrity] = useState("");
+  const [imageLink, setImageLink] = useState("");
+  // const [inputCategory, setInputCategory] = useState({
+  //   categoryList: categories,
+  // });
 
   // AS FAR AS I UNDERSTAND IF I HAVE CATEGORYLIST INSIDE INPUTDATA STATE,
   // IT WILL ALWAYS BE OVERWRITTEN BY NEW UPDATED INPUT FOR TITLE< DESCRIPTION etc.
   const [inputData, setInputData] = useState({
     title: "",
     productDescription: "",
-    productPhoto: null,
-    celebrityName: "john holmes",
+    productPhoto: "",
+    celebrityName: "",
     startPrice: "",
+    categoryList: selectedCategory,
     endDate: 7,
     sellerId: localStorage.getItem("loggedInUserId"),
   });
@@ -25,6 +29,20 @@ const CreateAuctionProvider = ({ children }) => {
   // THOUGHTS:: either if creating seperate functions for each value state update
   // THOGUHTS:: decide creating one function for file, one for categoryList and one for all the rest input fields.
   // updates all new values to the inputData state except files and categoryList.
+
+  const saveImageLink = () => {
+    setInputData((prevData) => ({
+      ...prevData,
+      productPhoto: imageLink,
+    }))
+  }
+
+  const setCelebrity = () => {
+    setInputData((prevData) => ({
+      ...prevData,
+      celebrityName: selectedCelebrity,
+    }))
+  }
 
   const handleInputDataChange = (e) => {
     const { name, value } = e.target;
@@ -36,12 +54,14 @@ const CreateAuctionProvider = ({ children }) => {
 
    const handleInputCategoryChange = (i) => {
      // const { name, value } = e.target.value;
-     const { name, value } = i.target;
-     setInputCategory((prevData) => ({
-       ...prevData,
-       categoryList: value,
+     const name = i.target.name;
+     const value = i.target.value;
+    
+     SetSelectedCategory( value );
+     setInputData( (prevData) => ({
+      ...prevData,
+      [name]: [value],
      }));
-     console.log(inputCategory);
    };
 
   const handleInputFileChange = (e) => {
@@ -55,42 +75,20 @@ const CreateAuctionProvider = ({ children }) => {
   };
 
   const saveDataToBackend = async () => {
-    // Convert the file property to a base64-encoded string
-    const file = inputData.productPhoto;
-    const fileString = await new Promise((resolve) => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        resolve(reader.result);
-      };
-      reader.onerror = function (event) {
-        console.error("Error reading file:", event.target.error);
-      };
-      reader.readAsDataURL(file);
-    });
-
-    const modifiedInputData = {
-      ...inputData,
-      ...inputCategory,
-      productPhoto: fileString,
-      categoryList: inputCategory.categoryList,
-    };
-
-    console.log(modifiedInputData);
-
+  
     try {
       const res = await axios.post(
         `${import.meta.env.VITE_API_URL}/auction/create`,
-        modifiedInputData
+        inputData
       );
-      console.log(modifiedInputData);
-      if (res.ok) {
+      
+      if (res.status === 200) {
         alert("The Auction was saved successfully!");
-      } else {
-        alert("Failed to save auction to backend");
+        window.location.href = "/";
       }
     } catch (error) {
       console.log("Error saving auction:", error);
-      alert("There was an error while saving the auction.");
+      alert("Failed to create auction, make sure everything is filled in!");
     }
   };
 
@@ -107,8 +105,8 @@ const CreateAuctionProvider = ({ children }) => {
   useEffect(() => {
     fetchCategories();
     console.log(inputData);
-    console.log(inputCategory);
-  }, [inputData, inputCategory]);
+  
+  }, [inputData]);
 
   // ================FETCH ALL ENUMS END==============================
 
@@ -124,8 +122,13 @@ const CreateAuctionProvider = ({ children }) => {
         saveDataToBackend,
         celebrities,
         setCelebrities,
-        inputCategory,
-        setInputCategory,
+        selectedCategory,
+        setCelebrity,
+        selectedCelebrity,
+        setSelectedCelebrity,
+        imageLink,
+        setImageLink,
+        saveImageLink
       }}
     >
       {children}
@@ -134,28 +137,3 @@ const CreateAuctionProvider = ({ children }) => {
 };
 
 export { CreateAuctionContext, CreateAuctionProvider };
-
-// const handleInputDataChange = (e) => {
-//   preventDefault();
-//   const { name, value } = e.target;
-//   // Update the categoryList field separately
-//   if (name === 'categoryList') {
-//     setInputData((prevData) => ({
-//       ...prevData,
-//       categoryList: value,
-//     }));
-//   } else {
-//     setInputData((prevData) => ({
-//       ...prevData,
-//       [name]: prevData[name] !== undefined ? value : prevData[name],
-//     }));
-//   }
-// };
-// const handleInputDataChange = (e) => {
-//   const { name, value } = e.target;
-//     setInputData((prevData) => ({
-//       ...prevData,
-//       [name]: name === 'categoryList' ? value : prevData[name],
-//       // [name]: value,
-//     }));
-//   };

@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   margin: 20px auto !important;
-  height: 163vh !important;
+  /* height: 163vh !important; */
   flex-direction: column;
   align-items: center;
 }
@@ -33,7 +33,7 @@
   padding: 10px 15px;
   border-radius: 10px;
   margin-top: 1rem;
-  width: 100%;
+  width: 70%;
   font-weight: bold;
   text-align: center;
 }
@@ -43,7 +43,7 @@
   padding: 10px 15px;
   border-radius: 10px;
   margin-top: 1rem;
-  width: 100%;
+  width: 70%;
   font-size: 15px;
   font-weight: bold;
   text-align: center;
@@ -51,20 +51,35 @@
 
 .celebrity-category {
   border: none;
+  margin-top: 1rem;
+ 
+}
+
+#celebrityInput {
   padding: 10px 15px;
   border-radius: 10px;
-  margin-top: 1rem;
-  width: 100%;
   font-size: 15px;
   font-weight: bold;
   text-align: center;
 }
 
+.celeb-select {
+  margin-right: 10px;
+  border-radius: 10px;
+  padding-left: 5px;
+  display: flex;
+}
+
+#api-btn {
+  display: flex;
+}
+
 /* style for button in mobile view */
 .publish-button-container {
-  display: block;
+  display: flex;
   position: relative;
   bottom: 7rem;
+  justify-content: center;
 }
 
 .publish-button {
@@ -75,9 +90,29 @@
   background-color: #f19d6f;
   cursor: pointer;
   font-size: 25px;
+
 }
+
+/* Container for the whole bottom svg image */
+.svg-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 2rem;
+}
+
+
+/* svg image */
+.svg {
+  bottom: 10rem;
+  position: relative;
+  z-index: -1;
+}
+
 @media screen and (max-width: 847px) {
-  .publish-button{
+  .publish-button {
     box-shadow: 1px 5px 5px 0px #000000;
   }
 }
@@ -134,7 +169,7 @@
     top: 15.7rem;
     left: 15rem;
     width: 31%;
-    /* height: 0; FOR TRANSITION*/ 
+    /* height: 0; FOR TRANSITION*/
     border: none;
     background-color: #605e5e5a;
     border-radius: 10px;
@@ -170,20 +205,36 @@
     padding: 5px;
   }
 
-    /* moving the button design aswell with moving it forward so its shown */
-    .publish-button-container{
-      z-index: 1;
-      bottom: 11.1rem;
-      left: 18%;
-    }
-  
-    .publish-button {
-      height: 5rem;
-      width: 18.8rem;
-    }
-  
-    .publish-button:hover,
-    .publish-button:focus {
-      box-shadow: 1px 5px 5px 0px #000000;
-    }
+  /* moving the button design aswell with moving it forward so its shown */
+  .publish-button-container {
+    width: fit-content;
+    z-index: 4;
+    left: 51.55%;
+    bottom: 14.4rem;
+  }
+
+  .publish-button {
+    height: 5.2rem;
+    width: 18.8rem;
+    /* position: relative; */
+  }
+
+  .publish-button:hover,
+  .publish-button:focus {
+    box-shadow: 1px 5px 5px 0px #000000;
+  }
+  /* Media qureys to hide the svg image- */
+  /* and instead display a container with different size for desktop */
+  .svg {
+    display: none;
+  }
+  .svg-container {
+    display: flex;
+    background-color: #363636;
+    margin-top: 2rem;
+    width: 90%;
+    border-radius: 50px;
+    box-shadow: 5px 5px 10px 3px #000000;
+    flex-wrap: wrap;
+  }
 }

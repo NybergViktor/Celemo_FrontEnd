@@ -1,4 +1,3 @@
-
 /* creating the main box around icon and child box */
 .picture-container {
   position: relative;
@@ -14,8 +13,8 @@
 }
 /* creating child box where icon is put inside  */
 .picture {
-  width: 12rem;
-  height: 10rem;
+  width: 12rem !important;
+  height: 10rem !important;
   border-radius: 20px;
   /* border: 1px solid black; */
 }
@@ -24,13 +23,19 @@
   border: none;
   border-radius: 5px;
   background-color: #ffffff00;
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 4px 6px 15px 5px #00000063;
-    border-radius: 15px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+#icon-container img {
+  height: 100%;
+  scale: 1.2;
 }
 
 .upload-icon {
@@ -68,6 +73,7 @@ textarea {
 .bid-bottom {
   position: absolute;
   top: 15rem;
+  z-index: 5;
 }
 
 .bid-input {
@@ -79,18 +85,49 @@ textarea {
   font-size: 25px;
 }
 
-.end-time {
+.endDate {
   height: 3rem;
   width: 19rem;
   border: none;
   border-radius: 10px;
   padding-left: 15px;
   font-size: 25px;
+  font-weight: 400 !important;
   margin-top: 15px;
+  z-index: 5;
 }
 
 
+
+
+/* Prompted to your own file manager where you can choose the file you want to upload */
+/* input size is big so it dosnt matter if you click the browser or if you click the upload icon */
+.image-text-bottom {
+position: absolute;
+top: 9rem;
+}
+/* styling the actual input */
+#image-text {
+  height: 3rem;
+  border-radius: 10px;
+  border: none;
+  width: 14rem;
+  margin-right: 5rem;
+  padding-left: 15px;
+  font-size: 20px;
+}
+
 @media screen and (min-width: 847px) {
+  .image-text-bottom {
+    position: relative;
+    top: 4rem;
+    margin-left: 48.5%;
+  }
+  #image-text {
+    height: 2rem;
+    font-size: 20px;
+    width: 19rem;
+  }
   .picture-container {
     top: 5rem;
     left: 20%;
@@ -124,16 +161,10 @@ textarea {
   }
   .bid-input {
     height: 2rem;
-    font-size: 20px
+    font-size: 20px;
   }
-  .end-time{
-    position: relative;
-    right: 1rem;
+  .endDate {
+    height: 2rem;
   }
-  .endTime{
-    width: 19rem;
-    font-size: 23px;
-    border: none;
-    border-radius: 10px;
-  }
+
 }

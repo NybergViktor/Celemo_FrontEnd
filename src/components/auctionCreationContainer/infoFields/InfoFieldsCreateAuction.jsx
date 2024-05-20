@@ -1,19 +1,49 @@
 import "../infoFields/InfoFieldsCreateAuction.css";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { CreateAuctionContext } from "../../context/CreateAuctionContext";
 import { Upload } from "react-bootstrap-icons";
 
-
 const InfoFieldsCreateAuction = () => {
-  const { inputData, handleInputDataChange } = useContext(CreateAuctionContext);
+  const { inputData, handleInputDataChange, imageLink, saveImageLink, setImageLink } = useContext(CreateAuctionContext);
   const [iconColor, setIconColor] = useState("grey");
+
+  const handleImage = async (e) => {
+    const value = e.target.value;
+    await setImageLink(value);
+  }
+
+  useEffect(() => {
+    saveImageLink();
+  }, [imageLink]);
+
+  const updateImage = () => {
+    if (imageLink !== "") {
+      return (
+        <div id="icon-container">
+          <img src={imageLink} />
+        </div>
+      )
+    } 
+    if (imageLink === "" ) {
+      return (
+        <div id="icon-container">
+            <Upload size={50} color={iconColor} className="upload-icon" />
+        </div>
+      )
+    }
+  }
+
   return (
     <>
+      <div className="image-text-bottom">
+      {/* only accepting (.jpg and .png) */}
+      <label  className="lable">
+        <input type="text" name="productPhoto" id="image-text" placeholder="Paste in image link" onChange={handleImage} />
+      </label>
+      </div>
       <div className="picture-container">
         <div className="picture">
-          <div id="icon-container">
-            <Upload size={50} color={iconColor} className="upload-icon" />
-          </div>
+          {updateImage()}
         </div>
       </div>
       <div className="title-text-bottom">
@@ -54,19 +84,19 @@ const InfoFieldsCreateAuction = () => {
             />
           </label>
           <label className="end-time" id="endDate">
-          <select
-            type="number"
-            className="endDate"
-            name="endDate"
-            value={inputData.endDate}
-            onChange={handleInputDataChange}
-            required
-          >
-            <option value={7} > Select end date </option>
-            <option value={3} > 3 days </option>
-            <option value={5} > 5 days </option>
-            <option value={7} > 7 days </option>
-          </select>
+            <select
+              type="number"
+              className="endDate"
+              name="endDate"
+              value={inputData.endDate}
+              onChange={handleInputDataChange}
+              required
+            >
+              <option value={7}> Select end date </option>
+              <option value={3}> 3 days </option>
+              <option value={5}> 5 days </option>
+              <option value={7}> 7 days (Default) </option>
+            </select>
           </label>
         </div>
       </div>
@@ -75,5 +105,3 @@ const InfoFieldsCreateAuction = () => {
 };
 
 export default InfoFieldsCreateAuction;
-
-
