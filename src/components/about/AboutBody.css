@@ -9,17 +9,19 @@
     align-items: center;
     justify-content: center;
     inset-inline: 23px;
+    
 }
 .side-cotainer{
     margin: 0 40px;
     position: relative; 
+    
 }
-.card{
+.cards{
     max-width: 330px;
-    border-radius: 20px;
     background-color: white;
     gap: 20px;
     box-shadow: 1px 1px 5px gray; 
+    border-radius: 20px;
 }
 .side-content{
     margin: 0 40px;
@@ -29,35 +31,49 @@
     width: auto;
     justify-content: center;
     align-items: center; 
+    
 }
 
-.img-content,
+.img-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    justify-content: center;
+    row-gap: 15px;
+    position: relative;
+    width: 100%;
+    
+}
+
+
 .card-content{
     display: flex;
     flex-direction: column;
     align-items: center;  
-}
-
-.img-content{
     row-gap: 15px;
     position: relative;
-    width: auto;
-}
+    width: 100%;
+    
 
+}
 .overlay{
     position: absolute;
     height: 100%;
     width: 100%;
     background-color: #363636;
-    border-radius: 10px 10px 20px 20px;
+    border-radius: 20px;
+    
 }
 
 
 .crad-imge{
-    position: relative;
-    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+       height: 150px;
     width: 150px;
     padding: 3px;
+    
     
 }
 .crad-imge .crad-img{
@@ -65,11 +81,14 @@
     width: 100%;
     object-fit: cover;
     border-radius: 50%;
+    
 }
 .name{
     font-size: 18px;
     font-weight: 500;
     color: rgb(20, 18, 18);
+    margin-top: 1rem;
+    
 }
 
 .dexription{
@@ -78,7 +97,9 @@
     top: 0;
     color: rgb(129, 128, 128);
     text-align: center; 
-    height: 130px;  
+    height: auto;  
+    width: 90%;
+    
 }
 
 .celemo{
@@ -86,6 +107,7 @@
     justify-content: center;
     width: 98%;
     text-align: center;
+    
 }
 .omTeam{
     margin-top: 20px;
@@ -93,6 +115,7 @@
     align-items: center;
     justify-items: center;
     margin-bottom: 20px;
+    
 }
 
 
@@ -100,11 +123,13 @@
     margin-top: 20px;
     text-align: center;
     margin-bottom: 20px;
+    
 }
 
 .CelemoP{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: 30px;
+    
 }
 
 .celemPdiv{
@@ -114,4 +139,5 @@
     font-size: larger;
     width: auto;
     height: 400px; 
+    
 }
