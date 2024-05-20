@@ -12,7 +12,7 @@ const AdminProvider = ({ children }) => {
 
   //BAN
 
-  const fetchBanUser = async () => {
+  const fetchBanUser = async (id) => {
 
     var options = {
         method: "PUT",
@@ -21,7 +21,7 @@ const AdminProvider = ({ children }) => {
         },
         credentials: "include",
         body: JSON.stringify({
-            userId: `${banUserId}`,
+            userId: `${id}`,
           }),
       };
 
@@ -40,7 +40,7 @@ const AdminProvider = ({ children }) => {
 
   //UNBAN
 
-  const fetchUnBanUser = async () => {
+  const fetchUnBanUser = async (id) => {
 
     var options = {
         method: "PUT",
@@ -49,7 +49,7 @@ const AdminProvider = ({ children }) => {
         },
         credentials: "include",
         body: JSON.stringify({
-            userId: `${unBanUserId}`,
+            userId: `${id}`,
           }),
       };
 

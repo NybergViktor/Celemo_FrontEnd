@@ -2,6 +2,7 @@ import {
   ReportsContext,
   ReportsProvider,
 } from "../../components/context/ReportsContext";
+import React from "react";
 import "./AdminPage.css";
 import { useContext, useEffect } from "react";
 import { ReviewContext } from "../../components/context/ReviewContext";
@@ -11,9 +12,14 @@ import { AdminContext } from "../../components/context/AdminContext";
 const AdminPage = () => {
   const { allReviews, fetchallReviews } = useContext(ReviewContext);
   const { reportsData, getAllReports } = useContext(ReportsContext);
-  const { setUnBanUserId, setbanUserId, fetchBanUser,
-    fetchUnBanUser } =
-    useContext(AdminContext);
+  const {
+    banUserId,
+    unBanUserId,
+    setUnBanUserId,
+    setbanUserId,
+    fetchBanUser,
+    fetchUnBanUser,
+  } = useContext(AdminContext);
 
   useEffect(() => {
     getAllReports(reportsData);
@@ -31,14 +37,21 @@ const AdminPage = () => {
     }
   }
 
-  function banUser(banid) {
-    setbanUserId(banid);
-    fetchBanUser();
-  }
-  function unBanUser(unbanid) {
-    setUnBanUserId(unbanid);
-    fetchUnBanUser();
-  }
+  //   function banUser(banid) {
+  //     setbanUserId(banid);
+  //     fetchBanUser();
+  //   }
+  //   function unBanUser(unbanid) {
+  //     setUnBanUserId(unbanid);
+  //     fetchUnBanUser();
+  //   }
+
+//   useEffect(() => {
+//     fetchBanUser();
+//     fetchUnBanUser();
+//   }, [banUserId, unBanUserId]);
+
+
 
   return (
     <>
@@ -50,15 +63,15 @@ const AdminPage = () => {
           <h2>Reports</h2>
           <div className="reviewHolder">
             {reportsData.map((report) => (
-              <div className="reviewBox" key={report.id}>
+              <div className="reviewBox" key={report.id} >
                 {reportType(report)}
-                <p>{report.reportingUserId.username}</p>
+                <p>{report.reportedUserId.username}</p>
                 <p>{report.content}</p>
                 <div className="buttons-ban-unban">
-                  <button onClick={banUser(report.reportingUserId)}>
+                  <button onClick={() => fetchBanUser(report.reportedUserId.id)}>
                     Ban user
                   </button>
-                  <button onClick={unBanUser(report.reportingUserId)}>
+                  <button onClick={() => fetchUnBanUser(report.reportedUserId.id)}>
                     unBan user
                   </button>
                 </div>
