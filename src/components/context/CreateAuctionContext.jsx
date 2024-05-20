@@ -75,11 +75,21 @@ const CreateAuctionProvider = ({ children }) => {
   };
 
   const saveDataToBackend = async () => {
+
+    var options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(inputData),
+      
+    };
   
     try {
-      const res = await axios.post(
+      const res = await fetch(
         `${import.meta.env.VITE_API_URL}/auction/create`,
-        inputData
+        options
       );
       
       if (res.status === 200) {
