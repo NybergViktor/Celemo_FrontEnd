@@ -52,12 +52,37 @@ const UserProvider = ({ children }) => {
     }
   };
 
+
   const getAllUsers = async () => {
     const options = {
       method: "GET",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
     };
+
+  const fetchDeleteUser = async (userId) => {
+    
+    const options = {
+      method: "DELETE",
+      headers: {"Content-Type": "application/json",},
+      credentials: "include",
+      body: JSON.stringify({
+        userId: `${userId}`,
+      }),
+    };
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/user/delete`,
+        options
+      );
+      const fetchData = await response.json();
+      console.log(fetchData);
+    } catch (error) {
+      console.log("Error fetching: " + error);
+    }
+  }
+
 
     try {
       const response = await fetch(
@@ -125,7 +150,8 @@ const UserProvider = ({ children }) => {
         winningBidUser,
         getUserWinningBidFromId,
         fetchUserFromIdAdminPage,
-        foundUserAdminPage
+        foundUserAdminPage,
+        fetchDeleteUser
       }}
     >
       {children}

@@ -12,13 +12,14 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import PubProfile from "./pages/pubprofile/PubProfile";
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
 import ContactPage from "./pages/contactpage/ContactPage";
+import { ReturnHome } from "./pages/returnHome/ReturnHome";
+import AboutPage from "./pages/aboutPage/AboutPage";
 import EditProfile from "./pages/profilePage/EditProfile";
 import AdminPage from "./pages/adminpage/AdminPage";
 
 
 // PROVIDERS
 import { CreateReview } from "./pages/createReviewPage/CreateReview";
-import { ReturnHome } from "./pages/returnHome/ReturnHome";
 import { LoginProvider } from "./components/context/LoginContext";
 import { UserProvider } from "./components/context/UserContext";
 import { AuctionProvider } from "./components/context/AuctionContext";
@@ -34,6 +35,7 @@ import { AdminProvider } from "./components/context/AdminContext";
 
 function App() {
   return (
+
   <AuthProvider>
     <AdminProvider>
     <ReportsProvider>
@@ -48,7 +50,11 @@ function App() {
                   <ReviewProvider>
                     <BrowserRouter>
                       <Routes>
-                        <Route path="/" element={<Startpage />} />
+                        <Route path="/" element={<Startpage />} 
+/><Route
+                              path="/about"
+                              element={<AboutPage/>}
+                            />
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/signup" element={<SignupPage />} />
@@ -67,9 +73,9 @@ function App() {
                             element={<PubProfile />}
                           />
                           <Route path="/contact" element={<ContactPage />} />
-                          <Route path="/reviews/create" element={<CreateReview/>} />
-                          <Route path="/return" element={<ReturnHome/>}/>
-                          <Route path="/edit-profile" element={<EditProfile/>}/>
+                         <Route path="/reviews/create" element={<CreateReview/>} />
+                        <Route path="/return" element={<ReturnHome/>}/>
+                        <Route path="/edit-profile" element={<EditProfile/>}/>
                         <Route path="/admin" element={<AdminPage/>}/>
                      </Routes>
                     </BrowserRouter>
