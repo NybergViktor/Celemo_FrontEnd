@@ -54,6 +54,20 @@ const AdminPage = () => {
     }
   }
 
+  const handleBanUser = async (id) => {
+    if (window.confirm("Are you sure you want to ban this user?")) {
+      fetchBanUser(id);
+      return
+    }
+  }
+
+  const handleUnBanUser = async (id) => {
+    if (window.confirm("Are you sure you want to unban this user?")) {
+      fetchUnBanUser(id);
+      return
+    }
+  }
+
 
   return (
     <>
@@ -72,10 +86,10 @@ const AdminPage = () => {
                 {userRoleReport(report)}
                 <p>{report.content}</p>
                 <div className="buttons-ban-unban">
-                  <button onClick={() => fetchBanUser(report.reportedUserId.id)}>
+                  <button className="ban-user" onClick={() => handleBanUser(report.reportedUserId.id)}>
                     Ban user
                   </button>
-                  <button onClick={() => fetchUnBanUser(report.reportedUserId.id)}>
+                  <button className="unban-user" onClick={() => handleUnBanUser(report.reportedUserId.id)}>
                     unBan user
                   </button>
                 </div>
@@ -93,10 +107,10 @@ const AdminPage = () => {
                 <p>{review.reviewText}</p>
                 <p>{review.grade}</p>
                 <div className="buttons-ban-unban">
-                  <button onClick={() => fetchBanUser(review.reviewedUser.id)}>
+                  <button className="ban-user" onClick={() =>handleBanUser(review.reviewedUser.id)}>
                     Ban user
                   </button>
-                  <button onClick={() => fetchUnBanUser(review.reviewedUser.id)}>
+                  <button className="unban-user" onClick={() =>handleUnBanUser(review.reviewedUser.id)}>
                     unBan user
                   </button>
                 </div>
