@@ -76,7 +76,7 @@ const UserInfoFields = () => {
       <div className="fieldContainer">
         <p className="fieldName">Balance:</p>
         <div className="fieldContent">
-          <p>{userData.balance} Coins</p>
+          <p>{userData.balance} Kr</p>
         </div>
       </div>
     </section>

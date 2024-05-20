@@ -12,7 +12,9 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import PubProfile from "./pages/pubprofile/PubProfile";
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
 import ContactPage from "./pages/contactpage/ContactPage";
+import EditProfile from "./pages/profilePage/EditProfile";
 import AdminPage from "./pages/adminpage/AdminPage";
+
 
 // PROVIDERS
 import { CreateReview } from "./pages/createReviewPage/CreateReview";
@@ -63,10 +65,11 @@ function App() {
                             element={<PubProfile />}
                           />
                           <Route path="/contact" element={<ContactPage />} />
-                         <Route path="/reviews/create" element={<CreateReview/>} />
-                        <Route path="/return" element={<ReturnHome/>}/>
+                          <Route path="/reviews/create" element={<CreateReview/>} />
+                          <Route path="/return" element={<ReturnHome/>}/>
+                          <Route path="/edit-profile" element={<EditProfile/>}/>
                         <Route path="/admin" element={<AdminPage/>}/>
-                      </Routes>
+                     </Routes>
                     </BrowserRouter>
                   </ReviewProvider>
                 </BidProvider>
