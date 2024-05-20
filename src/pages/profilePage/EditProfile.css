@@ -16,6 +16,7 @@
     box-shadow: 1px 1px 5px gray;
     align-items: center;
 }
+
 .editProfileDeleteAccount {
     display: flex;
     flex-direction: column;

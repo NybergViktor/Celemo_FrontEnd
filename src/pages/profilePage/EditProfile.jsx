@@ -34,6 +34,7 @@ const EditProfile = () => {
     }
 
     const handleSubmit = (e, userValue) => {
+
         e.preventDefault();
         if (userData.password === null){
             delete userValue.password;
@@ -42,10 +43,12 @@ const EditProfile = () => {
             console.log("error: " + userValue.error);
         }
 
-        fetchUpdateUser(userValue);
+
+        await fetchUpdateUser(userValue);
         console.log(userValue);
-        
+        redirect();
     }
+    
 
     return (
         <>
@@ -153,6 +156,7 @@ const EditProfile = () => {
               onClick={(e) => handleSubmit(e, userValue)}
               className="signUpButton">Submit
               </button>
+
             </form>
         </div>
         </div>
@@ -161,6 +165,7 @@ const EditProfile = () => {
             <div className="deleteAccountHeader">Warning, deleting your account makes you lose everything stored on the site.</div>
             <button id="deleteAccountButton" className="deleteAccountButton" onClick={handleDelete}>Delete account</button>
         </div>
+
         <Footer></Footer>
         </>
     )
