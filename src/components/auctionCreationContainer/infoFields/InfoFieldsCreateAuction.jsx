@@ -4,7 +4,7 @@ import { CreateAuctionContext } from "../../context/CreateAuctionContext";
 import { Upload } from "react-bootstrap-icons";
 
 const InfoFieldsCreateAuction = () => {
-  const { inputData, handleInputDataChange, imageLink, saveImageLink, setImageLink } = useContext(CreateAuctionContext);
+  const { inputData, handleInputDataChange, imageLink, saveImageLink, setImageLink, saveDataToBackend } = useContext(CreateAuctionContext);
   const [iconColor, setIconColor] = useState("grey");
 
   const handleImage = async (e) => {
@@ -99,6 +99,13 @@ const InfoFieldsCreateAuction = () => {
             </select>
           </label>
         </div>
+        <div className="publish-button-container">
+        <button
+          className="publish-button"
+          type="submit"
+          onClick={saveDataToBackend}
+        >SUBMIT</button>
+      </div>
       </div>
     </>
   );

@@ -10,7 +10,6 @@ function AuctionSelectionDropdowns() {
     categories,
     inputData,
     handleInputCategoryChange,
-    saveDataToBackend,
     handleInputFileChange,
     setCelebrity,
     selectedCelebrity,
@@ -214,13 +213,7 @@ function AuctionSelectionDropdowns() {
           </div>
         </div>
       </div>
-      <div className="publish-button-container">
-        <button
-          className="publish-button"
-          type="submit"
-          onClick={saveDataToBackend}
-        >SUBMIT</button>
-      </div>
+     
     </>
   );
 }

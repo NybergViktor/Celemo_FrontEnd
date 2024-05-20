@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   margin: 20px auto !important;
-  /* height: 163vh !important; */
   flex-direction: column;
   align-items: center;
 }
@@ -12,14 +11,29 @@
   z-index: -1;
   top: 0;
 }
-
+/* Container for the whole bottom svg image */
+.svg-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: -2rem;
+}
+/* SVG IMAGE */
+.svg {
+  bottom: 10rem;
+  position: relative;
+  z-index: -1;
+}
+/* CONTAINER FOR THE UPPER SVG */
 .selection-dropdown-top {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-/* Gets overidden if not by grid if only title */
+/* Gets overidden by othe grid if its set to only title */
 .title-h1 {
   margin-top: 2.5rem;
 }
@@ -52,73 +66,58 @@
 .celebrity-category {
   border: none;
   margin-top: 1rem;
- 
+  width: 70%;
+  
 }
 
 #celebrityInput {
   padding: 10px 15px;
   border-radius: 10px;
+  width: 100%;
   font-size: 15px;
   font-weight: bold;
   text-align: center;
+  height: 2.5rem;
 }
 
 .celeb-select {
-  margin-right: 10px;
+  height: 2rem;
+  margin-right: 1rem;
   border-radius: 10px;
   padding-left: 5px;
-  display: flex;
-}
-
-#api-btn {
-  display: flex;
-}
-
-/* style for button in mobile view */
-.publish-button-container {
-  display: flex;
-  position: relative;
-  bottom: 7rem;
-  justify-content: center;
-}
-
-.publish-button {
-  height: 6rem;
-  width: 16rem;
   border: none;
+}
+/* SEARCH BUTTON FOR API NINJA */
+#api-btn {
+  margin-top: 1rem;
   border-radius: 10px;
+  border: none;
+  height: 2rem;
+  width: 6rem;
   background-color: #f19d6f;
-  cursor: pointer;
-  font-size: 25px;
-
-}
-
-/* Container for the whole bottom svg image */
-.svg-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 2rem;
 }
 
 
-/* svg image */
-.svg {
-  bottom: 10rem;
-  position: relative;
-  z-index: -1;
-}
 
-@media screen and (max-width: 847px) {
-  .publish-button {
-    box-shadow: 1px 5px 5px 0px #000000;
-  }
-}
+
 @media screen and (min-width: 847px) {
+  /* Media qureys to hide the svg image- */
+  /* and instead display a container with different size for desktop */
   .svg1 {
     display: none;
+  }
+  .svg {
+    display: none;
+  }
+
+  .svg-container {
+    display: flex;
+    background-color: #363636;
+    margin-top: 2rem;
+    width: 90%;
+    border-radius: 50px;
+    box-shadow: 5px 5px 10px 3px #000000;
+    flex-wrap: wrap;
   }
 
   .selection-container-top {
@@ -130,7 +129,6 @@
   }
 
   .main-container {
-    height: 100vh !important;
     max-width: 1000px;
     margin: 2rem auto !important;
   }
@@ -141,26 +139,37 @@
   }
 
   .celebrity-category {
-    width: 45%;
+    width: 100%;
     padding: 0;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    flex-direction: column;
   }
   #celebrityInput {
-    width: 100%;
-    height: 2rem;
+    width: 45%;
     border-radius: 10px;
     text-align: center;
-    margin-right: 0.5rem;
+  }
+  .celeb-select {
+    height: 2rem;
+    margin-top: 1rem;
+    margin-right: 10rem;
+    border-radius: 10px;
+    padding-left: 5px;
+    border: none;
+    width: fit-content;
   }
 
   #api-btn {
     border: none;
-    width: 10rem;
+    width: 4rem;
     border-radius: 10px;
     height: 2rem;
     background-color: #f19d6f;
+    position: absolute;
+    top: 15.7rem;
+    right: 19rem;
   }
 
   .output-container {
@@ -203,38 +212,5 @@
     color: white;
     font-size: 15px;
     padding: 5px;
-  }
-
-  /* moving the button design aswell with moving it forward so its shown */
-  .publish-button-container {
-    width: fit-content;
-    z-index: 4;
-    left: 51.55%;
-    bottom: 14.4rem;
-  }
-
-  .publish-button {
-    height: 5.2rem;
-    width: 18.8rem;
-    /* position: relative; */
-  }
-
-  .publish-button:hover,
-  .publish-button:focus {
-    box-shadow: 1px 5px 5px 0px #000000;
-  }
-  /* Media qureys to hide the svg image- */
-  /* and instead display a container with different size for desktop */
-  .svg {
-    display: none;
-  }
-  .svg-container {
-    display: flex;
-    background-color: #363636;
-    margin-top: 2rem;
-    width: 90%;
-    border-radius: 50px;
-    box-shadow: 5px 5px 10px 3px #000000;
-    flex-wrap: wrap;
   }
 }

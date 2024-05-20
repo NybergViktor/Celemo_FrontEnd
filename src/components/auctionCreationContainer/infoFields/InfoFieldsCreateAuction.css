@@ -16,7 +16,6 @@
   width: 12rem !important;
   height: 10rem !important;
   border-radius: 20px;
-  /* border: 1px solid black; */
 }
 
 #icon-container {
@@ -96,10 +95,6 @@ textarea {
   margin-top: 15px;
   z-index: 5;
 }
-
-
-
-
 /* Prompted to your own file manager where you can choose the file you want to upload */
 /* input size is big so it dosnt matter if you click the browser or if you click the upload icon */
 .image-text-bottom {
@@ -116,6 +111,37 @@ top: 9rem;
   padding-left: 15px;
   font-size: 20px;
 }
+/* style for button in mobile view */
+.publish-button-container {
+  display: flex;
+  position: relative;
+  top: 14rem;
+  justify-content: center;
+}
+
+.publish-button {
+  height: 6rem;
+  width: 16rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #f19d6f;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+
+
+
+/* TO TAKE AWAY THE HOVER CSS WHEN IN ihpone mode or less then 847px  */
+@media screen and (max-width: 847px) {
+  .publish-button {
+    box-shadow: 1px 5px 5px 0px #000000;
+  }
+}
+
+
+
+/* Media query for desktop design */
 
 @media screen and (min-width: 847px) {
   .image-text-bottom {
@@ -165,6 +191,22 @@ top: 9rem;
   }
   .endDate {
     height: 2rem;
+  }
+
+  /* moving the button design aswell with moving it forward so its shown */
+  .publish-button-container {
+    z-index: 4;
+    top: 0.7rem;
+    left: 22.5rem;
+  }
+  .publish-button {
+    height: 5.2rem;
+    width: 18.8rem;
+  }
+  /* Hover css for desktop mode */
+  .publish-button:hover,
+  .publish-button:focus {
+    box-shadow: 1px 5px 5px 0px #000000;
   }
 
 }
