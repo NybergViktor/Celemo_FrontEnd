@@ -69,8 +69,8 @@ const AdminProvider = ({ children }) => {
     return (
         <AdminContext.Provider
           value={{
-            banUserId,
-            unBanUserId,
+            fetchBanUser,
+            fetchUnBanUser,
             setUnBanUserId,
             setbanUserId
 

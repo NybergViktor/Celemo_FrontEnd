@@ -11,7 +11,8 @@ import { AdminContext } from "../../components/context/AdminContext";
 const AdminPage = () => {
   const { allReviews, fetchallReviews } = useContext(ReviewContext);
   const { reportsData, getAllReports } = useContext(ReportsContext);
-  const { setUnBanUserId, setbanUserId, banUserId, unBanUserId } =
+  const { setUnBanUserId, setbanUserId, fetchBanUser,
+    fetchUnBanUser } =
     useContext(AdminContext);
 
   useEffect(() => {
@@ -32,11 +33,11 @@ const AdminPage = () => {
 
   function banUser(banid) {
     setbanUserId(banid);
-    banUserId;
+    fetchBanUser();
   }
   function unBanUser(unbanid) {
     setUnBanUserId(unbanid);
-    unBanUserId;
+    fetchUnBanUser();
   }
 
   return (
