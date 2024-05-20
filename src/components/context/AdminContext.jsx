@@ -28,7 +28,7 @@ const AdminProvider = ({ children }) => {
 
       try {
         const res = await fetch(
-          `${import.meta.env.VITE_API_URL}/admin/ban`,
+          `${import.meta.env.VITE_API_URL}/user/admin/ban`,
           options
         );
         const data = await res.json();
@@ -55,7 +55,7 @@ const AdminProvider = ({ children }) => {
 
       try {
         const res = await fetch(
-          `${import.meta.env.VITE_API_URL}/admin/unban`,
+          `${import.meta.env.VITE_API_URL}/user/admin/unban`,
           options
         );
         const data = await res.json();
