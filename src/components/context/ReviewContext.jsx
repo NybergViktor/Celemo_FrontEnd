@@ -4,7 +4,7 @@ import { UserContext } from "./UserContext";
 const ReviewContext = createContext();
 
 const ReviewProvider = ({ children }) => {
-  // START FetchAllReviews SECTION ==========================
+  // START FetchAllReviewsForUser SECTION ==========================
 
   const [usersReviews, setUsersReviews] = useState([]);
   const [reviewedUser, setReviewedUser] = useState([]);
@@ -35,7 +35,39 @@ const ReviewProvider = ({ children }) => {
     }
   };
 
-  // END FetchAllReviews SECTION ==========================
+  // END FetchAllReviewsForUser SECTION ==========================
+
+  // START FetchALLReviews SECTION ==========================
+
+  
+    // START FetchAllReviews SECTION ==========================
+  
+    const [allReviews, setallReviews] = useState([]);
+  
+    const fetchallReviews = async () => {
+      var options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      };
+  
+      try {
+        let res = await fetch(
+          `${import.meta.env.VITE_API_URL}/reviews/find/all`,
+          options
+        );
+        const datares = await res.json();
+        console.log(datares);
+
+        setallReviews(datares);
+      } catch (err) {
+        console.log("err: " + err);
+      }
+    };
+
+  // END FetchALLReviews SECTION ==========================
 
   // START createReviews SECTION ==========================
 
@@ -105,11 +137,12 @@ const ReviewProvider = ({ children }) => {
         createdById,
         setCreatedById,
         createReviews,
+        allReviews,
+        fetchallReviews
       }}
     >
       {children}
     </ReviewContext.Provider>
   );
 };
-
 export { ReviewContext, ReviewProvider };

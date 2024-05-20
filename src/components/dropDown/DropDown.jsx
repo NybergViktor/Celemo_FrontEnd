@@ -3,7 +3,7 @@ import "../dropDown/ddStyling.css";
 import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { authenticate } from "../../helper";
+import { authenticate, authenticateRole } from "../../helper";
 
 export const DropDown = () => {
   const {logout} = useContext(AuthContext);
@@ -11,7 +11,8 @@ export const DropDown = () => {
   const [loggedInUser, setLoggedInUser ] = useState((JSON.parse(localStorage.getItem("user"))))
 
   const auth = authenticate();
-
+  const authRole = authenticateRole();
+  
   const handleClick = () => {
     setIsActive((current) => !current);
   };
@@ -41,6 +42,7 @@ export const DropDown = () => {
       <div className={isActive ? "dropdown-active" : "dropdown-not-active"}>
           {loggedInUser ? <><p className="dd-misc">Logged in as: {loggedInUser.username}</p><p className="dd-misc">____________</p></> : null}
           <Link className="dd-link" to="/">Auctions</Link>
+          {authRole ? <Link className="dd-link" to="/admin">Admin</Link> : null}
           {auth ? <Link className="dd-link" to="/profile">Profile</Link> : null}
           {auth ? <Link className="dd-link" to="/create-auction">Create auction</Link> : null}
           <Link className="dd-link" to="">About</Link>
