@@ -45,8 +45,9 @@ export const DropDown = () => {
           {authRole ? <Link className="dd-link" to="/admin">Admin</Link> : null}
           {auth ? <Link className="dd-link" to="/profile">Profile</Link> : null}
           {auth ? <Link className="dd-link" to="/create-auction">Create auction</Link> : null}
-          <Link className="dd-link" to="">About</Link>
-          <Link  className="dd-link" to="/contact">Contact</Link>
+          <Link className="dd-link" to="/about">About</Link>
+          <Link className="dd-link" to="/contact">Contact</Link>
+
           {auth ? null : <><p className="dd-misc">____________</p><Link className="dd-link" to="/signup">Register</Link></>}
           {auth ? null : <Link className="dd-link" to="/login">Log in</Link>}
           {auth ? <><p className="dd-misc">____________</p><Link className="dd-link" to="/" onClick={handleLogout}>Log out</Link></> : null}
