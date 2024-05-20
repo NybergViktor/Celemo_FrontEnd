@@ -96,8 +96,9 @@ const EditProfile = () => {
                 />
               </div>
               <div className="editProfileInfo">
-                <p>Gender</p>
+                <p >Gender</p>
                 <select
+                  
                   name="gender"
                   placeholder={userData.gender}
                   onChange={handleChange}
