@@ -32,7 +32,27 @@ const AdminPage = () => {
       return <h4>Auction Report</h4>;
     }
   }
+  function userRoleReport (report) {
+    if (report.reportedUserId.roles[0].name === "ROLE_USER") {
+      return <p>Role: User</p>
+    } else if (report.reportedUserId.roles[0].name === "ROLE_BANNED") {
+      return <p>Role: Banned</p>
+    }
+     else {
+      return <p>Role: Admin</p>
+    }
+  }
 
+  function userRoleReview (review) {
+    if (review.reviewedUser.roles[0].name === "ROLE_USER") {
+      return <p>Role: User</p>
+    } else if (review.reviewedUser.roles[0].name === "ROLE_BANNED") {
+      return <p>Role: Banned</p>
+    }
+     else {
+      return <p>Role: Admin</p>
+    }
+  }
 
 
   return (
@@ -47,7 +67,9 @@ const AdminPage = () => {
             {reportsData.map((report) => (
               <div className="reviewBox" key={report.id} >
                 {reportType(report)}
-                <p>{report.reportedUserId.username}</p>
+                <p>Reported by user: {report.reportingUserId.username}</p>
+                <p>Reported user: {report.reportedUserId.username}</p>
+                {userRoleReport(report)}
                 <p>{report.content}</p>
                 <div className="buttons-ban-unban">
                   <button onClick={() => fetchBanUser(report.reportedUserId.id)}>
@@ -67,6 +89,7 @@ const AdminPage = () => {
             {allReviews.map((review) => (
               <div className="reviewBox" key={review.id}>
                 <p>{review.reviewedUser.username}</p>
+                {userRoleReview(review)}
                 <p>{review.reviewText}</p>
                 <p>{review.grade}</p>
                 <div className="buttons-ban-unban">
