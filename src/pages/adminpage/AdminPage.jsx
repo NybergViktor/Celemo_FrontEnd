@@ -90,7 +90,7 @@ const AdminPage = () => {
                     Ban user
                   </button>
                   <button className="unban-user" onClick={() => handleUnBanUser(report.reportedUserId.id)}>
-                    unBan user
+                    Unban user
                   </button>
                 </div>
               </div>
@@ -111,7 +111,7 @@ const AdminPage = () => {
                     Ban user
                   </button>
                   <button className="unban-user" onClick={() =>handleUnBanUser(review.reviewedUser.id)}>
-                    unBan user
+                    Unban user
                   </button>
                 </div>
               </div>
