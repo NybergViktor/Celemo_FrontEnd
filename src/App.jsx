@@ -71,9 +71,9 @@ function App() {
                             element={<PubProfile />}
                           />
                           <Route path="/contact" element={<ContactPage />} />
-                          <Route path="/reviews/create" element={<CreateReview/>} />
-                          <Route path="/return" element={<ReturnHome/>}/>
-                          <Route path="/edit-profile" element={<EditProfile/>}/>
+                         <Route path="/reviews/create" element={<CreateReview/>} />
+                        <Route path="/return" element={<ReturnHome/>}/>
+                        <Route path="/edit-profile" element={<EditProfile/>}/>
                         <Route path="/admin" element={<AdminPage/>}/>
                      </Routes>
                     </BrowserRouter>
