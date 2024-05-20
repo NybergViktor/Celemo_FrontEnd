@@ -5,10 +5,14 @@ import {
 } from "../context/CreateAuctionContext";
 import "../auctionCreationContainer/AuctionSelectionDropdowns.css";
 import FrameBottom from "./FrameBottom";
-import PublishButton from "./PublishButton";
+
 
 function AuctionSelectionDropdowns() {
-  const { categories } = useContext(CreateAuctionContext);
+  const {
+    categories,
+    inputCategory,
+    handleInputCategoryChange,
+  } = useContext(CreateAuctionContext);
   const [celebrityData, setCelebrityData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const containerRef = useRef(null);
@@ -33,21 +37,21 @@ function AuctionSelectionDropdowns() {
 
       setCelebrityData(celebrityId);
       localStorage.setItem("celebrity", JSON.stringify(name));
-      // setCelebrityData(prevData => [...prevData, ...celebrityId]);                                      // setCelebrityData(data.map(item => ({...item, id: uuidv4()})));
+      // setCelebrityData(data.map(item => ({...item, id: uuidv4()})));
 
-      console.log(data); // Log the fetched data
+      console.log(data); // im logging the fetched data
     } catch (err) {
       console.log(`error ${err}`);
     }
   };
 
-  // LOAD
   // when search button is clicked i call the getCelebrity so that it's not called whenever a user types something. This is due to, to many api reqs.
   const searchHandler = () => {
     if (searchTerm !== "") {
       getCelebrity(searchTerm);
+      // console.log(searchTerm);
     } else {
-      console.log("wrong input");
+      console.log("This celebrity dosn't exist");
     }
   };
   // if data is not clear, setCelebrityData to clear.
@@ -60,6 +64,7 @@ function AuctionSelectionDropdowns() {
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
   };
+
   // adding a mousedown instead of click due to have read that it sometimes can be better working due to it is triggerd before any other clickhandlers.
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -69,7 +74,6 @@ function AuctionSelectionDropdowns() {
   }, []);
 
   return (
-    <CreateAuctionProvider>
       <div className="main-container">
         <div className="svg1">
           <svg
@@ -90,9 +94,18 @@ function AuctionSelectionDropdowns() {
             <div className="title-h1">
               <h2 className="title-text">Create Auction</h2>
             </div>
-            <select className="category" id="category">
+            <select
+              className="category"
+              name="categoryList"
+              id="category"
+              // i had to specifically choose to select index 0 = first in the array for it to stop giving The `value` prop supplied to <select> must be a scalar value if `multiple` is false.
+              value={inputCategory.categoryList ? inputCategory.categoryList[0] : null}
+              // value={inputCategory.categoryList}
+              onChange={handleInputCategoryChange}
+            >
+              <option value="none">Choose Category</option>
               {categories.map((category) => (
-                <option key={category}>{category}</option>
+                <option key={category} value={category}>{category}</option>
               ))}
             </select>
             <select className="sub-category" id="sub-category">
@@ -101,7 +114,7 @@ function AuctionSelectionDropdowns() {
             <label className="celebrity-category" id="celebrity-category">
               <input
                 type="text"
-                name="celeb"
+                name="celebrityName"
                 id="celebrityInput"
                 value={searchTerm}
                 onChange={handleInputChange}
@@ -133,10 +146,10 @@ function AuctionSelectionDropdowns() {
             })}
           </div>
         </div>
-        <FrameBottom />
-        <PublishButton>Publish Auction</PublishButton>
+        <div className="publish-button-container">
+      <button className="publish-button" type="button" onClick={saveDataToBackend}></button>
+    </div>
       </div>
-    </CreateAuctionProvider>
   );
 }
 export default AuctionSelectionDropdowns;

@@ -5,16 +5,26 @@ const CreateAuctionContext = createContext();
 
 const CreateAuctionProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
+  const [celebrities, setCelebrities] = useState("");
+  const [inputCategory, setInputCategory] = useState({
+    categoryList: categories,
+  });
+
+  // AS FAR AS I UNDERSTAND IF I HAVE CATEGORYLIST INSIDE INPUTDATA STATE,
+  // IT WILL ALWAYS BE OVERWRITTEN BY NEW UPDATED INPUT FOR TITLE< DESCRIPTION etc.
   const [inputData, setInputData] = useState({
     title: "",
     productDescription: "",
     productPhoto: null,
-    celebrityName: "APA",
+    celebrityName: "john holmes",
     startPrice: "",
-    categoryList: ["HOCKEY"],
     endDate: 7,
-    sellerId: localStorage.getItem("loggedInUserId")
+    sellerId: localStorage.getItem("loggedInUserId"),
   });
+
+  // THOUGHTS:: either if creating seperate functions for each value state update
+  // THOGUHTS:: decide creating one function for file, one for categoryList and one for all the rest input fields.
+  // updates all new values to the inputData state except files and categoryList.
 
   const handleInputDataChange = (e) => {
     const { name, value } = e.target;
@@ -23,6 +33,16 @@ const CreateAuctionProvider = ({ children }) => {
       [name]: value,
     }));
   };
+
+   const handleInputCategoryChange = (i) => {
+     // const { name, value } = e.target.value;
+     const { name, value } = i.target;
+     setInputCategory((prevData) => ({
+       ...prevData,
+       categoryList: value,
+     }));
+     console.log(inputCategory);
+   };
 
   const handleInputFileChange = (e) => {
     console.log("handleInputFileChange called");
@@ -48,13 +68,14 @@ const CreateAuctionProvider = ({ children }) => {
       reader.readAsDataURL(file);
     });
 
-    // Modify the inputData object
-    // file = fileString;
-
     const modifiedInputData = {
       ...inputData,
+      ...inputCategory,
       productPhoto: fileString,
+      categoryList: inputCategory.categoryList,
     };
+
+    console.log(modifiedInputData);
 
     try {
       const res = await axios.post(
@@ -71,7 +92,6 @@ const CreateAuctionProvider = ({ children }) => {
       console.log("Error saving auction:", error);
       alert("There was an error while saving the auction.");
     }
-    
   };
 
   // ================FETCH ALL ENUMS START============================
@@ -86,7 +106,9 @@ const CreateAuctionProvider = ({ children }) => {
   };
   useEffect(() => {
     fetchCategories();
-  }, []);
+    console.log(inputData);
+    console.log(inputCategory);
+  }, [inputData, inputCategory]);
 
   // ================FETCH ALL ENUMS END==============================
 
@@ -98,7 +120,12 @@ const CreateAuctionProvider = ({ children }) => {
         inputData,
         handleInputDataChange,
         handleInputFileChange,
+        handleInputCategoryChange,
         saveDataToBackend,
+        celebrities,
+        setCelebrities,
+        inputCategory,
+        setInputCategory,
       }}
     >
       {children}
@@ -108,19 +135,27 @@ const CreateAuctionProvider = ({ children }) => {
 
 export { CreateAuctionContext, CreateAuctionProvider };
 
-// const { title, description, startingBid, endTime, file } = inputData;
-
-// const auctionInputData = new FormData();
-// auctionInputData.append("title", title);
-// auctionInputData.append("description", description);
-// auctionInputData.append("startingBid", startingBid);
-// auctionInputData.append("endTime", endTime);
-// auctionInputData.append("file", file);
-
-// const res = await fetch(
-//   `${import.meta.env.VITE_API_URL}/auction/create`, inputData,
-//   {
-//     method: "POST",
-//     body: auctionInputData,
+// const handleInputDataChange = (e) => {
+//   preventDefault();
+//   const { name, value } = e.target;
+//   // Update the categoryList field separately
+//   if (name === 'categoryList') {
+//     setInputData((prevData) => ({
+//       ...prevData,
+//       categoryList: value,
+//     }));
+//   } else {
+//     setInputData((prevData) => ({
+//       ...prevData,
+//       [name]: prevData[name] !== undefined ? value : prevData[name],
+//     }));
 //   }
-// );
+// };
+// const handleInputDataChange = (e) => {
+//   const { name, value } = e.target;
+//     setInputData((prevData) => ({
+//       ...prevData,
+//       [name]: name === 'categoryList' ? value : prevData[name],
+//       // [name]: value,
+//     }));
+//   };
