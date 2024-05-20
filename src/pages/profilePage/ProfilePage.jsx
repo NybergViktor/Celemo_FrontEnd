@@ -40,7 +40,7 @@ const ProfilePage = () => {
             >
               
             <UserInfoFields></UserInfoFields>
-          </UserContainer>
+          </UserContainer> 
 
           {/* USERS OWN AUCTIONS */}
           <UserContainer containerTitle="My Auctions">
