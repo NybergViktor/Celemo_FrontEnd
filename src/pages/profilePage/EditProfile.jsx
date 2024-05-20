@@ -5,7 +5,6 @@ import { AuthContext } from "../../components/context/AuthContext";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import React from "react";
-import { redirect } from "react-router-dom";
 
 const EditProfile = () => {
     
