@@ -34,7 +34,6 @@ const EditProfile = () => {
     }
 
     const handleSubmit = (e, userValue) => {
-
         e.preventDefault();
         if (userData.password === null){
             delete userValue.password;
@@ -42,11 +41,9 @@ const EditProfile = () => {
         if (userValue.error) {
             console.log("error: " + userValue.error);
         }
-
-
-        await fetchUpdateUser(userValue);
+        fetchUpdateUser(userValue);
         console.log(userValue);
-        redirect();
+        window.location.href = "/profile";
     }
     
 

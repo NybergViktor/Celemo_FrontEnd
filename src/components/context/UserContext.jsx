@@ -96,31 +96,6 @@ const UserProvider = ({ children }) => {
   }
 
 
-  const [updatedUser, setUpdatedUser] = useState([]);
-  
-  const fetchUpdateUser = async (updatedUser) => {
-
-
-    const options = {
-      method: "PUT",
-      headers: {"Content-Type": "application/json",},
-      credentials: "include",
-      body: JSON.stringify(updatedUser),
-    };
-
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/user/update/${userData.userId}`,
-        options
-      );
-      const fetchData = await response.json();
-      console.log(fetchData);
-    } catch (error) {
-      console.log("Error fetching: " + error);
-    }
-  }
-
-
   return (
     <UserContext.Provider value={{ fetchDeleteUser, fetchUpdateUser, updatedUser, userData, getUserFromId, favourites, winningBidUser, getUserWinningBidFromId }}>
 
