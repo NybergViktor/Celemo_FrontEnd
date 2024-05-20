@@ -1,64 +1,158 @@
 .adminPage {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin: 20px;
 }
 .buttons-ban-unban button {
-    margin: 5px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    max-height: auto;
-    border: 1px solid #ff0000;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  max-height: auto;
+  border: 1px solid #ff0000;
 }
 .buttons-ban-unban button:hover {
-    background-color: #ff0000;
-    color: white;
-    border: 1px solid #ff0000;
-}
-h1 {
-    text-align: center;
-    align-self: center;
-    background-color: #888888;
-    color: white !important;
-    border-radius: 12px;
-    padding: 10px;
-    border: 2px solid #000000;
-}
-.reviewHolder {
-    display: flex;
-    overflow: scroll;
-}
-.reviewsContainer {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin-left: 5px;
-    margin-right: 5px;
-    
+  background-color: #ff0000;
+  color: white;
+  border: 1px solid #ff0000;
 }
 .reviewBox {
-    display: grid;
-    border: 4px solid #000000;
-    border-radius: 8px;
-    box-shadow: 10px 10px 5px #888888;
-    width: 100%;
-    margin: 10px;
-    padding: 10px;
-    height: 80%;
-    min-width: 200px;
-    text-align: center;
-}
-button {
-    color: white;
-    background-color: chocolate;
-    border-style: none;
-    border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.buttons-ban-unban{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+h1 {
+  text-align: center;
+  align-self: center;
+  background-color: #888888;
+  color: white !important;
+  border-radius: 12px;
+  padding: 10px;
+  border: 2px solid #000000;
+}
+.reviewHolder {
+  display: flex;
+  overflow: scroll;
+}
+.reviewsContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.reviewBox {
+  display: grid;
+  border: 4px solid #000000;
+  border-radius: 8px;
+  box-shadow: 10px 10px 5px #888888;
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  height: 80%;
+  min-width: 200px;
+  text-align: center;
+}
+button {
+  color: white;
+  background-color: chocolate;
+  border-style: none;
+  border-radius: 20px;
+}
+
+.buttons-ban-unban {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn:nth-child(3) {
+  background-color: chocolate;
+
+  border: 1px solid #ff0000;
+  margin-left: 1rem;
+}
+.btn:nth-child(2) {
+  background-color: chocolate;
+
+  border: 1px solid #ff0000;
+}
+.btn:nth-child(2):hover,
+.btn:nth-child(3):hover {
+  background-color: #ff0000;
+}
+
+.reviewsContainerUsers {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.reviewHolderUsers {
+  display: flex;
+  align-items: center;
+  width: auto;
+  height: 100%;
+}
+.reviewBoxUsers {
+  display: flex;
+
+  border: 4px solid #000000;
+  border-radius: 8px;
+  box-shadow: 10px 10px 5px #888888;
+  width: auto;
+  max-height: 30rem;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.8rem;
+
+  margin: 0.2rem;
+}
+
+.reviewBoxUsers * {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.usersPhoto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  height: 10rem;
+  width: 10rem;
+  overflow: hidden;
+}
+.realPic {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.foundUser {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  max-width: 40vw;
+}
+
+.closeButton {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.closebuttonDiv {
+  width: 30%;
+  height: auto;
 }

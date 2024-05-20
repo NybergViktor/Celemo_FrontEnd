@@ -3,7 +3,8 @@ import React, { createContext, useState } from "react";
 const ReportsContext = createContext();
 
 const ReportsProvider = ({ children }) => {
-  const [reportsData, setReportsData] = useState([]);
+  const [userAndAdminReports, setUserAndAdminReports] = useState([]);
+  const [bannedReports, setBannedReports] = useState([]);
 
   const getAllReports = async () => {
     const options = {
@@ -19,8 +20,26 @@ const ReportsProvider = ({ children }) => {
         options
       );
       const fetchData = await response.json();
-      setReportsData(fetchData);
+
       console.log(fetchData);
+
+      const userAndAdminReports = fetchData.filter(item => {
+        return item.reportedUserId &&
+               item.reportedUserId.roles &&
+               item.reportedUserId.roles.some(role => role.name === 'ROLE_USER' || role.name === 'ROLE_ADMIN');
+      });
+
+      const bannedReports = fetchData.filter(item => {
+        return item.reportedUserId &&
+               item.reportedUserId.roles &&
+               item.reportedUserId.roles.some(role => role.name === 'ROLE_BANNED');
+      });
+
+      setUserAndAdminReports(userAndAdminReports);
+      setBannedReports(bannedReports);
+
+      console.log('User and Admin Reports:', userAndAdminReports);
+      console.log('Banned Reports:', bannedReports);
     } catch (error) {
       console.log("Error fetching: " + error);
     }
@@ -29,8 +48,9 @@ const ReportsProvider = ({ children }) => {
   return (
     <ReportsContext.Provider
       value={{
-        reportsData,
         getAllReports,
+        userAndAdminReports,
+        bannedReports
       }}
     >
       {children}
