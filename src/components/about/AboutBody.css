@@ -22,6 +22,7 @@
     gap: 20px;
     box-shadow: 1px 1px 5px gray; 
     border-radius: 20px;
+    min-height: 25rem
 }
 .side-content{
     margin: 0 40px;
@@ -107,7 +108,7 @@
     justify-content: center;
     width: 98%;
     text-align: center;
-    
+    position: relative;
 }
 .omTeam{
     margin-top: 20px;
@@ -120,15 +121,14 @@
 
 
 .omCelemo{
-    margin-top: 20px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-top: 1rem;
     
 }
 
 .CelemoP{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-top: 30px;
+    width: 90%;
     
 }
 
@@ -138,6 +138,11 @@
     color: white;
     font-size: larger;
     width: auto;
-    height: 400px; 
+    height: auto; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+border-radius: 20px;
     
 }

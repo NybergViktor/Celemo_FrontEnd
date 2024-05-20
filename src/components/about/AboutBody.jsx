@@ -93,10 +93,14 @@ function AboutBody() {
               <div className="card-content">
                 <h2 className="name">John</h2>
                 <p className="dexription">
-                  sit amet consectetur adipisicing elit. Repellendus nulla vero
-                  harum error non? Recusandae, consequatur! Placeat dignissimos
-                  deserunt odit saepe iste architecto atque odio. Laudantium
-                  sapiente atque repudiandae nulla?
+                  I'm 28 years old and a new father, embracing the joys and
+                  challenges of parenthood. With a background in the restaurant
+                  industry, I've developed a strong work ethic and a knack for
+                  multitasking. Recently, I've discovered a passion for coding
+                  and enjoy solving complex problems through programming. This
+                  new interest has opened up exciting opportunities for me to
+                  combine creativity with logical thinking, making each coding
+                  challenge a rewarding experience.
                 </p>
               </div>
             </div>
@@ -129,10 +133,17 @@ function AboutBody() {
             <div className="celemPdiv">
               <h1 className="omCelemo">Om CELEMO</h1>
               <p className="CelemoP">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-                debitis sapiente officiis, sint odio dolorum iste? Voluptatibus
-                consequatur sit labore itaque quos, sunt quasi ipsa consectetur
-                quo? In, eius reprehenderit.
+                Celemo is a cutting-edge auction platform dedicated to celebrity
+                memorabilia, offering fans a unique opportunity to own a piece
+                of their favorite stars' history. With an intuitive and
+                user-friendly interface, Celemo makes it easy to browse and bid
+                on a wide range of items, from autographed photos and personal
+                artifacts to exclusive movie props and stage costumes. Each item
+                comes with a certificate of authenticity, ensuring that every
+                purchase is genuine. Whether you're a seasoned collector or a
+                casual fan, Celemo provides a secure and exciting environment to
+                connect with the glamour and nostalgia of the entertainment
+                world.
               </p>
             </div>
           </div>
