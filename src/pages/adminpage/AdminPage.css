@@ -40,5 +40,11 @@ button {
     color: white;
     background-color: chocolate;
     border-style: none;
-    border-radius: 7px;
+    border-radius: 20px;
+}
+
+.buttons-ban-unban{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
