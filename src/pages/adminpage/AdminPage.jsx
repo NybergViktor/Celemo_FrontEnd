@@ -13,10 +13,6 @@ const AdminPage = () => {
   const { allReviews, fetchallReviews } = useContext(ReviewContext);
   const { reportsData, getAllReports } = useContext(ReportsContext);
   const {
-    banUserId,
-    unBanUserId,
-    setUnBanUserId,
-    setbanUserId,
     fetchBanUser,
     fetchUnBanUser,
   } = useContext(AdminContext);
@@ -36,20 +32,6 @@ const AdminPage = () => {
       return <h4>Auction Report</h4>;
     }
   }
-
-  //   function banUser(banid) {
-  //     setbanUserId(banid);
-  //     fetchBanUser();
-  //   }
-  //   function unBanUser(unbanid) {
-  //     setUnBanUserId(unbanid);
-  //     fetchUnBanUser();
-  //   }
-
-//   useEffect(() => {
-//     fetchBanUser();
-//     fetchUnBanUser();
-//   }, [banUserId, unBanUserId]);
 
 
 
@@ -87,7 +69,14 @@ const AdminPage = () => {
                 <p>{review.reviewedUser.username}</p>
                 <p>{review.reviewText}</p>
                 <p>{review.grade}</p>
-                <button>Ban user</button>
+                <div className="buttons-ban-unban">
+                  <button onClick={() => fetchBanUser(review.reviewedUser.id)}>
+                    Ban user
+                  </button>
+                  <button onClick={() => fetchUnBanUser(review.reviewedUser.id)}>
+                    unBan user
+                  </button>
+                </div>
               </div>
             ))}
           </div>

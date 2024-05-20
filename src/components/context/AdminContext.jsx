@@ -4,10 +4,7 @@ const AdminContext = createContext();
 
 const AdminProvider = ({ children }) => {
 
-    const [banUserId, setbanUserId] = useState();
-    const [unBanUserId, setUnBanUserId] = useState();
-
-  
+   
 
 
   //BAN
@@ -70,9 +67,7 @@ const AdminProvider = ({ children }) => {
         <AdminContext.Provider
           value={{
             fetchBanUser,
-            fetchUnBanUser,
-            setUnBanUserId,
-            setbanUserId
+            fetchUnBanUser
 
           }}
         >
