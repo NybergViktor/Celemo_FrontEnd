@@ -93,10 +93,8 @@ function AboutBody() {
               <div className="card-content">
                 <h2 className="name">John</h2>
                 <p className="dexription">
-                  I'm 28 years old and a new father, embracing the joys and
-                  challenges of parenthood. With a background in the restaurant
-                  industry, I've developed a strong work ethic and a knack for
-                  multitasking. Recently, I've discovered a passion for coding
+                  I'm 28 years old and a father. With a background in the restaurant
+                  industry. Recently, I've discovered a passion for coding
                   and enjoy solving complex problems through programming. This
                   new interest has opened up exciting opportunities for me to
                   combine creativity with logical thinking, making each coding
