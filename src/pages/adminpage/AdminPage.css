@@ -48,6 +48,7 @@ h1 {
     padding: 10px;
     height: 80%;
     min-width: 200px;
+    text-align: center;
 }
 button {
     color: white;

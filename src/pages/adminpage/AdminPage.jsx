@@ -88,7 +88,7 @@ const AdminPage = () => {
           <div className="reviewHolder">
             {allReviews.map((review) => (
               <div className="reviewBox" key={review.id}>
-                <p>{review.reviewedUser.username}</p>
+                <p>Reviewed user: {review.reviewedUser.username}</p>
                 {userRoleReview(review)}
                 <p>{review.reviewText}</p>
                 <p>{review.grade}</p>

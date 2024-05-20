@@ -42,6 +42,9 @@
     padding-left: 2% !important;
     padding-right: 2% !important;
 }
+.containerBtn a {
+    color: black;
+}
 .containerBtn:hover {
     background-color: rgb(172,172,172);
     color: black;

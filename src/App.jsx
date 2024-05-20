@@ -12,7 +12,9 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import PubProfile from "./pages/pubprofile/PubProfile";
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
 import ContactPage from "./pages/contactpage/ContactPage";
+import EditProfile from "./pages/profilePage/EditProfile";
 import AdminPage from "./pages/adminpage/AdminPage";
+
 
 // PROVIDERS
 import { CreateReview } from "./pages/createReviewPage/CreateReview";
@@ -32,77 +34,57 @@ import { AdminProvider } from "./components/context/AdminContext";
 
 function App() {
   return (
-    <AuthProvider>
-      <ReportsProvider>
-        <PubUserProvider>
-          <SignupProvider>
-            <LoginProvider>
-              <UserProvider>
-                <SearchProvider>
-                  <EnumProvider>
-                    <AuctionProvider>
-                      <BidProvider>
-                        <ReviewProvider>
-                          <AdminProvider>
-                            <BrowserRouter>
-                              <Routes>
-                                <Route path="/" element={<Startpage />} />
-                                <Route path="/login" element={<LoginPage />} />
-                                <Route
-                                  path="/profile"
-                                  element={<ProfilePage />}
-                                />
-                                <Route
-                                  path="/signup"
-                                  element={<SignupPage />}
-                                />
-                                <Route
-                                  path="/review"
-                                  element={<ReviewPage />}
-                                />
-                                <Route
-                                  path="/auction/find-one/:auctionId"
-                                  element={<AuctionPage />}
-                                />
-                                <Route
-                                  path="/create-auction"
-                                  element={
-                                    <PrivateRoute>
-                                      <CreateAuctionPage />
-                                    </PrivateRoute>
-                                  }
-                                />
-                                <Route
-                                  path="/pubprofile/:userId"
-                                  element={<PubProfile />}
-                                />
-                                <Route
-                                  path="/contact"
-                                  element={<ContactPage />}
-                                />
-                                <Route
-                                  path="/reviews/create"
-                                  element={<CreateReview />}
-                                />
-                                <Route
-                                  path="/return"
-                                  element={<ReturnHome />}
-                                />
-                                <Route path="/admin" element={<AdminPage />} />
-                              </Routes>
-                            </BrowserRouter>
-                          </AdminProvider>
-                        </ReviewProvider>
-                      </BidProvider>
-                    </AuctionProvider>
-                  </EnumProvider>
-                </SearchProvider>
-              </UserProvider>
-            </LoginProvider>
-          </SignupProvider>
-        </PubUserProvider>
-      </ReportsProvider>
-    </AuthProvider>
+  <AuthProvider>
+    <AdminProvider>
+    <ReportsProvider>
+    <PubUserProvider>
+    <SignupProvider>
+      <LoginProvider>
+        <UserProvider>
+          <SearchProvider>
+            <EnumProvider>
+              <AuctionProvider>
+                <BidProvider>
+                  <ReviewProvider>
+                    <BrowserRouter>
+                      <Routes>
+                        <Route path="/" element={<Startpage />} />
+                        <Route path="/login" element={<LoginPage />} />
+                        <Route path="/profile" element={<ProfilePage />} />
+                        <Route path="/signup" element={<SignupPage />} />
+                        <Route path="/review" element={<ReviewPage />} />
+                        <Route path="/auction/find-one/:auctionId" element={<AuctionPage />} />
+                        <Route
+                            path="/create-auction"
+                            element={
+                              <PrivateRoute>
+                                <CreateAuctionPage />
+                              </PrivateRoute>
+                            }
+                          />
+                          <Route
+                            path="/pubprofile/:userId"
+                            element={<PubProfile />}
+                          />
+                          <Route path="/contact" element={<ContactPage />} />
+                          <Route path="/reviews/create" element={<CreateReview/>} />
+                          <Route path="/return" element={<ReturnHome/>}/>
+                          <Route path="/edit-profile" element={<EditProfile/>}/>
+                        <Route path="/admin" element={<AdminPage/>}/>
+                     </Routes>
+                    </BrowserRouter>
+                  </ReviewProvider>
+                </BidProvider>
+              </AuctionProvider>
+            </EnumProvider>
+          </SearchProvider>
+        </UserProvider>
+      </LoginProvider>
+    </SignupProvider>
+    </PubUserProvider>
+    </ReportsProvider>
+    </AdminProvider>
+  </AuthProvider>
   );
 }
 
