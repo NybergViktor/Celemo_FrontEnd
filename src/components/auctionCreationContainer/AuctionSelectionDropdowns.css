@@ -9,7 +9,7 @@
 .svg1 {
   position: absolute;
   z-index: -1;
-  top: 0;
+  top: 1rem;
 }
 /* Container for the whole bottom svg image */
 .svg-container {
@@ -46,7 +46,6 @@
   border: none;
   padding: 10px 15px;
   border-radius: 10px;
-  margin-top: 1rem;
   width: 70%;
   font-weight: bold;
   text-align: center;
@@ -56,7 +55,6 @@
   border: none;
   padding: 10px 15px;
   border-radius: 10px;
-  margin-top: 1rem;
   width: 70%;
   font-size: 15px;
   font-weight: bold;
@@ -65,9 +63,7 @@
 
 .celebrity-category {
   border: none;
-  margin-top: 1rem;
   width: 70%;
-  
 }
 
 #celebrityInput {
@@ -93,12 +89,9 @@
   border-radius: 10px;
   border: none;
   height: 2rem;
-  width: 6rem;
+  width: 4rem;
   background-color: #f19d6f;
 }
-
-
-
 
 @media screen and (min-width: 847px) {
   /* Media qureys to hide the svg image- */
@@ -153,8 +146,7 @@
   }
   .celeb-select {
     height: 2rem;
-    margin-top: 1rem;
-    margin-right: 10rem;
+    margin-right: 12rem;
     border-radius: 10px;
     padding-left: 5px;
     border: none;
@@ -168,7 +160,7 @@
     height: 2rem;
     background-color: #f19d6f;
     position: absolute;
-    top: 15.7rem;
+    top: 16.7rem;
     right: 19rem;
   }
 

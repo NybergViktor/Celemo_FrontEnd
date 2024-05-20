@@ -1,10 +1,11 @@
-import "./reviewContainerContent.css";
 import { useContext, useEffect, useState } from "react";
 import { ReviewContext } from "../context/ReviewContext";
+import './ReviewBody.css'
 
 const ReviewContainerContent = () => {
   const { usersReviews, fetchUsersReviews, reviewedUser } =
     useContext(ReviewContext);
+
   const [loggedInUserId, setLoggedInUserId] = useState(
     localStorage.getItem("loggedInUserId")
   );

@@ -12,6 +12,7 @@
     padding-left: 2%;
     padding-right: 5%;
 }
+
 .dynamicItem>a {
     text-decoration: none;
     color: black;
@@ -19,7 +20,9 @@
 .dynamicItem>a:hover {
     color: white;
 }
-
+.containerItemBtn button {
+    color: black;
+}
 .dynamicItemBtn {
     background-color: rgba(241, 157, 111, 1);
     border: none;

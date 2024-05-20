@@ -1,3 +1,19 @@
+/* Prompted to your own file manager where you can choose the file you want to upload */
+/* input size is big so it dosnt matter if you click the browser or if you click the upload icon */
+.image-text-bottom {
+  position: absolute;
+  top: 11rem;
+  }
+  /* styling the actual input */
+  #image-text {
+    height: 3rem;
+    border-radius: 10px;
+    border: none;
+    width: 14rem;
+    margin-right: 5rem;
+    padding-left: 15px;
+    font-size: 20px;
+  }
 /* creating the main box around icon and child box */
 .picture-container {
   position: relative;
@@ -8,7 +24,7 @@
   border: 1px solid black;
   width: 19rem;
   height: 15rem;
-  top: 13rem;
+  top: 15rem;
   background-color: rgb(218, 218, 218);
 }
 /* creating child box where icon is put inside  */
@@ -46,7 +62,7 @@
 }
 .title-text-bottom {
   position: absolute;
-  top: 29rem;
+  top: 31rem;
 }
 
 .title-input {
@@ -60,7 +76,7 @@
 
 .description-bottom {
   position: absolute;
-  top: 33rem;
+  top: 35rem;
 }
 
 textarea {
@@ -95,22 +111,7 @@ textarea {
   margin-top: 15px;
   z-index: 5;
 }
-/* Prompted to your own file manager where you can choose the file you want to upload */
-/* input size is big so it dosnt matter if you click the browser or if you click the upload icon */
-.image-text-bottom {
-position: absolute;
-top: 9rem;
-}
-/* styling the actual input */
-#image-text {
-  height: 3rem;
-  border-radius: 10px;
-  border: none;
-  width: 14rem;
-  margin-right: 5rem;
-  padding-left: 15px;
-  font-size: 20px;
-}
+
 /* style for button in mobile view */
 .publish-button-container {
   display: flex;
@@ -163,7 +164,7 @@ top: 9rem;
   }
   .title-text-bottom {
     position: relative;
-    top: -13rem;
+    top: -15.5rem;
     height: 2rem;
     margin-right: 40%;
   }
@@ -173,7 +174,7 @@ top: 9rem;
   }
   .description-bottom {
     position: relative;
-    top: -12rem;
+    top: -14.5rem;
     margin-right: 40%;
   }
   .textarea {
@@ -183,7 +184,7 @@ top: 9rem;
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
-    height: 5rem;
+    /* height: 5rem; */
   }
   .bid-input {
     height: 2rem;
@@ -191,6 +192,8 @@ top: 9rem;
   }
   .endDate {
     height: 2rem;
+    position: relative;
+    bottom: 1rem;
   }
 
   /* moving the button design aswell with moving it forward so its shown */
@@ -200,7 +203,7 @@ top: 9rem;
     left: 22.5rem;
   }
   .publish-button {
-    height: 5.2rem;
+    height: 5.3rem;
     width: 18.8rem;
   }
   /* Hover css for desktop mode */

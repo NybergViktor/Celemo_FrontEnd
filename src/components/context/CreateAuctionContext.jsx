@@ -74,22 +74,16 @@ const CreateAuctionProvider = ({ children }) => {
     console.log(inputData);
   };
 
-  const saveDataToBackend = async () => {
+  useEffect(() => {
+    fetchCategories();  
+  }, []);
 
-    var options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify(inputData),
-      
-    };
+  const saveDataToBackend = async () => {
   
     try {
-      const res = await fetch(
+      const res = await axios.post(
         `${import.meta.env.VITE_API_URL}/auction/create`,
-        options
+        inputData
       );
       
       if (res.status === 200) {
@@ -138,7 +132,8 @@ const CreateAuctionProvider = ({ children }) => {
         setSelectedCelebrity,
         imageLink,
         setImageLink,
-        saveImageLink
+        saveImageLink,
+        fetchCategories
       }}
     >
       {children}
