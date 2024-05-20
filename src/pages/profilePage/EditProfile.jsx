@@ -3,6 +3,7 @@ import {useContext, useEffect, useState} from "react";
 import { UserContext   } from "../../components/context/UserContext";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
+import { Navigate } from "react-router-dom";
 
 const EditProfile = () => {
     
@@ -21,8 +22,10 @@ const EditProfile = () => {
         const value = e.target.value;
         setuserValue({ ...userValue, [name]: value});
     }
-
-    const handleSubmit = (e, userValue) => {
+    const redirect = () => {
+      window.location.href = "/profile";
+    }
+    const handleSubmit = async (e, userValue) => {
         e.preventDefault();
         if (userData.password === null){
             delete userValue.password;
@@ -31,10 +34,11 @@ const EditProfile = () => {
             console.log("error: " + userValue.error);
         }
 
-        fetchUpdateUser(userValue);
+        await fetchUpdateUser(userValue);
         console.log(userValue);
-        
+        redirect();
     }
+    
 
     return (
         <>
@@ -137,11 +141,12 @@ const EditProfile = () => {
               placeholder="Password"
               onChange={handleChange}/>
             </div>
-
+              
               <button id="signUpButton" 
               onClick={(e) => handleSubmit(e, userValue)}
               className="signUpButton">Submit
               </button>
+              
             </form>
         </div>
         </div>
