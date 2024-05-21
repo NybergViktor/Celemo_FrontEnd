@@ -81,9 +81,6 @@ const AuctionProvider = ({ children }) => {
         "Content-Type": "application/json",
       },
       credentials: "include",
-      // body: JSON.stringify({
-      //   userId: `${userId}`,
-      // }),
     };
 
     try {
