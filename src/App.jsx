@@ -86,7 +86,11 @@ function App() {
                                 />
                                 <Route
                                   path="/reviews/create"
-                                  element={<CreateReview />}
+                                  element={
+                                    <PrivateRoute>
+                                      <CreateReview />
+                                    </PrivateRoute>
+                                  }
                                 />
                                 <Route
                                   path="/return"
@@ -99,7 +103,11 @@ function App() {
                                 <Route path="/admin" element={<AdminPage />} />
                                 <Route
                                   path="/report/user"
-                                  element={<CreateReportUserPage />}
+                                  element={
+                                    <PrivateRoute>
+                                      <CreateReportUserPage />
+                                    </PrivateRoute>
+                                  }
                                 />
                               </Routes>
                             </BrowserRouter>
