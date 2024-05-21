@@ -60,6 +60,18 @@ const UserProvider = ({ children }) => {
       credentials: "include",
     };
 
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/user/find/all`,
+        options
+      );
+      const fetchData = await response.json();
+      setAllUsers(fetchData);
+    } catch (error) {
+      console.log("Error fetching: " + error);
+    }
+  };
+
   const fetchDeleteUser = async (userId) => {
     
     const options = {
@@ -84,17 +96,7 @@ const UserProvider = ({ children }) => {
   }
 
 
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/user/find/all`,
-        options
-      );
-      const fetchData = await response.json();
-      setAllUsers(fetchData);
-    } catch (error) {
-      console.log("Error fetching: " + error);
-    }
-  };
+    
 
   const getUserWinningBidFromId = async (userId) => {
     const options = {
