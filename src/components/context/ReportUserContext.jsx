@@ -5,8 +5,8 @@ const ReportContext = createContext();
 
 const ReportUserProvider = ({ children }) => {
   const [content, setContent] = useState("");
-  const [createdById, setCreatedById] = useState("");
-  const [reportedId, setReportedId] = useState("");
+  const [createdById, setCreatedById] = useState();
+  const [reportedId, setReportedId] = useState();
 
   const [reportedUserId, setReportedUserId] = useState(
     localStorage.getItem("reportedUserId")
@@ -21,7 +21,7 @@ const ReportUserProvider = ({ children }) => {
     setReportedId(reportedUserId);
   }, []);
 
-  const createReviews = async () => {
+  const createReportUser = async () => {
     var options = {
       method: "POST",
       headers: {
@@ -29,7 +29,7 @@ const ReportUserProvider = ({ children }) => {
       },
       credentials: "include",
       body: JSON.stringify({
-        context: `${content}`,
+        content: `${content}`,
         reportedUserId: `${reportedId}`,
         reportingUserId: `${createdById}`,
       }),
@@ -54,7 +54,7 @@ const ReportUserProvider = ({ children }) => {
   return (
     <ReportContext.Provider
       value={{
-        createReviews,
+        createReportUser,
         content,
         setContent,
       }}
