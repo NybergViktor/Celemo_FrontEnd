@@ -75,7 +75,7 @@ const SubHeader = () => {
         <div className="filter-container">
           <button className="filter-button" onClick={handleFilterButton}>
             <img src="src/components/sub-header/filter.svg" alt="filter-icon" />
-            Filter
+            Filter Hej JOHAN
           </button>
 
           {/** FILTER DROPDOWN */}
