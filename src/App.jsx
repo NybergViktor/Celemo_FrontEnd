@@ -16,7 +16,7 @@ import { ReturnHome } from "./pages/returnHome/ReturnHome";
 import AboutPage from "./pages/aboutPage/AboutPage";
 import EditProfile from "./pages/profilePage/EditProfile";
 import AdminPage from "./pages/adminpage/AdminPage";
-
+import { CreateReportUserPage } from "./pages/reportUserPage/ReportUser";
 
 // PROVIDERS
 import { CreateReview } from "./pages/createReviewPage/CreateReview";
@@ -31,6 +31,7 @@ import { SignupProvider } from "./components/context/SignupContext";
 import { AuthProvider } from "./components/context/AuthContext";
 import { PubUserProvider } from "./components/context/PubUserContext";
 import { ReportsProvider } from "./components/context/ReportsContext";
+
 import { AdminProvider } from "./components/context/AdminContext";
 
 function App() {
@@ -73,7 +74,14 @@ function App() {
                             element={<PubProfile />}
                           />
                           <Route path="/contact" element={<ContactPage />} />
-                         <Route path="/reviews/create" element={<CreateReview/>} />
+                         <Route
+                                  path="/reviews/create"
+                                  element={
+                                    <PrivateRoute>
+                                      <CreateReview />
+                                    </PrivateRoute>
+                                  }
+                                />
                         <Route path="/return" element={<ReturnHome/>}/>
                         <Route path="/edit-profile" element={<EditProfile/>}/>
                         <Route path="/admin" element={<AdminPage/>}/>
@@ -91,6 +99,7 @@ function App() {
     </ReportsProvider>
     </AdminProvider>
   </AuthProvider>
+
   );
 }
 

@@ -75,6 +75,16 @@ export const PubProfileComp = () => {
                     </Link>
                   
                   <Link>See Review</Link>
+                  <Link
+                      
+                      onClick={() => {
+                      localStorage.setItem("reportedUsername", userData.username);
+                        localStorage.setItem("reportedUserId", userId);
+                      }}
+                      to={`/report/user`}
+                    >
+                      Report User
+                    </Link>
                 </div>
               </div>
             </div>
