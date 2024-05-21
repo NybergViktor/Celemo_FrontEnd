@@ -8,9 +8,7 @@ import InfoFieldsCreateAuction from "./infoFields/InfoFieldsCreateAuction";
 function AuctionSelectionDropdowns() {
   const {
     categories,
-    inputData,
     handleInputCategoryChange,
-    handleInputFileChange,
     setCelebrity,
     selectedCelebrity,
     setSelectedCelebrity,
@@ -138,6 +136,7 @@ function AuctionSelectionDropdowns() {
               value={searchTerm}
               onChange={handleInputChange}
             />
+            <div className="celeb-select-container">
             <select className="celeb-select" onChange={handleCelebSelect}>
               <option>NONE</option>
               {celebrityData.map((celeb) => {
@@ -151,6 +150,7 @@ function AuctionSelectionDropdowns() {
             <button id="api-btn" typeof="button" onClick={searchHandler}>
               search
             </button>
+            </div>
           </label>
         </div>
         
