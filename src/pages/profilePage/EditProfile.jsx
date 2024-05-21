@@ -5,19 +5,26 @@ import { AuthContext } from "../../components/context/AuthContext";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import React from "react";
+import { Upload } from "react-bootstrap-icons";
 
 const EditProfile = () => {
-
-  const { fetchUpdateUser, getUserFromId, userData, fetchDeleteUser } =
-    useContext(UserContext);
+  const {
+    fetchUpdateUser,
+    getUserFromId,
+    userData,
+    fetchDeleteUser,
+    updatedUser,
+    setUpdatedUser,
+  } = useContext(UserContext);
   const { logout } = useContext(AuthContext);
   const [loggedInUser, setLoggedInUser] = useState(
     JSON.parse(localStorage.getItem("user"))
   );
+
+  const [imageLink, setImageLink] = useState("");
   const [userValue, setuserValue] = useState({
     userId: loggedInUser.id,
   });
-
 
   useEffect(() => {
     getUserFromId(loggedInUser.id);
@@ -48,6 +55,43 @@ const EditProfile = () => {
     fetchUpdateUser(userValue);
     console.log(userValue);
     window.location.href = "/profile";
+  };
+
+  //image
+
+  const [iconColor, setIconColor] = useState("grey");
+
+  const handleImage = (e) => {
+    const value = e.target.value;
+    setImageLink(value);
+  };
+
+  const saveImageLink = () => {
+    setUpdatedUser((prevData) => ({
+      ...prevData,
+      photo: imageLink,
+    }));
+  };
+
+  useEffect(() => {
+    saveImageLink();
+  }, [imageLink]);
+
+  const updateImage = () => {
+    if (imageLink !== "") {
+      return (
+        <div id="icon-container">
+          <img src={imageLink} />
+        </div>
+      );
+    }
+    if (imageLink === "") {
+      return (
+        <div id="icon-container">
+          <Upload size={50} color={iconColor} className="upload-icon" />
+        </div>
+      );
+    }
   };
 
   return (
@@ -98,9 +142,8 @@ const EditProfile = () => {
                 />
               </div>
               <div className="editProfileInfo">
-                <p >Gender</p>
+                <p>Gender</p>
                 <select
-                  
                   name="gender"
                   placeholder={userData.gender}
                   onChange={handleChange}
@@ -173,11 +216,28 @@ const EditProfile = () => {
                   onChange={handleChange}
                 />
               </div>
+              <div className="editProfileInfo-pic">
+                <div className="image-text-bottom-profile">
+                  {/* only accepting (.jpg and .png) */}
+                  <label className="lable-profile">
+                    <input
+                      type="text"
+                      name="productPhoto"
+                      id="image-text-profile"
+                      placeholder="Paste in image link"
+                      onChange={handleImage}
+                    />
+                  </label>
+                </div>
+                <div className="picture-container-profile">
+                  <div className="picture-profile">{updateImage()}</div>
+                </div>
+              </div>
 
               <button
                 id="signUpButton"
                 onClick={(e) => handleSubmit(e, userValue)}
-                className="signUpButton"
+                className="signUpButton-profile"
               >
                 Submit
               </button>

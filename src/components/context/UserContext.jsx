@@ -9,6 +9,8 @@ const UserProvider = ({ children }) => {
   const [foundUserAdminPage, setFoundUserAdminPage] = useState({});
   const [allUsers, setAllUsers] = useState([]);
 
+  
+
   const getUserFromId = async (userId) => {
     const options = {
       method: "GET",
@@ -30,7 +32,6 @@ const UserProvider = ({ children }) => {
     }
   };
 
-
   // find user in admin page
   const fetchUserFromIdAdminPage = async (userId) => {
     const options = {
@@ -45,13 +46,12 @@ const UserProvider = ({ children }) => {
         options
       );
       const fetchData = await response.json();
-      console.log(fetchData + " fetch admin")
-      setFoundUserAdminPage(fetchData)
+      console.log(fetchData + " fetch admin");
+      setFoundUserAdminPage(fetchData);
     } catch (error) {
       console.log("Error fetching: " + error);
     }
   };
-
 
   const getAllUsers = async () => {
     const options = {
@@ -73,10 +73,9 @@ const UserProvider = ({ children }) => {
   };
 
   const fetchDeleteUser = async (userId) => {
-    
     const options = {
       method: "DELETE",
-      headers: {"Content-Type": "application/json",},
+      headers: { "Content-Type": "application/json" },
       credentials: "include",
       body: JSON.stringify({
         userId: `${userId}`,
@@ -93,10 +92,7 @@ const UserProvider = ({ children }) => {
     } catch (error) {
       console.log("Error fetching: " + error);
     }
-  }
-
-
-    
+  };
 
   const getUserWinningBidFromId = async (userId) => {
     const options = {
@@ -146,6 +142,7 @@ const UserProvider = ({ children }) => {
         getAllUsers,
         fetchUpdateUser,
         updatedUser,
+        setUpdatedUser,
         userData,
         getUserFromId,
         favourites,
