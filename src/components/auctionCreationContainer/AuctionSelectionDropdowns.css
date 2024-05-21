@@ -93,10 +93,9 @@
 }
 /* SEARCH BUTTON FOR API NINJA */
 #api-btn {
-  /* margin-top: 1rem; */
   position: relative;
-  left: 12rem;
-  top: 2rem;
+  left: 12.7rem;
+  top: 2.65rem;
   border-radius: 10px;
   border: none;
   height: 2rem;
