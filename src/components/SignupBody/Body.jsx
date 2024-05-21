@@ -24,13 +24,14 @@ const Body = () => {
     setSignupValue({ ...signupValue, [name]: value });
   };
 
-  const handleSubmit = (e, signupValue) => {
+  const handleSubmit = async (e, signupValue) => {
     e.preventDefault();
     if (signupValue.error) {
       console.log("error: " + signupValue.error);
     }
-    fetchSignup(signupValue);
+    await fetchSignup(signupValue);
     console.log(signupValue);
+    window.location.href = "/login";
   };
 
   return (
