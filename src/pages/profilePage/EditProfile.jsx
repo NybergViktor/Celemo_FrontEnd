@@ -34,6 +34,7 @@ const EditProfile = () => {
     const name = e.target.name;
     const value = e.target.value;
     setuserValue({ ...userValue, [name]: value });
+    setImageLink(value);
   };
 
   const handleDelete = async () => {
@@ -53,18 +54,13 @@ const EditProfile = () => {
       console.log("error: " + userValue.error);
     }
     fetchUpdateUser(userValue);
-    console.log(userValue);
+    console.log(userValue + " uservalue");
     window.location.href = "/profile";
   };
 
   //image
 
   const [iconColor, setIconColor] = useState("grey");
-
-  const handleImage = (e) => {
-    const value = e.target.value;
-    setImageLink(value);
-  };
 
   const saveImageLink = () => {
     setUpdatedUser((prevData) => ({
@@ -225,7 +221,7 @@ const EditProfile = () => {
                       name="productPhoto"
                       id="image-text-profile"
                       placeholder="Paste in image link"
-                      onChange={handleImage}
+                      onChange={handleChange}
                     />
                   </label>
                 </div>
