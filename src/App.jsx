@@ -52,16 +52,13 @@ function App() {
                   <ReviewProvider>
                     <BrowserRouter>
                       <Routes>
-<<<<<<< Updated upstream
                         <Route path="/" element={<Startpage />} />
-=======
                         <Route path="/usersreviews" element={<UsersReviews />} />
                         <Route path="/" element={<Startpage />} 
 /><Route
                               path="/about"
                               element={<AboutPage/>}
                             />
->>>>>>> Stashed changes
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/signup" element={<SignupPage />} />
