@@ -23,6 +23,12 @@
 .username-report {
   width: 80%;
   background-color: black;
+  height: 4rem;
+  border-radius: 15px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .report-user-form-container {
   display: flex;
