@@ -1,18 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { ReviewContext } from "../context/ReviewContext";
+import { useParams } from "react-router-dom";
 import './ReviewBody.css'
 
 const ReviewContainerContent = () => {
-  const { usersReviews, fetchUsersReviews, reviewedUser } =
+  const userId = useParams();
+  const { usersReviews, fetchUsersReviews, reviewedUser, review  } =
     useContext(ReviewContext);
 
-  const [loggedInUserId, setLoggedInUserId] = useState(
-    localStorage.getItem("loggedInUserId")
-  );
-
   useEffect(() => {
-    fetchUsersReviews(loggedInUserId);
-  }, []);
+    fetchUsersReviews(userId.userId);
+  }, [review]);
 
   return (
     <div className="reviewContainerContent">

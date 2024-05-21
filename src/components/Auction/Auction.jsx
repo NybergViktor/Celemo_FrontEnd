@@ -58,7 +58,9 @@ export const Auction = () => {
             <Link to={`/pubprofile/${auction.seller}`}>
               <div className="seller-username">@{userData.username}</div>
             </Link>
+            <Link to={`/review/${auction.seller}`}>
             <button>Reviews</button>
+            </Link>
           </div>
         </div>
         <div className="blankWhite"></div>

@@ -55,7 +55,7 @@ function App() {
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/signup" element={<SignupPage />} />
-                        <Route path="/review" element={<ReviewPage />} />
+                        <Route path="/review/:userId" element={<ReviewPage />} />
                         <Route path="/auction/find-one/:auctionId" element={<AuctionPage />} />
                         <Route  path="/create-auction"  element={
                         <PrivateRoute>

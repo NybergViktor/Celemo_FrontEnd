@@ -17,7 +17,7 @@ export const PubProfileComp = () => {
   useEffect(() => {
     getPublicUserFromId(userId);
     fetchUsersAuctions(userId);
-    console.log(userData)
+    console.log(JSON.stringify(userData) + "userData")
   }, [userId]);
 
   if (!userData) {
@@ -75,7 +75,7 @@ export const PubProfileComp = () => {
                       Review User
                     </Link>
                   
-                  <Link>See Review</Link>
+                  <Link to= {`/review/${userId}`}>See Review</Link>
                   <Link
                       
                       onClick={() => {
