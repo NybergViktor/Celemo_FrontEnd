@@ -1,11 +1,11 @@
 import { useState, useContext, useEffect } from "react";
 import "./SubHeader.css";
 import { SearchContext } from "../context/SearchContext";
-import { EnumContext } from "../context/EnumContext";
+import { CreateAuctionContext } from "../context/CreateAuctionContext";
 
 const SubHeader = () => {
   const { searchValue, setSearchValue, setPageNr, searchAuctionsNoPaging, searchAuctions, pageNr, pageSize } = useContext(SearchContext);
-  const { categories, fetchCategories } = useContext(EnumContext);
+  const { categories, fetchCategories } = useContext(CreateAuctionContext);
   const [isFilterActive, setIsFilterActive] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [isRedoActive, setIsRedoActive] = useState(false);

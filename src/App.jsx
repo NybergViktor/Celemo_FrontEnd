@@ -23,7 +23,7 @@ import { CreateReview } from "./pages/createReviewPage/CreateReview";
 import { LoginProvider } from "./components/context/LoginContext";
 import { UserProvider } from "./components/context/UserContext";
 import { AuctionProvider } from "./components/context/AuctionContext";
-import { EnumProvider } from "./components/context/EnumContext";
+import { CreateAuctionProvider } from "./components/context/CreateAuctionContext";
 import { SearchProvider } from "./components/context/SearchContext";
 import { BidProvider } from "./components/context/BidsContext";
 import { ReviewProvider } from "./components/context/ReviewContext";
@@ -36,6 +36,7 @@ import { AdminProvider } from "./components/context/AdminContext";
 
 function App() {
   return (
+
 
   <AuthProvider>
     <AdminProvider>
@@ -75,6 +76,7 @@ function App() {
                           />
                           <Route path="/contact" element={<ContactPage />} />
                          <Route
+
                                   path="/reviews/create"
                                   element={
                                     <PrivateRoute>
@@ -82,9 +84,18 @@ function App() {
                                     </PrivateRoute>
                                   }
                                 />
+
                         <Route path="/return" element={<ReturnHome/>}/>
                         <Route path="/edit-profile" element={<EditProfile/>}/>
                         <Route path="/admin" element={<AdminPage/>}/>
+                          <Route
+                                  path="/report/user"
+                                  element={
+                                    <PrivateRoute>
+                                      <CreateReportUserPage />
+                                    </PrivateRoute>
+                                  }
+                                />
                      </Routes>
                     </BrowserRouter>
                   </ReviewProvider>
@@ -99,6 +110,7 @@ function App() {
     </ReportsProvider>
     </AdminProvider>
   </AuthProvider>
+
 
   );
 }
