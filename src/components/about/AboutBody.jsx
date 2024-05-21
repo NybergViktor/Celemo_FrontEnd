@@ -84,7 +84,7 @@ function AboutBody() {
                 <span className="overlay"></span>
                 <div className="crad-imge">
                   <img
-                    src="src/assets/pr.img/john.png"
+                    src="src/assets/pr.img/sss.jpg"
                     alt="John"
                     className="crad-img"
                   />
