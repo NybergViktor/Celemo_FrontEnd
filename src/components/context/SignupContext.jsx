@@ -14,6 +14,7 @@ const SignupProvider = ({children}) => {
         
         try {
             await axios.post(`${import.meta.env.VITE_API_URL}/auth/signup`, signupValue)
+            alert("Signup successful!");
         }
         catch (error) {
             console.log(error);
