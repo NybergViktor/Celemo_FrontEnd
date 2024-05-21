@@ -1,7 +1,7 @@
 import React from "react";
 import { createContext, useState, useEffect } from "react";
 
-const ReportContext = createContext();
+const ReportUserContext = createContext();
 
 const ReportUserProvider = ({ children }) => {
   const [content, setContent] = useState("");
@@ -52,7 +52,7 @@ const ReportUserProvider = ({ children }) => {
     }
   };
   return (
-    <ReportContext.Provider
+    <ReportUserContext.Provider
       value={{
         createReportUser,
         content,
@@ -60,7 +60,7 @@ const ReportUserProvider = ({ children }) => {
       }}
     >
       {children}
-    </ReportContext.Provider>
+    </ReportUserContext.Provider>
   );
 };
-export { ReportContext, ReportUserProvider };
+export { ReportUserContext, ReportUserProvider };

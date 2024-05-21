@@ -1,13 +1,12 @@
 import { Link, useParams } from "react-router-dom";
-import { ReviewContext } from "../../components/context/ReviewContext";
-import { useState, useContext, useEffect } from "react";
+import React, { useContext,useState, useEffect } from 'react';
 import "../reportUserPage/RUser.css";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
-import { ReportContext } from "../../components/context/ReportUserContext";
+import { ReportUserContext } from "../../components/context/ReportUserContext";
 
 export const CreateReportUserPage = () => {
-  const { content, setContent, createReportUser } = useContext(ReportContext);
+  const { content, setContent, createReportUser } = useContext(ReportUserContext);
 
   const [reportedUserUsername, setReportedUserUsername] = useState("");
   const [reportedId, setReportedId] = useState("");
