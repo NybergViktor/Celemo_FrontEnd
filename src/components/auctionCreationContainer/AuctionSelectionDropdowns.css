@@ -18,7 +18,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: -2rem;
+  /* margin-top: 2rem; */
 }
 /* SVG IMAGE */
 .svg {
@@ -47,6 +47,7 @@
   padding: 10px 15px;
   border-radius: 10px;
   width: 70%;
+  margin-top: 1rem;
   font-weight: bold;
   text-align: center;
 }
@@ -56,6 +57,7 @@
   padding: 10px 15px;
   border-radius: 10px;
   width: 70%;
+  margin-top: 1rem;
   font-size: 15px;
   font-weight: bold;
   text-align: center;
@@ -64,6 +66,8 @@
 .celebrity-category {
   border: none;
   width: 70%;
+  margin-top: 1rem;
+
 }
 
 #celebrityInput {
@@ -133,7 +137,6 @@
 
   .celebrity-category {
     width: 100%;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -147,6 +150,7 @@
   .celeb-select {
     height: 2rem;
     margin-right: 12rem;
+    margin-top: 1rem;
     border-radius: 10px;
     padding-left: 5px;
     border: none;
@@ -160,7 +164,7 @@
     height: 2rem;
     background-color: #f19d6f;
     position: absolute;
-    top: 16.7rem;
+    top: 15.7rem;
     right: 19rem;
   }
 

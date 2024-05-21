@@ -116,7 +116,7 @@ textarea {
 .publish-button-container {
   display: flex;
   position: relative;
-  top: 14rem;
+  top: 12rem;
   justify-content: center;
 }
 
@@ -164,7 +164,7 @@ textarea {
   }
   .title-text-bottom {
     position: relative;
-    top: -15.5rem;
+    top: -13rem;
     height: 2rem;
     margin-right: 40%;
   }
@@ -174,7 +174,7 @@ textarea {
   }
   .description-bottom {
     position: relative;
-    top: -14.5rem;
+    top: -12rem;
     margin-right: 40%;
   }
   .textarea {
@@ -193,7 +193,7 @@ textarea {
   .endDate {
     height: 2rem;
     position: relative;
-    bottom: 1rem;
+    /* bottom: rem; */
   }
 
   /* moving the button design aswell with moving it forward so its shown */
