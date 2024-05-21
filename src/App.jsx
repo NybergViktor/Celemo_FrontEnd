@@ -32,8 +32,7 @@ import { SignupProvider } from "./components/context/SignupContext";
 import { AuthProvider } from "./components/context/AuthContext";
 import { PubUserProvider } from "./components/context/PubUserContext";
 import { ReportsProvider } from "./components/context/ReportsContext";
-
-import { AdminProvider } from "./components/context/AdminContext";
+import { ReportUserProvider } from "./components/context/ReportUserContext";
 
 function App() {
   return (
@@ -86,11 +85,16 @@ function App() {
                                     </PrivateRoute>
                                   }
                                 />
-
-                        <Route path="/return" element={<ReturnHome/>}/>
-                        <Route path="/edit-profile" element={<EditProfile/>}/>
-                        <Route path="/admin" element={<AdminPage/>}/>
-                          <Route
+                                <Route
+                                  path="/return"
+                                  element={<ReturnHome />}
+                                />
+                                <Route
+                                  path="/edit-profile"
+                                  element={<EditProfile />}
+                                />
+                                <Route path="/admin" element={<AdminPage />} />
+                                <Route
                                   path="/report/user"
                                   element={
                                     <PrivateRoute>
