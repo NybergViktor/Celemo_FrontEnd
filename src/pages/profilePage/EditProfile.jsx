@@ -36,6 +36,7 @@ const EditProfile = () => {
     setuserValue({ ...userValue, [name]: value });
     setImageLink(value);
   };
+  
 
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete your account?")) {
@@ -45,7 +46,7 @@ const EditProfile = () => {
     }
   };
 
-  const handleSubmit = (e, userValue) => {
+  const handleSubmit = async (e, userValue) => {
     e.preventDefault();
     if (userData.password === null) {
       delete userValue.password;
@@ -53,7 +54,7 @@ const EditProfile = () => {
     if (userValue.error) {
       console.log("error: " + userValue.error);
     }
-    fetchUpdateUser(userValue);
+    await fetchUpdateUser(userValue);
     console.log(userValue + " uservalue");
     window.location.href = "/profile";
   };
@@ -218,7 +219,7 @@ const EditProfile = () => {
                   <label className="lable-profile">
                     <input
                       type="text"
-                      name="productPhoto"
+                      name="photo"
                       id="image-text-profile"
                       placeholder="Paste in image link"
                       onChange={handleChange}
