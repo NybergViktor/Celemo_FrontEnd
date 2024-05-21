@@ -141,6 +141,18 @@ const EditProfile = () => {
               placeholder="Password"
               onChange={handleChange}/>
             </div>
+            <div className="editProfileInfo">
+
+                <p>Photo</p>
+              <input
+              name="photo" 
+              value={userValue.photo}
+              type="photo" 
+              id="Photo" 
+              className="inputPhoto" 
+              placeholder="Photo"
+              onChange={handleChange}/>
+            </div>
               
               <button id="signUpButton" 
               onClick={(e) => handleSubmit(e, userValue)}
