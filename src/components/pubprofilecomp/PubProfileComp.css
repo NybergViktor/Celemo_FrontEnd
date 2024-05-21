@@ -87,6 +87,14 @@ h1 {
 
 .auctionbuttons  a:nth-last-child(1){
     margin-top: 1rem;
+
+  margin-bottom: 1rem;
+}
+.auctionbuttons  a:nth-last-child(2){
+  margin-top: 1rem;
+}
+.auctionbuttons  a:nth-last-child(3){
+  margin-top: 1rem;
 }
 .publicContainer {
   display: flex;

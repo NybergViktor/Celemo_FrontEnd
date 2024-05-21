@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   margin: 20px auto !important;
-  height: 163vh !important;
   flex-direction: column;
   align-items: center;
 }
@@ -10,16 +9,31 @@
 .svg1 {
   position: absolute;
   z-index: -1;
-  top: 0;
+  top: 1rem;
 }
-
+/* Container for the whole bottom svg image */
+.svg-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* margin-top: 2rem; */
+}
+/* SVG IMAGE */
+.svg {
+  bottom: 10rem;
+  position: relative;
+  z-index: -1;
+}
+/* CONTAINER FOR THE UPPER SVG */
 .selection-dropdown-top {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-/* Gets overidden if not by grid if only title */
+/* Gets overidden by othe grid if its set to only title */
 .title-h1 {
   margin-top: 2.5rem;
 }
@@ -32,8 +46,8 @@
   border: none;
   padding: 10px 15px;
   border-radius: 10px;
+  width: 70%;
   margin-top: 1rem;
-  width: 100%;
   font-weight: bold;
   text-align: center;
 }
@@ -42,8 +56,8 @@
   border: none;
   padding: 10px 15px;
   border-radius: 10px;
+  width: 70%;
   margin-top: 1rem;
-  width: 100%;
   font-size: 15px;
   font-weight: bold;
   text-align: center;
@@ -51,18 +65,64 @@
 
 .celebrity-category {
   border: none;
+  width: 70%;
+  margin-top: 1rem;
+
+}
+
+#celebrityInput {
   padding: 10px 15px;
   border-radius: 10px;
-  margin-top: 1rem;
   width: 100%;
   font-size: 15px;
   font-weight: bold;
   text-align: center;
+  height: 2.5rem;
+}
+.celeb-select-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.celeb-select {
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  height: 2rem;
+  margin-top: 1rem;
+}
+/* SEARCH BUTTON FOR API NINJA */
+#api-btn {
+  /* margin-top: 1rem; */
+  position: relative;
+  left: 12rem;
+  top: 2rem;
+  border-radius: 10px;
+  border: none;
+  height: 2rem;
+  width: 4rem;
+  background-color: #f19d6f;
+  z-index: 5;
 }
 
 @media screen and (min-width: 847px) {
+  /* Media qureys to hide the svg image- */
+  /* and instead display a container with different size for desktop */
   .svg1 {
     display: none;
+  }
+  .svg {
+    display: none;
+  }
+
+  .svg-container {
+    display: flex;
+    background-color: #363636;
+    margin-top: 2rem;
+    width: 90%;
+    border-radius: 50px;
+    box-shadow: 5px 5px 10px 3px #000000;
+    flex-wrap: wrap;
   }
 
   .selection-container-top {
@@ -74,14 +134,87 @@
   }
 
   .main-container {
-    height: 100vh !important;
     max-width: 1000px;
     margin: 2rem auto !important;
   }
 
   .category,
-  .sub-category,
-  .celebrity-category {
+  .sub-category {
     width: 45%;
+  }
+
+  .celebrity-category {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  #celebrityInput {
+    width: 45%;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .celeb-select-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .celeb-select {
+    /* height: 2rem;
+    margin-right: 12rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding-left: 5px;
+    border: none;
+    width: fit-content; */
+  }
+
+  #api-btn {
+    top: 1rem;
+    left: 0;
+    margin-left: 1rem;
+  }
+
+  .output-container {
+    justify-content: start;
+    position: absolute;
+    top: 15.7rem;
+    left: 15rem;
+    width: 31%;
+    /* height: 0; FOR TRANSITION*/
+    border: none;
+    background-color: #605e5e5a;
+    border-radius: 10px;
+    /* opacity: 0; FOR TRANSITION */
+    overflow: hidden;
+    /* transition: height 2s ease 0s; FOR TRANSITION */
+    z-index: 3;
+  }
+
+  .output-container.show {
+    height: 5rem;
+    opacity: 1;
+  }
+
+  .p-container {
+    max-width: 17rem;
+    border: none;
+    width: 100%;
+    font-size: 10px;
+    position: absolute;
+    z-index: 3;
+    padding: 5px;
+  }
+  #select {
+    display: flex;
+    justify-content: center;
+    text-align: start;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #363636;
+    color: white;
+    font-size: 15px;
+    padding: 5px;
   }
 }

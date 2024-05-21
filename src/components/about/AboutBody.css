@@ -1,0 +1,144 @@
+
+.AboutContainerPage{
+    min-height: 87vh;
+    align-items: center;
+    justify-content: center;
+    inset-inline: 23px;
+    
+}
+.side-cotainer{
+    margin: 0 40px;
+    position: relative; 
+    
+}
+.cards{
+    max-width: 330px;
+    background-color: white;
+    gap: 20px;
+    box-shadow: 1px 1px 5px gray; 
+    border-radius: 20px;
+    min-height: 25rem
+}
+.side-content{
+    margin: 0 40px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+    align-items: center; 
+    gap:20px;
+    
+}
+
+.img-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    justify-content: center;
+    row-gap: 15px;
+    position: relative;
+    width: 100%;
+    
+}
+
+
+.card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    row-gap: 15px;
+    position: relative;
+    width: 100%;
+    
+
+}
+.overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #363636;
+    border-radius: 20px;
+    
+}
+
+
+.crad-imge{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+       height: 150px;
+    width: 150px;
+    padding: 3px;
+    
+    
+}
+.crad-imge .crad-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    
+}
+.name{
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(20, 18, 18);
+    margin-top: 1rem;
+    
+}
+
+.dexription{
+    font-size: 14px;
+    left: 0;
+    top: 0;
+    color: rgb(129, 128, 128);
+    text-align: center; 
+    height: auto;  
+    width: 90%;
+    
+}
+
+.celemo{
+    align-items: center;
+    justify-content: center;
+    width: 98%;
+    text-align: center;
+    position: relative;
+}
+.omTeam{
+    margin-top: 20px;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 20px;
+    
+}
+
+
+.omCelemo{
+    text-align: center;
+    margin-top: 1rem;
+    
+}
+
+.CelemoP{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 90%;
+    
+}
+
+.celemPdiv{
+    box-shadow: 0px 0px 20px rgb(92, 81, 81);
+    background-color: #363636;
+    color: white;
+    font-size: larger;
+    width: auto;
+    height: auto; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+border-radius: 20px;
+    
+}

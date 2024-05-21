@@ -1,5 +1,6 @@
 .review-main {
   height: auto;
+  
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -21,6 +22,9 @@
 }
 .username-review {
   margin-bottom: 2rem;
+  background-color: black;
+  color: white;
+  width: 70%;
 }
 .review-form-container {
   display: flex;
@@ -29,16 +33,17 @@
   justify-content: center;
   width: 80%;
   gap: 2rem;
-  max-width: 500px;
+  max-width: 400px;
 }
 .place-review-button {
-  width: 100%;
+  width: 60%;
   border-style: none;
-  height: 2.5rem;
-  border-radius: 15px;
+  height: 3rem;
+  border-radius: 10px;
   background-color: #f19d6f;
-  box-shadow: 0 0 5px gray;
   font-size: large;
+
+  
 }
 
 .place-review-button:link{
@@ -62,6 +67,7 @@
   border-style: none;
   box-shadow: 0 0 5px gray;
   border-radius: 10px;
+  padding-left: 5px;
 }
 .review-p {
   position: absolute;

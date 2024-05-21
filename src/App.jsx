@@ -12,6 +12,8 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import PubProfile from "./pages/pubprofile/PubProfile";
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
 import ContactPage from "./pages/contactpage/ContactPage";
+import { ReturnHome } from "./pages/returnHome/ReturnHome";
+import AboutPage from "./pages/aboutPage/AboutPage";
 import EditProfile from "./pages/profilePage/EditProfile";
 import AdminPage from "./pages/adminpage/AdminPage";
 import { CreateReportUserPage } from "./pages/reportUserPage/ReportUser";
@@ -19,11 +21,10 @@ import UsersReviews from "./pages/usersreviews/UsersReviews";
 
 // PROVIDERS
 import { CreateReview } from "./pages/createReviewPage/CreateReview";
-import { ReturnHome } from "./pages/returnHome/ReturnHome";
 import { LoginProvider } from "./components/context/LoginContext";
 import { UserProvider } from "./components/context/UserContext";
 import { AuctionProvider } from "./components/context/AuctionContext";
-import { EnumProvider } from "./components/context/EnumContext";
+import { CreateAuctionProvider } from "./components/context/CreateAuctionContext";
 import { SearchProvider } from "./components/context/SearchContext";
 import { BidProvider } from "./components/context/BidsContext";
 import { ReviewProvider } from "./components/context/ReviewContext";
@@ -32,9 +33,14 @@ import { AuthProvider } from "./components/context/AuthContext";
 import { PubUserProvider } from "./components/context/PubUserContext";
 import { ReportsProvider } from "./components/context/ReportsContext";
 
+import { AdminProvider } from "./components/context/AdminContext";
+
 function App() {
   return (
+
+
   <AuthProvider>
+    <AdminProvider>
     <ReportsProvider>
     <PubUserProvider>
     <SignupProvider>
@@ -74,10 +80,27 @@ function App() {
                             element={<PubProfile />}
                           />
                           <Route path="/contact" element={<ContactPage />} />
-                          <Route path="/reviews/create" element={<CreateReview/>} />
-                          <Route path="/return" element={<ReturnHome/>}/>
-                          <Route path="/edit-profile" element={<EditProfile/>}/>
+                         <Route
+
+                                  path="/reviews/create"
+                                  element={
+                                    <PrivateRoute>
+                                      <CreateReview />
+                                    </PrivateRoute>
+                                  }
+                                />
+
+                        <Route path="/return" element={<ReturnHome/>}/>
+                        <Route path="/edit-profile" element={<EditProfile/>}/>
                         <Route path="/admin" element={<AdminPage/>}/>
+                          <Route
+                                  path="/report/user"
+                                  element={
+                                    <PrivateRoute>
+                                      <CreateReportUserPage />
+                                    </PrivateRoute>
+                                  }
+                                />
                      </Routes>
                     </BrowserRouter>
                   </ReviewProvider>
@@ -89,7 +112,10 @@ function App() {
     </SignupProvider>
     </PubUserProvider>
     </ReportsProvider>
+    </AdminProvider>
   </AuthProvider>
+
+
   );
 }
 
