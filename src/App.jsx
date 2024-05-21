@@ -14,7 +14,8 @@ import PrivateRoute from "./components/privateRoute/PrivateRoute";
 import ContactPage from "./pages/contactpage/ContactPage";
 import EditProfile from "./pages/profilePage/EditProfile";
 import AdminPage from "./pages/adminpage/AdminPage";
-
+import { CreateReportUserPage } from "./pages/reportUserPage/ReportUser";
+import UsersReviews from "./pages/usersreviews/UsersReviews";
 
 // PROVIDERS
 import { CreateReview } from "./pages/createReviewPage/CreateReview";
@@ -40,13 +41,21 @@ function App() {
       <LoginProvider>
         <UserProvider>
           <SearchProvider>
-            <EnumProvider>
               <AuctionProvider>
                 <BidProvider>
                   <ReviewProvider>
                     <BrowserRouter>
                       <Routes>
+<<<<<<< Updated upstream
                         <Route path="/" element={<Startpage />} />
+=======
+                        <Route path="/usersreviews" element={<UsersReviews />} />
+                        <Route path="/" element={<Startpage />} 
+/><Route
+                              path="/about"
+                              element={<AboutPage/>}
+                            />
+>>>>>>> Stashed changes
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="/signup" element={<SignupPage />} />
@@ -74,7 +83,6 @@ function App() {
                   </ReviewProvider>
                 </BidProvider>
               </AuctionProvider>
-            </EnumProvider>
           </SearchProvider>
         </UserProvider>
       </LoginProvider>
