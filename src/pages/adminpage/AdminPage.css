@@ -24,7 +24,7 @@
   flex-direction: column;
 }
 
-h1 {
+.h1-admin {
   text-align: center;
   align-self: center;
   background-color: #888888;
@@ -58,9 +58,15 @@ h1 {
 
   background-color: white;
 }
-button {
+.ban-user {
   color: white;
-  background-color: chocolate;
+  background-color: #f19d6f;
+  border-style: none;
+  border-radius: 20px;
+}
+.unban-user{
+  color: white;
+  background-color: #f19d6f;
   border-style: none;
   border-radius: 20px;
 }
@@ -72,13 +78,13 @@ button {
 }
 
 .btn:nth-child(3) {
-  background-color: chocolate;
+  background-color: #f19d6f;
 
   border: 1px solid #ff0000;
   margin-left: 1rem;
 }
 .btn:nth-child(2) {
-  background-color: chocolate;
+  background-color: #f19d6f;
 
   border: 1px solid #ff0000;
 }

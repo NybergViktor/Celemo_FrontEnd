@@ -22,6 +22,8 @@ const AdminPage = () => {
     foundUserAdminPage,
   } = useContext(UserContext);
   const [banId, setBanId] = useState("");
+
+  const [unbanId, setUnbanId] = useState("");
   const [findUserId, setFindUserId] = useState("");
   const [findUserToggle, setFindUserToggle] = useState(false);
 
@@ -88,23 +90,42 @@ const AdminPage = () => {
       return;
     }
   };
-  const handleBanUserButton = async () => {
+
+  function handleBanUserButton() {
     if (window.confirm("Are you sure you want to ban this user?")) {
+      console.log(banId + " fetch ban");
       fetchBanUser(banId);
-      return;
     }
-  };
+    setBanId("");
+  }
 
-  const handleUnBanUserButton = async () => {
+  function handleUnBanUserButton() {
     if (window.confirm("Are you sure you want to unban this user?")) {
-      fetchUnBanUser(banId);
-      return;
+      console.log(unbanId + " fetch unban");
+      fetchUnBanUser(unbanId);
     }
+    setUnbanId("");
+  }
+
+  const handleInputChangeBan = (e) => {
+    e.preventDefault();
+    console.log(banId + " banid handle");
+
+    handleBanUserButton();
+  };
+  const handleInputChangeUnban = (e) => {
+    e.preventDefault();
+    console.log(unbanId + " banid handle unba");
+
+    handleUnBanUserButton();
   };
 
-  const handleInputChange = (event) => {
-    setBanId(event.target.value);
-  };
+  useEffect(() => {
+    console.log(banId);
+  }, [banId]);
+  useEffect(() => {
+    console.log(unbanId);
+  }, [unbanId]);
 
   function handleToggle() {
     if (findUserToggle === true) {
@@ -119,7 +140,7 @@ const AdminPage = () => {
     <>
       <Header />
       <div className="adminPage">
-        <h1>Admin Page</h1>
+        <h1 className="h1-admin">Admin Page</h1>
 
         <div className="ReviewsContainer">
           <h2>Reports</h2>
@@ -262,8 +283,8 @@ const AdminPage = () => {
         )}
 
         <div className="ReviewsContainer">
-          <h2>Ban/Unban User</h2>
-          <form>
+          <h2>Ban User</h2>
+          <form onSubmit={handleInputChangeBan}>
             <div className="form-group">
               <label htmlFor="banUserId">Enter User Id below!</label>
               <input
@@ -273,25 +294,39 @@ const AdminPage = () => {
                 aria-describedby="emailHelp"
                 placeholder="User Id"
                 value={banId}
-                onChange={handleInputChange}
+                onChange={(e) => setBanId(e.target.value)}
               />
               <small id="emailHelp" className="form-text text-muted">
                 Make sure id is correct.
               </small>
             </div>
 
-            <button
-              type="submit"
-              className="btn btn-primary"
-              onClick={handleBanUserButton}
-            >
+            <button type="submit" className="btn btn-primary">
               Ban
             </button>
-            <button
-              type="submit"
-              className="btn btn-primary"
-              onClick={handleUnBanUserButton}
-            >
+          </form>
+        </div>
+
+        <div className="ReviewsContainer">
+          <h2>Unban User</h2>
+          <form onSubmit={handleInputChangeUnban}>
+            <div className="form-group">
+              <label htmlFor="banUserId">Enter User Id below!</label>
+              <input
+                type="text"
+                className="form-control"
+                id="banUserId"
+                aria-describedby="emailHelp"
+                placeholder="User Id"
+                value={unbanId}
+                onChange={(e) => setUnbanId(e.target.value)}
+              />
+              <small id="emailHelp" className="form-text text-muted">
+                Make sure id is correct.
+              </small>
+            </div>
+
+            <button type="submit" className="btn btn-primary">
               Unban
             </button>
           </form>

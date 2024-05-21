@@ -29,7 +29,7 @@ const AdminProvider = ({ children }) => {
           options
         );
         const data = await res.json();
-        console.log(data)
+        console.log(data + " data")
       } catch (err) {
         console.log("err: " + err);
       }
@@ -56,7 +56,7 @@ const AdminProvider = ({ children }) => {
           options
         );
         const data = await res.json();
-        console.log(data)
+        console.log(data + " data")
       } catch (err) {
         console.log("err: " + err);
       }
