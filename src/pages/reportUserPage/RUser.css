@@ -1,0 +1,61 @@
+.report-user-main {
+  height: auto;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.report-user-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: white;
+  border-radius: 20px;
+  padding: 4rem;
+
+  max-width: 700px;
+}
+.username-report {
+  width: 80%;
+  background-color: black;
+}
+.report-user-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 80%;
+}
+.report-user-form-container label {
+  width: 100%;
+}
+.report-user-p {
+  margin-top: 10%;
+  font-size: 1.5rem;
+}
+.report-user-text {
+  border-style: none;
+  border-radius: 20px;
+  width: 100%;
+  text-align: center;
+  height: 8rem;
+  box-shadow: 0 0 5px lightgray;
+  margin-bottom: 2rem;
+}
+.place-report-button {
+  width: 50%;
+  border-style: none;
+  background-color: #f19d6f;
+  height: 3rem;
+  border-radius: 10px;
+  min-width: 150px;
+}
+.place-report-button a:any-link {
+  color: black;
+  font-size: 1.1rem;
+}
