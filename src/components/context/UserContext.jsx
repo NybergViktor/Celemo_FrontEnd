@@ -3,16 +3,15 @@ import { createContext, useState, useEffect } from "react";
 const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
+
   const [userData, setUserData] = useState([]);
   const [favourites, setFavourites] = useState([]);
   const [winningBidUser, setWinningBidUser] = useState([]);
-  const [foundUserAdminPage, setFoundUserAdminPage] = useState({});
-  const [allUsers, setAllUsers] = useState([]);
 
   const getUserFromId = async (userId) => {
     const options = {
       method: "GET",
-      headers: { "Content-Type": "application/json" },
+      headers: {"Content-Type": "application/json",},
       credentials: "include",
     };
 
@@ -29,13 +28,11 @@ const UserProvider = ({ children }) => {
       console.log("Error fetching: " + error);
     }
   };
-
-
-  // find user in admin page
-  const fetchUserFromIdAdminPage = async (userId) => {
+  
+  const getUserWinningBidFromId = async (userId) => {
     const options = {
       method: "GET",
-      headers: { "Content-Type": "application/json" },
+      headers: {"Content-Type": "application/json",},
       credentials: "include",
     };
 
@@ -45,28 +42,7 @@ const UserProvider = ({ children }) => {
         options
       );
       const fetchData = await response.json();
-      console.log(fetchData + " fetch admin")
-      setFoundUserAdminPage(fetchData)
-    } catch (error) {
-      console.log("Error fetching: " + error);
-    }
-  };
-
-
-  const getAllUsers = async () => {
-    const options = {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    };
-
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/user/find/all`,
-        options
-      );
-      const fetchData = await response.json();
-      setAllUsers(fetchData);
+      setWinningBidUser(fetchData)
     } catch (error) {
       console.log("Error fetching: " + error);
     }
@@ -95,34 +71,14 @@ const UserProvider = ({ children }) => {
     }
   }
 
-
-    
-
-  const getUserWinningBidFromId = async (userId) => {
-    const options = {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    };
-
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/user/find-one/${userId}`,
-        options
-      );
-      const fetchData = await response.json();
-      setWinningBidUser(fetchData);
-    } catch (error) {
-      console.log("Error fetching: " + error);
-    }
-  };
-
   const [updatedUser, setUpdatedUser] = useState([]);
-
+  
   const fetchUpdateUser = async (updatedUser) => {
+
+
     const options = {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      headers: {"Content-Type": "application/json",},
       credentials: "include",
       body: JSON.stringify(updatedUser),
     };
@@ -137,25 +93,13 @@ const UserProvider = ({ children }) => {
     } catch (error) {
       console.log("Error fetching: " + error);
     }
-  };
+  }
+
 
   return (
-    <UserContext.Provider
-      value={{
-        allUsers,
-        getAllUsers,
-        fetchUpdateUser,
-        updatedUser,
-        userData,
-        getUserFromId,
-        favourites,
-        winningBidUser,
-        getUserWinningBidFromId,
-        fetchUserFromIdAdminPage,
-        foundUserAdminPage,
-        fetchDeleteUser
-      }}
-    >
+    <UserContext.Provider value={{ fetchDeleteUser, fetchUpdateUser, updatedUser, userData, getUserFromId, favourites, winningBidUser, getUserWinningBidFromId }}>
+
+
       {children}
     </UserContext.Provider>
   );

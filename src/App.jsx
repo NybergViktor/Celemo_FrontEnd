@@ -31,52 +31,60 @@ import { SignupProvider } from "./components/context/SignupContext";
 import { AuthProvider } from "./components/context/AuthContext";
 import { PubUserProvider } from "./components/context/PubUserContext";
 import { ReportsProvider } from "./components/context/ReportsContext";
-
-import { AdminProvider } from "./components/context/AdminContext";
+import { ReportUserProvider } from "./components/context/ReportUserContext";
 
 function App() {
   return (
-
-
-  <AuthProvider>
-    <AdminProvider>
-    <ReportsProvider>
-    <PubUserProvider>
-    <SignupProvider>
-      <LoginProvider>
-        <UserProvider>
-          <SearchProvider>
-            <EnumProvider>
-              <AuctionProvider>
-                <BidProvider>
-                  <ReviewProvider>
-                    <BrowserRouter>
-                      <Routes>
-                        <Route path="/" element={<Startpage />} 
-/><Route
-                              path="/about"
-                              element={<AboutPage/>}
-                            />
-                        <Route path="/login" element={<LoginPage />} />
-                        <Route path="/profile" element={<ProfilePage />} />
-                        <Route path="/signup" element={<SignupPage />} />
-                        <Route path="/review" element={<ReviewPage />} />
-                        <Route path="/auction/find-one/:auctionId" element={<AuctionPage />} />
-                        <Route
-                            path="/create-auction"
-                            element={
-                              <PrivateRoute>
-                                <CreateAuctionPage />
-                              </PrivateRoute>
-                            }
-                          />
-                          <Route
-                            path="/pubprofile/:userId"
-                            element={<PubProfile />}
-                          />
-                          <Route path="/contact" element={<ContactPage />} />
-                         <Route
-
+    <AuthProvider>
+      <ReportsProvider>
+        <PubUserProvider>
+          <SignupProvider>
+            <LoginProvider>
+              <UserProvider>
+                <SearchProvider>
+                  <CreateAuctionProvider>
+                    <AuctionProvider>
+                      <BidProvider>
+                        <ReviewProvider>
+                          <ReportUserProvider>
+                            <BrowserRouter>
+                              <Routes>
+                                <Route path="/" element={<Startpage />} />
+                                <Route path="/about" element={<AboutPage />} />
+                                <Route path="/login" element={<LoginPage />} />
+                                <Route
+                                  path="/profile"
+                                  element={<ProfilePage />}
+                                />
+                                <Route
+                                  path="/signup"
+                                  element={<SignupPage />}
+                                />
+                                <Route
+                                  path="/review"
+                                  element={<ReviewPage />}
+                                />
+                                <Route
+                                  path="/auction/find-one/:auctionId"
+                                  element={<AuctionPage />}
+                                />
+                                <Route
+                                  path="/create-auction"
+                                  element={
+                                    <PrivateRoute>
+                                      <CreateAuctionPage />
+                                    </PrivateRoute>
+                                  }
+                                />
+                                <Route
+                                  path="/pubprofile/:userId"
+                                  element={<PubProfile />}
+                                />
+                                <Route
+                                  path="/contact"
+                                  element={<ContactPage />}
+                                />
+                                <Route
                                   path="/reviews/create"
                                   element={
                                     <PrivateRoute>
@@ -84,11 +92,16 @@ function App() {
                                     </PrivateRoute>
                                   }
                                 />
-
-                        <Route path="/return" element={<ReturnHome/>}/>
-                        <Route path="/edit-profile" element={<EditProfile/>}/>
-                        <Route path="/admin" element={<AdminPage/>}/>
-                          <Route
+                                <Route
+                                  path="/return"
+                                  element={<ReturnHome />}
+                                />
+                                <Route
+                                  path="/edit-profile"
+                                  element={<EditProfile />}
+                                />
+                                <Route path="/admin" element={<AdminPage />} />
+                                <Route
                                   path="/report/user"
                                   element={
                                     <PrivateRoute>
@@ -96,22 +109,20 @@ function App() {
                                     </PrivateRoute>
                                   }
                                 />
-                     </Routes>
-                    </BrowserRouter>
-                  </ReviewProvider>
-                </BidProvider>
-              </AuctionProvider>
-            </EnumProvider>
-          </SearchProvider>
-        </UserProvider>
-      </LoginProvider>
-    </SignupProvider>
-    </PubUserProvider>
-    </ReportsProvider>
-    </AdminProvider>
-  </AuthProvider>
-
-
+                              </Routes>
+                            </BrowserRouter>
+                          </ReportUserProvider>
+                        </ReviewProvider>
+                      </BidProvider>
+                    </AuctionProvider>
+                  </CreateAuctionProvider>
+                </SearchProvider>
+              </UserProvider>
+            </LoginProvider>
+          </SignupProvider>
+        </PubUserProvider>
+      </ReportsProvider>
+    </AuthProvider>
   );
 }
 
