@@ -160,16 +160,7 @@
     flex-direction: row;
     justify-content: center;
   }
-  .celeb-select {
-    /* height: 2rem;
-    margin-right: 12rem;
-    margin-top: 1rem;
-    border-radius: 10px;
-    padding-left: 5px;
-    border: none;
-    width: fit-content; */
-  }
-
+  
   #api-btn {
     top: 1rem;
     left: 0;
