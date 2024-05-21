@@ -23,7 +23,7 @@ import { CreateReview } from "./pages/createReviewPage/CreateReview";
 import { LoginProvider } from "./components/context/LoginContext";
 import { UserProvider } from "./components/context/UserContext";
 import { AuctionProvider } from "./components/context/AuctionContext";
-import { EnumProvider } from "./components/context/EnumContext";
+import { CreateAuctionProvider } from "./components/context/CreateAuctionContext";
 import { SearchProvider } from "./components/context/SearchContext";
 import { BidProvider } from "./components/context/BidsContext";
 import { ReviewProvider } from "./components/context/ReviewContext";
@@ -42,7 +42,7 @@ function App() {
             <LoginProvider>
               <UserProvider>
                 <SearchProvider>
-                  <EnumProvider>
+                  <CreateAuctionProvider>
                     <AuctionProvider>
                       <BidProvider>
                         <ReviewProvider>
@@ -115,7 +115,7 @@ function App() {
                         </ReviewProvider>
                       </BidProvider>
                     </AuctionProvider>
-                  </EnumProvider>
+                  </CreateAuctionProvider>
                 </SearchProvider>
               </UserProvider>
             </LoginProvider>

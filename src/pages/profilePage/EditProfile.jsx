@@ -7,6 +7,7 @@ import Footer from "../../components/footer/Footer";
 import React from "react";
 
 const EditProfile = () => {
+
   const { fetchUpdateUser, getUserFromId, userData, fetchDeleteUser } =
     useContext(UserContext);
   const { logout } = useContext(AuthContext);
@@ -16,6 +17,7 @@ const EditProfile = () => {
   const [userValue, setuserValue] = useState({
     userId: loggedInUser.id,
   });
+
 
   useEffect(() => {
     getUserFromId(loggedInUser.id);
