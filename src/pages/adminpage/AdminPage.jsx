@@ -21,7 +21,7 @@ const AdminPage = () => {
     fetchUserFromIdAdminPage,
     foundUserAdminPage,
   } = useContext(UserContext);
-  const [banId, setBanId] = useState();
+  const [banId, setBanId] = useState("");
   const [findUserId, setFindUserId] = useState("");
   const [findUserToggle, setFindUserToggle] = useState(false);
 
