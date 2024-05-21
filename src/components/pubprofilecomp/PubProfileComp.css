@@ -12,6 +12,9 @@ h1 {
   margin-bottom: 1rem;
   text-align: center;
 }
+.currentPrice {
+  color: black;
+}
 .pub-main-container {
   background-color: white;
   display: flex;
@@ -108,7 +111,7 @@ h1 {
 .publicfieldContainer {
   display: flex;
   flex-direction: row;
-  height: auto;
+
   width: 100%;
   align-items: start;
   justify-content: flex-end;
@@ -122,14 +125,16 @@ h1 {
   margin-left: 0.3rem;
 }
 .publicfieldContent p {
-  height: 8px;
+  height: 14px;
   width: 7rem;
 }
+
 .publicfieldContainerAuction {
   display: flex;
   flex-direction: row;
-  height: 2rem;
+  height: auto;
 }
+
 .publicContainerAuction {
   display: flex;
   flex-direction: column;
@@ -149,6 +154,9 @@ h1 {
 .publicAuctionContainer:nth-last-child(1) {
   margin-bottom: 1rem;
 }
+.auctionbutton a:any-link {
+  color: black;
+}
 .publicProfilePic img {
   border-radius: 20px;
   max-width: 300px;
@@ -160,17 +168,18 @@ h1 {
   overflow: hidden;
   margin-top: -10rem;
 }
-
+.usersAuctionTitle{
+  min-width: 200px;
+}
 .publicAuction {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 90%;
   height: auto;
-
   box-shadow: 0 0 5px #717171;
   border-radius: 15px;
-}
+} 
 .auctionTitle {
   background-color: black;
   color: white;
@@ -185,6 +194,8 @@ h1 {
   height: auto;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -199,6 +210,9 @@ h1 {
   margin: auto;
   padding-left: 0.2rem;
 }
+.auctionBox a:any-link{
+  color: black;
+}
 
 .auctionbutton {
   background-color: rgba(241, 157, 111, 1);
@@ -206,15 +220,7 @@ h1 {
   border-left: 2px solid black;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  height: 1rem;
+  height: 100%;
   width: 5rem;
   z-index: 1;
-
-  margin-top: 1rem;
-}
-
-.auctionbutton p {
-  height: 100%;
-  font-size: 12px;
-  margin: auto;
 }

@@ -17,12 +17,13 @@ export const PubProfileComp = () => {
   useEffect(() => {
     getPublicUserFromId(userId);
     fetchUsersAuctions(userId);
+    console.log(userData)
   }, [userId]);
 
   if (!userData) {
     return <div>Loading...</div>;
   }
-  if (userData.photo === null) {
+  if (userData.photo === null || userData.photo === "") {
     return (userData.photo =
       "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png");
   }
@@ -98,18 +99,29 @@ export const PubProfileComp = () => {
                 <div className="publicAuctionContainer" key={auction.id}>
                   <div className="publicfieldContainerAuction">
                     <div className="auctionBox">
-                      <p>{auction.title}</p>
                       <Link
                         key={auction.id}
                         className="publicAuctionLink"
                         ref={inputRef}
                         onClick={() => setAuctionId(auction.id)}
                         to={`/auction/find-one/${auction.id}`}
-                      ></Link>
-                    </div>
-                    <button className="auctionbutton">
+                      >
+                      <p className="usersAuctionTitle">{auction.title}</p>
+                      </Link>
+                      <p className="currentPrice">Current Price: {auction.currentPrice}</p>
+                      <button className="auctionbutton">
+                      <Link
+                        key={auction.id}
+                        className="publicAuctionLink"
+                        ref={inputRef}
+                        onClick={() => setAuctionId(auction.id)}
+                        to={`/auction/find-one/${auction.id}`}
+                      >
                       <p>See More</p>
+                      </Link>
                     </button>
+                    </div>
+                    
                   </div>
                 </div>
               );
