@@ -42,7 +42,7 @@ function App() {
             <LoginProvider>
               <UserProvider>
                 <SearchProvider>
-                  <EnumProvider>
+                  <CreateAuctionProvider>
                     <AuctionProvider>
                       <BidProvider>
                         <ReviewProvider>
@@ -115,7 +115,7 @@ function App() {
                         </ReviewProvider>
                       </BidProvider>
                     </AuctionProvider>
-                  </EnumProvider>
+                  </CreateAuctionProvider>
                 </SearchProvider>
               </UserProvider>
             </LoginProvider>
