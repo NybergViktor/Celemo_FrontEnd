@@ -16,7 +16,7 @@ const ContactPage = () => {
             <p>
               If you want to reach us you can do so through our email <br />
               <br />
-              <div className="email">contact@celemo.com</div>
+              <div className="email">contact.celemo@gmail.com</div>
             </p>
           </div>
         </div>
