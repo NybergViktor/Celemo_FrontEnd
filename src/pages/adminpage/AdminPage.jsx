@@ -227,7 +227,7 @@ const AdminPage = () => {
                 <p>Email: {user.email}</p>
                 <p>FirstName: {user.firstName}</p>
                 <p>LastName: {user.lastName}</p>
-                <p>Role: {user.roles[1]}</p>
+                <p>Role: {user.roles[0].name}</p>
                 <p>Balance: {user.balance}</p>
                 <p>CreatedAt: {user.createdAt}</p>
               </div>
