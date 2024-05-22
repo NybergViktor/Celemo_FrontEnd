@@ -31,7 +31,7 @@ export const PubProfileComp = () => {
     return <h1>Loading...</h1>;
   }
   return (
-    <main className="pub-main-p-container">
+    
       <div className="pub-main-container">
         <div className="publicProfilePic">
           <img src={userData.photo} alt="No photo" />
@@ -129,7 +129,7 @@ export const PubProfileComp = () => {
           </div>
         </section>
       </div>
-    </main>
+    
   );
 };
 
