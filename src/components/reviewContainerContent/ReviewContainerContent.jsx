@@ -1,27 +1,27 @@
 import { useContext, useEffect, useState } from "react";
 import { ReviewContext } from "../context/ReviewContext";
+import { useParams } from "react-router-dom";
 import './ReviewBody.css'
+import {UserContext} from '../context/UserContext'
 
 const ReviewContainerContent = () => {
-  const { usersReviews, fetchUsersReviews, reviewedUser } =
-    useContext(ReviewContext);
 
-  const [loggedInUserId, setLoggedInUserId] = useState(
-    localStorage.getItem("loggedInUserId")
-  );
+  const userId = useParams();
+  const { usersReviews, fetchUsersReviews  } =
+    useContext(ReviewContext);
+  
+    const { userData, getUserFromId } = useContext(UserContext);
 
   useEffect(() => {
-    fetchUsersReviews(loggedInUserId);
+    getUserFromId(userId.userId);
+    fetchUsersReviews(userId.userId);
   }, []);
 
-  return (
-    <div className="reviewContainerContent">
-      <div className="user">
-        <h2>@{reviewedUser.username}</h2>
-      </div>
-
-      {usersReviews.length === 0 && <h1>No reviews yet</h1>}
-      {usersReviews.map((review) => {
+  function checkIfUserHasReviews() {
+    if (usersReviews === null) {
+      return <h1>No reviews yet</h1>;
+    }else {
+      return usersReviews.map((review) => {
         return (
           <div key={review.id}>
             <div className="key"></div>
@@ -41,7 +41,17 @@ const ReviewContainerContent = () => {
             </ul>
           </div>
         );
-      })}
+      })
+    }
+  }
+  return (
+    <div className="reviewContainerContent">
+      <div className="user">
+        <h2>@{userData.username}</h2>
+      </div>
+
+      {checkIfUserHasReviews()}
+      
     </div>
   );
 };

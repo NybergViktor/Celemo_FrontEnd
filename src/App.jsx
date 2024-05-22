@@ -69,7 +69,7 @@ function App() {
                                     element={<SignupPage />}
                                   />
                                   <Route
-                                    path="/review"
+                                    path="/review/:userId"
                                     element={<ReviewPage />}
                                   />
                                   <Route

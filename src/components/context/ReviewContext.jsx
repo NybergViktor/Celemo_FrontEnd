@@ -30,10 +30,10 @@ const ReviewProvider = ({ children }) => {
       );
       const data = await res.json();
       console.log(data);
-      setReviewedUser(data[0].reviewedUser);
       setUsersReviews(data);
     } catch (err) {
       console.log("err: " + err);
+      setUsersReviews(null);
     }
   };
 
