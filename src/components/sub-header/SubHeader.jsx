@@ -58,13 +58,10 @@ const SubHeader = () => {
   // LOAD CATEGORIES
   useEffect(() => {
     fetchCategories();
+    if (searchValue !== "getall") {
+      setIsRedoActive(true);
+    }
   }, []);
-
-  // useEffect(() => {
-  //   setSearchValue("getall");
-  // }, [handleRedoClick])
-
-  
 
   return (
     // MAIN CONTAINER
