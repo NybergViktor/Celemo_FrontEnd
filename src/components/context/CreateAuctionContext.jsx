@@ -114,7 +114,7 @@ const CreateAuctionProvider = ({ children }) => {
   };
   useEffect(() => {
     fetchCategories();
-    console.log(inputData);
+    // console.log(inputData);
   
   }, [inputData]);
 

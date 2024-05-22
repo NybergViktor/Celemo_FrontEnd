@@ -98,8 +98,6 @@
   padding-right: 10px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-
-
 }
 
 .editProfileInfo select {
@@ -109,4 +107,58 @@
   height: 3rem;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+.editProfileInfo-pic{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.picture-container-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: 80%;
+  height: 14rem;
+  background-color: rgb(218, 218, 218);
+}
+
+.image-text-bottom-profile {
+  width: 100%;
+}
+/* styling the actual input */
+#image-text-profile {
+  height: 3rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 20px;
+  width: 100%;
+}
+
+.picture-profile{
+  height: 80% ;
+  width: 80%;
+  border-radius: 20px;
+}
+
+.lable-profile{
+  width: 100%;
+  margin-bottom: 0.8rem;
+}
+
+.signUpButton-profile {
+  background-color: #f19d6f;
+  color: black;
+  padding: 10px;
+  border-radius: 15px;
+  border-style: none;
+  margin: 2rem;
+  width: 100%;
+  max-width: 400px;
+  align-self: center;
 }
