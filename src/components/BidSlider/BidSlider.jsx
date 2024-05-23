@@ -11,7 +11,10 @@ const Slider = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    if (localStorage.getItem("loggedInUserId") === null) {
+      alert("Please log in to place a bid");
+      return;
+    }
     if (e.error) {
       console.log("error: " + e.error);
     }
