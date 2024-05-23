@@ -72,8 +72,9 @@ function AboutBody() {
               <div className="card-content">
                 <h2 className="name">Tommy Dahlin</h2>
                 <p className="dexription">
-                  I am just trying to do my best with what i have and if i cant
-                  do what i should i do what i can.
+                  My name is Tommy and I am 28 years old. I am currently
+                  studying programming and I am excited to learn more about this
+                  field. My goal is to become a skilled programmer and work with a great team.
                 </p>
               </div>
             </div>
