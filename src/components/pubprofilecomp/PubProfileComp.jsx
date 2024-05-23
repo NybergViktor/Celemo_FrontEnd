@@ -23,13 +23,16 @@ export const PubProfileComp = () => {
   if (!userData) {
     return <div>Loading...</div>;
   }
-  if (userData.photo === null || userData.photo === "") {
-    return (userData.photo =
-      "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png");
-  }
   if (loading) {
     return <h1>Loading...</h1>;
   }
+
+  if (userData.photo === null || userData.photo === "" || userData.photo === "dummy.png") {
+    return (userData.photo =
+      "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png");
+  }
+
+  
   return (
     
       <div className="pub-main-container">
