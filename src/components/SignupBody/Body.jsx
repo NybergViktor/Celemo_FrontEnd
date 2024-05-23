@@ -103,7 +103,10 @@ const Body = () => {
             onChange={handleChange}
           />
 
-          <select name="gender" placeholder="Gender" onChange={handleChange} className="chooseG">
+          <select name="gender"
+          placeholder="Gender"
+          onChange={handleChange}
+          className="chooseG">
             <option value="">Choose gender</option>
             <option value="MALE">Male</option>
             <option value="FEMALE">Female</option> //TODO: Make this look better
