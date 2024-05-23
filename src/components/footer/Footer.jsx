@@ -31,7 +31,7 @@ const Footer = () => {
           <Link to="/contact">Contact</Link>
           <Link to="/">Home</Link>
           <Link to="/profile">Profile</Link>
-          <Link className="logout" to="/" onClick={handleLogout}>Log out</Link>
+          <Link className="logout" to="/" onClick={handleLogout}>Sign out</Link>
         </div>
       );
     }
