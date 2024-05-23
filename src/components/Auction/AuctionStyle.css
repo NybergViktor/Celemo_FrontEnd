@@ -141,6 +141,9 @@ main {
   box-shadow: 1px 1px 5px gray;
   max-width: 300px;
 }
+.seller button {
+  margin-right: 5px !important;
+}
 @media only screen and (max-width: 300px) {
   .seller {
     height: 4rem;

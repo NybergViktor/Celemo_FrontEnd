@@ -129,7 +129,7 @@ function AboutBody() {
           </div>
           <div className="celemo">
             <div className="celemPdiv">
-              <h1 className="omCelemo">Om CELEMO</h1>
+              <h1 className="omCelemo">About CELEMO</h1>
               <p className="CelemoP">
                 Celemo is a cutting-edge auction platform dedicated to celebrity
                 memorabilia, offering fans a unique opportunity to own a piece

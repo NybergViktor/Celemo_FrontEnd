@@ -61,7 +61,7 @@ const Slider = () => {
       <div className={sliderActive ? "sliderContainer" : "sliderContainerOff"}>
         <div className="mainTwo">
           <div className="firstRow">
-            <div className="currentPrice">{auction.currentPrice}Kr</div>
+            <div className="currentPriceBid">{auction.currentPrice}Kr</div>
             <div className="bidsContainer">Bids: {bids.length}</div>
           </div>
           <button className="min" type="button" onClick={handleSlider}>
