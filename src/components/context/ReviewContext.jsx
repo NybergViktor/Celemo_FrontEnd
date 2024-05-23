@@ -76,17 +76,6 @@ const ReviewProvider = ({ children }) => {
   const [reviewValue, setReviewValue] = useState([]);
   const [error, setError] = useState([]);
 
-  
-    //var options = {
-    //  method: "POST",
-    //  headers: {
-    //    "Content-Type": "application/json",
-    //  },
-    //  credentials: "include",
-    //  body: JSON.stringify({
-    //    reviewValue,
-    //  }),
-    //};
   const createReviews = async (reviewValue) => {
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/reviews/create`, reviewValue, {withCredentials: true})
@@ -94,7 +83,6 @@ const ReviewProvider = ({ children }) => {
     } catch (error) {
       console.log("err: " + error);
       setError(error);
-      console.log(error.response.data.message);
     }
   };
 
