@@ -1,17 +1,3 @@
-.pub-main-p-container {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  align-items: center;
-}
-h1 {
-  font-size: 2rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
 .currentPrice {
   color: black;
 }
@@ -20,13 +6,19 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
+  border-radius: 20px;
   width: 100%;
-  height: 80%;
-  margin-bottom: -1.2rem;
-
+  margin: 150px auto 20px auto;
+  padding-bottom: 10px;
+  width: 95%;
   max-width: 1000px;
+}
+.publicProfilePic img {
+  border-radius: 20px;
+  max-width: 300px;
+  max-height: 300px;
+  width: 300px;
+  height: 300px;
 }
 
 .publicTitle {
@@ -157,13 +149,7 @@ h1 {
 .auctionbutton a:any-link {
   color: black;
 }
-.publicProfilePic img {
-  border-radius: 20px;
-  max-width: 300px;
-  max-height: 300px;
-  width: 300px;
-  height: 300px;
-}
+
 .publicProfilePic {
   overflow: hidden;
   margin-top: -10rem;
