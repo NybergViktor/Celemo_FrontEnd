@@ -5,52 +5,54 @@ import "../createReviewPage/CreateRStyle.css";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 
-import { UserContext } from "../../components/context/UserContext";
-import { SearchContext } from "../../components/context/SearchContext";
-
 export const CreateReview = () => {
-  const {
-    grade,
-    setGrade,
-    reviewText,
-    setReviewText,
-    createdById,
-    createReviews,
-  } = useContext(ReviewContext);
+  const { createReviews } = useContext(ReviewContext);
 
-  const [reviewedUserId, setReviewedUserId] = useState(
-    localStorage.getItem("reviewedUserId")
-  );
-  const [reviewedUsername, setReviewedUsername] = useState(
+    const [reviewValue, setReviewValue] = useState({
+    grade: "",
+    reviewText: "",
+    reviewedUserId: localStorage.getItem("reviewedUserId"),
+    createdById: localStorage.getItem("loggedInUserId")
+    });
+
+
+  
+  const [reviewedUsername] = useState(
     localStorage.getItem("reviewedUsername")
   );
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setReviewValue({ ...reviewValue, [name]: value });
+    console.log(reviewValue);
+  };
+
+
+  const handleSubmit = async (e, reviewValue) => {
     e.preventDefault();
-
+    console.log(reviewValue);
     if (e.error) {
-      console.log("error: " + e.error);
+      console.log("error: " + reviewValue.error);
     }
-
-    createReviews();
-
-    setGrade(""), setReviewText("");
-
+    await createReviews(reviewValue);
+    console.log(reviewValue);
+    //window.location.href = "/login";
   };
 
   return (
     <>
       <Header></Header>
       <main className="review-main">
-        <div className="review-container" key={reviewedUserId}>
+        <div className="review-container">
           <h1 className="username-review">Review: {reviewedUsername}</h1>
           <form className="review-form-container" onSubmit={handleSubmit}>
             <label>
               <select
                 name="grade"
                 className="grade"
-                onChange={(e) => setGrade(e.target.value)}
                 required
+                onChange={handleChange}
               >
                 <option value="">Grade</option>
                 <option value="1">1</option>
@@ -61,12 +63,13 @@ export const CreateReview = () => {
               </select>
             </label>
             <label>
-              <p className="review-p">Review Text:{(e) => e.target.value}</p>
+              <p className="review-p">Review Text:</p>
               <input
                 className="review-text"
                 type="text"
-                value={reviewText}
-                onChange={(e) => setReviewText(e.target.value)}
+                name="reviewText"
+                value={reviewValue.reviewText}
+                onChange={handleChange}
                 maxLength="50"
                 required
                 placeholder="max 50 characters"
@@ -76,8 +79,7 @@ export const CreateReview = () => {
               <button
                 className="place-review-button"
                 type="submit"
-                onClick={handleSubmit}
-                
+                onClick={(e) => handleSubmit(e, reviewValue)}
               >
                 <Link to="/return">Place Review</Link>
                 

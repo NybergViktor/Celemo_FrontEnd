@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState, useContext } from "react";
 import { UserContext } from "./UserContext";
-
+import axios from "axios";
 const ReviewContext = createContext();
 
 const ReviewProvider = ({ children }) => {
@@ -73,52 +73,28 @@ const ReviewProvider = ({ children }) => {
 
   // START createReviews SECTION ==========================
 
-  const [grade, setGrade] = useState();
-  const [reviewText, setReviewText] = useState("");
-  const [createdById, setCreatedById] = useState();
-  const [reviewedId, setReviewedId] = useState();
+  const [reviewValue, setReviewValue] = useState([]);
+  const [error, setError] = useState([]);
 
-  const [reviewedUserId, setReviewedUserId] = useState(
-    localStorage.getItem("reviewedUserId")
-  );
-
-  const [loggedInUserId, setLoggedInUserId] = useState(
-    localStorage.getItem("loggedInUserId")
-  );
-
-  useEffect(() => {
-    setCreatedById(loggedInUserId);
-    setReviewedId(reviewedUserId);
-  }, []);
-
-  const createReviews = async () => {
-    var options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify({
-        grade: `${grade}`,
-        reviewText: `${reviewText}`,
-        createdById: `${createdById}`,
-        reviewedUserId: `${reviewedId}`,
-      }),
-    };
-
+  
+    //var options = {
+    //  method: "POST",
+    //  headers: {
+    //    "Content-Type": "application/json",
+    //  },
+    //  credentials: "include",
+    //  body: JSON.stringify({
+    //    reviewValue,
+    //  }),
+    //};
+  const createReviews = async (reviewValue) => {
     try {
-      console.log(options);
-
-      let res = await fetch(
-        `${import.meta.env.VITE_API_URL}/reviews/create`,
-        options
-      );
-      const data = await res.json();
-      console.log(data);
-      setGrade();
-      setReviewText("");
-    } catch (err) {
-      console.log("err: " + err);
+      await axios.post(`${import.meta.env.VITE_API_URL}/reviews/create`, reviewValue, {withCredentials: true})
+      console.log(reviewValue);
+    } catch (error) {
+      console.log("err: " + error);
+      setError(error);
+      console.log(error.response.data.message);
     }
   };
 
@@ -131,16 +107,11 @@ const ReviewProvider = ({ children }) => {
         setUsersReviews,
         fetchUsersReviews,
         reviewedUser,
-        setReviewedUser,
-        grade,
-        setGrade,
-        reviewText,
-        setReviewText,
-        createdById,
-        setCreatedById,
         createReviews,
         allReviews,
-        fetchallReviews
+        fetchallReviews,
+        reviewValue,
+        setReviewValue
       }}
     >
       {children}
