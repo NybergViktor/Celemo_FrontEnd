@@ -10,6 +10,7 @@ const SubHeader = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [isRedoActive, setIsRedoActive] = useState(false);
   const [inputSearch, setInputSearch] = useState("");
+  const [selectedOption, setSelectedOption] = useState("");
 
   // FILTER
   const handleFilterButton = () => {
@@ -19,6 +20,7 @@ const SubHeader = () => {
   const handleFilter = (e) => {
     const value = e.target.value;
     setInputSearch(value);
+    setSelectedOption(e.target.value);
   };
   const handleFilterClick = () => {
     setSearchValue(inputSearch);
@@ -53,6 +55,7 @@ const SubHeader = () => {
     setSearchValue("getall");
     searchAuctionsNoPaging(`${searchValue}`) // Only used to get number of pages.
     searchAuctions(`${searchValue}`, pageSize);
+    setSelectedOption("");
     console.log(`Search restored`);
   };
   // LOAD CATEGORIES
@@ -85,7 +88,7 @@ const SubHeader = () => {
           >
             <label className="dd-item dd-cat">Select Category</label>
             <div className="dd-con">
-              <select className="dd-select dd-item" onChange={handleFilter}>
+              <select value={selectedOption} className="dd-select dd-item" onChange={handleFilter}>
                 <option value="">none</option>
                 {categories.map((cat, i) => {
                   return (
