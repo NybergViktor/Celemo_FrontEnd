@@ -6,7 +6,8 @@ import { BidContext, BidProvider } from "../context/BidsContext";
 const Slider = () => {
   const { auction, setAuction, fetchAuction } = useContext(AuctionContext);
 
-  const { maxBid, setMaxBid, startBid, setStartBid, fetchBid } = useContext(BidContext);
+  const { maxBid, setMaxBid, startBid, setStartBid, fetchBid, bidsAmount } =
+    useContext(BidContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,13 +43,10 @@ const Slider = () => {
     setSliderActive((current) => !current);
   };
 
-  let bids = [auction.bid];
 
   useEffect(() => {
     fetchAuction();
-  }, []);
-
-
+  }, [auction.bid]);
 
   return (
     <>
@@ -63,7 +61,7 @@ const Slider = () => {
         <div className="mainTwo">
           <div className="firstRow">
             <div className="currentPriceBid">{auction.currentPrice}Kr</div>
-            <div className="bidsContainer">Bids: {bids.length}</div>
+            <div className="bidsContainer">Bids: {bidsAmount}</div>
           </div>
           <button className="min" type="button" onClick={handleSlider}>
             <p>-</p>
