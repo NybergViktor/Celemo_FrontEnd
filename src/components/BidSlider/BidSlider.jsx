@@ -26,6 +26,7 @@ const Slider = () => {
 
     setStartBid("");
     setMaxBid("");
+    
   };
 
   //toggle autobid container

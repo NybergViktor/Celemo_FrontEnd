@@ -47,15 +47,22 @@ const BidProvider = ({ children }) => {
       console.log(JSON.stringify(optionsPost) + " options");
       console.log(optionsPost.body);
 
-      let res = await fetch(
+      const res = await fetch(
         `${import.meta.env.VITE_API_URL}/bids/create`,
-        optionsPost
+        optionsPost,
       );
-
+      if(res.status === 200){
+        alert("Bid placed successfully" + res.status)
+      }
       const data = await res.json();
       console.log(JSON.stringify(data + " data"));
     } catch (err) {
+      const error = err;
+      console.log(error)
+      alert("Bid not placed " + error.response.data.message)
+  
       console.log("err: " + err);
+      alert(err)
     }
   };
 
