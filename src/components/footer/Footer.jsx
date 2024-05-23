@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
 import "./Footer.css";
+import { AuthContext } from "../context/AuthContext";
+import { useState, useContext } from "react";
+
 
 const Footer = () => {
+
+  const {logout} = useContext(AuthContext);
+
+  const handleLogout = async () => {
+    await logout();
+    window.location.reload();
+  }
+
   function checkLogin() {
     if (localStorage.getItem("loggedInUserId") === null) {
       return (
@@ -20,11 +31,12 @@ const Footer = () => {
           <Link to="/contact">Contact</Link>
           <Link to="/">Home</Link>
           <Link to="/profile">Profile</Link>
-          <Link to="/logout">Logout</Link>
+          <Link className="logout" to="/" onClick={handleLogout}>Sign out</Link>
         </div>
       );
     }
   }
+
   return (
     <footer className="footer">
       <div className="under">
