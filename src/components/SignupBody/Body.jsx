@@ -59,7 +59,7 @@ const Body = () => {
             type="text"
             id="photo"
             className="inputPhoto"
-            placeholder="Photo"
+            placeholder="Photo link"
             onChange={handleChange}
           />
 
