@@ -28,9 +28,9 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="under">
-        <a className="b" href="#">Contact</a>
-        <a className="b" href="/about">About</a>
-        <a className="b" href="/">Home</a>
+        <Link to="/about">About</Link>
+        <Link to="/">Home</Link>
+        <Link to="/contact">Contact</Link>
       </div>
       <div className="over">
         {/*<a href="#">Sign In / Register</a>*/}

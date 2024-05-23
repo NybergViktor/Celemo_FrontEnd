@@ -17,10 +17,24 @@ export const Auction = () => {
 
   const { userData, winningBidUser, getUserFromId } = useContext(UserContext);
 
+  const localStorageUserId = localStorage.getItem("loggedInUserId");
+
   useEffect(() => {
     getUserFromId(auction.seller);
   }, [auction.seller]);
 
+  function checkUserId() {
+      if (userData.id === localStorageUserId) {
+        return <Link to={`/profile`}>
+          <div className="seller-username">@{userData.username}</div>
+        </Link>;
+      } else {
+        return <Link to={`/pubprofile/${auction.seller}`}>
+          <div className="seller-username">@{userData.username}</div>
+        </Link>
+      }
+    
+    }
   return (
     <main>
       <div className="auction-container">
@@ -55,9 +69,7 @@ export const Auction = () => {
             {userData.adress_city}
           </div>
           <div className="seller">
-            <Link to={`/pubprofile/${auction.seller}`}>
-              <div className="seller-username">@{userData.username}</div>
-            </Link>
+            {checkUserId()}
             <Link to={`/review/${auction.seller}`}>
             <button>Reviews</button>
             </Link>
