@@ -16,6 +16,7 @@ const Body = () => {
     adress_city: "",
     adress_postalCode: "",
     gender: "",
+    photo: ""
   });
 
   const handleChange = (e) => {
@@ -49,6 +50,16 @@ const Body = () => {
             id="username"
             className="inputUsername"
             placeholder="Username"
+            onChange={handleChange}
+          />
+
+          <input
+            name="photo"
+            value={signupValue.photo}
+            type="text"
+            id="photo"
+            className="inputPhoto"
+            placeholder="Photo link"
             onChange={handleChange}
           />
 
