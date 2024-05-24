@@ -6,21 +6,24 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 
 export const CreateReview = () => {
-  const { createReviews, errorMsg } = useContext(ReviewContext);
-  
-
-    const [reviewValue, setReviewValue] = useState({
+  const { createReviews, errorMsg, setErrorMsg } = useContext(ReviewContext);
+  const [reviewValue, setReviewValue] = useState({
     grade: "",
     reviewText: "",
     reviewedUserId: localStorage.getItem("reviewedUserId"),
-    createdById: localStorage.getItem("loggedInUserId")
-    });
+    createdById: localStorage.getItem("loggedInUserId"),
+  });
+  const [reviewedUsername] = useState(localStorage.getItem("reviewedUsername"));
+  const [errorsHolder, setErrorsHolder] = useState("")
 
+  const checkErrorMsg = () => {
 
-  
-  const [reviewedUsername] = useState(
-    localStorage.getItem("reviewedUsername")
-  );
+    if (errorMsg === null) {
+      window.location.href = "/";
+    } else {
+      console.log(errorMsg + "Error message")
+    }
+  };
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -28,7 +31,6 @@ export const CreateReview = () => {
     setReviewValue({ ...reviewValue, [name]: value });
     console.log(reviewValue);
   };
-
 
   const handleSubmit = async (e, reviewValue) => {
     e.preventDefault();
@@ -52,7 +54,7 @@ export const CreateReview = () => {
               <select
                 name="grade"
                 className="grade"
-                required
+                required="required"
                 onChange={handleChange}
               >
                 <option value="">Grade</option>
@@ -72,19 +74,20 @@ export const CreateReview = () => {
                 value={reviewValue.reviewText}
                 onChange={handleChange}
                 maxLength="50"
-                required
+                required="required"
                 placeholder="max 50 characters"
               />
             </label>
-            
-              <button
-                className="place-review-button"
-                type="submit"
-                onClick={(e) => handleSubmit(e, reviewValue)}
-              >
-                <Link to="/return">Place Review</Link>
-                
-              </button>
+
+            <button
+              className="place-review-button"
+              type="submit"
+              onClick={(e) => handleSubmit(e, reviewValue)}
+            >
+              {checkErrorMsg}
+              
+              Place review
+            </button>
             <div className="error">{errorMsg}</div>
           </form>
         </div>
