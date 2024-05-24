@@ -11,9 +11,12 @@ import { UserContext } from "./UserContext";
 const BidContext = createContext();
 
 const BidProvider = ({ children }) => {
+
   const { auctionId } = useContext(SearchContext);
+
   const { userData, getUserFromId, getUserWinningBidFromId } =
     useContext(UserContext);
+    
   const [loggedInUserId, setLoggedInUserId] = useState(
     localStorage.getItem("loggedInUserId")
   );

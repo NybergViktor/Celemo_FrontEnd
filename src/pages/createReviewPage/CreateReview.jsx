@@ -6,7 +6,7 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 
 export const CreateReview = () => {
-  const { createReviews, error } = useContext(ReviewContext);
+  const { createReviews, errorMsg } = useContext(ReviewContext);
   
 
     const [reviewValue, setReviewValue] = useState({
