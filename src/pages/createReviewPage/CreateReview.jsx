@@ -6,7 +6,8 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 
 export const CreateReview = () => {
-  const { createReviews } = useContext(ReviewContext);
+  const { createReviews, error } = useContext(ReviewContext);
+  
 
     const [reviewValue, setReviewValue] = useState({
     grade: "",
@@ -84,7 +85,7 @@ export const CreateReview = () => {
                 <Link to="/return">Place Review</Link>
                 
               </button>
-            
+            <div className="error">{errorMsg}</div>
           </form>
         </div>
       </main>

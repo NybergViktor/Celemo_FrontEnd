@@ -9,8 +9,6 @@ const ReviewProvider = ({ children }) => {
   const [usersReviews, setUsersReviews] = useState([]);
   const [reviewedUser, setReviewedUser] = useState([]);
 
-  
-
   const fetchUsersReviews = async (userId) => {
     var options = {
       method: "GET",
@@ -41,33 +39,32 @@ const ReviewProvider = ({ children }) => {
 
   // START FetchALLReviews SECTION ==========================
 
-  
-    // START FetchAllReviews SECTION ==========================
-  
-    const [allReviews, setallReviews] = useState([]);
-  
-    const fetchallReviews = async () => {
-      var options = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      };
-  
-      try {
-        let res = await fetch(
-          `${import.meta.env.VITE_API_URL}/reviews/find/all`,
-          options
-        );
-        const datares = await res.json();
-        console.log(datares);
+  // START FetchAllReviews SECTION ==========================
 
-        setallReviews(datares);
-      } catch (err) {
-        console.log("err: " + err);
-      }
+  const [allReviews, setallReviews] = useState([]);
+
+  const fetchallReviews = async () => {
+    var options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
     };
+
+    try {
+      let res = await fetch(
+        `${import.meta.env.VITE_API_URL}/reviews/find/all`,
+        options
+      );
+      const datares = await res.json();
+      console.log(datares);
+
+      setallReviews(datares);
+    } catch (err) {
+      console.log("err: " + err);
+    }
+  };
 
   // END FetchALLReviews SECTION ==========================
 
@@ -75,14 +72,22 @@ const ReviewProvider = ({ children }) => {
 
   const [reviewValue, setReviewValue] = useState([]);
   const [error, setError] = useState([]);
+  const [errorMsg, setErrorMsg] = useState([]);
 
   const createReviews = async (reviewValue) => {
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/reviews/create`, reviewValue, {withCredentials: true})
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/reviews/create`,
+        reviewValue,
+        { withCredentials: true }
+      );
       console.log(reviewValue);
     } catch (error) {
       console.log("err: " + error);
-      setError(error);
+      setErrorMsg(error.response.data.errors[0].defaultMessage);
+      console.log(error[0]);
+      console.log(error.response.status);
+      console.log(error.response.headers);
     }
   };
 
@@ -99,7 +104,8 @@ const ReviewProvider = ({ children }) => {
         allReviews,
         fetchallReviews,
         reviewValue,
-        setReviewValue
+        setReviewValue,
+        errorMsg
       }}
     >
       {children}
