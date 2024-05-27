@@ -13,17 +13,9 @@ export const CreateReview = () => {
     reviewedUserId: localStorage.getItem("reviewedUserId"),
     createdById: localStorage.getItem("loggedInUserId"),
   });
+  
   const [reviewedUsername] = useState(localStorage.getItem("reviewedUsername"));
-  const [errorsHolder, setErrorsHolder] = useState("")
 
-  const checkErrorMsg = () => {
-
-    if (errorMsg === null) {
-      window.location.href = "/";
-    } else {
-      console.log(errorMsg + "Error message")
-    }
-  };
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -39,8 +31,9 @@ export const CreateReview = () => {
       console.log("error: " + reviewValue.error);
     }
     await createReviews(reviewValue);
+    checkErrorMsg();
     console.log(reviewValue);
-    //window.location.href = "/login";
+    window.location.href = "/";
   };
 
   return (
@@ -54,7 +47,7 @@ export const CreateReview = () => {
               <select
                 name="grade"
                 className="grade"
-                required="required"
+                required
                 onChange={handleChange}
               >
                 <option value="">Grade</option>
@@ -74,7 +67,7 @@ export const CreateReview = () => {
                 value={reviewValue.reviewText}
                 onChange={handleChange}
                 maxLength="50"
-                required="required"
+                required
                 placeholder="max 50 characters"
               />
             </label>
@@ -84,9 +77,8 @@ export const CreateReview = () => {
               type="submit"
               onClick={(e) => handleSubmit(e, reviewValue)}
             >
-              {checkErrorMsg}
               
-              Place review
+              {checkErrorMsg}
             </button>
             <div className="error">{errorMsg}</div>
           </form>
