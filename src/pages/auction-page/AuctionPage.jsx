@@ -33,7 +33,9 @@ useEffect(() => {
 
 
 useEffect(() => {
+  if (auction.bid !== undefined && auction.bid !== null) {
   fetchOneBid(auction.bid);
+  }
 }, [auction.bid]);
 
 
