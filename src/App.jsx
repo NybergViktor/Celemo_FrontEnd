@@ -17,6 +17,7 @@ import AboutPage from "./pages/aboutPage/AboutPage";
 import EditProfile from "./pages/profilePage/EditProfile";
 import AdminPage from "./pages/adminpage/AdminPage";
 import { CreateReportUserPage } from "./pages/reportUserPage/ReportUser";
+import NotificationPage from "./pages/notification/NotificationPage";
 
 // PROVIDERS
 import { CreateReview } from "./pages/createReviewPage/CreateReview";
@@ -120,6 +121,10 @@ function App() {
                                         <CreateReportUserPage />
                                       </PrivateRoute>
                                     }
+                                  />
+                                  <Route
+                                  path="/notis"
+                                  element={<NotificationPage />}
                                   />
                                 </Routes>
                               </BrowserRouter>

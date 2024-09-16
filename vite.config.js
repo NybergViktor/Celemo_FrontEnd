@@ -5,4 +5,13 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   outdir: "../src/main/resources/static",
+
+  optimizeDeps: {
+    esbuildOptions: {
+      // define global to globalThis for browser compatibility
+      define: {
+        global: "globalThis",
+      },
+    },
+  },
 })
