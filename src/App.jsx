@@ -35,6 +35,38 @@ import { AdminProvider } from "./components/context/AdminContext";
 import { ReportUserProvider } from "./components/context/ReportUserContext";
 
 function App() {
+  useEffect(() => {
+    let isMounted = true;
+
+    const username = localStorage.getItem("loggedInUserId");
+    // se till att det matchar backend.. eller det som dynamiskt kommer skapas (se PlaceBid)
+
+    connect(
+      username,
+      (message) => {
+        if (isMounted) {
+          // hanterar bara message om componenten är mountad
+          // en lösning som gör att vi slipper se meddelandet två gånger
+          // vilket är notmalt för useEffect i dev mode men irriterande
+          console.log("WebSocket Message Received: ", message);
+          setNotifications((prev) => [...prev, message]);
+        }
+      },
+      () => {
+        console.log("WebSocket connected for user:", username);
+      },
+      (error) => {
+        console.error("WebSocket connection error:", error);
+      }
+    );
+
+    // cleanup
+    return () => {
+      isMounted = false;
+      disconnect();
+    };
+  }, []);
+
   return (
     <AuthProvider>
       <AdminProvider>
