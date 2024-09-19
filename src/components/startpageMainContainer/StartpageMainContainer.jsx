@@ -38,8 +38,6 @@ const StartpageMainContainer = () => {
     setPages(Math.ceil(totalItems / pageSize));
   }, [totalItems]);
 
-  
-
   useEffect(() => {
     searchAuctionsNoPaging(`${searchValue}`); // Only used to get number of pages.
     searchAuctions(`${searchValue}`, pageSize);
@@ -52,7 +50,11 @@ const StartpageMainContainer = () => {
   };
   const refresh = () => {
     window.location.reload();
-  }
+  };
+  const setTheAuctionId = (e) => {
+    localStorage.setItem("auctionId", e);
+    console.log("e: " + e);
+  };
 
   return (
     <>

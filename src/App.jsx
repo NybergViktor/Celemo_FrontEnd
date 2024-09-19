@@ -1,7 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
+import { useContext } from "react";
 import { connect, disconnect } from "./components/websocketService";
 
 // PAGES
@@ -20,6 +21,7 @@ import AboutPage from "./pages/aboutPage/AboutPage";
 import EditProfile from "./pages/profilePage/EditProfile";
 import AdminPage from "./pages/adminpage/AdminPage";
 import { CreateReportUserPage } from "./pages/reportUserPage/ReportUser";
+import { WebSocketContext } from "./components/context/WebSocketContext";
 
 // PROVIDERS
 import { CreateReview } from "./pages/createReviewPage/CreateReview";
@@ -36,39 +38,10 @@ import { PubUserProvider } from "./components/context/PubUserContext";
 import { ReportsProvider } from "./components/context/ReportsContext";
 import { AdminProvider } from "./components/context/AdminContext";
 import { ReportUserProvider } from "./components/context/ReportUserContext";
+import { WebSocketProvider } from "./components/context/WebSocketContext";
 
 function App() {
-  useEffect(() => {
-    let isMounted = true;
-
-    const username = localStorage.getItem("loggedInUserId");
-    // se till att det matchar backend.. eller det som dynamiskt kommer skapas (se PlaceBid)
-
-    connect(
-      username,
-      (message) => {
-        if (isMounted) {
-          // hanterar bara message om componenten är mountad
-          // en lösning som gör att vi slipper se meddelandet två gånger
-          // vilket är notmalt för useEffect i dev mode men irriterande
-          console.log("WebSocket Message Received: ", message);
-          setNotifications((prev) => [...prev, message]);
-        }
-      },
-      () => {
-        console.log("WebSocket connected for user:", username);
-      },
-      (error) => {
-        console.error("WebSocket connection error:", error);
-      }
-    );
-
-    // cleanup
-    return () => {
-      isMounted = false;
-      disconnect();
-    };
-  }, []);
+  
 
   return (
     <AuthProvider>
@@ -76,96 +49,98 @@ function App() {
         <ReportsProvider>
           <PubUserProvider>
             <SignupProvider>
-              <LoginProvider>
-                <UserProvider>
-                  <ReportUserProvider>
-                    <SearchProvider>
-                      <AuctionProvider>
-                        <BidProvider>
-                          <ReviewProvider>
-                            <CreateAuctionProvider>
-                              <BrowserRouter>
-                                <Routes>
-                                  <Route path="/" element={<Startpage />} />
-                                  <Route
-                                    path="/about"
-                                    element={<AboutPage />}
-                                  />
-                                  <Route
-                                    path="/login"
-                                    element={<LoginPage />}
-                                  />
-                                  <Route
-                                    path="/profile"
-                                    element={<ProfilePage />}
-                                  />
-                                  <Route
-                                    path="/signup"
-                                    element={<SignupPage />}
-                                  />
-                                  <Route
-                                    path="/review/:userId"
-                                    element={<ReviewPage />}
-                                  />
-                                  <Route
-                                    path="/auction/find-one/:auctionId"
-                                    element={<AuctionPage />}
-                                  />
-                                  <Route
-                                    path="/create-auction"
-                                    element={
-                                      <PrivateRoute>
-                                        <CreateAuctionPage />
-                                      </PrivateRoute>
-                                    }
-                                  />
-                                  <Route
-                                    path="/pubprofile/:userId"
-                                    element={<PubProfile />}
-                                  />
-                                  <Route
-                                    path="/contact"
-                                    element={<ContactPage />}
-                                  />
-                                  <Route
-                                    path="/reviews/create"
-                                    element={
-                                      <PrivateRoute>
-                                        <CreateReview />
-                                      </PrivateRoute>
-                                    }
-                                  />
+              <WebSocketProvider>
+                <LoginProvider>
+                  <UserProvider>
+                    <ReportUserProvider>
+                      <SearchProvider>
+                        <AuctionProvider>
+                          <BidProvider>
+                            <ReviewProvider>
+                              <CreateAuctionProvider>
+                                <BrowserRouter>
+                                  <Routes>
+                                    <Route path="/" element={<Startpage />} />
+                                    <Route
+                                      path="/about"
+                                      element={<AboutPage />}
+                                    />
+                                    <Route
+                                      path="/login"
+                                      element={<LoginPage />}
+                                    />
+                                    <Route
+                                      path="/profile"
+                                      element={<ProfilePage />}
+                                    />
+                                    <Route
+                                      path="/signup"
+                                      element={<SignupPage />}
+                                    />
+                                    <Route
+                                      path="/review/:userId"
+                                      element={<ReviewPage />}
+                                    />
+                                    <Route
+                                      path="/auction/find-one/:auctionId"
+                                      element={<AuctionPage />}
+                                    />
+                                    <Route
+                                      path="/create-auction"
+                                      element={
+                                        <PrivateRoute>
+                                          <CreateAuctionPage />
+                                        </PrivateRoute>
+                                      }
+                                    />
+                                    <Route
+                                      path="/pubprofile/:userId"
+                                      element={<PubProfile />}
+                                    />
+                                    <Route
+                                      path="/contact"
+                                      element={<ContactPage />}
+                                    />
+                                    <Route
+                                      path="/reviews/create"
+                                      element={
+                                        <PrivateRoute>
+                                          <CreateReview />
+                                        </PrivateRoute>
+                                      }
+                                    />
 
-                                  <Route
-                                    path="/return"
-                                    element={<ReturnHome />}
-                                  />
-                                  <Route
-                                    path="/edit-profile"
-                                    element={<EditProfile />}
-                                  />
-                                  <Route
-                                    path="/admin"
-                                    element={<AdminPage />}
-                                  />
-                                  <Route
-                                    path="/report/user"
-                                    element={
-                                      <PrivateRoute>
-                                        <CreateReportUserPage />
-                                      </PrivateRoute>
-                                    }
-                                  />
-                                </Routes>
-                              </BrowserRouter>
-                            </CreateAuctionProvider>
-                          </ReviewProvider>
-                        </BidProvider>
-                      </AuctionProvider>
-                    </SearchProvider>
-                  </ReportUserProvider>
-                </UserProvider>
-              </LoginProvider>
+                                    <Route
+                                      path="/return"
+                                      element={<ReturnHome />}
+                                    />
+                                    <Route
+                                      path="/edit-profile"
+                                      element={<EditProfile />}
+                                    />
+                                    <Route
+                                      path="/admin"
+                                      element={<AdminPage />}
+                                    />
+                                    <Route
+                                      path="/report/user"
+                                      element={
+                                        <PrivateRoute>
+                                          <CreateReportUserPage />
+                                        </PrivateRoute>
+                                      }
+                                    />
+                                  </Routes>
+                                </BrowserRouter>
+                              </CreateAuctionProvider>
+                            </ReviewProvider>
+                          </BidProvider>
+                        </AuctionProvider>
+                      </SearchProvider>
+                    </ReportUserProvider>
+                  </UserProvider>
+                </LoginProvider>
+              </WebSocketProvider>
             </SignupProvider>
           </PubUserProvider>
         </ReportsProvider>

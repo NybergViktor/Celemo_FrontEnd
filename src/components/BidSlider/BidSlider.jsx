@@ -23,8 +23,7 @@ const Slider = () => {
       console.log("didnt work");
     }
 
-    console.log(startBid + " fetch start");
-    console.log(maxBid + " fetch max");
+    
 
     fetchBid();
 
