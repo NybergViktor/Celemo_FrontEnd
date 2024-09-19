@@ -10,14 +10,19 @@ export const connect = (username, onMessageReceived, onConnected, onError) => {
   // backend websocket endpoint
   stompClient = Stomp.over(socket);
 
+   const storedUser = localStorage.getItem("user");
+   const user = JSON.parse(storedUser);
+    console.log("DETTA ER ETT USERNAME!!!!!!!!!!!!!!",user.username);
+  // const loggedInUserId = localStorage.getItem("loggedInUserId")
+
   stompClient.connect(
     {},
     (frame) => {
       console.log("WebSocket Connected: ", frame);
-
+      
       // när anslutningen lyckas prenumererar den på användarens
       // privata kanal (/user/{username}/private) för att ta emot meddelanden.
-      stompClient.subscribe(`/user/${username}/private`, (message) => {
+      stompClient.subscribe(`/user/${user.username}/private`, (message) => {
         console.log("Received WebSocket message: ", message);
         try {
           const parsedMessage = isJsonString(message.body)

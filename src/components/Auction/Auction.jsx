@@ -1,6 +1,7 @@
 import React from "react";
 import "../Auction/AuctionStyle.css";
 
+import { connect, disconnect } from "../../websocketService";
 import { AuctionContext } from "../context/AuctionContext";
 import { useContext, useEffect} from "react";
 import { Link} from "react-router-dom";
@@ -21,6 +22,41 @@ export const Auction = () => {
 
   useEffect(() => {
     getUserFromId(auction.seller);
+    let isMounted = true;
+
+    
+    const username = localStorage.getItem("loggedInUserId") || "";
+    
+    // se till att det matchar backend.. eller det som dynamiskt kommer skapas (se PlaceBid)
+    if (!username) {
+        console.error("No username found for WebSocket connection");
+        return;
+      }
+
+    connect(
+      username,
+      (message) => {
+        if (isMounted) {
+          // hanterar bara message om componenten är mountad
+          // en lösning som gör att vi slipper se meddelandet två gånger
+          // vilket är notmalt för useEffect i dev mode men irriterande
+          console.log("WebSocket Message Received: ", message);
+          // setNotifications((prev) => [...prev, message]);
+        }
+      },
+      () => {
+        console.log("WebSocket connected for user:", username);
+      },
+      (error) => {
+        console.error("WebSocket connection error:", error);
+      }
+    );
+
+    // cleanup
+    return () => {
+      isMounted = false;
+      disconnect();
+    };
   }, [auction.seller]);
 
   function checkUserId() {

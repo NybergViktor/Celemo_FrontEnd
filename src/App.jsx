@@ -123,7 +123,7 @@ function App() {
                                     }
                                   />
                                   <Route
-                                  path="/notis"
+                                  path="/auction/find-one/:auctionId"
                                   element={<NotificationPage />}
                                   />
                                 </Routes>

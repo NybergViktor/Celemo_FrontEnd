@@ -2,13 +2,18 @@ import { useState, useEffect } from "react";
 import { connect, disconnect } from "../../websocketService";
 
 
+
 function AuctionNotifications() {
     const [notifications, setNotifications] = useState([]);
+
+
+
 
   useEffect(() => {
     let isMounted = true;
 
-    const username = localStorage.getItem("user") || "";
+    
+    const username = localStorage.getItem("loggedInUserId") || "";
     // se till att det matchar backend.. eller det som dynamiskt kommer skapas (se PlaceBid)
     if (!username) {
         console.error("No username found for WebSocket connection");
