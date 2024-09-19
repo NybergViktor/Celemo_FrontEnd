@@ -9,6 +9,7 @@ import { SearchContext } from "../../components/context/SearchContext";
 import { BidContext } from "../../components/context/BidsContext";
 import { AuctionContext } from "../../components/context/AuctionContext";
 
+
 const AuctionPage = () => {
 
   const { auction, fetchAuction, fetchAuctionTimeleft} =
@@ -18,6 +19,7 @@ const { bidsAmount, fetchBidsAmount, fetchOneBid} =
   useContext(BidContext);
 
 const { auctionId } = useParams(SearchContext);
+   
 
 
 useEffect(() => {

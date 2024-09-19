@@ -10,16 +10,16 @@ export const connect = (username, onMessageReceived, onConnected, onError) => {
   // backend websocket endpoint
   stompClient = Stomp.over(socket);
 
-   const storedUser = localStorage.getItem("user");
-   const user = JSON.parse(storedUser);
-    console.log("DETTA ER ETT USERNAME!!!!!!!!!!!!!!",user.username);
+  const storedUser = localStorage.getItem("user");
+  const user = JSON.parse(storedUser);
+  console.log("detta är användarens username", user.username);
   // const loggedInUserId = localStorage.getItem("loggedInUserId")
 
   stompClient.connect(
     {},
     (frame) => {
       console.log("WebSocket Connected: ", frame);
-      
+
       // när anslutningen lyckas prenumererar den på användarens
       // privata kanal (/user/{username}/private) för att ta emot meddelanden.
       stompClient.subscribe(`/user/${user.username}/private`, (message) => {
@@ -36,7 +36,7 @@ export const connect = (username, onMessageReceived, onConnected, onError) => {
         }
       });
 
-      // callback onConnected körs när prenumerationen är klar
+      // När en premunation är klar så körs callback onConnected
       if (onConnected) {
         onConnected();
       }
@@ -60,7 +60,7 @@ export const disconnect = () => {
       console.log("WebSocket Disconnected");
     });
   } else {
-    console.warn("WebSocket was not connected, cannot disconnect.");
+    console.warn("WebSocket was not connected and therefor cannot disconnect.");
   }
 };
 
@@ -68,7 +68,6 @@ export const disconnect = () => {
 const isJsonString = (str) => {
   try {
     JSON.parse(str);
-  // eslint-disable-next-line no-unused-vars
   } catch (e) {
     return false;
   }

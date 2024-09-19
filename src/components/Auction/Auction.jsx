@@ -1,20 +1,16 @@
 import React from "react";
 import "../Auction/AuctionStyle.css";
 
-import { connect, disconnect } from "../../websocketService";
 import { AuctionContext } from "../context/AuctionContext";
-import { useContext, useEffect} from "react";
-import { Link} from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { BidContext } from "../context/BidsContext";
 
 export const Auction = () => {
+  const { auction, timeleft } = useContext(AuctionContext);
 
-  const { auction, timeleft } =
-    useContext(AuctionContext);
-
-  const { bidsAmount} =
-    useContext(BidContext);
+  const { bidsAmount } = useContext(BidContext);
 
   const { userData, winningBidUser, getUserFromId } = useContext(UserContext);
 
@@ -22,55 +18,23 @@ export const Auction = () => {
 
   useEffect(() => {
     getUserFromId(auction.seller);
-    let isMounted = true;
-
-    
-    const username = localStorage.getItem("loggedInUserId") || "";
-    
-    // se till att det matchar backend.. eller det som dynamiskt kommer skapas (se PlaceBid)
-    if (!username) {
-        console.error("No username found for WebSocket connection");
-        return;
-      }
-
-    connect(
-      username,
-      (message) => {
-        if (isMounted) {
-          // hanterar bara message om componenten är mountad
-          // en lösning som gör att vi slipper se meddelandet två gånger
-          // vilket är notmalt för useEffect i dev mode men irriterande
-          console.log("WebSocket Message Received: ", message);
-          // setNotifications((prev) => [...prev, message]);
-        }
-      },
-      () => {
-        console.log("WebSocket connected for user:", username);
-      },
-      (error) => {
-        console.error("WebSocket connection error:", error);
-      }
-    );
-
-    // cleanup
-    return () => {
-      isMounted = false;
-      disconnect();
-    };
   }, [auction.seller]);
 
   function checkUserId() {
-      if (userData.id === localStorageUserId) {
-        return <Link to={`/profile`}>
-          <div className="seller-username">@{userData.username}</div>
-        </Link>;
-      } else {
-        return <Link to={`/pubprofile/${auction.seller}`}>
+    if (userData.id === localStorageUserId) {
+      return (
+        <Link to={`/profile`}>
           <div className="seller-username">@{userData.username}</div>
         </Link>
-      }
-    
+      );
+    } else {
+      return (
+        <Link to={`/pubprofile/${auction.seller}`}>
+          <div className="seller-username">@{userData.username}</div>
+        </Link>
+      );
     }
+  }
   return (
     <main>
       <div className="auction-container">
@@ -85,7 +49,9 @@ export const Auction = () => {
           <div className="description">{auction.productDescription}</div>
 
           <div className="price">{auction.currentPrice}Kr </div>
-          <div className="currentWinner">Currently winning bid: {winningBidUser.username}</div>
+          <div className="currentWinner">
+            Currently winning bid: {winningBidUser.username}
+          </div>
 
           <div className="endtime">
             <div className="amount">Amount of bids: {bidsAmount}</div>
@@ -107,7 +73,7 @@ export const Auction = () => {
           <div className="seller">
             {checkUserId()}
             <Link to={`/review/${auction.seller}`}>
-            <button>Reviews</button>
+              <button>Reviews</button>
             </Link>
           </div>
         </div>

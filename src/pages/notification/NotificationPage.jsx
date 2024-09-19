@@ -1,12 +1,12 @@
-import AuctionNotifications from "../../components/notifications/AuctionNotifications";
+// import AuctionNotifications from "../../components/notifications/AuctionNotifications";
 
 
 
-const NotificationPage = () => {
-  return (
-    <>
-    <AuctionNotifications />
-    </>
-  )
-}
-export default NotificationPage;
+// const NotificationPage = () => {
+//   return (
+//     <>
+//     <AuctionNotifications />
+//     </>
+//   )
+// }
+// export default NotificationPage;
