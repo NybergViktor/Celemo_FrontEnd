@@ -21,7 +21,6 @@ import AboutPage from "./pages/aboutPage/AboutPage";
 import EditProfile from "./pages/profilePage/EditProfile";
 import AdminPage from "./pages/adminpage/AdminPage";
 import { CreateReportUserPage } from "./pages/reportUserPage/ReportUser";
-import { WebSocketContext } from "./components/context/WebSocketContext";
 
 // PROVIDERS
 import { CreateReview } from "./pages/createReviewPage/CreateReview";
@@ -38,18 +37,16 @@ import { PubUserProvider } from "./components/context/PubUserContext";
 import { ReportsProvider } from "./components/context/ReportsContext";
 import { AdminProvider } from "./components/context/AdminContext";
 import { ReportUserProvider } from "./components/context/ReportUserContext";
-import { WebSocketProvider } from "./components/context/WebSocketContext";
+import { NotificationProvider } from "./components/context/NotificationContext";
 
 function App() {
-  
-
   return (
     <AuthProvider>
       <AdminProvider>
         <ReportsProvider>
           <PubUserProvider>
             <SignupProvider>
-              <WebSocketProvider>
+              <NotificationProvider>
                 <LoginProvider>
                   <UserProvider>
                     <ReportUserProvider>
@@ -140,7 +137,7 @@ function App() {
                     </ReportUserProvider>
                   </UserProvider>
                 </LoginProvider>
-              </WebSocketProvider>
+              </NotificationProvider>
             </SignupProvider>
           </PubUserProvider>
         </ReportsProvider>

@@ -13,12 +13,12 @@ export const connect = (username, onMessageReceived, onConnected, onError) => {
   stompClient.connect(
     {},
     (frame) => {
-      console.log("WebSocket Connected: ", frame);
+      //console.log("WebSocket Connected: ", frame);
 
       // när anslutningen lyckas prenumererar den på användarens
       // privata kanal (/user/{username}/private) för att ta emot meddelanden.
       stompClient.subscribe(`/user/${username}/private`, (message) => {
-        console.log("Received WebSocket message: ", message);
+        //console.log("Received WebSocket message: ", message);
         try {
           const parsedMessage = isJsonString(message.body)
             ? JSON.parse(message.body)

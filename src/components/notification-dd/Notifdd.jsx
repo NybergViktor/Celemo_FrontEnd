@@ -2,77 +2,60 @@ import React, { useEffect } from "react";
 import "./Notifdd.css";
 import { useState, useContext } from "react";
 import clock from "../../assets/565422.png";
-import { WebSocketContext } from "../context/WebSocketContext";
 import { connect, disconnect } from "../websocketService";
+import { NotificationContext } from "../context/NotificationContext";
 
 export const Notifdd = () => {
+  //const [notifications, setNotifications] = useContext(WebSocketContext)
+  const [notifications, setNotifications] = useState([]);
+  const [antalNotif, setAntalNotif] = useState("");
+  const { userNotif, fetchUsersNotifications } =
+    useContext(NotificationContext);
 
+  useEffect(() => {
+    let isMounted = true;
 
-//const [notifications, setNotifications] = useContext(WebSocketContext)
-const [notifications, setNotifications] = useState([]);
-const [notificationList, setNotificationList] = useState([]);
-useEffect(() => {
-  let isMounted = true;
+    const username = localStorage.getItem("loggedInUserId");
 
-  const username = localStorage.getItem("loggedInUserId");
-  // se till att det matchar backend.. eller det som dynamiskt kommer skapas (se PlaceBid)
+    if (username) {
+      connect(
+        username,
+        (message) => {
+          if (isMounted) {
+            //console.log("WebSocket Message Received: ", message);
 
-  if (username) {
-    connect(
-      username,
-      (message) => {
-        if (isMounted) {
-          // hanterar bara message om componenten är mountad
-          // en lösning som gör att vi slipper se meddelandet två gånger
-          // vilket är notmalt för useEffect i dev mode men irriterande
-          console.log("WebSocket Message Received: ", message);
-
-          setNotifications((prev) => [...prev, message]);
-          // const currentArray = JSON.parse(localStorage.getItem("array"));
-
-          // currentArray.push(message);
-
-          //localStorage.setItem("array", JSON.stringify(notificationList));
-
-          // setNotificationList((prev) => {
-          //   const updatedList = [...prev, message];
-          //   localStorage.setItem("array", JSON.stringify(updatedList));
-          //   return updatedList;
-          // });
+            setNotifications((prev) => [...prev, message]);
+          }
+        },
+        () => {
+          //console.log("WebSocket connected for user:", username);
+        },
+        (error) => {
+          console.error("WebSocket connection error:", error);
         }
-      },
-      () => {
-        console.log("WebSocket connected for user:", username);
-      },
-      (error) => {
-        console.error("WebSocket connection error:", error);
-      }
-    );
+      );
 
-    // cleanup
-    return () => {
-      isMounted = false;
-      disconnect();
-    };
-  }
-}, []);
+      // cleanup
+      return () => {
+        isMounted = false;
+        disconnect();
+      };
+    }
+  }, []);
+  useEffect(() => {
+    fetchUsersNotifications();
+  }, []);
+  useEffect(() => {
+    setAntalNotif(notifications.length + userNotif.length);
+  }, [userNotif]);
+  useEffect(() => {
+    console.log(userNotif);
+  }, []);
 
-
-
-  
   const [isActive, setIsActive] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(
     JSON.parse(localStorage.getItem("user"))
   );
-
-  // useEffect(() => {
-  //   const storedNotifications = localStorage.getItem("array");
-  //   if (storedNotifications) {
-  //     setNotifications(JSON.parse(storedNotifications)); // Parse as JSON
-  //   } else {
-  //     setNotifications([]); // Set to an empty array if no notifications exist
-  //   }
-  // }, []);
 
   const handleClick = () => {
     setIsActive((current) => !current);
@@ -103,12 +86,25 @@ useEffect(() => {
             <p className="dd-miscNotif">
               Logged in as: {loggedInUser.username}
             </p>
-            
+
+            <div className="antalNotif">
+              <p>{antalNotif}</p>
+            </div>
             <ul>
               {notifications.length > 0 ? (
                 notifications.map((notif, index) => (
                   <li key={index} className="dd-miscNotif">
                     {notif}
+                  </li>
+                ))
+              ) : (
+                <li className="dd-miscNotif"></li>
+              )}
+
+              {userNotif.length > 0 ? (
+                userNotif.map((uNotif, index) => (
+                  <li key={index} className="dd-miscNotif">
+                    {uNotif.title}
                   </li>
                 ))
               ) : (
