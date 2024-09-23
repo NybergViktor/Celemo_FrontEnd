@@ -53,7 +53,7 @@ const StartpageMainContainer = () => {
   };
   const setTheAuctionId = (e) => {
     localStorage.setItem("auctionId", e);
-    console.log("e: " + e);
+    
   };
 
   return (

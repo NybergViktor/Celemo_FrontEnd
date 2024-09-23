@@ -48,9 +48,7 @@ export const Notifdd = () => {
   useEffect(() => {
     setAntalNotif(notifications.length + userNotif.length);
   }, [userNotif]);
-  useEffect(() => {
-    console.log(userNotif);
-  }, []);
+  
 
   const [isActive, setIsActive] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(

@@ -36,14 +36,14 @@ const ReportUserProvider = ({ children }) => {
     };
 
     try {
-      console.log(options);
+      
 
       let res = await fetch(
         `${import.meta.env.VITE_API_URL}/reports/report/user`,
         options
       );
       const data = await res.json();
-      console.log(data);
+      
       setContent("")
       setReportedId("")
       setCreatedById("")

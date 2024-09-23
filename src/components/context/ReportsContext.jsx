@@ -21,7 +21,7 @@ const ReportsProvider = ({ children }) => {
       );
       const fetchData = await response.json();
 
-      console.log(fetchData);
+      
 
       const userAndAdminReports = fetchData.filter(item => {
         return item.reportedUserId &&
@@ -38,8 +38,7 @@ const ReportsProvider = ({ children }) => {
       setUserAndAdminReports(userAndAdminReports);
       setBannedReports(bannedReports);
 
-      console.log('User and Admin Reports:', userAndAdminReports);
-      console.log('Banned Reports:', bannedReports);
+      
     } catch (error) {
       console.log("Error fetching: " + error);
     }

@@ -51,8 +51,7 @@ const BidProvider = ({ children }) => {
 
   const fetchBid = async () => {
     try {
-      console.log(JSON.stringify(optionsPost) + " options");
-      console.log(optionsPost.body);
+      
 
       const res = await fetch(
         `${import.meta.env.VITE_API_URL}/bids/create`,
@@ -62,13 +61,13 @@ const BidProvider = ({ children }) => {
         alert("Bid placed successfully" + res.status)
       }
       const data = await res.json();
-      console.log(JSON.stringify(data + " data"));
+      
     } catch (err) {
       const error = err;
-      console.log(error)
+      
       alert("Bid not placed " + error.response.data.message)
   
-      console.log("err: " + err);
+      
       alert(err)
     }
   };
@@ -97,7 +96,7 @@ const BidProvider = ({ children }) => {
 
         if (response.status === 404) {
           setNoBids("No bids");
-          console.log(noBids);
+          
         }
         if (response.ok) {
           const data = await response.json();
@@ -109,9 +108,7 @@ const BidProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    console.log(noBids);
-  }, [noBids]);
+ 
 
   //##############################################################
   // Get Bids amount for  auction ###########################################
@@ -144,9 +141,7 @@ const BidProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    console.log(bidsAmount);
-  }, [bidsAmount]);
+  
 
   //##############################################################
   // Get bid from bidId ###########################################
@@ -169,9 +164,9 @@ const BidProvider = ({ children }) => {
       );
 
       const data = await res.json();
-      console.log(data);
+      
       //setCurrentWinner(data.user);
-      console.log(data.user + " datauser");
+      
       getUserWinningBidFromId(data.user);
     } catch (error) {
       console.log(error);

@@ -46,7 +46,7 @@ const UserProvider = ({ children }) => {
         options
       );
       const fetchData = await response.json();
-      console.log(fetchData + " fetch admin");
+      
       setFoundUserAdminPage(fetchData);
     } catch (error) {
       console.log("Error fetching: " + error);
@@ -88,7 +88,7 @@ const UserProvider = ({ children }) => {
         options
       );
       const fetchData = await response.json();
-      console.log(fetchData);
+      
     } catch (error) {
       console.log("Error fetching: " + error);
     }
@@ -129,7 +129,7 @@ const UserProvider = ({ children }) => {
         options
       );
       const fetchData = await response.json();
-      console.log(fetchData);
+      
     } catch (error) {
       console.log("Error fetching: " + error);
     }

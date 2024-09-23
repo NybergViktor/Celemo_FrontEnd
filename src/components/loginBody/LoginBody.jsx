@@ -42,8 +42,7 @@ const LoginBody = () => {
 
       window.localStorage.setItem("user", JSON.stringify(data));
       localStorage.setItem("loggedInUserId", data.id);
-      console.log("user Login: " + username);
-      console.log("userId: " + data.id);
+      
       
 
       // readirect user to home
