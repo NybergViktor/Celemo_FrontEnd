@@ -31,12 +31,9 @@ const UserOrderProvider = ({ children }) => {
            setUserOrders(data)
         } catch (err) {
             console.error("Error fetching user orders:", err);
-            setUserOrders(null)
-        
         }
     };
     
- 
     return (
         <UserOrderContext.Provider
             value={{
@@ -45,17 +42,9 @@ const UserOrderProvider = ({ children }) => {
             }}
         >    
             {children}
-            <ul>{userId}</ul>
-        
-            <h5>{getUserOrders.length}</h5>
-            <h1>{}</h1>
         </UserOrderContext.Provider>
     );
 };
 
-const useUserOrder = () => {
-    return (UserOrderContext.Provider);
-   
-};
 
-export { useUserOrder , UserOrderProvider};
+export { UserOrderContext , UserOrderProvider};

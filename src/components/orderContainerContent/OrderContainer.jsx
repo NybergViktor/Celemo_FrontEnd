@@ -1,28 +1,25 @@
-import React, { useEffect } from "react";
-import { useUserOrder } from "../context/OrderContext";
-import Order from "../../pages/orderpage/Order";
+import React, { useContext, useEffect } from "react";
+import { UserOrderContext } from "../context/OrderContext";
 
-const OrderContainer = ({userId}) => {
-    
-  const { userOrders, getUserOrders } = useUserOrder();
-  
+const OrderContainer = () => {
+  const { userOrders, getUserOrders } = useContext(UserOrderContext);
 
   useEffect(() => {
-    if (userOrders) {
       getUserOrders();  
-    }
   }, []);
 
   if (!userOrders || userOrders.length === 0) { 
-  
-    return <div>No orders found.{userId}</div>;
-   }
+    return <div>No orders found.</div>;
+}
   return (
     <div>
       {userOrders.map((order) => (
         <div key={order.id}>
-            {userId}
-          <div>buyerId :{buyerFullName}</div>
+            
+          <div>
+            Buyer :{order.buyerFullName}
+            
+            </div>
         </div>
       ))}
     </div>
