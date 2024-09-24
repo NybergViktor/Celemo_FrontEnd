@@ -9,7 +9,7 @@ export const Notifdd = () => {
   //const [notifications, setNotifications] = useContext(WebSocketContext)
   const [notifications, setNotifications] = useState([]);
   const [antalNotif, setAntalNotif] = useState("");
-  const { userNotif, fetchUsersNotifications } =
+  const { userNotif, fetchUsersNotifications, deleteUsersNotifications } =
     useContext(NotificationContext);
 
   useEffect(() => {
@@ -48,7 +48,6 @@ export const Notifdd = () => {
   useEffect(() => {
     setAntalNotif(notifications.length + userNotif.length);
   }, [userNotif]);
-  
 
   const [isActive, setIsActive] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(
@@ -57,6 +56,10 @@ export const Notifdd = () => {
 
   const handleClick = () => {
     setIsActive((current) => !current);
+  };
+  const handleDelete = () => {
+    deleteUsersNotifications();
+    fetchUsersNotifications();
   };
 
   return (
@@ -88,27 +91,36 @@ export const Notifdd = () => {
             <div className="antalNotif">
               <p>{antalNotif}</p>
             </div>
-            <ul>
-              {notifications.length > 0 ? (
-                notifications.map((notif, index) => (
-                  <li key={index} className="dd-miscNotif">
-                    {notif}
-                  </li>
-                ))
-              ) : (
-                <li className="dd-miscNotif"></li>
-              )}
+            {notifications.length === 0 ? (
+              <ul>
+                <img
+                  src="src/assets/Trash.png"
+                  className="delButton"
+                  onClick={handleDelete}
+                ></img>
+                {notifications.length > 0 ? (
+                  notifications.map((notif, index) => (
+                    <li key={index} className="dd-miscNotif">
+                      {notif}
+                    </li>
+                  ))
+                ) : (
+                  <li className="dd-miscNotif"></li>
+                )}
 
-              {userNotif.length > 0 ? (
-                userNotif.map((uNotif, index) => (
-                  <li key={index} className="dd-miscNotif">
-                    {uNotif.title}
-                  </li>
-                ))
-              ) : (
-                <li className="dd-miscNotif">No notifications yet.</li>
-              )}
-            </ul>
+                {userNotif.length > 0 ? (
+                  userNotif.map((uNotif, index) => (
+                    <li key={index} className="dd-miscNotif">
+                      {uNotif.title}
+                    </li>
+                  ))
+                ) : (
+                  <li className="dd-miscNotif">No notifications yet.</li>
+                )}
+              </ul>
+            ) : (
+              <p className="dd-miscNotif">No notifications yet.</p>
+            )}
           </>
         ) : null}
       </div>

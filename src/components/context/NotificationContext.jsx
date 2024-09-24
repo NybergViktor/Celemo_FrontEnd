@@ -7,6 +7,7 @@ const NotificationContext = createContext();
 const NotificationProvider = ({ children }) => {
   const [userNotif, setUserNotif] = useState([]);
 
+  // get
   const fetchUsersNotifications = async (
     userId = localStorage.getItem("loggedInUserId")
   ) => {
@@ -30,9 +31,36 @@ const NotificationProvider = ({ children }) => {
       console.log("err: " + err);
     }
   };
+
+
+  // delete
+  const deleteUsersNotifications = async (
+    userId = localStorage.getItem("loggedInUserId")
+  ) => {
+    var options = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    };
+
+    try {
+      console.log("inne i try")
+      let res = await fetch(
+        `${import.meta.env.VITE_API_URL}/notif/delete/all/user/${userId}`,
+        options
+      );
+      const data = await res.json();
+      console.log(data)
+      console.log("deleted")
+    } catch (err) {
+      console.log("err: " + err);
+    }
+  };
   return (
     <NotificationContext.Provider
-      value={{ userNotif, fetchUsersNotifications }}
+      value={{ userNotif, fetchUsersNotifications, deleteUsersNotifications }}
     >
       {children}
     </NotificationContext.Provider>

@@ -101,6 +101,18 @@
 .dropdown-not-activeNotif .dd-miscNotif {
   display: none;
 }
+.dropdown-not-activeNotif .delButton {
+  display: none;
+}
+.delButton{
+  border-style: none;
+  border-radius: 10px;
+  height: 2rem;
+  width: 2rem;
+  align-self: flex-end;
+  margin-top: -1rem;
+  cursor: pointer;
+}
 
 .dd-miscNotif {
   color: white;
