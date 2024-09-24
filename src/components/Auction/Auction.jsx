@@ -1,11 +1,10 @@
-import React from "react";
 import "../Auction/AuctionStyle.css";
-
 import { AuctionContext } from "../context/AuctionContext";
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import { BidContext } from "../context/BidsContext";
+
 
 export const Auction = () => {
   const { auction, timeleft } = useContext(AuctionContext);
@@ -14,7 +13,10 @@ export const Auction = () => {
 
   const { userData, winningBidUser, getUserFromId } = useContext(UserContext);
 
+  
   const localStorageUserId = localStorage.getItem("loggedInUserId");
+
+
 
   useEffect(() => {
     getUserFromId(auction.seller);

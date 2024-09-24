@@ -15,7 +15,6 @@ Header = () => {
       </div>
 
       
-
       <div className="logo-container">
         <Link to="/">
           <img src= {logo} className="logo" href="index.html"/>

@@ -18,7 +18,7 @@ const Slider = () => {
     if (e.error) {
       console.log("error: " + e.error);
     }
-
+    
     if (maxBid === "") {
       console.log("didnt work");
     }
