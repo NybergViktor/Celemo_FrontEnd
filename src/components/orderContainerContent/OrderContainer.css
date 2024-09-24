@@ -1,0 +1,13 @@
+
+.reviewOrder {
+    grid-area: reviews;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d8d8d8;
+    border-radius: 1rem;
+    border-top: #363636 2rem solid;
+    box-shadow: 1px 1px 5px gray;
+    padding: 1rem 1rem 1rem 1rem;
+    width: 85vw;
+    max-width: 400px;
+}
