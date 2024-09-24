@@ -17,6 +17,7 @@ import AboutPage from "./pages/aboutPage/AboutPage";
 import EditProfile from "./pages/profilePage/EditProfile";
 import AdminPage from "./pages/adminpage/AdminPage";
 import { CreateReportUserPage } from "./pages/reportUserPage/ReportUser";
+import Order from "./pages/orderpage/Order";
 
 // PROVIDERS
 import { CreateReview } from "./pages/createReviewPage/CreateReview";
@@ -33,6 +34,8 @@ import { PubUserProvider } from "./components/context/PubUserContext";
 import { ReportsProvider } from "./components/context/ReportsContext";
 import { AdminProvider } from "./components/context/AdminContext";
 import { ReportUserProvider } from "./components/context/ReportUserContext";
+import { UserOrderProvider } from "./components/context/OrderContext";
+
 
 function App() {
   return (
@@ -48,8 +51,9 @@ function App() {
                       <AuctionProvider>
                         <BidProvider>
                           <ReviewProvider>
-                            <CreateAuctionProvider>
-                              <BrowserRouter>
+                           <CreateAuctionProvider>
+                           <UserOrderProvider>
+                           <BrowserRouter>
                                 <Routes>
                                   <Route path="/" element={<Startpage />} />
                                   <Route
@@ -100,6 +104,12 @@ function App() {
                                       </PrivateRoute>
                                     }
                                   />
+                                  <Route
+                                  path="/order"
+                                  element={<Order/>
+                                  }
+                                 
+                                  />
 
                                   <Route
                                     path="/return"
@@ -120,10 +130,12 @@ function App() {
                                         <CreateReportUserPage />
                                       </PrivateRoute>
                                     }
-                                  />
+                                  /> 
+                                  
                                 </Routes>
                               </BrowserRouter>
-                            </CreateAuctionProvider>
+                           </UserOrderProvider>
+                           </CreateAuctionProvider>
                           </ReviewProvider>
                         </BidProvider>
                       </AuctionProvider>
