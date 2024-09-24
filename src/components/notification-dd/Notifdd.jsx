@@ -6,7 +6,6 @@ import { connect, disconnect } from "../websocketService";
 import { NotificationContext } from "../context/NotificationContext";
 
 export const Notifdd = () => {
-  //const [notifications, setNotifications] = useContext(WebSocketContext)
   const [notifications, setNotifications] = useState([]);
   const [antalNotif, setAntalNotif] = useState("");
   const { userNotif, fetchUsersNotifications, deleteUsersNotifications } =
@@ -22,13 +21,12 @@ export const Notifdd = () => {
         username,
         (message) => {
           if (isMounted) {
-            //console.log("WebSocket Message Received: ", message);
 
             setNotifications((prev) => [...prev, message]);
           }
         },
         () => {
-          //console.log("WebSocket connected for user:", username);
+          console.log("WebSocket connected for: ", username);
         },
         (error) => {
           console.error("WebSocket connection error:", error);
@@ -44,7 +42,7 @@ export const Notifdd = () => {
   }, []);
   useEffect(() => {
     fetchUsersNotifications();
-  }, []);
+  }, [notifications]);
   useEffect(() => {
     setAntalNotif(notifications.length + userNotif.length);
   }, [userNotif]);
@@ -59,7 +57,6 @@ export const Notifdd = () => {
   };
   const handleDelete = () => {
     deleteUsersNotifications();
-    fetchUsersNotifications();
   };
 
   return (
