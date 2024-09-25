@@ -3,14 +3,42 @@
 Repo for our Celemo project. 
 Here we build our webpage with React + Vite and connect to our Spring Boot backend.
 
-1. Clone project
-   - in terminal select wanted file path, then write " git clone <git_repo> " press enter
-   - open intellij with terminal or by shortcut. navigate to the folder with the cloned git repo and open it.
-3. In terminal:
-   - verify you stand inside the cloned folder.
-   - write npm i or npm install
-5. create a new file inside the src folder
-   - Name the new folder to ".env"
-   - inside the new folder copy paste this "VITE_API_URL=http://localhost:8080/api"
-6. inside terminal write npm run dev
-7. Now the app should be up and running.
+## Project Setup Instructions
+
+Follow these steps to set up the project locally:
+
+### 1. Clone the Project Repository
+
+- Open a terminal and navigate to your desired project directory.
+- Run the following command to clone the repository:
+![bild](https://github.com/user-attachments/assets/43dd4a13-ee48-4cac-8928-48e7d656aef1)
+- Open IntelliJ IDEA (or your preferred IDE) and navigate to the folder containing the cloned repository.
+
+### 2. Install Dependencies
+
+- Ensure you are inside the project folder in the terminal.
+- Run one of the following commands to install the necessary packages:
+![bild](https://github.com/user-attachments/assets/afe5d71c-62fe-4130-877a-f36e77c92508)
+
+   or
+
+   ![bild](https://github.com/user-attachments/assets/ff66926f-83b9-4f03-87b6-b971c5f1a3d0)
+
+### 3. Set Environment Variables
+
+- Create a new file in the ![bild](https://github.com/user-attachments/assets/27170932-89d1-49e6-a182-182c671f5aed)
+ directory named ![bild](https://github.com/user-attachments/assets/67137d70-dd72-4172-aeb1-ab1f32e64c99).
+- Inside the ![bild](https://github.com/user-attachments/assets/0cfd0663-5d15-49d4-a1a1-737713a9f707)
+ file, add the following configuration:
+![bild](https://github.com/user-attachments/assets/b64d6576-e1d4-4af0-bb80-2649543c0e5f)
+
+### 4. Start the Development Server
+
+- In the terminal, run the following command to start the development server:
+![bild](https://github.com/user-attachments/assets/68dd4638-5233-4a28-bcfb-3c05c2153276)
+
+### 5. Access the Application
+
+- After the server starts, the application will be accessible in your browser at:
+![bild](https://github.com/user-attachments/assets/4f20bc60-862e-4f8a-94a3-e292a8e6f04d)
+
