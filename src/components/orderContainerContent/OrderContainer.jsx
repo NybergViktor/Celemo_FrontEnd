@@ -17,7 +17,9 @@ const OrderContainer = () => {
       {userOrders.map((order) => (
         <div key={order.id} >
           <div>
+          <div className="order">
              <div className="reviewOrder">
+             <h3>Order</h3>
                 <div className="">Buyer :{order.buyerFullName}</div>
                 <div className="">sellerFullName: {order.sellerFullName}</div>
                 <div className="">productTitle {order.productTitle}</div>
@@ -25,6 +27,7 @@ const OrderContainer = () => {
                 <div className="">commission {order.commission}</div>
                 <div className="">createdDate {order.createdDate}</div>
              </div>
+          </div>
           </div>
         </div>
       ))}
