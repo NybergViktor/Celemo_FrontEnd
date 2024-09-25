@@ -37,7 +37,6 @@ import { PubUserProvider } from "./components/context/PubUserContext";
 import { ReportsProvider } from "./components/context/ReportsContext";
 import { AdminProvider } from "./components/context/AdminContext";
 import { ReportUserProvider } from "./components/context/ReportUserContext";
-import { NotificationProvider } from "./components/context/NotificationContext";
 
 function App() {
   return (
@@ -46,7 +45,6 @@ function App() {
         <ReportsProvider>
           <PubUserProvider>
             <SignupProvider>
-              <NotificationProvider>
                 <LoginProvider>
                   <UserProvider>
                     <ReportUserProvider>
@@ -137,7 +135,6 @@ function App() {
                     </ReportUserProvider>
                   </UserProvider>
                 </LoginProvider>
-              </NotificationProvider>
             </SignupProvider>
           </PubUserProvider>
         </ReportsProvider>
