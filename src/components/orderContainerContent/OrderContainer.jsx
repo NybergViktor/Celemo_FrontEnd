@@ -10,7 +10,7 @@ const OrderContainer = () => {
   }, []);
 
   if (!userOrders || userOrders.length === 0) { 
-    return <div>No orders found.</div>;
+    return <div className="NoOrder">No orders found.</div>;
 }
   return (
     <div>
