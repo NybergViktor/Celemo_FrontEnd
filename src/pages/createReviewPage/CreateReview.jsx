@@ -31,7 +31,6 @@ export const CreateReview = () => {
       console.log("error: " + reviewValue.error);
     }
     await createReviews(reviewValue);
-    checkErrorMsg();
     console.log(reviewValue);
     window.location.href = "/";
   };
@@ -77,8 +76,7 @@ export const CreateReview = () => {
               type="submit"
               onClick={(e) => handleSubmit(e, reviewValue)}
             >
-              
-              {checkErrorMsg}
+              <p className="button-text">Place Review</p>
             </button>
             <div className="error">{errorMsg}</div>
           </form>

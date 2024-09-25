@@ -47,10 +47,15 @@
   border-radius: 10px;
   background-color: #f19d6f;
   font-size: large;
-
-  
 }
-
+.button-text{
+  color: black;
+  font-size: large;
+  font-weight: bold;
+  text-decoration: none;
+  align-self: center;
+  margin-top: 0.5rem;
+}
 .place-review-button:link{
   color: black;
 }
