@@ -1,5 +1,9 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { useContext } from "react";
+import { connect, disconnect } from "./components/websocketService";
 
 // PAGES
 import Startpage from "./pages/startpage/Startpage";
@@ -44,6 +48,7 @@ function App() {
         <ReportsProvider>
           <PubUserProvider>
             <SignupProvider>
+
               <LoginProvider>
                 <UserProvider>
                   <ReportUserProvider>
@@ -143,6 +148,7 @@ function App() {
                   </ReportUserProvider>
                 </UserProvider>
               </LoginProvider>
+
             </SignupProvider>
           </PubUserProvider>
         </ReportsProvider>

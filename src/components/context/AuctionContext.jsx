@@ -60,7 +60,7 @@ const AuctionProvider = ({ children }) => {
         );
         const data = await res.json();
         setTimeleft(data)
-        console.log(data);
+        
       } catch (err) {
         console.log("err: " + err);
       }
@@ -89,7 +89,7 @@ const AuctionProvider = ({ children }) => {
         options
       );
       const data = await res.json();
-      console.log(data);
+      
       setUsersAuctions(data);
     } catch (err) {
       console.log("err: " + err);

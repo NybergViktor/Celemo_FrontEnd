@@ -19,12 +19,8 @@ const Slider = () => {
       console.log("error: " + e.error);
     }
 
-    if (maxBid === "") {
-      console.log("didnt work");
-    }
-
-    console.log(startBid + " fetch start");
-    console.log(maxBid + " fetch max");
+    
+    
 
     fetchBid();
 

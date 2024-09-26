@@ -27,7 +27,7 @@ const ReviewProvider = ({ children }) => {
         options
       );
       const data = await res.json();
-      console.log(data);
+      
       setUsersReviews(data);
     } catch (err) {
       console.log("err: " + err);
@@ -58,7 +58,7 @@ const ReviewProvider = ({ children }) => {
         options
       );
       const datares = await res.json();
-      console.log(datares);
+      
 
       setallReviews(datares);
     } catch (err) {
@@ -81,7 +81,7 @@ const ReviewProvider = ({ children }) => {
         reviewValue,
         { withCredentials: true }
       );
-      console.log(reviewValue);
+      
     } catch (error) {
       console.log("err: " + error);
       setErrorMsg(error.response.data.errors[0].defaultMessage);

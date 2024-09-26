@@ -21,18 +21,18 @@ export const CreateReview = () => {
     const name = e.target.name;
     const value = e.target.value;
     setReviewValue({ ...reviewValue, [name]: value });
-    console.log(reviewValue);
+    
   };
 
   const handleSubmit = async (e, reviewValue) => {
     e.preventDefault();
-    console.log(reviewValue);
+    
     if (e.error) {
       console.log("error: " + reviewValue.error);
     }
     await createReviews(reviewValue);
     checkErrorMsg();
-    console.log(reviewValue);
+    
     window.location.href = "/";
   };
 

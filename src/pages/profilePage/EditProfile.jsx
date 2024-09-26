@@ -51,11 +51,9 @@ const EditProfile = () => {
     if (userData.password === null) {
       delete userValue.password;
     }
-    if (userValue.error) {
-      console.log("error: " + userValue.error);
-    }
+    
     await fetchUpdateUser(userValue);
-    console.log(userValue + " uservalue");
+    
     window.location.href = "/profile";
   };
 

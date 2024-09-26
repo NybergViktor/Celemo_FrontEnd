@@ -39,12 +39,10 @@ const AdminPage = () => {
     getAllUsers();
   }, []);
 
-  useEffect(() => {
-    console.log(findUserId + " finduserid");
-  }, [findUserId]);
+  
 
   function getUser() {
-    console.log(findUserId + " find id fetch");
+    
     fetchUserFromIdAdminPage(findUserId);
     setFindUserToggle(true);
     setFindUserId("");
@@ -93,7 +91,7 @@ const AdminPage = () => {
 
   function handleBanUserButton() {
     if (window.confirm("Are you sure you want to ban this user?")) {
-      console.log(banId + " fetch ban");
+      
       fetchBanUser(banId);
     }
     setBanId("");
@@ -101,7 +99,7 @@ const AdminPage = () => {
 
   function handleUnBanUserButton() {
     if (window.confirm("Are you sure you want to unban this user?")) {
-      console.log(unbanId + " fetch unban");
+      
       fetchUnBanUser(unbanId);
     }
     setUnbanId("");
@@ -109,23 +107,18 @@ const AdminPage = () => {
 
   const handleInputChangeBan = (e) => {
     e.preventDefault();
-    console.log(banId + " banid handle");
+    
 
     handleBanUserButton();
   };
   const handleInputChangeUnban = (e) => {
     e.preventDefault();
-    console.log(unbanId + " banid handle unba");
+    
 
     handleUnBanUserButton();
   };
 
-  useEffect(() => {
-    console.log(banId);
-  }, [banId]);
-  useEffect(() => {
-    console.log(unbanId);
-  }, [unbanId]);
+  
 
   function handleToggle() {
     if (findUserToggle === true) {

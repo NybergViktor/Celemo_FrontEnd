@@ -17,7 +17,7 @@ export const PubProfileComp = () => {
   useEffect(() => {
     getPublicUserFromId(userId);
     fetchUsersAuctions(userId);
-    console.log(JSON.stringify(userData) + "userData")
+    
   }, [userId]);
 
   if (!userData) {

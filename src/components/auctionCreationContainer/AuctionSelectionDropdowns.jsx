@@ -39,7 +39,7 @@ function AuctionSelectionDropdowns() {
       localStorage.setItem("celebrity", JSON.stringify(name));
       // setCelebrityData(data.map(item => ({...item, id: uuidv4()})));
 
-      console.log(data); // im logging the fetched data
+      
     } catch (err) {
       console.log(`error ${err}`);
     }
@@ -50,7 +50,7 @@ function AuctionSelectionDropdowns() {
     if (searchTerm !== "") {
       await getCelebrity(searchTerm);
     } else {
-      console.log("This celebrity doesn't exist");
+      
     }
   };
   // if data is not clear, setCelebrityData to clear.

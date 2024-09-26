@@ -17,13 +17,9 @@ const UserContainerAuctions = ({ btnTitle }) => {
     fetchAllAuctions();
   }, []);
 
-  useEffect(() => {
-    console.log(usersBids);
-  }, [usersBids])
+  
 
-  useEffect(() => {
-    console.log(noBids);
-  }, [noBids]);
+  
 
   const bidContainer = (noBids) => {
     if (noBids === "No bids") {

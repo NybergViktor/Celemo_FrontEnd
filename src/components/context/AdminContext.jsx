@@ -56,7 +56,7 @@ const AdminProvider = ({ children }) => {
           options
         );
         const data = await res.json();
-        console.log(data + " data")
+        c
       } catch (err) {
         console.log("err: " + err);
       }

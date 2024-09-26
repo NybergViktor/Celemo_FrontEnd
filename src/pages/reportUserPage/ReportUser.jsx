@@ -26,9 +26,7 @@ export const CreateReportUserPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (e.error) {
-      console.log("error: " + e.error);
-    }
+    
 
     createReportUser();
 

@@ -27,9 +27,7 @@ const Body = () => {
 
   const handleSubmit = async (e, signupValue) => {
     e.preventDefault();
-    if (signupValue.error) {
-      console.log("error: " + signupValue.error);
-    }
+    
     await fetchSignup(signupValue);
     console.log(signupValue);
     window.location.href = "/login";

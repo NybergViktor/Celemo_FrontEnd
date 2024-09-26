@@ -35,11 +35,11 @@ const AuthProvider = ({ children }) => {
 
   //======================================================================
   // Logout ==============================================================
-
+  const userId = localStorage.getItem("loggedInUserId");
   // Logout
   const logout = async () => {
     try {
-      await fetch(`${import.meta.env.VITE_API_URL}/auth/logout`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/auth/logout/${userId}`, {
         method: "POST",
         credentials: "include",
       });

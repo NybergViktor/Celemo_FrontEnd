@@ -28,7 +28,7 @@ const SubHeader = () => {
     setIsFilterActive((current) => !current);
     setIsRedoActive(true);
     setPageNr(0);
-    console.log(`Set category: ` + inputSearch);
+    
   };
   // SEARCH
   const handleSearchButton = () => {
@@ -38,7 +38,7 @@ const SubHeader = () => {
   const handleSearch = (e) => {
     const value = e.target.value;
     setInputSearch(value);
-    console.log(inputSearch);
+    
   };
   const handleSearchClick = () => {
     setSearchValue(inputSearch);
@@ -56,7 +56,7 @@ const SubHeader = () => {
     searchAuctionsNoPaging(`${searchValue}`) // Only used to get number of pages.
     searchAuctions(`${searchValue}`, pageSize);
     setSelectedOption("");
-    console.log(`Search restored`);
+    
   };
   // LOAD CATEGORIES
   useEffect(() => {
